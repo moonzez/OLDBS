@@ -1,0 +1,67 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+  offen_tour:
+    gender: "Frau"
+    firstname: "Wichtig"
+    lastname: "Sehr"
+    telpriv: 1234567890"
+    telprivTime: "12-16"
+    telbus: 8765432
+    telbusTime: "08-12"
+    fax: 01228
+    email: wichtig@mail.de
+    schoolname: "Scool N°1"
+    schooltype: "1"
+    zip: A1234
+    city: "Munic"
+    street: "Main"
+    country: "Tutu"
+    date1: 2012-01-20
+    from1: "time"
+    to1: "time"
+    date2: 2012-02-20
+    from2: "time"
+    to2: "time"
+    date3: 2012-02-24
+    from3: "time"
+    to3: "time"
+    language: "englisch"
+    participnumber: 22
+    groupnumber: 1
+    male: 20
+    female: 2
+    age: "Nicht wichtig"
+    schoolgrade: "Nivo 2"
+    teamleader: 1
+    havebeen: "Nein"
+    reason: "Ohne Grund"
+    topic: "Einbischen von allem"
+    municstay: ""
+    film: "ja"
+    wish: "Alles ok"
+    remarc: "kommen sie?"
+    thedate:
+    day:
+    thefrom:
+    theto:
+    status: "offen"
+    comments: ""
+    paid: "nein"
+    bill_sent: "nein"
+    denial_sent: "nein"
+    formular: "ger"
+    last_change: "Admin"
+    hl_number: ""
+    zus_form: "nein"
+    zus_voll: "nein"
+    zf_date:
+    zv_date:
+    denial_date:
+    vers: 0
+    created_at: "datetime"
+    updated_at: "datetime"
+    mahnung: 0
+    mahnungdate:
+    invoice: "ja"
+    storno_send: "nein"
+    storno_date: 

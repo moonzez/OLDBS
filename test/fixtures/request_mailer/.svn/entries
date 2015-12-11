@@ -1,0 +1,40 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/test/fixtures/request_mailer
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-09-11T18:44:13.363314Z
+1542
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+request_email
+file
+
+
+
+
+2011-09-09T19:48:45.468750Z
+c30c4ea1b3543fdc955048146d093c80
+2011-09-11T18:44:13.363314Z
+1542
+adm
+

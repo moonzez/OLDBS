@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+opentour1:
+  date: 2011-03-20
+  time: 2011-03-20 12:33:25
+  comment: MyString
+  language: "Deutsch"
+  status: "activ"
+  created_at: "datetime"
+  updated_at: "datetime"
+  participnumber: 0
+ 
+ opentour2:
+  date: 2011-03-21
+  time: 2011-03-21 12:33:25
+  comment: MyString
+  language: "Deutsch"
+  status: "activ"
+  created_at: "datetime"
+  updated_at: "datetime"
+  participnumber: 0
+

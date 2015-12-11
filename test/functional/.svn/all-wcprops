@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/subversion/repo/!svn/ver/1525/BS/test/functional
+END
+htseminars_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/2/BS/test/functional/htseminars_controller_test.rb
+END
+referents_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/2/BS/test/functional/referents_controller_test.rb
+END
+opentours_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1446/BS/test/functional/opentours_controller_test.rb
+END
+workshops_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/2/BS/test/functional/workshops_controller_test.rb
+END
+ts_requests_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/2/BS/test/functional/ts_requests_controller_test.rb
+END
+users_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/2/BS/test/functional/users_controller_test.rb
+END
+administrators_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/2/BS/test/functional/administrators_controller_test.rb
+END
+register_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/2/BS/test/functional/register_controller_test.rb
+END
+detours_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/2/BS/test/functional/detours_controller_test.rb
+END
+sessions_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/2/BS/test/functional/sessions_controller_test.rb
+END
+dbusers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/2/BS/test/functional/dbusers_controller_test.rb
+END

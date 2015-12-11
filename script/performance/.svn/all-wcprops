@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/subversion/repo/!svn/ver/2/BS/script/performance
+END
+benchmarker
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/repo/!svn/ver/2/BS/script/performance/benchmarker
+END
+profiler
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/repo/!svn/ver/2/BS/script/performance/profiler
+END
+request
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/repo/!svn/ver/2/BS/script/performance/request
+END

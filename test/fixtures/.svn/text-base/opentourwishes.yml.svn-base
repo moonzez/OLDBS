@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  opentour_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2011-03-20
+
+two:
+  opentour_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2011-03-20

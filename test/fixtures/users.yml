@@ -1,0 +1,52 @@
+ krutoj:
+   id: 1
+   firstname: "Wasja"
+   lastname: "Krutoj"
+   role: admin
+   login: krutoj
+   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f0411
+   password_confirmation: qwert
+   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3qw
+   remember_token: 
+   remember_token_expires_at:
+   created_at: <%= 10.days.ago.to_s :db %>
+
+ 
+borzoj:
+   id: 2
+   firstname: "Emelja"
+   lastname: "Borzoj"
+   role: dbuser
+   login: borzoj
+   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1
+   password_confirmation: asdf
+   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+   remember_token: 
+   remember_token_expires_at:
+   created_at: <%= 9.days.ago.to_s :db %>
+
+chitatel:
+   id: 3
+   firstname: "Marfa"
+   lastname: "Ivanowa"
+   role: reader
+   login: marfa
+   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f0433
+   password_confirmation: yxcv
+   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3yx
+   remember_token: 
+   remember_token_expires_at:
+   created_at: <%= 8.days.ago.to_s :db %>
+ 
+ gid:
+   id: 4
+   firstname: "Gid"
+   lastname: "Ekskursowod"
+   role: referent
+   login: gid
+   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f0444
+   password_confirmation: zuio
+   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3zu
+   remember_token: 
+   remember_token_expires_at:
+   created_at: <%= 7.days.ago.to_s :db %>

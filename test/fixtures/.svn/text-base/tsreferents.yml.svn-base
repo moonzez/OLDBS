@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ts_request_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2010-02-23
+  paid: MyString
+
+two:
+  ts_request_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2010-02-23
+  paid: MyString

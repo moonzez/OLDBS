@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/subversion/repo/!svn/ver/1542/BS/test/unit
+END
+user_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/subversion/repo/!svn/ver/2/BS/test/unit/user_test.rb
+END
+ts_request_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/subversion/repo/!svn/ver/2/BS/test/unit/ts_request_test.rb
+END
+tsreferent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/repo/!svn/ver/492/BS/test/unit/tsreferent_test.rb
+END
+request_mailer_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/2/BS/test/unit/request_mailer_test.rb
+END
+detour_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/subversion/repo/!svn/ver/2/BS/test/unit/detour_test.rb
+END
+tourreferent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/492/BS/test/unit/tourreferent_test.rb
+END
+opentourwish_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1446/BS/test/unit/opentourwish_test.rb
+END
+opentourref_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/1446/BS/test/unit/opentourref_test.rb
+END
+htsreferent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/subversion/repo/!svn/ver/492/BS/test/unit/htsreferent_test.rb
+END
+htseminar_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/repo/!svn/ver/2/BS/test/unit/htseminar_test.rb
+END
+referent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/repo/!svn/ver/2/BS/test/unit/referent_test.rb
+END
+opentour_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/repo/!svn/ver/1446/BS/test/unit/opentour_test.rb
+END
+workshop_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/repo/!svn/ver/2/BS/test/unit/workshop_test.rb
+END
+workreferent_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/911/BS/test/unit/workreferent_test.rb
+END

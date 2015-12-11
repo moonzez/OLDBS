@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  workshop_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2010-06-20
+  paid: MyString
+
+two:
+  workshop_id: 1
+  referent_id: 1
+  mailsend: 1
+  maildate: 2010-06-20
+  paid: MyString

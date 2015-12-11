@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/subversion/repo/!svn/ver/1542/BS/test/fixtures
+END
+workshops.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/repo/!svn/ver/2/BS/test/fixtures/workshops.yml
+END
+workreferents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/911/BS/test/fixtures/workreferents.yml
+END
+ts_requests.yml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/repo/!svn/ver/2/BS/test/fixtures/ts_requests.yml
+END
+users.yml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/repo/!svn/ver/1542/BS/test/fixtures/users.yml
+END
+tsreferents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/subversion/repo/!svn/ver/492/BS/test/fixtures/tsreferents.yml
+END
+detours.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/subversion/repo/!svn/ver/1542/BS/test/fixtures/detours.yml
+END
+tourreferents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/492/BS/test/fixtures/tourreferents.yml
+END
+opentourrefs.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1446/BS/test/fixtures/opentourrefs.yml
+END
+htsreferents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/492/BS/test/fixtures/htsreferents.yml
+END
+referents.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/repo/!svn/ver/2/BS/test/fixtures/referents.yml
+END
+htseminars.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/subversion/repo/!svn/ver/1542/BS/test/fixtures/htseminars.yml
+END
+opentours.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/subversion/repo/!svn/ver/1542/BS/test/fixtures/opentours.yml
+END
+opentourwishes.yml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/1446/BS/test/fixtures/opentourwishes.yml
+END

@@ -1,0 +1,52 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/test
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-09-11T18:44:13.363314Z
+1542
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+unit
+dir
+
+test_helper.rb
+file
+
+
+
+
+2010-04-12T20:35:20.062500Z
+30478106e9df8977e79fc045df799e29
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+functional
+dir
+
+integration
+dir
+
+fixtures
+dir
+

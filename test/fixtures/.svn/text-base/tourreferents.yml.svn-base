@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  detour_id: 1
+  referent_id: 1
+  mailsend: false
+  maildate: 2010-02-23
+  paid: MyString
+
+two:
+  detour_id: 1
+  referent_id: 1
+  mailsend: false
+  maildate: 2010-02-23
+  paid: MyString
