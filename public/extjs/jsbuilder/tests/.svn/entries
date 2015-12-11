@@ -1,0 +1,67 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/jsbuilder/tests
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+run.js
+file
+
+
+
+
+2012-01-15T14:10:13.625000Z
+e37e1d5103ccd5542fb1e20a70e13b2c
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+builder.js
+file
+
+
+
+
+2012-01-15T14:10:13.625000Z
+bec8b4617fbbc5d2404155579b096b8a
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+parser.js
+file
+
+
+
+
+2012-01-15T14:10:13.625000Z
+c51a87ef103cb3f1310decaecaf8cf56
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+parser
+dir
+

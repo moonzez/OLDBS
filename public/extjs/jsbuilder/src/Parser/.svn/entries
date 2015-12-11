@@ -1,0 +1,43 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/jsbuilder/src/Parser
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+Statement.js
+file
+
+
+
+
+2012-01-15T14:10:16.078125Z
+9f78622befdad8324bd822b9d92ec4e2
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+Statement
+dir
+

@@ -1,0 +1,126 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/docs
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+app
+dir
+
+guides
+dir
+
+output
+dir
+
+source
+dir
+
+prettify
+dir
+
+Thumbs.db
+file
+
+
+
+
+2012-01-15T14:10:22.687500Z
+42104e6d7297d09e33c2a2f24fdff3b3
+2011-12-21T23:21:46.965414Z
+1577
+adm
+has-props
+
+overviewData.json
+file
+
+
+
+
+2012-01-15T14:10:22.703125Z
+62d6bd6579cf3c3f21618a066ed5fc2d
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+resources
+dir
+
+index.html
+file
+
+
+
+
+2012-01-15T14:10:22.703125Z
+d5ea29edfaaea325856b4dbb7b1050c9
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+app.js
+file
+
+
+
+
+2012-01-15T14:10:22.703125Z
+8d8aaaa40c13b91a75d954937c2ed94c
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+README.md
+file
+
+
+
+
+2012-01-15T14:10:22.718750Z
+c02a14397bc0f6f0ff603e57ee008ad8
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+doc-resources
+dir
+
+extjs
+dir
+
+favicon.ico
+file
+
+
+
+
+2012-01-15T14:10:22.718750Z
+0c704dff561b142ace551d685b82279e
+2011-12-21T23:21:46.965414Z
+1577
+adm
+has-props
+

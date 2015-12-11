@@ -1,0 +1,193 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+ext-all.js
+file
+
+
+
+
+2012-01-15T14:10:35.359375Z
+a9cc4e3ba1f0efe07f6f49cf66f9a9e2
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+builds
+dir
+
+jsbuilder
+dir
+
+src
+dir
+
+ext-dev.js
+file
+
+
+
+
+2012-01-15T14:10:35.375000Z
+5939c00ad5dba71dd81e9b1d403803c3
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+docs
+dir
+
+bootstrap.js
+file
+
+
+
+
+2012-01-15T14:10:35.375000Z
+4f2b1da8c670ac6558355d8ee0596428
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+welcome
+dir
+
+ext-all-debug-w-comments.js
+file
+
+
+
+
+2012-01-15T14:10:35.500000Z
+9f02d0d3ebadc8c707a6d488eb8d4982
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+ext-all-dev.js
+file
+
+
+
+
+2012-01-15T14:10:35.703125Z
+d81110f26f640b872ddc0a68179bfa9e
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+ext-debug.js
+file
+
+
+
+
+2012-01-15T14:10:35.734375Z
+b68793d82f95243ffeb91096062f8779
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+build
+dir
+
+locale
+dir
+
+license.txt
+file
+
+
+
+
+2012-01-15T14:10:35.750000Z
+91e277bd2598f702e682c5a67aa26795
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+pkgs
+dir
+
+ext-all-debug.js
+file
+
+
+
+
+2012-01-15T14:10:35.843750Z
+5289ed658e760bfd90a2e627fda59b57
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+overview
+dir
+
+release-notes.html
+file
+
+
+
+
+2012-01-15T14:10:35.843750Z
+7dcaa1e8cb3bdb8299128455d2648a8e
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+resources
+dir
+
+index.html
+file
+
+
+
+
+2012-01-15T14:10:35.859375Z
+f6644361a34a6453d3af6b6598d90356
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+ext.js
+file
+
+
+
+
+2012-01-15T14:10:35.859375Z
+c734c9bf586aa6d9c1cd7893afcffcb9
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+examples
+dir
+

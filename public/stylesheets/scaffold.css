@@ -1,0 +1,249 @@
+body { background-color: #b2bed9; color: #001e4b; }
+
+body, p, ol, ul, td {
+    
+    font-family: verdana,  sans-serif;
+    font-size:   14px;
+    line-height: 18px;
+    background-color: #eee;
+    font-weight:bold;
+    
+}
+
+
+h1 {font-weight: normal;
+    font-size: 20px;
+    color: #001E4B;
+    text-align: center;
+}
+
+h2{
+    font-family: verdana,  sans-serif;
+    font-size:   12pt;
+    background-color: #eee;
+    font-weight: bold;
+}
+
+h3{
+    font-size:   14px;
+    color: #001E4B;
+}
+
+h4{     
+    background-color: #bebebe;
+    font-size: 14px;
+    color: #001E4B;
+}
+
+table{
+    border-spacing:5px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+#container {
+    /*width: 700px;*/
+    margin: 0 auto;
+    
+}
+
+#header {
+    background-color: #8795A8;
+    padding: 10px;
+    color: #fff;
+    text-align: left;
+}
+
+a{ color: #000; }
+a:visited { color: #666; }
+a:hover { color: #001E4B; background-color:#8795A8; }
+
+.fieldWithErrors {
+    font-family: Verdana, sans-serif;
+    font-size: 11pt;
+    color:red;
+    font-weight: bold;
+    display:inline-table;
+}
+
+#errorExplanation {
+    width: 400px;
+    border: 2px solid red;
+    padding: 2px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#errorExplanation p {
+    color: #333;
+    margin-bottom: 0;
+    padding: 5px;
+    
+}
+
+#errorExplanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+.xujError { 
+    margin-bottom: 5px;
+    text-align: left;
+    background-color: #f0f0f0;
+    font-size: 12px;        
+    font-weight: bold;
+    color:red;
+}
+
+#error404 {
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    font: bold smaller sans-serif;
+    margin-top:60px;
+    margin-bottom: 20px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.saveField { 
+    position:fixed; 
+    bottom:0px;
+    left:0px;
+    width:100%;
+}
+table#unten{border-spacing:0px;}
+table#unten td{ background: #8795A8;padding-bottom:1px; padding-top:3px;padding-right:5px; padding-left:5px;}
+
+table#termine td { 
+  text-align:right;
+}
+
+#notice {
+    margin-top:20px;
+    margin-left:20px;
+    width: 400px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+    background: #f0f0f0;
+    font: bold smaller sans-serif;
+}
+
+table#form {    
+    border-spacing:2px;
+    border-width: 3px;
+    border-color: #cccccc;
+    border-style: solid;
+    text-align: center;
+    width: 100%;        
+}
+table#form th { 
+    background-color:#d9d5d5;
+    font-size:   12px;
+}
+
+table#form tr.show_themetour td { 
+    background-color:#FFFFCC;
+    font-size:   12px;
+}
+
+table#form tr.show_70_years td { 
+    background-color:#FF9999;
+    font-size:   12px;
+}
+
+table#form td { 
+    font-weight:normal;
+    background-color:#f5f2f2; 
+    font-size:   13px;
+    vertical-align:top;
+}
+
+table#stat {    
+    border-spacing:2px;
+    border-width: 3px;
+    border-color: #cccccc;
+    border-style: solid;
+    text-align: center; 
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+table#small { 
+    margin-left:auto; 
+    margin-right:auto;        
+    border-spacing:2px;
+    border-width: 3px;
+    border-color: #cccccc;
+    border-style: solid;
+    text-align: center;     
+}
+table#small th { 
+    background-color:#d9d5d5;
+    font-size:   12px;
+}
+table#small td { 
+    font-weight:normal;
+    background-color:#f5f2f2; 
+    font-size:   13px;
+    vertical-align:top;
+}
+
+table#left_small {    
+    border-spacing:2px;
+    border-width: 3px;
+    border-color: #cccccc;
+    border-style: solid;       
+}
+table#left_small th { 
+    background-color:#d9d5d5;
+    font-size:   12px;
+}
+table#left_small td { 
+    font-weight:normal;
+    background-color:#f5f2f2; 
+    font-size:   13px;
+    vertical-align:top;
+}
+
+ul#overview {
+    width: auto;
+    margin: 0; 
+    margin-left:60px;
+    padding: 0.8em;    
+}
+ul#overview li {
+    list-style: none;
+    margin: 0.4em; 
+    padding: 0.2em;    
+}
+ul#overview li img {
+    width: 15px;
+}
+ul#overview a { text-decoration: none; font-weight: bold; color: #000;}
+ul#overview a:hover { color:#001E4B}
+p#backs{border:0px;}
+p#backs a:hover { background-color: #eee;}
+    
+.alphabet {
+      bottom: 130px;
+      right: 8px;
+      position: fixed;
+    }

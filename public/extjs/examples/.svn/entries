@@ -1,0 +1,229 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/examples
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+app
+dir
+
+charts
+dir
+
+platform
+dir
+
+restful
+dir
+
+themes
+dir
+
+personel-review
+dir
+
+dd
+dir
+
+core
+dir
+
+multiselect
+dir
+
+ux
+dir
+
+draw
+dir
+
+simple-widgets
+dir
+
+panel
+dir
+
+locale
+dir
+
+tree
+dir
+
+menu
+dir
+
+shared
+dir
+
+grid-filtering
+dir
+
+window
+dir
+
+statusbar
+dir
+
+desktop
+dir
+
+data
+dir
+
+view
+dir
+
+direct
+dir
+
+layout
+dir
+
+state
+dir
+
+slider
+dir
+
+resizer
+dir
+
+newindex.html
+file
+
+
+
+
+2012-01-15T14:10:35.281250Z
+3977a1ca75c0ab4f6cf687150946b37c
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+data.js
+file
+
+
+
+
+2012-01-15T14:10:35.265625Z
+8f2d60e6d50eadf522fdfd185085cd4d
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+grid
+dir
+
+key-feed-viewer
+dir
+
+tabs
+dir
+
+keynav
+dir
+
+layout-browser
+dir
+
+sandbox
+dir
+
+organizer
+dir
+
+qtips
+dir
+
+history
+dir
+
+portal
+dir
+
+feed-viewer
+dir
+
+toolbar
+dir
+
+form
+dir
+
+grouptabs
+dir
+
+component-loader
+dir
+
+datasets
+dir
+
+message-box
+dir
+
+index.html
+file
+
+
+
+
+2012-01-15T14:10:35.281250Z
+3977a1ca75c0ab4f6cf687150946b37c
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+button
+dir
+
+writer
+dir
+
+example-data.js
+file
+
+
+
+
+2012-01-15T14:10:35.312500Z
+8df07e12457fa2cef93b26de40c42479
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+init.js
+file
+
+
+
+
+2012-01-15T14:10:35.312500Z
+d2624008e20bcafce1b47995b5721af7
+2011-12-21T23:21:46.965414Z
+1577
+adm
+

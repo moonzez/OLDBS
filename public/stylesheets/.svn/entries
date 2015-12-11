@@ -1,0 +1,79 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/stylesheets
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2014-02-22T16:01:44.339685Z
+1845
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+all.css
+file
+
+
+
+
+2010-04-12T20:38:49.406250Z
+3a92850fc1eb6bc94d70e63de5d85fba
+2009-06-20T11:22:05.818909Z
+60
+adm
+
+requests.css
+file
+
+
+
+
+2010-08-05T20:01:08.640625Z
+4475304854f0c445438f7d501d8cb931
+2010-07-23T13:49:12.041474Z
+966
+adm
+
+calendar_date_select
+dir
+
+layout2010.css
+file
+
+
+
+
+2012-07-21T14:46:17.725076Z
+089e5619d76c68389ed15a721a81be3f
+2012-07-21T18:44:41.170684Z
+1698
+adm
+
+scaffold.css
+file
+
+
+
+
+2014-02-22T15:22:45.328125Z
+44a9242f83860d8f717508591ccdf9a3
+2014-02-22T16:01:44.339685Z
+1845
+adm
+

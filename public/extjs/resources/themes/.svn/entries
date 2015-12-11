@@ -1,0 +1,52 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/resources/themes
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+images
+dir
+
+lib
+dir
+
+compass_init.rb
+file
+
+
+
+
+2012-01-15T14:10:31.515625Z
+8476371ee4d68be39c31fdfe4faeb9cb
+2011-12-21T23:14:57.862009Z
+1576
+adm
+
+stylesheets
+dir
+
+templates
+dir
+

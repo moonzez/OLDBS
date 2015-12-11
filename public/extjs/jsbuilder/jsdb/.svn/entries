@@ -1,0 +1,49 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/extjs/jsbuilder/jsdb
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+linux
+dir
+
+mac
+dir
+
+license.txt
+file
+
+
+
+
+2012-01-15T14:10:12.750000Z
+f656e315d64104552b1a25770aa9fead
+2011-12-21T23:21:46.965414Z
+1577
+adm
+
+win
+dir
+

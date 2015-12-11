@@ -1,0 +1,58 @@
+* {
+margin: 0;
+}
+body {
+background-color: #ddd;
+}
+#container {
+width: 100px;
+margin: 0 auto;
+}
+#header {
+background-color: #006999;
+padding: 10px;
+color: #fff;
+text-align: center;
+}
+#content {
+border: 2px solid #006999;
+padding: 10px;
+background-color: #fff;
+min-height: 200px;
+}
+h2 {
+font-size: 1.1em;
+margin-bottom: 0.5em;
+}
+.flash {
+border: 1px solid #000;
+padding: 0.2em
+}
+.notice {
+border: 1px solid #008414;
+color: #008414;
+background-color: #D8FFBB;
+}
+.error {
+border: 1px solid #990A0C;
+color: #990A0C;
+background-color: #FFA894;
+}
+label {
+display: block;
+}
+#newForm {
+margin: 1em 0;
+padding: 0.5em;
+background-color: #E7E7E7;
+}
+input {
+margin: 0.5em 0;
+}
+input[type="submit"] {
+margin-top: 2em;
+}
+.newBookmark {
+margin-top: 1em;
+display: block;
+}

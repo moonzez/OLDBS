@@ -1,0 +1,178 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2015-04-03T21:30:07.147215Z
+2002
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+bill
+dir
+
+robots.txt
+file
+
+
+
+
+2010-04-12T20:38:49.453125Z
+be860f6d2760c884906a9180451d799f
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+javascripts
+dir
+
+buchung
+dir
+
+new.html
+file
+
+
+
+
+2013-11-26T22:52:34.421875Z
+2fe22ef76556779a0f1bda803ab57c26
+2013-11-26T22:55:54.028633Z
+1814
+adm
+
+extjs
+dir
+
+favicon.ico
+file
+
+
+
+
+2010-04-12T20:38:49.515625Z
+d41d8cd98f00b204e9800998ecf8427e
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+dispatch.cgi
+file
+
+
+
+
+2010-04-12T20:38:49.515625Z
+ab9663abf810a7d8505bee700e77b77c
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+dispatch.rb
+file
+
+
+
+
+2010-04-12T20:38:49.531250Z
+ab9663abf810a7d8505bee700e77b77c
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+images
+dir
+
+dispatch.fcgi
+file
+
+
+
+
+2010-04-12T20:38:49.531250Z
+a159069eedaf253a838fd437446235f2
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+500.html
+file
+
+
+
+
+2010-04-12T20:38:49.531250Z
+afc07b9a1221e2a75775eb0cb5a2cd0c
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+404.html
+file
+
+
+
+
+2011-07-03T11:42:24.937500Z
+50a63820671aa025658db31ec277ea3d
+2011-07-28T23:00:49.269549Z
+1523
+adm
+
+422.html
+file
+
+
+
+
+2010-04-12T20:38:49.625000Z
+c6bd78379a0ad92caa6cbef7de676ce8
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+index.html
+file
+
+
+
+
+2010-04-12T20:38:49.562500Z
+ca91b267009f3933b226fae705ea931b
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+stylesheets
+dir
+
+blank_iframe.html
+file
+
+
+
+
+2010-04-12T20:38:49.703125Z
+43ff7a9c70b80af05df543eb4b553b51
+2009-05-25T13:07:19.969205Z
+2
+adm
+

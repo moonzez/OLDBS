@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct
+END
+JsonProvider.js
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/JsonProvider.js
+END
+RemotingMethod.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/RemotingMethod.js
+END
+Transaction.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/Transaction.js
+END
+RemotingEvent.js
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/RemotingEvent.js
+END
+Manager.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/Manager.js
+END
+Provider.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/Provider.js
+END
+PollingProvider.js
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/PollingProvider.js
+END
+RemotingProvider.js
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/RemotingProvider.js
+END
+ExceptionEvent.js
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/ExceptionEvent.js
+END
+Event.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/1577/BS/public/extjs/src/direct/Event.js
+END

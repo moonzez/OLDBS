@@ -1,0 +1,40 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/public/buchung/html
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2011-09-25T20:16:24.498782Z
+1564
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+workshops
+dir
+
+ts_requests
+dir
+
+detours
+dir
+
+hts
+dir
+
