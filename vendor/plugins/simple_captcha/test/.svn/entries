@@ -1,0 +1,40 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/vendor/plugins/simple_captcha/test
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2010-03-07T14:23:19.914208Z
+502
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+simple_captcha_test.rb
+file
+
+
+
+
+2010-04-12T20:37:33.484375Z
+1125cd8e6b2f1d8aa70c6299c9322bfe
+2010-03-07T14:23:19.914208Z
+502
+adm
+

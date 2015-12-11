@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib
+END
+simple_captcha_image.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_image.rb
+END
+simple_captcha_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_controller.rb
+END
+simple_captcha_config.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_config.rb
+END
+simple_captcha_action_view.rb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_action_view.rb
+END
+simple_captcha_active_record.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_active_record.rb
+END
+simple_captcha_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_data.rb
+END
+simple_captcha_action_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_action_controller.rb
+END
+simple_captcha_setup.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/502/BS/vendor/plugins/simple_captcha/lib/simple_captcha_setup.rb
+END

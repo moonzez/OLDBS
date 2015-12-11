@@ -1,0 +1,70 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/vendor/plugins/restful_authentication
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+Rakefile
+file
+
+
+
+
+2010-04-12T20:37:33.343750Z
+ebfd713e05e35c55392c1999bf3bfb44
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+lib
+dir
+
+install.rb
+file
+
+
+
+
+2010-04-12T20:37:33.390625Z
+3773dce53854a282602d79a631a1ff8a
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+generators
+dir
+
+README
+file
+
+
+
+
+2010-04-12T20:37:33.406250Z
+55b3f6d8c8e815aaad6c508f9d3540e2
+2009-05-25T13:07:19.969205Z
+2
+adm
+
