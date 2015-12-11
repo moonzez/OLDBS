@@ -1,0 +1,28 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Statistik</title></head>
+  <body>
+  <h1>Statistik</h1><hr /><br />
+
+  <%  form_remote_tag :url => { :action => "jahrstat" } do %>
+
+    <table id="stat" cellpadding="10">
+      <tr>
+        <td><b><%=  label :data, "Jahr:" %></b></td>
+        <td><%= date_select("data", "", :discard_day => true, :discard_month => true, :start_year => 2006, :end_year => Time.now.year + 2) %></td> 
+        <td><%= image_submit_tag("show2.png",{ :title=>"Anzeigen", :alt =>"Anzeigen" }) %></td>
+      </tr>
+    </table>
+  <%end%>
+
+  <div id ='statistika'><br/>
+    <p align="center">Wählen Sie bitte das Jahr aus, für das die statistische Daten ausgegeben werden sollen.</p>
+  </div>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+  </body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

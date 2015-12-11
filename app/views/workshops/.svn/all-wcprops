@@ -1,0 +1,203 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/subversion/repo/!svn/ver/1950/BS/app/views/workshops
+END
+search.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1878/BS/app/views/workshops/search.html.erb
+END
+add_referents.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/add_referents.html.erb
+END
+refermail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1179/BS/app/views/workshops/refermail.html.erb
+END
+timech.js.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/timech.js.rjs
+END
+newintern.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1947/BS/app/views/workshops/newintern.html.erb
+END
+timechoice.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/timechoice.html.erb
+END
+work_pdf.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1558/BS/app/views/workshops/work_pdf.html.erb
+END
+result.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/2/BS/app/views/workshops/result.html.erb
+END
+approved.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/approved.html.erb
+END
+referent_send.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/2/BS/app/views/workshops/referent_send.html.erb
+END
+_workb.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/2043/BS/app/views/workshops/_workb.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1950/BS/app/views/workshops/edit.html.erb
+END
+set_paid_external.js.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1817/BS/app/views/workshops/set_paid_external.js.rjs
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/1947/BS/app/views/workshops/new.html.erb
+END
+_readworkoffen.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1950/BS/app/views/workshops/_readworkoffen.html.erb
+END
+denial.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/2043/BS/app/views/workshops/denial.html.erb
+END
+zusage.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1927/BS/app/views/workshops/zusage.html.erb
+END
+denialmail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/908/BS/app/views/workshops/denialmail.html.erb
+END
+_searchresult.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1878/BS/app/views/workshops/_searchresult.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/index.html.erb
+END
+future.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/future.html.erb
+END
+opened.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1676/BS/app/views/workshops/opened.html.erb
+END
+_readworkabgesagt.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/1950/BS/app/views/workshops/_readworkabgesagt.html.erb
+END
+zusageohnebill.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1927/BS/app/views/workshops/zusageohnebill.html.erb
+END
+_print_worko.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1542/BS/app/views/workshops/_print_worko.html.erb
+END
+bill.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1691/BS/app/views/workshops/bill.html.erb
+END
+storno.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/2043/BS/app/views/workshops/storno.html.erb
+END
+stornomail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1388/BS/app/views/workshops/stornomail.html.erb
+END
+_readworkbest.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1950/BS/app/views/workshops/_readworkbest.html.erb
+END
+mahnung.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/908/BS/app/views/workshops/mahnung.html.erb
+END
+_print_workb.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1510/BS/app/views/workshops/_print_workb.html.erb
+END
+_account_workb.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1706/BS/app/views/workshops/_account_workb.html.erb
+END
+_worko.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/2043/BS/app/views/workshops/_worko.html.erb
+END

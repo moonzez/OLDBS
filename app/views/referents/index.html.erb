@@ -1,0 +1,98 @@
+<% if admin? or dbuser? or accounter? %>
+  <head>
+    <title>Referenten </title>
+  </head>
+
+  <style type="text/css">
+    tbody.scrollable {
+      height:380px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    } 
+  </style>
+  <body>
+  
+    <h1 align = center>Alle Referenten</h1>
+    <div class="alphabet">
+      <table bgcolor="#B0C4DE">
+        <% @all_letters.each do |letter| %>
+          <tr><td>
+          <%= link_to letter, {:controller => "referents", :action => "index", :anchor => letter } %></td></tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="scrollable" style="overflow-x: scroll;  width:100%" >
+      <table id ="form" cellspacing="3" cellpadding="5">
+        <thead>
+          <tr>
+            <th>Nachname</th>
+            <th>Vorname</th>
+            <th>Anrede</th>
+            <th>Telefon</th>
+            <th>2.Telefon</th>
+            <th>Email</th>
+            <th>Lizenz HTS</th>
+            <th>Lizenz TS Allt.</th>
+            <th>Lizenz TS Mensch.</th>
+            <th>Lizenz TS Erinn.</th>
+            <th><%= button_to_function "Senden", "multiple_mail_to('mail', #{@checkbox_count});" %><br /><%= check_box_tag(@checkbox_name.to_sym, "alle", {:checked => true}, {:onchange => "checkUncheckAll('mail', #{@checkbox_count});"} ) %>an alle<br/>
+            </th>
+            <th>1.Sprache</th>
+            <th>2.Sprache</th>
+            <th>3.Sprache</th>
+            <th>Bemerkungen</th>
+            <% if admin? %>
+              <th colspan="5">Optionen</th>
+            <% else %>
+              <th colspan="4">Optionen</th><% end %>
+            <th rowspan="2" style="color:#d9d5d5;">d</th>
+          </tr>
+        </thead>
+        <tbody class="scrollable">
+          <% count = 1 %>
+          <% @referents.each do |referent| %>
+            <% if referent.aktiv == 'temporary' %>
+              <tr title="Temporär deaktiviert" style="color: grey;">
+            <% else %>
+              <tr>
+              <% end %>
+              <td><%= link_to referent.lastname, {:controller => 'referents', :action => 'events', :id => referent.id }, :name => referent.lastname.first %></td>
+              <td><%=h referent.firstname %></td>
+              <td><%=h referent.gender %></td>
+              <td><%=h referent.tel %></td>
+              <td><%=h referent.tel2 %></td>
+              <td><%= mail_to referent.email %> </td>
+              <td><% if referent.lizenz_hts %>X<% else %><% end %></td>
+              <td><% if referent.lizenz_ts_all %>X<% else %><% end %></td>
+              <td><% if referent.lizenz_ts_men %>X<% else %><% end %></td>
+              <td><% if referent.lizenz_ts_er %>X<% else %><% end %></td>
+              <td><%= check_box_tag(('mail'+count.to_s).to_sym, "#{referent.email}", {:checked => true}, {:onchange => "addRemoveFromRecipient('#{'mail'+count.to_s}');"} ) %></td>
+              <td><%=h referent.language1 %></td>
+              <td><%=h referent.language2 %></td>
+              <td><%=h referent.language3 %></td>
+              <td><%=h referent.remarc %></td>
+              <td><%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', edit_referent_path(referent) %></td>
+              <% if referent.aktiv == 'temporary' %> 
+                <td><%= link_to '<img src="/images/aktiv.png" width="20" title="Aktivieren">', {:controller => 'referents', :action => 'aktiv', :id => referent.id } %></td>
+              <% else %>
+                <td><%= link_to '<img src="/images/temporary.png" width="20" title="Temporär deaktivieren">', 
+                  {:controller => 'referents', :action => 'temp_deaktiv', :id => referent.id } %></td>
+              <% end %>       
+              <td><%= link_to '<img src="/images/deaktiv.png" width="20" title="Deaktivieren">', 
+                {:controller => 'referents', :action => 'deaktiv', :id => referent.id } %></td>
+              <% if admin? %>
+                <td><%= link_to '<img src="/images/delete.png" width="20" title="Löschen">', referent, :confirm => 'Den Referenten aus der Datenbank löschen?', :method => :delete %></td><% end %>
+              <% count +=1 %>  
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  
+    <%= render :partial => "dbusers/backbutton" %>
+    
+  </body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,58 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+  <thead>
+  <tr>
+    <th colspan="4" >Best&auml;tigter Termin</th>
+    <th colspan="2">Kontaktperson</th>
+    <th rowspan="2">Schule/<br/>Institution</th>
+    <th rowspan="2">Herkunftsort</th>
+    <th rowspan="2">Herkunftsortland</th>
+    <th rowspan="2">TNr</th>
+    <th rowspan="2">Kommentare</th>
+    <th rowspan="2">Re.<br/>Nr.</th>
+    <th rowspan="2">Re.<br/>bez.</th>
+    <th rowspan="2" style="color:#d9d5d5;">d</th>      
+  </tr>
+  <tr> 
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+    <th>Name</th>
+    <th>Handynummer</th>
+ </tr>
+</thead>
+<tbody id="myTableBody">
+<% for workshop in @workbest %>
+  <tr>
+        <td><%=h change_date(workshop.thedate) %></td>
+        <td><%=h get_day(workshop.thedate) %></td>
+        <td><%=h change_time(workshop.thefrom) %></td>
+        <td><%=h change_time(workshop.theto) %></td>
+        <td><%=h workshop.gender %> <%=h workshop.lastname %></td>
+        <td><%=h workshop.cellphone %></td>
+        <td><%=h workshop.schoolname %></td>
+        <td><%=h workshop.city %></td>
+        <td><%=h workshop.country %></td>
+        <td><%=h workshop.participnumber %></td>
+        <td><%=h workshop.infocenter %></td>
+        <td><%=h workshop.invoice_number %></td>
+        <td>
+          <% if workshop.paid == 'nein' %>
+            <% form_remote_tag :url => {:controller => "workshops", :action => "set_paid_external", :id => workshop.id} do %>
+              <div id="workshop_paid_button_<%= workshop.id %>"><%= button_to 'ja,bar', :title=>"ja,bar" %></div>
+            <% end %>
+          <% else %> 
+            <%=h workshop.paid %>
+          <% end %>
+        </td>
+        <td></td>
+ </tr>
+<% end %>
+</tbody>
+</table>
+<script type="text/javascript">
+var tbody=document.getElementById('myTableBody');
+if(tbody.scrollHeight<=300) tbody.style.height="auto";
+</script>
+</div>

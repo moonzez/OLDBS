@@ -1,0 +1,19 @@
+Dear <%= get_engl_gender(@hts.gender) %> <%= @hts.lastname %>,
+
+on <%= get_fullenglday(@hts.thedate) %>, the <%= @hts.thedate.strftime("%d.%m.%Y")%> at <%= @hts.thefrom.strftime("%H:%M") %> you have participated with <%= @hts.groupnumber %><% if @hts.groupnumber == 1 %> group <% else %> groups <%  end %>in a half-day seminar.
+On <%= @hts.zv_date.strftime("%d.%m.%Y") %> you have received a bill over €<%= @hts.groupnumber*70 %> covering the fee for the half-day seminar.
+When checking our receipts we noticed that, unfortunately, the money has not yet been transferred to the account of the Bavarian Memorial Foundation. We therefore kindly ask you to check if the fee has been paid and, if this is not the case, to transfer the money to the following account:
+
+Kontoinhaber:  KZ-Gedenkst&auml;tte Dachau
+Bank:          HypoVereinsbank M&uuml;nchen
+BLZ:           700 202 70
+KontoNr.:      15101860
+IBAN:          DE71700202700015101860
+BIC:           HYVEDEMMXXX
+
+If you have already paid the amount, please get in touch with us directly in order to clarify the situation.
+
+Thank you in advance for your efforts.
+
+With best wishes
+<%= current_user.firstname %> <%=  current_user.lastname %>

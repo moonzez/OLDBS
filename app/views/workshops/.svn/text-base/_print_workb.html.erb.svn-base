@@ -1,0 +1,51 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+    style="font-size:small;page-break-inside:avoid;">
+    <thead>
+        <tr>
+            <th colspan="2">Best&auml;tigter Termin</th>
+            <th rowspan="2">Kontakt</th>
+            <th rowspan="2">Schule/<br>Institution</th>
+            <th rowspan="2">Ort</th>
+            <th rowspan="2">TN</th>
+            <th rowspan="2">Raum</th>    
+            <th rowspan="2">Verpfl./th>
+            <th rowspan="2">Referent</th>
+            <th rowspan="2">Re.<br/>gest.</th>
+            <th rowspan="2">Re.<br/>bez.</th>
+        </tr>
+        <tr>
+            <th>Datum</th>                        
+            <th>Von-Bis</th>          
+        </tr>
+    </thead>
+    <tbody>
+    <% for workshop in @workbest%>
+    <tr>
+        <td align="center">
+            <%=h change_date(workshop.thedate) %><br/>
+            <%=h get_german_day(workshop.thedate) %>
+        </td>
+        <td align="center">
+            <%=h change_time(workshop.thefrom) %><br/>
+            <%=h change_time(workshop.theto) %>
+        </td>
+        <td align="center">
+            <%=h workshop.gender %><br/>
+            <%=h workshop.lastname %>
+        </td>
+        <td align="center"><%=h workshop.schoolname %></td>
+        <td align="center"><%=h workshop.city %></td>
+        <td align="center"><%=h workshop.participnumber %></td>
+        <td align="center"><%=h workshop.room %></td>
+        <td align="center"><% if (workshop.food=="ja" ) %> ja <%else %> nein <%end%></td>
+        <td>
+         <% for ref in workshop.referents %> 
+             <%= ref.lastname %>, <%= ref.firstname %><br/>
+         <% end %> 
+        </td>   
+        <td align="center"><%=h workshop.bill_sent %></td>
+        <td align="center"><%=h format_paid_attr(workshop.paid) %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>

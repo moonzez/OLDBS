@@ -1,0 +1,23 @@
+<h2>Referenten</h2>
+<% if !@htseminar.referents.blank? %>  
+  <table id ="left_small" cellpadding="5">
+    <tr>
+      <th >Name</th>
+      <th>E-Mail mit Infos senden</th>
+      <th>Gesendet am</th>
+    </tr>
+    <% for ref in @htseminar.referents %>
+      <tr>
+        <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents', 
+          :action => 'show', :id => ref.id } %></td>
+        <% if ref.email.blank? %><td>Keine E-Mail vorhanden</td><% else %>
+          <td><%= link_to ref.email , {:action => 'refermail', 
+            :id => ref.id, :htsid => @htseminar.id } %></td><% end %>
+        <% @htsreferent = Htsreferent.find_by_htseminar_id_and_referent_id(@htseminar.id, ref.id) %>
+        <% if  @htsreferent.mailsend == 0 %><td> </td><% else %>
+          <td><%= @htsreferent.maildate %></td><% end %>
+      </tr>
+    <% end %> 
+  </table>
+<% end %>
+<p><%= link_to 'Referenten verwalten', { :action => 'add_referents',:id => @htseminar.id} %></p>

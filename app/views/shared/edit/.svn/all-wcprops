@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/subversion/repo/!svn/ver/1680/BS/app/views/shared/edit
+END
+_workshop_termin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/1680/BS/app/views/shared/edit/_workshop_termin.html.erb
+END
+_thedate_termin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/1680/BS/app/views/shared/edit/_thedate_termin.html.erb
+END
+_termin.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1680/BS/app/views/shared/edit/_termin.html.erb
+END

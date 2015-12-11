@@ -1,0 +1,54 @@
+<% if referee? %>
+<head> <title>Bevorstehende offene F&uuml;hrungen</title>
+    <style type="text/css">     
+        html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        }  
+    </style>
+</head>
+<h1>Bevorstehende offene F&uuml;hrungen</h1>
+
+<body>
+<table id="small" align="center" cellpadding="10">
+    <tr><td align="center"><b>Heute ist der <%=  get_output_germ_date(@today)%> <br> Offene F&uuml;hrungen vom <%= get_output_germ_date(@today)%> bis zum <%=  get_output_germ_date(@two_monthes)%> </b></td></tr>
+</table><br/><br/>
+<% if @opentours.empty? %>
+<table id="small" align="center" cellpadding="10">
+    <tr><td align="center"><b>Sie haben sich noch bei keiner beforstehenden Führung angemeldet</b></td></tr>
+</table><br/><br/>
+<% else %>
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellpadding="10" style="width:100%">
+    <thead>
+        <th>Datum</th>
+        <th>Tag</th>
+        <th>Zeit</th>
+        <th>Sprache</th>
+        <th>Referenten angemeldet</th>
+        <th>Referenten bestätigt</th>
+    </thead>
+    <tbody>
+        <% @opentours.each do |ot|%>
+        <tr>
+            <td><%=  change_date(ot.date) %></td>
+            <td><%= get_german_day(ot.date) %></td>
+            <td><%= change_time(ot.time) %></td>
+            <td><%= ot.language %></td>
+            <% @referentenw = ot.referenten %>
+            <td><% @referentenw.each do |ref| %> <%= ref.lastname %>, <%= ref.firstname %> <br/><% end %> </td>
+            <% @referentenb = ot.referents %>
+            <td><% @referentenb.each do |refb| %> <%= refb.lastname %>, <%= refb.firstname %><br/> <% end %> </td>
+        </tr><% end %>
+  </tbody>
+</table>
+</div>
+<% end %>
+</body>
+
+<%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

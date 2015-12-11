@@ -1,0 +1,9 @@
+<br /><br /><br/><br />
+<div class="saveField">
+  <table id='unten'>
+    <tr>
+      <td width="95%"></td>
+      <td align="center"> <%=  link_to '<img src="/images/back.png" border="1px" alt="Zurück" title="Zurück"/>',:back %></td>
+    </tr>
+  </table>
+</div> 

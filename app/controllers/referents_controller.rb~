@@ -1,0 +1,431 @@
+class ReferentsController < ApplicationController
+  
+  def index
+    @referents = Referent.find(:all, :conditions => "aktiv = 'aktiv'", :order=> "lastname" )
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @referents }
+    end
+  end
+
+  def inaktivref
+    @referents = Referent.find(:all, :conditions => "aktiv = 'inaktiv'", :order=> "lastname" )
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @referents }
+    end
+  end
+  
+  # GET /referents/1
+  # GET /referents/1.xml
+  def show
+    @referent = Referent.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @referent }
+    end
+  end
+
+  # GET /referents/new
+  # GET /referents/new.xml
+  def new
+    @referent = Referent.new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @referent }
+    end
+  end
+
+  # GET /referents/1/edit
+  def edit
+    @referent = Referent.find(params[:id])
+    @version = @referent.vers
+  end
+  
+  def deaktiv
+    @referent = Referent.find(params[:id])
+    @referent.update_attribute(:aktiv, 'inaktiv')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def aktiv
+    @referent = Referent.find(params[:id])
+    @referent.update_attribute(:aktiv, 'aktiv')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+
+  # POST /referents
+  # POST /referents.xml
+  def create
+    puts "######################################################################################"
+    puts "Create referent"
+    @referent = Referent.new(params[:referent])
+
+    respond_to do |format|
+      if @referent.save
+        flash[:notice] = 'Referent wurde erfolgreich angelegt.'
+        format.html { redirect_to(referents_url) }
+        format.xml  { render :xml => @referent, :status => :created, :location => @referent }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @referent.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /referents/1
+  # PUT /referents/1.xml
+  def update
+    @referent = Referent.find(params[:id])
+    @version = params[:forvers]
+    my_vers = @referent.vers.to_s
+    respond_to do |format|
+      if @version == my_vers then
+        if @referent.update_attributes(params[:referent])
+          flash[:notice] = 'Die Daten wurden erfolgreich ge&auml;ndert.'
+          format.html { redirect_to(:action=> 'index') }
+          format.xml  { head :ok }
+          @referent.update_attribute(:vers, @referent.vers + 1)
+        end
+      else
+        flash[:notice] = 'Der Datensatz wurde gerade von einem anderen Benutzer geändert. Versuchen Sie es nochmal.'
+        format.html { redirect_to :back }
+      end
+    end
+  end
+
+  # DELETE /referents/1
+  # DELETE /referents/1.xml
+  def destroy
+    @referent = Referent.find(params[:id])
+    @ref_dbuser = User.find_by_lastname_and_firstname(@referent.lastname, @referent.firstname) 
+    
+    @tourreferents = Tourreferent.find_all_by_referent_id(params[:id])
+    @tourreferents.each do |tr|tr.destroy end
+    
+    @tsreferent = Tsreferent.find_all_by_referent_id(params[:id])
+    @tsreferent.each do |str| str.destroy end
+    
+    @htsreferent = Htsreferent.find_all_by_referent_id(params[:id])
+    @htsreferent.each do |htsr| htsr.destroy end
+    
+    @workreferents = Workreferent.find_all_by_referent_id(params[:id])
+    @workreferents.each do |wr| wr.destroy end
+
+    if @ref_dbuser != nil then @ref_dbuser.destroy end
+    @referent.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(referents_url) }
+      format.xml  { head :ok }
+    end
+  end
+  
+  def events
+    @today = Time.now.year.to_s+"-"+Time.now.month.to_s+"-"+Time.now.day.to_s
+    t2 = Time.now+ 90*24*60*60
+    @lastday = t2.year.to_s+"-"+t2.month.to_s+"-"+t2.day.to_s      
+    @referent = Referent.find(params[:id])
+    
+    @all_detours = @referent.detours    
+    @detours = @all_detours.find(:all, 
+      :conditions => "thedate >='"+@today+"' and thedate <= '"+@lastday+"'", :order => "thedate")
+    
+    @all_ts_requests = @referent.ts_requests
+    @ts_requests = @all_ts_requests.find(:all,
+      :conditions => "thedate >='"+@today+"' and thedate <= '"+@lastday+"'", :order => "thedate")
+    
+    @all_htseminars = @referent.htseminars
+    @htseminars = @all_htseminars.find(:all, :conditions => "thedate >='"+@today+"' and thedate <= '"+@lastday+"'",
+      :order => "thedate")
+                                            
+    @all_workshops = @referent.workshops
+    @workshops = @all_workshops.find(:all, :conditions => "thedate >='"+@today+"' and thedate <= '"+@lastday+"'",
+      :order => "thedate")
+    
+    respond_to do |format|
+      format.html # events.html.erb
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def eventpast
+    @today = Time.now.year.to_s+"-"+Time.now.month.to_s+"-"+Time.now.day.to_s
+    t2 = Time.now- 90*24*60*60
+    @vor3month = t2.year.to_s+"-"+t2.month.to_s+"-"+t2.day.to_s      
+    @referent = Referent.find(params[:id])
+    
+    @all_detours = @referent.detours    
+    @detours = @all_detours.find(:all, 
+      :conditions => "thedate >='"+@vor3month+"' and thedate <= '"+@today+"'",
+      :order => "thedate")
+    
+    @all_ts_requests = @referent.ts_requests
+    @ts_requests = @all_ts_requests.find(:all,
+      :conditions => "thedate >='"+@vor3month+"' and thedate <= '"+@today+"'", :order => "thedate")
+    
+    @all_htseminars = @referent.htseminars
+    @htseminars = @all_htseminars.find(:all,
+      :conditions => "thedate >='"+@vor3month+"' and thedate <= '"+@today+"'", :order => "thedate")
+     
+    @all_workshops = @referent.workshops
+    @workshops = @all_workshops.find(:all, 
+      :conditions => "thedate >='"+@vor3month+"' and thedate <= '"+@today+"'", :order => "thedate")
+    
+    respond_to do |format|
+      format.html # events.html.erb
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def zahlen_tour
+    @referent = Referent.find(params[:id])
+    @tourreferent = Tourreferent.find(params[:tourref])
+    @tourreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata], :enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def zahlen_tour2
+    @referent = Referent.find(params[:id])
+    @tourreferent = Tourreferent.find(params[:tourref])
+    @tourreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end  
+
+  def zahlen_ts
+    @referent = Referent.find(params[:id])
+    @tsreferent = Tsreferent.find(params[:tsref])
+    @tsreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata],:enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def zahlen_ts2
+    @referent = Referent.find(params[:id])
+    @tsreferent = Tsreferent.find(params[:tsref])
+    @tsreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def zahlen_hts
+    @referent = Referent.find(params[:id])
+    @htsreferent = Htsreferent.find(params[:htsref])
+    @htsreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata],:enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def zahlen_hts2
+    @referent = Referent.find(params[:id])
+    @htsreferent = Htsreferent.find(params[:htsref])
+    @htsreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end   
+    
+  def zahlen_work
+    @referent = Referent.find(params[:id])
+    @workreferent = Workreferent.find(params[:workref])
+    @workreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id, :startdata =>params[:startdata], :enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def zahlen_work2
+    @referent = Referent.find(params[:id])
+    @workreferent = Workreferent.find(params[:workref])
+    @workreferent.update_attribute(:paid, 'ja')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def nicht_zahlen_tour
+    @referent = Referent.find(params[:id])
+    @tourreferent = Tourreferent.find(params[:tourref])
+    @tourreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata],:enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def nicht_zahlen_tour2
+    @referent = Referent.find(params[:id])
+    @tourreferent = Tourreferent.find(params[:tourref])
+    @tourreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def nicht_zahlen_ts
+    @referent = Referent.find(params[:id])
+    @tsreferent = Tsreferent.find(params[:tsref])
+    @tsreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata],:enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def nicht_zahlen_ts2
+    @referent = Referent.find(params[:id])
+    @tsreferent = Tsreferent.find(params[:tsref])
+    @tsreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+
+  def nicht_zahlen_hts
+    @referent = Referent.find(params[:id])
+    @htsreferent = Htsreferent.find(params[:htsref])
+    @htsreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id,:startdata =>params[:startdata],:enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent  }
+    end
+  end
+  
+  def nicht_zahlen_hts2
+    @referent = Referent.find(params[:id])
+    @htsreferent = Htsreferent.find(params[:htsref])
+    @htsreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def nicht_zahlen_work
+    @referent = Referent.find(params[:id])
+    @workreferent = Workreferent.find(params[:workref])
+    @workreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :controller => 'referents', :action => 'eventstimechoice', :id => @referent.id, :startdata =>params[:startdata], :enddata =>params[:enddata]  ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def nicht_zahlen_work2
+    @referent = Referent.find(params[:id])
+    @workreferent = Workreferent.find(params[:workref])
+    @workreferent.update_attribute(:paid, 'nein')
+    
+    respond_to do |format|
+      format.html { redirect_to( :back, :id => @referent.id ) }
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def eventstimechoice
+    @referent = Referent.find(params[:id])
+    @start = params[:startdata]
+    @end = params[:enddata]
+    if @start!=nil && @end!=nil
+      @all_detours = @referent.detours    
+      @detours = @all_detours.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+      @all_ts_requests = @referent.ts_requests
+      @ts_requests = @all_ts_requests.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+      @all_htseminars = @referent.htseminars
+      @htseminars = @all_htseminars.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+      @all_workshops = @referent.workshops
+      @workshops = @all_workshops.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+    end
+    respond_to do |format|
+      format.html # eventstimechoice.html.erb
+      format.xml  { render :xml => @referent }
+    end
+  end
+  
+  def eventstimech
+    @referent = Referent.find(params[:id])
+    @start = params[:startdata]
+    @end = params[:enddata]
+    if @start!=nil && @end!=nil
+      @all_detours = @referent.detours    
+      @detours = @all_detours.find(:all, :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'",
+        :order => "thedate")
+
+      @all_ts_requests = @referent.ts_requests
+      @ts_requests = @all_ts_requests.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+    
+      @all_htseminars = @referent.htseminars
+      @htseminars = @all_htseminars.find(:all, 
+        :conditions => "thedate >='"+@start+"' and thedate <= '"+@end+"'", :order => "thedate")
+    end
+    respond_to do |format|
+      format.js            
+    end
+  end    
+    
+  def topay
+    @today = Time.now.year.to_s+"-"+Time.now.month.to_s+"-"+Time.now.day.to_s
+    @tourresult = Tourreferent.find_by_sql("SELECT tr.* "+
+        "from tourreferents tr, detours d "+
+        "where tr.paid = 'nein' and tr.detour_id = d.id and d.thedate < '"+@today+"' order by thedate")
+    @tsresult = TsRequest.find_by_sql("SELECT tsr.* "+
+        "from tsreferents tsr, ts_requests t "+
+        "where tsr.paid = 'nein' and tsr.ts_request_id = t.id and t.thedate < '"+@today+"' order by thedate")
+    @htsresult = Htseminar.find_by_sql("SELECT htr.* "+
+        "from htsreferents htr, htseminars h "+
+        "where htr.paid = 'nein' and htr.htseminar_id = h.id and h.thedate < '"+@today+"' order by thedate")
+    @workresult = Workshop.find_by_sql("SELECT wr.* "+
+        "from workreferents wr, workshops w "+
+        "where wr.paid = 'nein' and wr.workshop_id = w.id and w.thedate < '"+@today+"' order by thedate")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  
+    end
+  end
+  
+end

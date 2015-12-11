@@ -1,0 +1,53 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;" >
+  <thead>
+    <tr>
+      <th colspan="2">Best&auml;tigter Termin</th>
+      <th rowspan="2">Kontakt</th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Gr.</th>
+      <th rowspan="2">Sprache</th>
+      <th rowspan="2">Film</th>
+      <th rowspan="2">Referent</th>
+      <th rowspan="2">Re.<br/>gest.</th>
+      <th rowspan="2">Re.<br/>bez.</th>                        
+    </tr>
+    <tr> 
+      <th>Datum</th>                        
+      <th>Von-Bis</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <% @detoursbest.each do |detour| %>
+      <tr>
+        <td align="center"><%=h change_date(detour.thedate) %><br/><%=h get_german_day(detour.thedate) %></td>
+        <td align="center"><%=h change_time(detour.thefrom) %><br/><%=h change_time(detour.theto) %></td>                                 
+        <td align="center"><%=h get_de_gender(detour.gender) %><br/><%=h detour.lastname %></td>
+        <td align="center"><%=h detour.schoolname %></td>
+        <td align="center"><%=h detour.city %></td>
+        <td align="center"><%=h detour.participnumber %></td>
+        <td align="center">
+          <% if detour.groupnumber > detour.referents.count %>
+            <b style="color:red"><%=h detour.groupnumber %></b><br/>
+          <%else%>
+            <b style="color:blue"><%=h detour.groupnumber %></b>
+          <% end %> 
+        </td>
+        <td align="center"><%=h get_language_de(detour.language) %></td>
+        <td align="center"><%=h get_film_de(detour.film) %></td>
+        <td>
+          <% if detour.groupnumber > detour.referents.count %>
+            <b style="color:red"> Referenten fehlen!</b><br/>
+            <% detour.referents.each do |ref| %><%=h ref.lastname %>, <%=h ref.firstname %><br/><% end %> 
+          <%else%>
+            <% detour.referents do |r| %><%= change_umlaut(r.lastname) %>, <%= change_umlaut(r.firstname) %> <br/><% end %> 
+          <%end%>
+        </td>              
+        <td align="center" ><%=h detour.bill_sent %></td>
+        <td align="center" ><%=h format_paid_attr(detour.paid)%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

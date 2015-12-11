@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>E-Mail-Stornierung:</td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', { :action => 'stornomail', :id => @htseminar.id } %></td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'english <img src="/images/mail.jpg" width="15">', { :action => 'stornomaileng', :id => @htseminar.id } %></td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', { :action => 'stornomailit', :id => @htseminar.id } %></td>
+    <td>&nbsp;&nbsp;</td>
+
+      <% if @htseminar.storno_send == 'ja' %>    
+        <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :storno_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@htseminar.storno_date)%></td>          
+      <% end %>
+  </tr> 
+</table>

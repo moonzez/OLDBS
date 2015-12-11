@@ -1,0 +1,1 @@
+page.replace_html "tour_paid_button_" + @tour.id.to_s, "ja, bar"

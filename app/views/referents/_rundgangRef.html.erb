@@ -1,0 +1,41 @@
+<h2 align = center>Rundg&auml;nge</h2>
+<table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+  <tr>
+    <th colspan="4" >Best&auml;tigter Termin</th>
+    <th rowspan="2">Schule/<br>Institution</th>
+    <th rowspan="2">Teil-<br>nehmer</th>
+    <th rowspan="2">Gr.</th>
+    <th rowspan="2">Sprache</th>
+    <th rowspan="2">E-Mail<br/>gesendet</th>
+    <th rowspan="2">Bezahlt</th>
+  </tr>
+  <tr> 
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+ </tr>
+
+<% detours.each do |detour| %>
+  <tr>
+    <td><%=h change_date(detour.thedate) %></td>
+    <td><%=h get_day(detour.thedate) %></td>
+    <td><%=h change_time(detour.thefrom) %></td>
+    <td><%=h change_time(detour.theto) %></td>
+    <td><%=h detour.schoolname %></td>
+    <td><%= detour.participnumber %> </td>
+    <td><%=h detour.groupnumber %></td>
+    <td><%=h get_language_de(detour.language) %></td>
+    <% @tourreferent = Tourreferent.find_by_detour_id_and_referent_id(detour.id, @referent.id) %>
+    <% if @tourreferent.mailsend == 0 %><td>nein</td><% else %><td><%= @tourreferent.maildate %> </td><% end %>
+    <% if @tourreferent.paid == 'nein' %>
+    <td><%=h @tourreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Zahlen">', 
+        {:controller => 'referents', :action => 'zahlen_tour', :id => @referent.id, :tourref => @tourreferent.id, :startdata => @start, :enddata => @end} %> </td>
+    <% else %>
+    <td><%=h @tourreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+        {:controller => 'referents', :action => 'nicht_zahlen_tour', :id => @referent.id, :tourref => @tourreferent.id,:startdata => @start, :enddata => @end } %> </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<br/><br/>

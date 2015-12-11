@@ -1,0 +1,82 @@
+<%= javascript_include_tag :defaults %>
+<head> 
+  <title>Request for information from the archive of the Dachau Concentration Camp Memorial Site</title>
+</head>
+<body>
+  <% form_for @archive do |f|%>
+    <div class="xujError"><%= flash[:notice1] %></div>
+    <div class="xujError"><%= f.error_message_on :firstname, "First name can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :lastname, "Last name can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :street, "Street can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :city, "City can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :zip, "ZIP can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :country, "Country can't be blank." %></div>
+    <div class="xujError"><%= f.error_message_on :email, "E-mail can't be blank." %></div>
+    <br>
+    
+    <h4 class="ueberschrift">Request for information from the archive of the Dachau Concentration Camp Memorial Site</h4>
+    <div class="inhalt4">
+      <p>Dear Requestor,<br>
+        It is our aim at the Dachau Concentration Camp Memorial Site to simplify your search for former prisoners of the 
+        Dachau concentration camp. To help us to achieve this, we ask you to fill out this form as completely as possible, 
+        both your own details as well as – wherever possible – those concerning the former prisoner of the Dachau concentration camp. 
+        After filling out the form, please send it per attachment to the archive’s e-mail address:<br>
+        archiv@kz-gedenkstaette-dachau.de<br>
+        The information request will be forwarded automatically to the archive of the Dachau Concentration Camp Memorial Site and then answered.
+      </p>
+
+    <h5>Contact person</h5>
+    <%= f.hidden_field :formular, :value => 'en' %>
+    <p style="display:inline-block;"><%= f.label :lastname, "Name*: " %><%= f.text_field :lastname %></p>
+    <p style="display:inline-block"><%= f.label :firstname, "First Name*: " %><%= f.text_field :firstname %></p>
+    <p style="display:inline-block"><%= f.label :street, "Street*: " %><%= f.text_field :street %></p>
+    <p style="display:inline-block"><%= f.label :zip, "ZIP*: " %><%= f.text_field :zip %></p>
+    <p style="display:inline-block"><%= f.label :city, "Town*: " %><%= f.text_field :city %></p>
+    <p style="display:inline-block"><%= f.label :country, "Country*: " %><%= f.text_field :country %></p>
+    <p style="display:inline-block"><%= f.label :email, "E-mail*: " %><%= f.text_field :email %></p>
+  
+    <h5 style="clear: both;">What is your (family) relationship to the searched-for person?<br>
+      Is the research for other reasons (please describe which)?
+    </h5>
+    <p><%= f.text_area :investigation, :class => 'textfeldgroesse6', :size => '60', :maxlength => 255%></p>
+  
+    <h5>Details on the searched-for person</h5>
+    <table>
+      <tr>
+        <td><%= f.label :wanted_firstname, "First Name: " %></td>
+        <td><%= f.text_field :wanted_firstname %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :wanted_lastname, "Surname: " %></td>
+        <td><%= f.text_field :wanted_lastname %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :wanted_birth_name, "For women birth name: " %></td>
+        <td><%= f.text_field :wanted_birth_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :wanted_birth_date, "Date of birth: " %></td>
+        <td><%= f.text_field :wanted_birth_date %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :wanted_birthplace, "Place of birth/district/province: " %></td>
+        <td><%= f.text_field :wanted_birthplace %></td>
+      </tr>  
+    </table>
+    
+    <h5>Additional information which may help us to find the searched-for person (e.g. date of death):</h5>
+    <p><%= f.text_area :wanted_additional, :class => 'textfeldgroesse6', :size => '60', :maxlength => 255%></p>
+    
+    <p style="font-family: Verdana, sans-serif;font-size: 11pt; color:red; font-weight: bold;">
+      <%= flash[:notice2] %>
+    </p>
+    <p><%= show_simple_captcha(:label => "* Please enter the code that you see in the image",
+          :distortion => 'medium', :image_style => 'simple_blue') %>
+    </p>
+ 
+    <p><%= f.submit "Send" %></p>
+    <br><br>
+
+    </div>
+  <% end %>
+</body>

@@ -1,0 +1,97 @@
+<p><font size="4"><b>Anmeldung f&uuml;r den Besuch der KZ-Gedenkst&auml;tte Dachau</b></font></p>
+<font size=2>
+  <table>
+    <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+    <tr><td><b>Ansprechperson</b></td><td></td></tr>
+    <tr><td><i>Anrede:</i></td><td><%= @detour.gender %></td></tr>
+    <tr >
+      <td><i>Name:</i></td><td><%= change_umlaut(@detour.lastname) %></td>
+      <td><i>Vorname:</i></td><td><%= change_umlaut(@detour.firstname) %></td>
+    </tr>   
+    <tr>
+      <td><i>Tel. dienstlich:</i></td><td><% if !@detour.telbus.blank? %><%=@detour.telbus %><% else %>___<% end %> </td>
+      <td><i>Uhrzeit:</i></td><td><% if !@detour.telbusTime.blank? %><%= change_umlaut(@detour.telbusTime) %><% else %>___<% end %></td>
+    </tr>      
+    <tr>
+      <td><i>Tel. privat:</i></td><td><% if !@detour.telpriv.blank? %><%= @detour.telpriv %><% else %>___<% end %></td>
+      <td><i>Uhrzeit:</i></td><td><% if !@detour.telprivTime.blank? %><%= change_umlaut(@detour.telprivTime) %><% else %>___<% end %></td>
+    </tr>   
+    <tr>
+      <td><i>E-Mail:</i></td><td><%= @detour.email %></td>
+      <td><i>Fax:</i></td><td><% if !@detour.fax.blank? %><%= @detour.fax %><% else %>___<% end %></td>
+    </tr>
+</table></font>
+
+<font size=2>
+  <table>
+    <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+    <tr><td><b>Schule/Institution</b></td><td></td></tr>
+    <tr>
+      <td><i>Name:</i></td><td><%= change_umlaut(@detour.schoolname) %></td>
+      <td><i>Schultyp:</i></td><td><% if !@detour.schooltype.blank? %><%= change_umlaut(@detour.schooltype) %><% else %>___<% end %></td>
+    </tr>   
+    <tr>
+      <td><i>Stra&szlig;e/Haus:</i></td><td><%= change_umlaut(@detour.street) %></td>
+      <td><i>Ort:</i></td><td><%= change_umlaut(@detour.city) %></td>
+    </tr>
+    <tr>
+      <td><i>PLZ:</i></td><td><%= @detour.zip %></td>
+      <td><i>Land:</i></td><td><%= change_umlaut(@detour.country) %></td>
+    </tr>
+</table></font>  
+
+<font size=2>
+  <table>
+    <tr><th width="300"></th><th width="200"></th><th width="175"></th><th width="175"></th><th width="175"></th><th width="175"></th></tr>
+    <tr><td><b>Termin und Sprache</b></td><td></td><td></td></tr>
+    <tr>
+      <td><i>Am:</i></td><td><%= change_date(@detour.date1) %></td>
+      <td><i>von:</i></td><td><%= change_time(@detour.from1) %></td>
+      <td><i>bis:</i></td><td><%= change_time(@detour.to1) %></td>
+    </tr>
+    <% if !@detour.date2.blank? %>
+      <tr>
+        <td><i>am:</i></td><td><%= change_date(@detour.date2) %></td>
+        <td><i>von:</i></td><td><%= change_time(@detour.from2) %></td>
+        <td><i>bis:</i></td><td><%= change_time(@detour.to2) %></td>
+      </tr><% end %>
+    <% if !@detour.date3.blank? %>
+      <tr>
+        <td><i>am:</i></td><td align ="left"><%= change_date(@detour.date3) %></td>
+        <td><i>von:</i></td><td align ="left"><%= change_time(@detour.from3) %></td>
+        <td><i>bis:</i></td><td align ="left"><%= change_time(@detour.to3) %></td>
+      </tr><% end %>
+</table></font>
+
+<p align="left"><font size=2><i>In welcher Sprache soll der Rundgang stattfinden?</i>  <%= change_umlaut(@detour.language) %></font></p>
+<font size=2>
+  <table>
+    <tr><th width="400"></th><th width="100"></th><th width="300"></th><th width="100"></th><th width="300"></th><th width="100"></th></tr>
+    <tr><td><b>Angaben zur Gruppe/Klasse</b></td><td></td><td></td></tr>
+    <tr>
+      <td><i>Anzahl TeilnehmerInnen:</i></td><td><%= @detour.participnumber %></td>
+      <td><i>davon m&auml;nnlich:</i></td><td><% if !@detour.male.blank? %><%= @detour.male %><% else %>___<% end %></td>
+      <td ><i>davon weiblich:</i></td><td><% if !@detour.female.blank? %><%= @detour.female %><% else %>___<% end %></td>
+    </tr>   
+    <tr>
+      <td><i>Alter (min. 14 Jahre):</i></td><td><% if !@detour.age.blank? %><%= @detour.age %><% else %>___<% end %></td>
+      <td><i>Schulstufe:</i></td><td><% if !@detour.schoolgrade.blank? %><%= @detour.schoolgrade %><% else %>___<% end %></td>
+      <td><i>Anzahl Betreuer:</i></td><td><% if !@detour.teamleader.blank? %><%= @detour.teamleader %><% else %>___<% end %></td>
+    </tr>
+</table></font><br/> 
+
+<p align="left"><font size=2><i>Kennen die TeilnehmerInnen die KZ-Gedenkst&auml;tte Dachau bereits?</i> <% if !@detour.havebeen.blank? %><%= @detour.havebeen %><% else %>___<% end %></font></p>
+
+<p align ="left"><font size=2><i>Was ist der Anlass f&uuml;r den Besuch der Gedenkst&auml;tte?</i></font></p>
+<p align ="left"><font size=2><% if @detour.reason.blank? %>___<% else %><%= change_umlaut(@detour.reason) %><% end %></font></p>
+
+<p align="left"><font size=2><i>Welche Themen sollen schwerpunktm&auml;&szlig;ig in dem Seminar aufgegriffen und behandelt werden?</i></font></p>
+<p align ="left"><font size=2><% if @detour.topic.blank? %>___<% else %><%= change_umlaut(@detour.topic) %><% end %></font></p>
+
+<p align="left"><font size=2><b>Gew&uuml;nschtes Angebot</b></font></p>
+<p align="left"><font size=2><i>Filmbesuch, Dauer: 22 Minuten:</i> <%= @detour.film %></font></p>
+
+<p align="left"><font size=2><i>Sonstige W&uuml;nsche (z.B. Nachbesprechung)</i></font></p>
+<p align ="left"><font size=2><% if @detour.wish.blank? %>___<% else %><%= change_umlaut(@detour.wish) %><% end %></font></p>
+<p align="left"><font size=2><i>Anmerkungen</i></font></p>
+<p align ="left"><font size=2><% if @detour.remarc.blank? %>___<% else %><%= change_umlaut(@detour.remarc) %><% end %></font></p>

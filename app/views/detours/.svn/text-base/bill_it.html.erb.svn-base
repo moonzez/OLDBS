@@ -1,0 +1,36 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @detour } %>
+
+<p><big><b>Fattura n.: <%= @detour.invoice_number %></b></big></p>
+<p>
+Con la presente confermiamo la prenotazione <% if @detour.themetour && (@detour.theme_type == 'Theme')%> della visita guidata sulla tematica "<%= @detour.topic %>"<% elsif @detour.themetour && (@detour.theme_type == 'Exkursion') %> 
+l&#39;escursione: "<%= @detour.topic %>"<% else%> la visita guidata al memoriale del campo di concentramento di Dachau<% end %> e presentiamo la relativa fattura:
+</p>
+
+<table border="1">
+  <tr>
+    <th>Data</th>
+    <th>Numero di gruppi</th>
+    <th>Importo per ciascun gruppo</th>
+    <th>Importo complessivo</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@detour.thedate) %>, ore <%= change_time(@detour.thefrom) %></td>
+    <td><%= @detour.groupnumber %></td> 
+    <td><%= number_to_euro(@detour.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@detour.groupnumber * @detour.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+<br>
+<p>L&#39;importo complessivo &egrave; da versare entro 14 giorni dopo la data in cui viene effettuata la visita guidata,  specificando nella causale il numero della fattura e la data della visita guidata, sul seguente conto:</p>
+<table>
+  <tr><td>Intestatario del conto: </td><td>KZ-Gedenkst&auml;tte Dachau</td></tr>
+  <tr><td>Banca: </td><td>HypoVereinsbank M&uuml;nchen</td></tr>
+  <tr><td>Codice Banca: </td><td>700 202 70</td></tr>
+  <tr><td>Conto corrente n.:</td><td>15101860</td></tr>
+  <tr><td>IBAN: </td><td>DE71700202700015101860</td><tr>
+  <tr><td>BIC: </td><td>HYVEDEMMXXX</td></tr>
+</table>
+<br>
+<p><small><i>In quanto fondazione di diritto pubblico il memoriale &egrave; esente da tassazione sulle entrate.</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

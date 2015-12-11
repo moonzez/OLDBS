@@ -1,0 +1,5 @@
+<p style="font-size: 1.5em; margin-top: 1em;" align="center">Grazie! La Vostra richiesta di prenotazione è stata inoltrata.
+Sarà nostra premura rispondere alla Vostra richiesta appena ci sarà possibile.</p>
+
+<p align="center"><%= link_to 'Cliccare qui per ritornare alla pagina “Informazioni per il visitatore”.',
+  'http://www.kz-gedenkstaette-dachau.de/index2.html' %> </p>

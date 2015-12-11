@@ -1,0 +1,85 @@
+<% if admin? %>
+  <head>
+    <title>Datenbanknutzer</title>
+  </head>
+
+  <body>  
+    <h1 align="center">Datenbanknutzer</h1><hr />
+  
+    <h2 align="center">Administratoren</h2>
+    <table id="small" cellpadding="10" >
+      <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>
+        <th>Rechte</th>
+        <th>Login</th>
+        <th colspan="2">Optionen</th>
+      </tr>
+      <% if @admins.any? %>
+        <%= render :partial => "users/user", :collection=> @admins %>
+      <% end %>
+    </table>
+    <br />
+  
+    <h2 align ="center">DB-Nutzer</h2>
+    <table id="small" cellpadding="10">
+      <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>
+        <th>Rechte</th>
+        <th>Login</th>
+        <th colspan="2">Optionen</th>
+      </tr>
+      <% if @dbusers.any? %>
+        <%= render :partial => "users/user", :collection=> @dbusers %>
+      <% end %>
+    </table>
+    <br />
+    
+    <h2 align="center">Rechnungsführung</h2>
+    <table id="small" cellpadding="10">
+      <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>      
+        <th>Rechte</th>
+        <th>Login</th>
+        <th colspan="2">Optionen</th>
+      </tr>
+      <% if @accounters.any? %>
+        <%= render :partial => "users/user", :collection=> @accounters %>
+      <% end %>
+    </table>
+  
+    <h2 align="center">Readers</h2>
+    <table id="small" cellpadding="10">
+      <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>      
+        <th>Rechte</th>
+        <th>Login</th>
+        <th colspan="2">Optionen</th>
+      </tr>
+      <% if @readers.any? %>
+        <%= render :partial => "users/user", :collection=> @readers %>
+      <% end %>
+    </table>
+    <br />
+  
+    <h2 align="center">Referenten</h2>
+    <table id="small" cellpadding="10">
+      <tr>
+        <th>Nachname</th>
+        <th>Vorname</th>      
+        <th>Rechte</th>
+        <th>Login</th>
+        <th colspan="2">Optionen</th>
+      </tr>
+      <%= render :partial => "users/user", :collection=> @referees %>
+    </table>
+    
+    <%= render :partial => "dbusers/backbutton" %>  
+  </body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

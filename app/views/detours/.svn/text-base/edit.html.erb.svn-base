@@ -1,0 +1,297 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= calendar_date_select_includes :style=>"default", :locale=>"de"%> 
+
+  <head><title>Rundgang-Daten&auml;nderung</title></head>
+
+  <h1>Rundgang - Daten&auml;nderung <% if @detour.themetour %>(<%= get_themen_type(@detour.theme_type) %>)<% end %></h1><hr/>
+  
+  <% form_for(@detour, :url => {:action => "update", :forvers => @version}) do |f| %>
+    <div class="xujError"><%= f.error_message_on :gender, "Wählen Sie bitte die Anrede aus." %></div>
+    <div class="xujError"><%= f.error_message_on :firstname, "Geben Sie bitte den Vornamen ein."%></div>
+    <div class="xujError"><%= f.error_message_on :lastname, "Geben Sie bitte den Namen ein." %></div>
+    <div class="xujError"><%= f.error_message_on :email, "Geben Sie bitte eine g&uuml;ltige E-Mail-Adresse ein."%></div>
+    <div class="xujError"><%= f.error_message_on :schoolname, "Geben Sie bitte den Namen der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :street, "Geben Sie bitte die Adresse der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :city, "Geben Sie bitte den Ort der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :zip, "Geben Sie bitte eine Postleitzahl ein."%></div>
+    <div class="xujError"><%= f.error_message_on :country, "Geben Sie bitte das Land der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :date1, "1.Termin darf nicht fehlen."%></div>
+    <div class="xujError"><%= f.error_message_on :from1, "Die erste Uhrzeit des 1.Termins darf nicht fehlen."%></div> 
+    <div class="xujError"><%= f.error_message_on :to1, "Die zweite Uhrzeit des 1.Termins darf nicht fehlen." %></div> 
+    <div class="xujError"><%= f.error_message_on :participnumber, "Geben Sie bitte die Anzahl der Teilnehmer ein."%></div>
+    <div class="xujError"><%= f.error_message_on :hl_number, "Bitte die HÜL-Nummer angeben!"%></div>
+    <div class="xujError"><%= f.error_message_on :cellphone, "Geben Sie bitte Handynummer der Begleitperson ein."%></div>
+
+    <% if !@detour.result_sent %>
+      <h3>Automatische Best&auml;tigung an den Kunden wurde nicht versendet</h3>    
+      <table>
+        <td><%=f.label :result_sent, "Best&auml;tigung wurde versendet:" %></td>
+        <td><%= f.select :result_sent, {"nein" => 0, "ja" => 1}, { :selected => 0 } %></td>
+      </table><br/>
+      <hr>
+    <% end %>
+    <h2>Termine</h2>
+    
+    <h3>Kundendefinierte Termine </h3>
+    
+    <p style="font-weight:normal;">Ein Termin wird beim Dr&uuml;cken des "Speichern"-Buttons  nur dann gespeichert, falls alle zu ihm geh&ouml;rende Felder ausgef&uuml;llt sind.</p>
+    
+    <table id="termine">
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @detour, :event_str => 'detour', 
+        :date => :date1, :duty => true, :from => :from1, :to => :to1, :number => "1", :minutes => "150",
+        :from_array => Detour::FROMINTERN.collect, :to_array => Detour::TOINTERN.collect } %>
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @detour, :event_str => 'detour', 
+        :date => :date2, :duty => false, :from => :from2, :to => :to2, :number => "2", :minutes => "150",
+        :from_array => Detour::FROMINTERN.collect, :to_array => Detour::TOINTERN.collect } %>
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @detour, :event_str => 'detour', 
+        :date => :date3, :duty => false, :from => :from3, :to => :to3, :number => "3", :minutes => "150",
+        :from_array => Detour::FROMINTERN.collect, :to_array => Detour::TOINTERN.collect } %>
+    </table>
+
+    <h3>Best&auml;tigter Termin</h3>    
+    <p style="font-weight:normal;">Best&auml;tigter Termin wird auf null gesetzt, falls der Status auf "offen", "abgesagt" oder "storniert" gesetzt wird.</p>
+    
+    <table id="termine">
+      <%= render :partial => "shared/edit/thedate_termin", :locals => { :f => f, :event => @detour, :minutes => "150",
+        :event_str => 'detour', :from_array => Detour::FROMINTERN.collect, :to_array => Detour::TOINTERN.collect } %>
+    </table><br/>
+
+    <table >
+      <tr>
+        <td align ="left" ><%=f.label :status, "Status:"%> </td>
+        <td><%= f.select :status, ["bestätigt", "offen", "abgesagt", "storniert"].collect, {},
+          { :onchange => "check_selected_status('detour_status', 'detour_thedate', 'detour_thefrom', 'detour_theto')"} %></td>
+        <td> Preis pro gruppe: </td><td><%=f.text_field :current_fee, :readonly => true, :size => 5 %> </td>  
+      </tr>  
+    </table> 
+
+    <% if @detour.status == 'bestätigt' %><br/>
+      <%= render :partial => "detours/edit/email_zusage", :locals => {:f => f } %>
+    <% end %>
+
+    <% if @detour.status == 'abgesagt' %><br/>
+      <%= render :partial => "detours/edit/email_absage", :locals => {:f => f } %>
+    <% end %>
+
+    <% if @detour.status == 'storniert' %><br/>
+      <%= render :partial => "detours/edit/email_storno", :locals => {:f => f } %>
+    <% end %>
+    <hr/><br/>
+
+    <table>
+      <tr>
+        <td><%=f.label :formular, "Formular wurde ausgefüllt in:"%> 
+        <td><%= f.text_field :formular, :value => get_input_language(@detour[:formular]), :readonly => true, :size => 11 %></td>    
+      </tr>
+      <tr>
+        <td><%=f.label :language, "Sprache:"%> 
+        <td><%= f.select:language, @detour.get_all_languages , { :selected => get_language_de(@detour[:language])},{} %></td>    
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+      <td><%=f.label :participnumber, "Teinehmeranzahl:"%> 
+      <td><%= f.text_field :participnumber, :size => 4, :maxlength => 3,
+        :oninput => "CheckZiffer($F(this),'detour_participnumber','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      <td><%=f.label :groupnumber, "&nbsp;&nbsp;&nbsp;&nbsp;Gruppenanzahl:"%> 
+      <td><%= f.text_field :groupnumber, :size => 4,:maxlength => 3, :onblur => "prevent_empty_groupnumber('detour_groupnumber')",
+          :oninput => "CheckZiffer($F(this),'detour_groupnumber','Dieses Feld darf nur Zahlen enthalten.')", 
+          :onchange => "check_participnumber_groupnumber('detour_participnumber','detour_groupnumber')" %></td>
+    </tr>
+    </table>
+
+    <table >
+      <tr><td><%=f.label :comments, "Kommentare:" %></td> </tr>   
+      <tr><td><%= f.text_area :comments, :size => '94x5', :maxlength => 600%></td> </tr>   
+    </table>
+    
+    <table >
+      <tr><td><%=f.label :infocenter, "Kommentare für Infotheke:" %></td> </tr>   
+      <tr><td><%= f.text_area :infocenter, :size => '94x5', :maxlength => 600%></td> </tr>   
+    </table>
+
+    <table >
+      <tr> 
+        <td><%=f.label :last_change, "Zuletzt geändert von:"%></td>    
+        <td><%= f.text_field :last_change, :readonly => true, :size =>30 %></td> 
+      </tr>   
+    </table><hr/>
+
+    <% if @detour.status == 'bestätigt' %>
+      <%= render :partial => "detours/edit/referenten_verwalten" %>
+    <hr/><br/>
+    <% end %>
+
+    <% if @detour.status == 'storniert' or @detour.status == 'abgesagt'%>
+      <%= render :partial => "detours/edit/referenten_show" %>
+    <hr/><br/>
+    <% end %>
+    
+
+    <% if @detour.status == 'bestätigt' or @detour.status == 'storniert' or @detour.status == 'abgesagt'%>
+      <%= render :partial => "detours/edit/zahlung", :locals => {:f => f } %>
+      
+      <% if @detour.bill_sent == 'ja' && @detour.paid == 'nein' %>
+        <%= render :partial => "detours/edit/mahnung" %>
+      <% end %>
+    <% end %>
+    
+    <h2>Ansprechperson</h2>
+    <p align="left" style="font-weight:normal;">Falls die Ansprechsperson unter einer angegebenen Nummer zu einer bestimmten Uhrzeit erreichbar ist, 
+    <br/>tragen Sie dies bitte unter "Uhrzeit" ein.</p>
+    <table>
+      <tr><td><%=f.label :gender, "* Anrede:" %></td></tr>
+      <tr><td><%= f.text_field :gender %></td></tr>
+    </table>
+    <table>
+      <tr>
+        <td><%=f.label :firstname, "* Vorname: " %></td>
+        <td><%=f.label :lastname, "* Name: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :firstname,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :lastname,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telbus, "Tel. dienstlich: " %></td>
+        <td><%=f.label :telbusTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telbus,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telbusTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telpriv, "Tel. privat: " %></td>
+        <td><%=f.label :telprivTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telpriv,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telprivTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :email, "* E-mail: " %></td>
+        <td><%=f.label :fax, "Fax: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :email,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :fax,:size => 30,:maxlength => 255 %></td>
+      </tr>
+    </table><hr/>
+
+    <h2>Schule/Institution</h2>
+    <table>
+      <tr>
+        <td><%=f.label :schoolname, "* Name:" %></td>
+        <td><%=f.label :schooltype, "Schultyp: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :schoolname,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :schooltype,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :street, "* Strasse/Hausnummer:" %></td>
+        <td><%=f.label :city, "* Ort: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :street,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :city,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :zip, "* PLZ: " %></td>
+        <td><%=f.label :country, "* Land: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :zip,:size => 30,:maxlength => 15 %></td>
+        <td><%= f.text_field :country,:size => 30,:maxlength => 255 %></td>
+      </tr>
+    </table><hr/>
+
+    <h2>Angaben zur Gruppe/Klasse</h2>
+    <table>
+      <tr>
+        <td><%=f.label :cellphone, "* Handynummer der Begleitperson: " %></td>
+        <td><%= f.text_field :cellphone%></td>
+      </tr>
+      <tr>     
+        <td><%=f.label :male, "Teilnehmer männlich:" %></td>
+        <td><%=f.label :female, "Teilnehmer weiblich:" %></td>
+      </tr>   
+      <tr>     
+        <td><%= f.text_field :male,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_male','Dieses Feld darf nur Zahlen enthalten.')"  %></td>
+        <td><%= f.text_field :female,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_female','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :age, "Alter (min. 14 Jahre): " %></td>
+        <td><%=f.label :schoolgrade, "Schulstufe: " %></td>
+        <td><%=f.label :teamleader, "Anzahl Betreuer: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :age,:size => 30, :maxlength => 3 %></td>
+        <td><%= f.text_field :schoolgrade,:size => 30, :maxlength => 255 %></td>
+        <td><%= f.text_field :teamleader,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_teamleader','Dieses Feld darf nur Zahlen enthalten.')"  %></td>
+      </tr>
+    </table><br/>  
+
+    <table>
+      <td><%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkstätte Dachau bereits?&nbsp;" %></td>
+      <td><%= f.select:havebeen, ["ja", "nein", "zum Teil"].collect, {:selected => get_havebeen_de(@detour[:havebeen])},{} %></td>
+    </table><br/> 
+    <table>   
+      <tr><td><%=f.label :reason, "Was ist der Anlass für den Besuch der Gedenkstätte? " %></td></tr>
+      <tr><td><%= f.text_area :reason, :size => '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    <% if @detour.themetour %>
+      <h5>Themenf&uuml;hrungen</h5>
+        <table rules="rows" frame="hsides" style= "border-bottom-color: #7F9DB9; border-top-color: #7F9DB9">
+        <% @themen.each do |theme| %>
+          <tr>
+            <td align ="left"><%= f.radio_button :topic, theme %></td>&nbsp;
+            <td align ="left"><%= theme %></td>
+          </tr>
+        <% end %>
+      </table><br/>
+      <h5>Exkursionen</h5>
+        <table rules="rows" frame="hsides" style= "border-bottom-color: #7F9DB9; border-top-color: #7F9DB9">
+      <% @excursions.each do |excursion| %>
+        <tr>
+          <td align ="left"><%= f.radio_button :topic, excursion %></td>&nbsp;
+          <td align ="left"><%= excursion %></td>
+        </tr>
+      <% end %>
+     </table><br/>
+     <% else %>
+    <table> 
+      <tr><td><%=f.label :topic, "Welche Themen sollen schwerpunktmäßig behandelt werden? " %></td></tr>
+      <tr><td><%= f.text_area :topic, :size => '94', :maxlength => 255 %></td></tr>
+    </table><br/> 
+    <% end %>
+    <table>
+      <tr><td><%=f.label :municstay, "Steht der Besuch der Gedenkstätte im Rahmen eines längeren Aufenthaltes in München? " %></td></tr>
+      <tr><td><%= f.text_area :municstay, :size=> '94', :maxlength => 255 %></td></tr>
+    </table>
+
+    <h2><%=f.label :wish, "Sonstige Wünsche (z.B. Nachbesprechung) " %></h2>
+    <table> <tr><td><%= f.text_area :wish, :size=> '94', :maxlength => 255 %></td></tr></table>
+
+
+    <h2><%=f.label :remarc, "Anmerkungen " %></h2>
+    <table> <tr><td><%= f.text_area :remarc, :size=> '94', :maxlength => 255 %>
+    </td></tr></table>
+
+    <%= render :partial => "dbusers/save_back_button" %>
+
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

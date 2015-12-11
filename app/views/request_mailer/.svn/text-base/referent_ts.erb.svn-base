@@ -1,0 +1,30 @@
+Hallo <%= @referent.firstname %>,
+
+hier sind die Informationen zu dem Tagesseminar am <%= @ts.thedate.strftime("%d.%m.%Y") %>.
+
+Beginn um: <%= @ts.thefrom.strftime("%H:%M") %>
+
+Ansprechperson: <%= @ts.gender %> <%= @ts.lastname %>, <%= @ts.firstname %>
+Schule/Institution: <%= @ts.schoolname %><% if !@ts.schooltype.blank? %>, <%= @ts.schooltype %><% else %>.<% end %>
+Sprache: <%= get_language_de(@ts.language) %>  
+Teilnehmeranzahl: <%= @ts.participnumber %> (männlich - <%= @ts.male %>, weiblich - <%= @ts.female %>)
+Gruppen: <%= @ts.groupnumber %>
+Alter: <%= @ts.age %>
+Schulstufe: <%= @ts.schoolgrade %> 
+Anzahl Betreuer: <%= @ts.teamleader %>
+Themen (schwerpunktmäßig): <%= @ts.topic %> 
+
+Im Anhang findest Du die ausführlichere Informationen.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

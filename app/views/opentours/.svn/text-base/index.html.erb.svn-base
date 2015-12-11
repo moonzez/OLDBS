@@ -1,0 +1,17 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Offene F&uuml;hrungen</title></head>
+
+  <h1>Offene F&uuml;hrungen</h1><hr /><br /><br />
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Ansicht aktuell', sight_opentours_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Ansicht bestimmter Monat', selectotour_opentours_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Neu anlegen', new_opentours_path %></li>
+  </ul>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

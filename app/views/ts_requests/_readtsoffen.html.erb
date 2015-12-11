@@ -1,0 +1,56 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+    <thead>
+    <tr>
+    <th colspan="4" >Angefragter Termin</th>
+    <th colspan="2">Kontaktperson</th>
+    <th rowspan="2">Schule/<br/>Institution</th>
+    <th rowspan="2">Herkunftsort</th>
+    <th rowspan="2">Herkunftsortland</th>
+    <th rowspan="2">TN</th>
+    <th rowspan="2">Re.<br/>Nr.</th>
+    <th rowspan="2">Re.<br/>bez.</th>
+    <th rowspan="2" style="color:#d9d5d5;">d</th>   
+  </tr>
+  <tr> 
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>     
+    <th>Name</th>
+    <th>Handynummer</th>
+ </tr>
+</thead>
+<tbody id="myTableBody">
+<% for ts in @tsoffen %>
+  <tr>
+       <td><%=h change_date(ts.date1)%></td>
+       <td><%=h get_day(ts.date1) %></td>
+       <td><%=h change_time(ts.from1) %></td>
+       <td><%=h change_time(ts.to1) %></td>
+       <td><%=h ts.gender %> <%=h ts.lastname %></td>
+       <td><%=h ts.cellphone %></td>
+       <td><%=h ts.schoolname %></td>
+       <td><%=h ts.city %></td>
+       <td><%=h ts.country %></td>
+       <td><%=h ts.participnumber %></td>
+       <td><%=h ts.invoice_number %></td>
+       <td>
+         <% if ts.paid == 'nein' %>
+           <% form_remote_tag :url => {:controller => "ts_requests", :action => "set_paid_external", :id => ts.id} do %>
+             <div id="ts_paid_button_<%= ts.id %>"><%= button_to 'ja,bar', :title=>"ja,bar" %></div>
+           <% end %>
+         <% else %> 
+           <%=h ts.paid %>
+         <% end %>
+       </td>
+       <td></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+<script type="text/javascript">
+var tbody=document.getElementById('myTableBody');
+if(tbody.scrollHeight<=300) tbody.style.height="auto";
+</script>
+</div>

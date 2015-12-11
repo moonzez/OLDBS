@@ -1,0 +1,36 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;" >
+  <thead>
+    <tr>
+      <th rowspan="2">Eingangs-<br>datum</th>
+      <th rowspan="2">Kontakt</th>
+      <th colspan="2">Angefragter Termin</th>
+      <th rowspan="2">Alternative <br> Termine </th>
+      <th rowspan="2">Sprache</th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Verpfl.</th>
+    </tr>
+    <tr>
+      <th>Datum</th>                        
+      <th>Von-Bis</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @htsoffen.each do |hts| %>
+      <tr>
+        <td align="center"><%=h change_date(hts.created_at) %></td>
+        <td align="center"><%=h get_de_gender(hts.gender) %><br/><%=h hts.lastname %></td>
+        <td align="center"><%=h change_date(hts.date1) %><br/><%=h get_german_day(hts.date1) %></td>
+        <td align="center"><%=h change_time(hts.from1) %><br/><%=h change_time(hts.to1) %></td>
+        <td align="center"><% if hts.date2 or hts.date3 %>ja <% else %> nein <% end %> </td>
+        <td align="center"><%=h get_language_de(hts.language) %></td>
+        <td align="center"><%=h hts.schoolname %></td>
+        <td align="center"><%=h hts.city %></td>
+        <td align="center"><%=h hts.participnumber %></td>
+        <td align="center"><% if hts.food=="ja" %> ja <%else %> nein <%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

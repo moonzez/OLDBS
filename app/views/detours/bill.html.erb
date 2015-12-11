@@ -1,0 +1,31 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @detour } %>
+
+<p><big><b>Rechnung-Nr.: <%= @detour.invoice_number %></b></big></p>
+
+<p>Wir best&auml;tigen Ihnen hiermit die Buchung<% if @detour.themetour && (@detour.theme_type == 'Theme')%> der 
+Themenführung: "<%= @detour.topic %>"<% elsif @detour.themetour && (@detour.theme_type == 'Exkursion') %> der 
+Exkursion: "<%= @detour.topic %>"<% else%> einer F&uuml;hrung durch die KZ-Gedenkst&auml;tte Dachau<% end %> und 
+stellen Ihnen hierf&uuml;r folgendes Entgelt in Rechnung:</p>
+
+<table border="1">
+  <tr>
+    <th>Datum</th>
+    <th>Anzahl der Gruppen</th>
+    <th>Betrag pro Gruppe</th>
+    <th>Gesamtbetrag</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@detour.thedate) %>, <%= change_time(@detour.thefrom) %> Uhr</td>
+    <td><%= @detour.groupnumber %></td> 
+    <td><%= number_to_euro(@detour.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@detour.groupnumber * @detour.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+<br>
+<p>Bitte &uuml;berweisen Sie den Gesamtbetrag bis sp&auml;testens 14 Tage nach der F&uuml;hrung unter Verwendung 
+der Rechnungsnummer und dem Tag der F&uuml;hrung als Verwendungszweck auf das u.a. Konto.</p>
+<%= render :partial => "shared/bill/bankaccount" %>
+<br>
+<p><small><i>Als &ouml;ffentlich-rechtliche Stiftung sind wir nicht umsatzsteuerpflichtig im Sinne des Umsatzsteuergesetzes.</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/subversion/repo/!svn/ver/2016/BS/app/views/archives
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/subversion/repo/!svn/ver/2016/BS/app/views/archives/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/2016/BS/app/views/archives/show.html.erb
+END
+neweng.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/subversion/repo/!svn/ver/2016/BS/app/views/archives/neweng.html.erb
+END

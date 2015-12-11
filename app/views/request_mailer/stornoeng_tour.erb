@@ -1,0 +1,16 @@
+Dear <%= @tour.gender %> <%= @tour.lastname %>,
+
+Thank you very much for your e-mail. We have cancelled your booking<% if !@tour.invoice_number.blank? %> "<%= @tour.invoice_number %>"<% end %><% if @tour.thedate && @tour.thefrom %> for <%= @tour.thedate.strftime("%d.%m.%Y") %> at <%= @tour.thefrom.strftime("%H:%M") %><% end %>.
+If you wish to book a guided tour in the future, please do not hesitate to contact us again. We would be very happy to organize another tour for you.
+Please do not hesitate to contact us for any other questions you might have.
+With kind regards
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

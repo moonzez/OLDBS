@@ -1,0 +1,29 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @htseminar } %>
+
+<p><big><b>Invoice no.: <%= @htseminar.invoice_number %></b></big></p>
+
+<p>Herewith we confirm the booking of a a half-day seminar. 
+For the half-day seminar we are obliged to charge from you following amount:</p>
+
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Number of groups</th>
+    <th>Amount per group</th>
+    <th>Total amount</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@htseminar.thedate) %>, <%= change_time(@htseminar.thefrom) %></td>
+    <td><%= @htseminar.groupnumber %></td> 
+    <td><%= number_to_euro(@htseminar.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@htseminar.groupnumber * @htseminar.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+
+<br>
+<p>Please pay the total amount within two weeks after the half-day seminar, using the invoice number, into the following account:</p>
+<%= render :partial => "shared/bill/bankaccount" %>
+<br>
+<p><small><i>As a public law foundation we are not subject to turnover tax acording to german Turnover Tax Low</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

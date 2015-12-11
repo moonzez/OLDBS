@@ -1,0 +1,96 @@
+<% @daten.each do |data| %>
+  <h4 align="center" id = "day_info"> 
+    <%= get_full_germ_day(data) %> &nbsp; <%= data.strftime("%d.%m.%Y") %>
+  </h4>
+
+  <% @detoursbest = Array.new %>
+  <% if @daten1.include?(data) %>   
+    <% @detoursbest = @d_b.select{|detb| detb.thedate == data } %>
+    <% @grb  = @detoursbest.collect(&:groupnumber).sum %>
+    <h3 align="center">
+      Best&auml;tigte Rundg&auml;nge: <%=h @detoursbest.size%>&nbsp;&nbsp;&nbsp;
+      Gruppenanzahl: <%=h @grb%>
+    </h3>
+    <%= render :partial => "detours/tourb" %>       
+  <%end%>
+
+  <% @detoursoffen = Array.new %>
+  <% if @daten2.include?(data) %>  
+    <% @detoursoffen = @d_o.select{|deto| deto.date1 == data }%>
+    <% @gro  = @detoursoffen.collect(&:groupnumber).sum %> 
+    <h3 align="center">
+      Offene Rundg&auml;nge: <%=h @detoursoffen.size%>&nbsp;&nbsp;&nbsp;
+      Gruppenanzahl: <%=h @gro%>
+    </h3>
+    <%= render :partial => "detours/touro" %>
+  <%end%>
+
+  <% @tsbest = Array.new %>
+  <% if @daten3.include?(data) %>  
+    <% @tsbest = @ts_b.select{|tsb| tsb.thedate == data } %>
+    <h3 align="center">Best&auml;tigte Tagesseminare: <%=h @tsbest.size%> </h3>
+    <%= render :partial => "ts_requests/tsb" %>
+  <%end%>
+
+  <% @tsoffen = Array.new %>
+  <% if @daten4.include?(data) %>  
+    <% @tsoffen = @ts_o.select{|tso| tso.date1 == data }%>
+    <h3 align="center">Offene Tagesseminare: <%=h @tsbest.size%> </h3>
+    <%= render :partial => "ts_requests/tso" %>
+  <%end%>
+
+  <% @htsbest = Array.new %>
+  <% if @daten5.include?(data) %>  
+    <% @htsbest = @hts_b.select{|htsb| htsb.thedate == data } %>
+    <h3 align="center">Best&auml;tigte Halbtagesseminare: <%=h @htsbest.size%></h3>
+    <%= render :partial => "htseminars/htsb" %>
+  <%end%>
+
+  <% @htsoffen = Array.new %>
+  <% if @daten6.include?(data) %>  
+    <% @htsoffen = @hts_o.select{|htso| htso.date1 == data }%>
+    <h3 align="center"> Offene Halbtagesseminare: <%=h @htsoffen.size%> </h3>
+    <%= render :partial => "htseminars/htso" %>
+  <%end%>
+
+  <% @workbest = Array.new %>
+  <% if @daten7.include?(data) %>  
+    <% @workbest = @w_b.select{|wb| wb.thedate == data } %>
+    <h3 align="center">Best&auml;tigte Workshops: <%=h @workbest.size%></h3>
+    <%= render :partial => "workshops/workb" %>
+  <%end%>
+
+  <% @workoffen = Array.new %>
+  <% if @daten8.include?(data) %>  
+    <% @workoffen = @w_o.select{|wo| wo.date1 == data }%>
+    <h3 align="center"> Offene Workshops: <%=h @workoffen.size%> </h3>
+    <%= render :partial => "workshops/worko" %>
+  <% end %>
+
+  <% @opentactiv = Array.new %>
+  <% if @daten9.include?(data) %>  
+    <% @opentactiv = @o_t.select{|ot| ot.date == data }%>
+    <h3 align="center"> Offene Führungen: <%=h @opentactiv.size%> </h3>
+    <%= render :partial => "opentours/kalendopentours" %>
+  <% end %>
+
+  <% if(@detoursbest.empty? && @detoursoffen.empty? && @tsbest.empty? && @tsoffen.empty? && @htsbest.empty? &&
+        @htsoffen.empty? && @workbest.empty? && @workoffen.empty? && @opentours.empty?)%>
+    <table id="form" align="center" style="font-size:24px" cellpadding="10">
+      <tr><td><b>Keine Veranstaltungen!</b></td></tr>
+    </table>
+  <% else %>
+    <div class="saveField">
+      <table id='unten'>
+        <tr>
+          <td width="100%"></td>
+          <td align="center" style="padding: 5px;"> <%=  button_to 'Zum Druckansicht',:controller => 'dbusers', 
+            :action => 'print_calend_actual', :today => @today , :lastday => @lastday %></td>
+        </tr>
+      </table>
+    </div>
+  <% end %>
+
+<% end %>
+<br/><br/>
+

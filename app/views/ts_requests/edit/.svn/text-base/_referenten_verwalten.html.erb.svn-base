@@ -1,0 +1,23 @@
+<h2>Referenten</h2>  
+<% if !@ts_request.referents.blank? %>  
+  <table id ="left_small" cellpadding="5">
+    <tr>
+      <th >Name</th>
+      <th>E-Mail mit Infos senden</th>
+      <th>Gesendet am</th>
+    </tr>
+    <% for ref in @ts_request.referents %>
+      <tr>
+        <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents', 
+          :action => 'show', :id => ref.id } %></td>
+        <% if ref.email.blank? %><td>Keine E-Mail vorhanden</td><% else %>
+          <td><%= link_to ref.email , {:action => 'refermail', 
+            :tsid => @ts_request.id, :id => ref.id } %></td><% end %>
+        <% @tsreferent = Tsreferent.find_by_ts_request_id_and_referent_id(@ts_request.id, ref.id) %>
+        <% if  @tsreferent.mailsend == 0 %><td> </td><% else %>
+          <td><%= @tsreferent.maildate %></td><% end %>
+      </tr>
+    <% end %> 
+  </table>
+<% end %>
+<p><%= link_to 'Referenten verwalten', { :action => 'add_referents',:id => @ts_request.id} %></p>

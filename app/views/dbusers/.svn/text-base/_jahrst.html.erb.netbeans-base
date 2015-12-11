@@ -1,0 +1,143 @@
+<h4 align="center">Rundgänge  <%=@year%> : </h4>
+<table cellspacing="3" cellpadding="5" align="center" >
+  <tr >
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5" >
+            <tr>
+                <th></th>
+                <th>Monat</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@month_data.each do |d| %>
+              <tr>
+                <td><%= d['id'] %></td>
+                <td><%= d['month'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5">
+            <tr>
+                <th>Sprache</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@lang_data.each do |d| %>
+              <tr>
+                <td><%= d['language'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+    </tr>
+  </table>
+  
+<h4 align="center">Seminare und Workshops  <%=@year%>: </h4>
+<table cellspacing="3" cellpadding="5" align="center" >
+    <tr>
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5" >
+            <tr><th colspan="4">Tagesseminare</th></tr>
+            <tr>
+                <th></th>
+                <th>Monat</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@ts_data.each do |d| %>
+              <tr>
+                <td><%= d['id'] %></td>
+                <td><%= d['month'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5" >
+            <tr><th colspan="4">Halbtagesseminare</th></tr>
+            <tr>
+                <th></th>
+                <th>Monat</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@hts_data.each do |d| %>
+              <tr>
+                <td><%= d['id'] %></td>
+                <td><%= d['month'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+            <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5" >
+            <tr><th colspan="4">Workshops</th></tr>
+            <tr>
+                <th></th>
+                <th>Monat</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@ws_data.each do |d| %>
+              <tr>
+                <td><%= d['id'] %></td>
+                <td><%= d['month'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+    </tr>
+</table>
+
+<h4 align="center">Offene Führungen  <%=@year%> : </h4>
+
+<table cellspacing="3" cellpadding="5" align="center" >
+  <tr >
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5" >
+            <tr>
+                <th></th>
+                <th>Monat</th>
+                <th>Gruppen</th>
+                <th>Teilnehmer</th>
+            </tr>
+            <%@ot_data.each do |d| %>
+              <tr>
+                <td><%= d['id'] %></td>
+                <td><%= d['month'] %></td>
+                <td><%= d['groups'] %></td>
+                <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+      <td style="vertical-align:top;">
+          <table id ="small" cellspacing="3" cellpadding="5">
+            <tr>
+                <th>Sprache</th>
+                <th>Gruppen</th>
+                 <th>Teilnehmer</th>
+            </tr>
+            <%@otlang_data.each do |d| %>
+              <tr>
+                <td><%= d['language'] %></td>
+                <td><%= d['groups'] %></td>
+                 <td><%= d['persons'] %></td>
+              </tr>
+            <% end %>
+          </table>
+      </td>
+    </tr>
+  </table>

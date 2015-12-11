@@ -1,0 +1,125 @@
+<div  style="position:fixed; background-color:#8795A8; top:0px; left:0px; width:100%;">
+  <table width="100%" bgcolor="#8795A8" >
+    <tr><td>
+      <ul id="nav" >
+        <li><%= link_to "Rundgänge", detours_path %> 
+          <ul>
+            <li><%= link_to 'Offene<br/>Anfragen', opened_detours_path %></li>
+            <li><%= link_to 'Bestätigte<br/>Anfragen', approved_detours_path %>
+              <ul>
+                <li><%= link_to 'Bevorstehende<br/>Rundgänge', future_detours_path %></li>
+                <li><%= link_to 'Bestimmter<br/>Zeitraum',timechoice_detours_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to 'Abgesagte<br/>Anfragen', denial_detours_path %></li>
+            <li><%= link_to 'Stornierte<br/>Anfragen', storno_detours_path %></li>
+            <li><%= link_to 'Neue Anfrage<br/>anlegen', newintern_detours_path %></li>
+            <li><%= link_to 'Neue Themen<br/>f&uuml;hrung', themennewint_detours_path %></li>
+            <li><%= link_to 'Suchen', search_detours_path %></li>
+            <li><%= link_to 'Exkursionen', add_topic_detours_path %></li>
+          </ul>
+          </li>
+          
+          <li><%= link_to "T-Seminare", ts_requests_path %> 
+            <ul>
+              <li><%= link_to 'Offene<br/>Anfragen', opened_ts_requests_path %></li>
+              <li><%= link_to 'Bestätigte<br/>Anfragen', approved_ts_requests_path %>
+                <ul>
+                  <li><%= link_to 'Bevorstehende<br/>T-Seminare', future_ts_requests_path %></li>
+                  <li><%= link_to 'Bestimmter<br/>Zeitraum',timechoice_ts_requests_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to 'Abgesagte<br/>Anfragen', denial_ts_requests_path %></li>
+              <li><%= link_to 'Stornierte<br/>Anfragen', storno_ts_requests_path %></li>
+              <li><%= link_to 'Neue Anfrage<br/>anlegen', newintern_ts_requests_path %></li>
+              <li><%= link_to 'Suchen', search_ts_requests_path %></li>
+              <% if admin? %>
+                <li><%= link_to 'Themen', add_topic_ts_requests_path %></li>
+              <% end %>
+            </ul>
+          </li>
+          
+          <li><%= link_to "HT-Seminare", htseminars_path %>
+            <ul>
+              <li><li><%= link_to 'Offene<br/>Anfragen', opened_htseminars_path %></li></li>
+              <li><%= link_to 'Bestätigte<br/>Anfragen', approved_htseminars_path %>
+                <ul>
+                  <li><%= link_to 'Bevorstehende<br/>HT-Seminare', future_htseminars_path %></li>
+                  <li><%= link_to 'Bestimmter<br/>Zeitraum',timechoice_htseminars_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to 'Abgesagte<br/>Anfragen', denial_htseminars_path %></li>
+              <li><%= link_to 'Stornierte<br/>Anfragen', storno_htseminars_path %></li>
+              <li><%= link_to 'Neue Anfrage<br/>anlegen', newintern_htseminars_path %></li>
+              <li><%= link_to 'Suchen', search_htseminars_path %></li>
+            </ul>
+          </li>
+          
+          <li><%= link_to "Workshops", workshops_path %>
+            <ul>
+              <li><li><%= link_to 'Offene<br/>Anfragen', opened_workshops_path %></li></li>
+              <li><%= link_to 'Bestätigte<br/>Anfragen', approved_workshops_path %>
+                <ul>
+                  <li><%= link_to 'Bevorstehende<br/>Workshops', future_workshops_path %></li>
+                  <li><%= link_to 'Bestimmter<br/>Zeitraum',timechoice_workshops_path %></li>
+                </ul>
+              </li>
+              <li><%= link_to 'Abgesagte<br/>Anfragen', denial_workshops_path %></li>
+              <li><%= link_to 'Stornierte<br/>Anfragen', storno_workshops_path %></li>
+              <li><%= link_to 'Neue Anfrage<br/>anlegen', newintern_workshops_path %></li>
+              <li><%= link_to 'Suchen', search_workshops_path %></li>
+            </ul>
+          </li>
+          
+          <li><%= link_to "Off. Führung", opentours_path %>
+            <ul>
+              <li><li><%= link_to 'Ansicht<br/>aktuell', sight_opentours_path %></li></li>
+              <li><li><%= link_to 'Bestimmter<br/>Monat', selectotour_opentours_path %></li></li>
+              <li><li><%= link_to 'Neu Termine<br/>anlegen', :controller => 'opentours', :action => 'new' %></li></li>
+            </ul>
+          </li>
+          
+          <li><%= link_to "Kalender",kalendindex_dbusers_path %>
+            <ul>
+              <li><li><%= link_to 'Aktuell', kalendaktuell_dbusers_path, :popup => true %></li></li>
+              <li><li><%= link_to 'Bestimmtes<br/>Datum', kalenddatum_dbusers_path, :popup => true %></li></li>
+              <li><li><%= link_to 'Bestimmter<br/>Zeitraum', kalendzeitraum_dbusers_path, :popup => true %></li></li>
+            </ul>
+          </li>
+          
+          <li> <%= link_to "Referenten", referents_path %> 
+            <ul>
+              <li><%= link_to 'Referenten<br/>anzeigen', referents_path %></li>
+              <li><%= link_to 'Zu zahlen', topay_referents_path %></li>
+              <li><%= link_to 'Inaktive<br/>Referenten', inaktivref_referents_path %></li>
+              <li><%= link_to 'Referenten<br/>hinzufügen', new_referent_path %></li>
+              <% if accounter? or admin? %>
+                <li><%= link_to 'Referenten<br/>honorar', referents_invoices_referents_path %></li>
+              <% end %>
+            </ul>
+          </li>
+          <li> <%= link_to "Statistik",stat_dbusers_path %></li>
+          
+          <% if admin? %>
+            <li><%= link_to "DB-Nutzer", users_path %>
+              <ul>
+                <li><%= link_to "DB-Nutzer<br/>anzeigen", users_path %></li>
+                <li><%= link_to 'DB-Nutzer<br/>hinzufügen',  new_user_path %></li>
+                <li><%= link_to 'Referent als<br/> DB-Nutzer', referees_users_path %></li>
+              </ul>
+            </li>
+            <li> <%= link_to "Home", administrators_path %> </li>
+          <% end %>
+          
+          <% if dbuser? or accounter? %>
+            <li> <%= link_to "Home", dbusers_path %> </li>
+          <% end %>  
+           
+          <li><%= link_to "Logout", logout_path %></li>
+      </ul>
+        
+    </td></tr>
+    <tr ><td height="1px;" style="background-color:#8795A8"></td></tr>
+  </table>
+</div>
+<br/><br/>

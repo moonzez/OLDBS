@@ -1,0 +1,19 @@
+<% if referee? %>
+
+  <head> <title>Offene F&uuml;hrungen</title></head>
+  
+  <h1>Buchungs- und Verwaltungssystem</h1><hr/>
+  <% if @referee.aktiv == 'aktiv' %>
+    <ul id="overview">    
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Anmelden', :action => 'opentours'%></li>
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Ansicht',:action => 'sightot'%></li>
+    </ul><br />
+  <% else %>
+    <br/>
+    <table id="form" align="center" cellpadding="10">
+      <tr><td>Ihr Profil wurde deaktiviert.</td></tr>
+    </table>
+  <% end %>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

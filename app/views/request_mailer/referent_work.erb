@@ -1,0 +1,26 @@
+Hallo <%= @referent.firstname %>,
+
+hier sind die Informationen zu dem Rundgang am <%= @workshop.thedate.strftime("%d.%m.%Y") %>.
+
+Beginn um: <%= @workshop.thefrom.strftime("%H:%M") %>
+
+Ansprechperson: <%= @workshop.gender %> <%= @workshop.lastname %>, <%= @workshop.firstname %>
+Schule/Institution: <%= @workshop.schoolname %><% if !@workshop.schooltype.blank? %>, <%= @workshop.schooltype %><% else %>.<% end %>
+Teilnehmeranzahl: <%= @workshop.participnumber %> (männlich - <%= @workshop.male %>, weiblich - <%= @workshop.female %>)
+Alter: <%= @workshop.age %>
+Anzahl Betreuer: <%= @workshop.teamleader %>
+
+Im Anhang findest Du die ausführlichere Informationen.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

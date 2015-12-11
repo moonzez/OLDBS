@@ -1,0 +1,9 @@
+
+if @tsbest.size==0 then   
+    page.replace_html 'tagesseminars' ,
+      '<b><p align="center" > Keine best&auml;tigte Tagesseminare in dieser Periode!</p></b><br/>'
+   page.visual_effect(:highlight, 'tagesseminars', :duration => 0.5)
+else
+    page.replace_html 'tagesseminars' ,:partial =>'tsb'
+    page.visual_effect(:highlight, 'tagesseminars', :duration => 0.5)
+end

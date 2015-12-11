@@ -1,0 +1,188 @@
+<%= javascript_include_tag :defaults %>
+<%= calendar_date_select_includes :style=>"default",:locale=>"de"%>
+
+<head>
+  <title>Buchung Workshop</title>
+</head>
+<body>
+<% form_for(@workshop) do |f| %>
+   <div class="xujError"><%= flash[:notice1] %></div>
+   <div class="xujError"><%= f.error_message_on :gender %></div>
+   <div class="xujError"><%= f.error_message_on :firstname %></div>
+   <div class="xujError"><%= f.error_message_on :lastname %></div>
+   <div class="xujError"><%= f.error_message_on :email%></div>
+   <div class="xujError"><%= f.error_message_on :schoolname %></div>
+   <div class="xujError"><%= f.error_message_on :street %></div>
+   <div class="xujError"><%= f.error_message_on :city %></div>
+   <div class="xujError"><%= f.error_message_on :zip %></div>
+   <div class="xujError"><%= f.error_message_on :country %></div>
+   <div class="xujError"><%= f.error_message_on :date1 %></div>
+   <div class="xujError"><%= f.error_message_on :from1 %></div>
+   <div class="xujError"><%= f.error_message_on :to1 %></div>
+   <div class="xujError"><%= f.error_message_on :participnumber%></div>
+   <div class="xujError"><%= f.error_message_on :foodnumber %></div>
+   <div class="xujError"><%= f.error_message_on :schoolgrade%></div>
+   <div class="xujError"><%= f.error_message_on :age %></div>
+   <div class="xujError"><%= f.error_message_on :cellphone %></div>
+   
+<% if !request.env['HTTP_USER_AGENT'].downcase.index('msie 6.0').blank? %>
+    <%@br = 'msie6'%>
+<%else%>
+    <%@br = 'other'%>
+<%end%>
+
+   <h4 class="ueberschrift">Buchung Workshop "Worte finden f&uuml;r das Unfassbare"</h4>
+     <div class="inhalt4">
+      <p>Um gezielt auf Ihre W&uuml;nsche eingehen zu k&ouml;nnen, bitten wir Sie, die nachfolgende Seite auszuf&uuml;llen 
+        und per Knopfduck an uns zur&uuml;ck zu schicken. Lesen Sie das Formular vor dem Ausf&uuml;llen durch. 
+        Beachten Sie auch das Dokument "Merkblatt zum Workshop".<br />
+        <b>Bitte beachten Sie, dass alle Felder, die mit * gekennzeichnet sind, ausgef&uuml;llt werden m&uuml;ssen.</b>
+      </p>
+      <p>Nachdem wir Ihre Anfrage erhalten haben, bekommen Sie zeitnah eine Bestätigung oder Absage per Email. 
+        Diese Best&auml;tigung ist verbindlich. Eine &Auml;nderung des Datums oder der Uhrzeit ist danach nicht mehr m&ouml;glich. Die R&uuml;ckmeldung zum Bearbeitungsstand der Anmeldung zum Workshop 
+        kann ein wenig dauern, da wir erst mit der Internationalen Jugendbuchbibliothek und dem Jugendbuchlektor in Kontakt 
+        treten m&uuml;ssen, ob der von Ihnen gew&uuml;nschte Termin m&ouml;glich ist. Bitte beachten Sie, 
+        dass der Workshop nur von einer Gruppe pro Tag gebucht werden kann. 
+        Falls zwei Gruppen parallel die Gedenkst&auml;tte besuchen sollen, ist eine Kombination mit einem Tagesseminar denkbar.
+      </p>
+      <p>Die Kosten f&uuml;r den Workshop belaufen sich auf <%= number_to_currency(Workshop::CURRENT_PRICE, :unit => "€", :format => "%n %u")%>. 
+        Bei unangek&uuml;ndigtem Fernbleiben m&uuml;ssen wir Ihnen ebenfalls das Referentenhonorar in Rechnung stellen. 
+        Sollten Sie den vereinbarten Termin nicht einhalten k&ouml;nnen oder sich die Teilnehmerzahl &auml;ndern, 
+        benachrichtigen Sie uns bitte sp&auml;testens einen Tag im Voraus. Bei Versp&auml;tung bitten wir Sie ebenfalls um eine 
+        telefonische Benachrichtigung (08131-66997-0).
+      </p>
+<h5>Ansprechperson</h5>
+<p><%=f.label :gender, "* Anrede:" %>&nbsp;&nbsp;&nbsp;<%= f.radio_button :gender, "Herr" %>&nbsp;Herr&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :gender, "Frau" %>&nbsp;Frau</p>
+<div style="width: 560px;">
+ <p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :firstname, "* Vorname: " %><br /><%= f.text_field :firstname, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255,
+        :oninput => "CheckNames($F(this),'workshop_firstname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :lastname, "* Name: " %><br /><%= f.text_field :lastname, :class => 'textfeldgroesse1', :size => 25, :maxlength => 255,
+        :oninput => "CheckNames($F(this),'workshop_lastname','Der Name darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')" %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :email, "* E-mail: " %><br /><%= f.text_field :email, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :telbus, "Tel. dienstlich: " %><br /><%= f.text_field :telbus, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :telpriv, "Tel. privat: " %><br /><%= f.text_field :telpriv, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :fax, "Fax: " %><br /><%= f.text_field :fax, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :telbusTime, "Uhrzeit Tel. dienstlich: " %><br /><%= f.text_field :telbusTime, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :telprivTime, "Uhrzeit Tel. privat: " %><br /><%= f.text_field :telprivTime, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="font-size: 0.9em; float: left; line-height: 1em; width: 370px;">Falls Sie unter einer angegebenen Nummer zu einer bestimmten Uhrzeit erreichbar sind, tragen Sie dies bitte unter "Uhrzeit" ein.</p>
+</div>
+<div class="clear"></div>
+<h5>Schule, Institution (Rechnungsanschrift)</h5>
+<div style="width: 560px;">
+<p style="float:left; width: 268px; line-height: 0.6em;"><%=f.label :schoolname, "* Name der Schule/Institution (Rechnung): " %><br /><%= f.text_field :schoolname, :class => 'textfeldgroesse2', :size => 40,:maxlength => 255  %></p>
+<p style="float:left; width: 268px; line-height: 0.6em;"><%=f.label :street, "* Strasse/Hausnummer: " %><br /><%= f.text_field :street, :class => 'textfeldgroesse2', :size => 40,:maxlength => 255  %></p>
+<p style="float:left; width: 50px; line-height: 0.6em;"><%=f.label :zip, "* PLZ: " %><br /><%= f.text_field :zip, :class => 'textfeldgroesse3', :size => 4,:maxlength => 15 %></p>
+<p style="float:left; width: 208px; line-height: 0.6em;"><%=f.label :city, "* Ort: " %><br /><%= f.text_field :city, :class => 'textfeldgroesse4', :size => 32,:maxlength => 255  %></p>
+<p style="float:left; width: 268px; line-height: 0.6em;"><%=f.label :country, "* Land: " %><br /><%= f.text_field :country, :class => 'textfeldgroesse2', :size => 40,:maxlength => 255,
+   :oninput => "CheckNames($F(this),'workshop_country','Das Feld \"Land\" darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')"%></p>
+</div>
+<div class="clear"></div>
+
+<h5>Termin und Sprache</h5>
+<p>Der Workshop "Worte finden für das Unfassbare" beginnt um 9.30 Uhr und dauert bis 17.00 Uhr.</p>
+     <table>
+    <tr><td colspan="4">1. Terminwunsch&nbsp(muss eingegeben werden)</td></tr>
+    <tr>
+    <td align ="left" width="30px" ><%=f.label :date1, "* am: " %></td>
+    <%if @br == 'other'%>
+    <td  width="200px" >
+        <%= calendar_date_select_tag "date1",@workshop[:date1], :year_range => 0.years.ago..5.years.from_now,
+            :valid_date_check => "date.stripTime() >= (new Date()).stripTime()", :popup => "force",  :onchange => "set_date($F(this),'workshop_date1');"%>
+        <%= f.hidden_field :date1%>&nbsp;&nbsp;
+    </td>
+    <%else%>
+    <td  width="200px" >
+        <%= calendar_date_select_tag "date1",@workshop[:date1], :year_range => 0.years.ago..5.years.from_now,
+            :valid_date_check => "date.stripTime() >= (new Date()).stripTime()", :embedded => true,  :onchange => "set_date($F(this),'workshop_date1');"%>
+        <%= f.hidden_field :date1%>&nbsp;&nbsp;
+    </td>
+    <%end%>
+    <td>oder</td>
+    <%= f.hidden_field :from1, :value => "09:30" %>
+    <%= f.hidden_field :to1, :value => "17:00"%>
+    </tr>
+    <tr><td colspan="4">2. Terminwunsch&nbsp(kann als Alternative vorgeschlagen werden)</td></tr>
+    <tr>
+      <td><%=f.label :date2,"&nbsp;&nbsp;&nbsp;am:"%> </td>
+      <%if @br == 'other'%>
+        <td>
+        <%= calendar_date_select_tag "date2",@workshop[:date2], :year_range => 0.years.ago..5.years.from_now,
+            :valid_date_check => "date.stripTime() >= (new Date()).stripTime()", :popup => "force",  :onchange => "set_date($F(this),'workshop_date2');"%>
+        <%= f.hidden_field :date2%>&nbsp;&nbsp;
+        </td>
+      <%else%>
+        <td>
+        <%= calendar_date_select_tag "date2",@workshop[:date2], :year_range => 0.years.ago..5.years.from_now,
+            :valid_date_check => "date.stripTime() >= (new Date()).stripTime()", :embedded => true,  :onchange => "set_date($F(this),'workshop_date2');"%>
+        <%= f.hidden_field :date2%>&nbsp;&nbsp;
+        </td>
+      <%end%>
+        <%= f.hidden_field :from2, :value => "09:30" %>
+        <%= f.hidden_field :to2,:value => "17:00"%>
+    </tr>
+   </table>
+   <p><%=f.label :language, "Workshops werden zur Zeit nur auf Deutsch gehalten." %> </p>
+  <h5>Angaben zur Gruppe/Klasse</h5>
+  <p>Beachten Sie, dass die Anzahl der TeilnehmerInnen (ohne BetreuerInnen) nicht mehr als bei 30 Personen liegt. Pro Tag kann leider insgesamt nur ein Workshop für eine Gruppe angeboten werden.</p>
+<div style="width: 560px;">
+<p><%=f.label :cellphone, "* Handynummer der Begleitperson: " %><%= f.text_field :cellphone %></p>
+<p style="float:left; width: 129px; line-height: 0.6em;"><%=f.label :participnumber, "* Teilnehmerzahl: " %><br /><%= f.text_field :participnumber, :class => 'textfeldgroesse5', :size => 20,:maxlength => 3,
+    :oninput => "CheckZiffer($F(this),'workshop_participnumber','Dieses Feld darf nur Zahlen enthalten.')" %></p>
+<p style="float:left; width: 129px; line-height: 0.6em;"><%=f.label :male, "davon männlich: " %><br /><%= f.text_field :male, :class => 'textfeldgroesse5', :size => 20,:maxlength => 3,
+    :oninput => "CheckZiffer($F(this),'workshop_male','Dieses Feld darf nur Zahlen enthalten.')" %></p>
+<p style="float:left; width: 129px; line-height: 0.6em;"><%=f.label :female, "davon weiblich: " %><br /><%= f.text_field :female, :class => 'textfeldgroesse5', :size => 20,:maxlength => 3,
+    :oninput => "CheckZiffer($F(this),'workshop_female','Dieses Feld darf nur Zahlen enthalten.')" %></p>
+<p style="float:left; width: 129px; line-height: 0.6em;"><%=f.label :teamleader, "Anzahl Betreuer: " %><br /><%= f.text_field :teamleader, :class => 'textfeldgroesse5', :size => 20,:maxlength => 3,
+        :oninput => "CheckZiffer($F(this),'workshop_teamleader','Dieses Feld darf nur Zahlen enthalten.')"%></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :schooltype, "Schultyp: " %><br /><%= f.text_field :schooltype, :class => 'textfeldgroesse1', :size => 25,:maxlength => 255  %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :schoolgrade, "Schulstufe: " %><br /><%= f.text_field :schoolgrade, :class => 'textfeldgroesse1', :size => 25, :maxlength => 255 %></p>
+<p style="float:left; width: 175px; line-height: 0.6em;"><%=f.label :age, "Alter (min. 14 Jahre): " %><br /><%= f.text_field :age, :class => 'textfeldgroesse1', :size => 25, :maxlength => 255 %></p>
+</div>
+<p>
+<%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkst&auml;tte Dachau bereits?&nbsp;" %><br />
+<%= f.select(:havebeen,  ["ja", "nein", "zum Teil"].collect,:prompt => "Bitte wählen") %>
+</p>
+<p><%=f.label :reason, "Was ist der Anlass für diesen Workshop? " %><br />
+<%= f.text_area :reason, :class => 'textfeldgroesse6', :size => '60', :maxlength => 255 %>
+</p>
+<p><%= rationing %></p>
+<table>
+   <tr>
+   <td align ="left"><%=f.label :food, "Ja/Nein " %></td>&nbsp;
+   <td><%= f.select(:food, ["nein", "ja"].collect, {},
+    {:onchange=>" write_foodnr('workshop_food','workshop_foodnumber')"} ) %>&nbsp;&nbsp;</td>
+
+   <td><%=f.label :foodnumber, "Personen: " %></td>
+   <td style="font-weight:normal;">
+      <%if @workshop.food=='ja'%>
+      <%= f.text_field :foodnumber, :size => '4',:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'workshop_foodnumber','Dieses Feld darf nur Zahlen enthalten.')",
+          :disabled =>false %>
+    <%else%>
+      <%= f.text_field :foodnumber, :size => '4',:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'workshop_foodnumber','Dieses Feld darf nur Zahlen enthalten.')",
+          :disabled =>true %>
+    <%end%>
+   </td>
+   </tr>
+</table>
+<p><%=f.label :remarc, "Anmerkungen " %><br />
+<%= f.text_area :remarc, :class => 'textfeldgroesse6', :size=> '60', :maxlength => 255 %>
+</p>
+<h5>Informationen f&uuml;r bayerische Schulklassen</h5>
+<p>Die Bayerische Landeszentrale f&uuml;r Politische Bildungsarbeit gew&auml;hrt f&uuml;r bayerische Schulklassen
+   einen Fahrtkostenzuschuss. Weitere Kontaktdaten f&uuml;r die Antragstellung erhalten Sie unter folgender
+   Internetadresse: <%= link_to 'http://www.km.bayern.de/blz/gedenkstaetten/klassenfahrten.asp', 'http://www.km.bayern.de/blz/gedenkstaetten/klassenfahrten.asp' %> oder unter der Tel.nr.:
+    089/2186-2175. Die Beantragung muss von den Lehrkr&auml;ften selbst vorgenommen werden.<br />
+    Zur vollst&auml;ndigen Abwicklung wird eine Besuchsbest&auml;tigung ben&ouml;tigt, die am Tag des Besuchs
+    im Besucherzentrum der Gedenkst&auml;tte an der Information abgeholt werden muss.</p>
+<p style="font-family: Verdana, sans-serif;font-size: 11pt; color:red;
+        font-weight: bold;"><%= flash[:notice2] %></p>
+<p style="margin-left: 2em;"> <%= show_simple_captcha(:label => "* Geben Sie diesen Code ein (Pflichtfeld)", :distortion => 'medium',
+        :image_style => 'simple_blue') %> </p>
+<p>
+    <%= f.submit "Formular Absenden" %>
+</p><br /></div>
+<% end %>
+
+</body>

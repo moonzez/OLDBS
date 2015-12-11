@@ -1,0 +1,74 @@
+<p><font size="4"><b>Anmeldung zum Workshop "Worte finden f&uuml;r das Unfassbare"</b></font></p>
+<font size=2>
+<table>
+  <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+  <tr><td><b>Ansprechperson</b></td><td></td></tr>
+  <tr><td><i>Anrede:</i></td><td><%= @workshop.gender %></td></tr>
+   <tr >
+     <td><i>Name:</i></td><td><%= change_umlaut(@workshop.lastname) %></td>
+     <td><i>Vorname:</i></td><td><%= change_umlaut(@workshop.firstname) %></td>
+   </tr>   
+   <tr>
+     <td><i>Tel. dienstlich:</i></td><td><% if !@workshop.telbus.blank? %><%= @workshop.telbus %><% else %>___<% end %> </td>
+     <td><i>Uhrzeit:</i></td><td><% if !@workshop.telbusTime.blank? %><%= @workshop.telbusTime %><% else %>___<% end %></td>
+   </tr>      
+   <tr>
+     <td><i>Tel. privat:</i></td><td><% if !@workshop.telpriv.blank? %><%= @workshop.telpriv %><% else %>___<% end %></td>
+     <td><i>Uhrzeit:</i></td><td><% if !@workshop.telprivTime.blank? %><%= @workshop.telprivTime %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>E-Mail:</i></td><td><%= @workshop.email %></td>
+     <td><i>Fax:</i></td><td><% if !@workshop.fax.blank? %><%= @workshop.fax %><% else %>___<% end %></td>
+   </tr>
+  </table></font>
+
+<font size=2>
+  <table>
+   <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+   <tr><td><b>Schule/Institution</b></td><td></td></tr>
+   <tr>
+     <td><i>Name:</i></td><td><%= change_umlaut(@workshop.schoolname) %></td>
+     <td><i>Schultyp:</i></td><td><% if !@workshop.schooltype.blank? %><%= change_umlaut(@workshop.schooltype) %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>Stra&szlig;e/Haus:</i></td><td><%= change_umlaut(@workshop.street) %></td>
+     <td><i>Ort:</i></td><td><%= change_umlaut(@workshop.city) %></td>
+   </tr>
+   <tr>
+     <td><i>PLZ:</i></td><td><%= @workshop.zip %></td>
+     <td><i>Land:</i></td><td><%= change_umlaut(@workshop.country) %></td>
+   </tr>
+  </table></font>
+
+  <p align="left"><font size=2><b>Termin</b> <i>am:</i>  <%= change_date(@workshop.date1) %></font></p>
+
+<font size=2>
+  <table>
+   <tr><th width="400"></th><th width="100"></th><th width="300"></th><th width="100"></th><th width="300"></th><th width="100"></th></tr>
+   <tr><td><b>Angaben zur Gruppe/Klasse</b></td><td></td><td></td></tr>
+   <tr>
+     <td><i>Anzahl TeilnehmerInnen:</i></td><td><%= @workshop.participnumber %></td>
+     <td><i>davon m&auml;nnlich:</i></td><td><% if !@workshop.male.blank? %><%= @workshop.male %><% else %>___<% end %></td>
+     <td ><i>davon weiblich:</i></td><td><% if !@workshop.female.blank? %><%= @workshop.female %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>Alter (min. 14 Jahre):</i></td><td><% if !@workshop.age.blank? %><%= @workshop.age %><% else %>___<% end %></td>
+     <td><i>Schulstufe:</i></td><td><% if !@workshop.schoolgrade.blank? %><%= @workshop.schoolgrade %><% else %>___<% end %></td>
+     <td><i>Anzahl Betreuer:</i></td><td><% if !@workshop.teamleader.blank? %><%= @workshop.teamleader %><% else %>___<% end %></td>
+   </tr>
+  </table></font>
+  <br/>
+    <p align="left"><font size=2><i>Kennen die TeilnehmerInnen die KZ-Gedenkst&auml;tte Dachau bereits?</i>  <% if !@workshop.havebeen.blank? %><%= @workshop.havebeen %><% else %>___<% end %></font></p>
+      
+  <p align ="left"><font size=2><i>Was ist der Anlass f&uuml;r dieses Seminar?</i></font></p>
+  <p align="left"><font size=2><% if @workshop.reason.blank? %>___<% else %><%= change_umlaut(@workshop.reason) %><% end %></font></p>
+
+  <p align="left"><font size=2><i>Steht der Besuch der Gedenkst&auml;tte im Rahmen eines l&auml;ngeren Aufenthaltes in M&uuml;nchen?</i></font></p>
+  <p align ="left"><font size=2><% if @workshop.municstay.blank? %>___<% else %><%= change_umlaut(@workshop.municstay) %><% end %></font></p>
+
+  <p align="left"><font size=2><i>Die Verpflegung der Teilnehmer (Mittagessen).</i></font></p>
+  <p align="left"><font size=2><%= @workshop.food %>&nbsp; <%= @workshop.foodnumber %></font></p>
+
+  <p align="left"><font size=2><b>Anmerkungen/eigene W&uuml;nsche </b></font></p>
+  <p align ="left"><font size=2><% if @workshop.remarc.blank? %>___<% else %><%= change_umlaut(@workshop.remarc) %><% end %></font></p>
+

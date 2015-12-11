@@ -1,0 +1,23 @@
+<br/>
+<% form_tag :action => "referent_otour", :id => @referent, :opentour_id => @opentour.id  do %>
+<% form_for(@referent) do |f| %>
+  <table>
+    <tr>
+      <td><%= label :adresse, "Adresse:" %></td><td><%= f.text_field :email, :readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= label :betreff, "Betreff:" %></td><td>Bestätigung: <%if @opentour.opentype == "THEMENFÜHRUNG" %>Themenführung<%  else %>offene Führung<% end %> am <%= @opentour.date.strftime("%d.%m.%Y") %> um <%= @opentour.time.strftime("%H:%M") %></td>
+    </tr>
+    <tr>
+      <td></td><td><%= label :text, "Text:" %></td>
+    </tr>
+    <tr>
+      <td></td><td><%= text_area_tag :text, @mail_text, :size => '100x30' %></td>
+    </tr>
+</table>
+<br/>
+<%= submit_tag "Senden" %>
+<% end %>
+<% end %>
+<br/>
+

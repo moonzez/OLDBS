@@ -1,0 +1,30 @@
+Dear <%= @tour.gender %> <%= @tour.lastname %>,
+
+Thank you very much for your interest in a tour of the memorial site.
+
+Your enquiry has been registered with the following information
+
+Desired date: <%= @tour.date1.strftime("%d.%m.%Y") %> 
+Starting time: <%= @tour.from1.strftime("%H:%M") %>
+<% if !@tour.date2.blank? %>2.desired date: <%= @tour.date2.strftime("%d.%m.%Y") %>
+Starting time: <%= @tour.from2.strftime("%H:%M") %><% end  %>
+<% if !@tour.date3.blank? %>3.desired date: <%= @tour.date3.strftime("%d.%m.%Y") %>
+Starting time: <%= @tour.from3.strftime("%H:%M") %><% end  %>
+Language: <%= @tour.language %>
+Number of participants: <%= @tour.participnumber %>
+
+Please note: This is not a confirmation of your desired date, but a registration of your enquiry.
+
+Before long you will be receiving written confirmation from us.
+
+Thank you again for your interest.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

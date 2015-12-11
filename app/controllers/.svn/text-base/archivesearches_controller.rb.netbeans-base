@@ -1,0 +1,23 @@
+class ArchivesearchesController < ApplicationController
+  layout "archiv"
+
+  def new
+    @archiv = Archivesearch.new
+  end
+  
+  def create
+    @archiv = Archivesearch.new(params[:archivesearch])
+    respond_to do |format|
+      if @archiv.valid?
+        format.html { redirect_to(:action=> 'show') }
+        RequestMailer.deliver_archivesearch_mail(@archiv)
+      else
+        format.html { render :action => "new" }
+      end
+    end
+  end
+
+  def show
+  end
+
+end

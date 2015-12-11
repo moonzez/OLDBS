@@ -1,0 +1,37 @@
+<h2 align = center>Workshops</h2>
+<table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+    <th colspan="4" >Best&auml;tigter Termin</th>
+    <th rowspan="2">Schule/<br>Institution</th>
+    <th rowspan="2">Teil-<br>nehmer</th>
+    <th rowspan="2">E-Mail<br/>gesendet</th>
+    <th rowspan="2">Bezahlt</th>
+  </tr>
+  <tr> 
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+ </tr>
+
+<% workshops.each do |work| %>
+  <tr>
+    <td><%=h change_date(work.thedate) %></td>
+    <td><%=h get_day(work.thedate) %></td>
+    <td><%=h change_time(work.thefrom) %></td>
+    <td><%=h change_time(work.theto) %></td>
+    <td><%=h work.schoolname %></td>
+    <td><%= work.participnumber %> </td>
+    <% @workreferent = Workreferent.find_by_workshop_id_and_referent_id(work.id, @referent.id) %>
+    <% if @workreferent.mailsend == 0 %><td>nein</td><% else %><td><%= @workreferent.maildate %> </td><% end %>
+    <% if @workreferent.paid == 'nein' %>
+    <td><%=h @workreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Zahlen">', 
+        {:controller => 'referents', :action => 'zahlen_work', :id => @referent.id, :workref => @workreferent.id, :startdata => @start, :enddata => @end } %> </td>
+    <% else %>
+    <td><%=h @workreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+        {:controller => 'referents', :action => 'nicht_zahlen_work', :id => @referent.id, :workref => @workreferent.id, :startdata => @start, :enddata => @end } %> </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<br/><br/>

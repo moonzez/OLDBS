@@ -1,0 +1,4 @@
+<p align="center">Thanks! Your request was successfully submitted.
+</p><br/>
+<p align="center"><%= link_to 'Back to the Visitor Information',
+  'http://www.kz-gedenkstaette-dachau.de/index-e.html' %></p>

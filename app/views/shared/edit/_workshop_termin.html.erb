@@ -1,0 +1,16 @@
+<tr>
+  <td><%= number %>. Termin</td>
+  <td><%=f.label date, "#{if duty then '*' end}am:" %> </td> 
+  <td><%= calendar_date_select_tag "date1", @workshop[date], :year_range => 0.years.ago..5.years.from_now, :popup => "force",
+    :onchange => "set_date($F(this),'workshop_" + date.to_s + "');"%><%= f.hidden_field date %></td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%=f.label from, "von:"%></td>
+  <td> <%= f.text_field from , :size =>4, :readonly => "true", :value => "09:30" %></td>     
+  <td>&nbsp;&nbsp;</td>
+  <td><%=f.label to, "bis:"%></td> 
+  <td> <%= f.text_field to, :size =>4, :readonly => "true", :value => "17:00" %></td>  
+  <td>&nbsp;&nbsp;</td>
+  <td><%= image_tag("datumpfeil.png",:width =>"30", :title=>"Daten für den best&auml;tigten Termin verwenden",
+      :alt =>"&uuml;bernehmen", :mouseover => "datumpfeil_mouseover.png",
+      :onclick => "take_datum_work('workshop_date1','workshop_from1','workshop_to1')") %></td>  
+</tr>

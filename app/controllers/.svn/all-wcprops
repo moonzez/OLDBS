@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/subversion/repo/!svn/ver/2018/BS/app/controllers
+END
+errors_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/subversion/repo/!svn/ver/2013/BS/app/controllers/errors_controller.rb
+END
+htseminars_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/2036/BS/app/controllers/htseminars_controller.rb
+END
+referents_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1961/BS/app/controllers/referents_controller.rb
+END
+opentours_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1893/BS/app/controllers/opentours_controller.rb
+END
+workshops_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1868/BS/app/controllers/workshops_controller.rb
+END
+application.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1968/BS/app/controllers/application.rb
+END
+referees_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1857/BS/app/controllers/referees_controller.rb
+END
+ts_requests_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/2037/BS/app/controllers/ts_requests_controller.rb
+END
+users_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1676/BS/app/controllers/users_controller.rb
+END
+administrators_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1581/BS/app/controllers/administrators_controller.rb
+END
+archives_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/2018/BS/app/controllers/archives_controller.rb
+END
+detours_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/2035/BS/app/controllers/detours_controller.rb
+END
+sessions_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1676/BS/app/controllers/sessions_controller.rb
+END
+dbusers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1954/BS/app/controllers/dbusers_controller.rb
+END

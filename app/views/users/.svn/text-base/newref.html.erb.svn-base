@@ -1,0 +1,51 @@
+<% if admin? %>
+<head>
+  <title>Referente als DB-Nutzer hinzuf&uuml;gen</title>
+</head>
+<h1 align = center>Referente als DB-Nutzer hinzuf&uuml;gen</h1><hr /><br /><br />
+
+<% form_tag :action => "create_refuser", :refid => @referee.id do %>
+
+<% form_for(@user) do |f| %>
+  <div class="xujError"><%= f.error_message_on :login %></div>
+  <div class="xujError"><%= f.error_message_on :password %></div>
+  <div class="xujError"><%= f.error_message_on :password_confirmation %></div>
+<table>  
+  <tr>
+    <td><%=f.label :firstname, "Vorname:" %></td>
+    <td><%= text_field_tag :firstname, @referee.firstname, {:maxlength => 255, :size => 30, :readonly => true} %></td>
+  </tr>
+   <tr>
+    <td><%=f.label :lastname, "Nachname:" %></td>
+    <td><%= text_field_tag :lastname, @referee.lastname, {:maxlength => 255, :size => 30, :readonly => true} %></td>
+  </tr>
+  
+   <tr>
+    <td><%=f.label :role, "Rechte:" %></td>
+    <td><%= text_field_tag :role, 'referee',{:maxlength => 255, :size => 30, :readonly => true} %></td>
+   </tr>
+
+   <tr>
+    <td><%=f.label :login, "Login:" %></td>
+    <td><%= f.text_field :login, :maxlength => 40,:size => 30  %></td>
+   </tr>
+
+   <tr>
+    <td><%=f.label :password, "Password:" %></td>
+    <td><%= f.text_field :password, :maxlength => 40,:size => 30 %></td>
+   </tr>
+    
+   <tr>
+    <td><%=f.label :password_confirmation, "Password wiederholen:" %></td>
+    <td><%= f.text_field :password_confirmation, :maxlength => 40 ,:size => 30 %></td>
+   </tr>
+</table>
+
+<%= render :partial => "dbusers/save_back_button" %>
+
+<% end %>
+<% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

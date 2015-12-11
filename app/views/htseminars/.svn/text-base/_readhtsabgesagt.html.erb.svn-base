@@ -1,0 +1,50 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+  <thead>
+  <tr>
+    <th colspan="4">Angefragter Termin</th>
+    <th rowspan="2">Alternative <br> Termine </th>
+    <th rowspan="2">Eingangs-<br>datum</th>
+    <th colspan="2">Kontaktperson</th>
+    <th rowspan="2">Sprache</th>
+    <th rowspan="2">Schule/<br>Institution</th>
+    <th rowspan="2">TN</th>
+    <th rowspan="2">Re.<br/>Nr.</th>
+    <th rowspan="2">Re.<br/>bez.</th>
+    <th rowspan="2" style="color:#d9d5d5;">d</th>   
+  </tr>
+  <tr>
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+    <th>Name</th>
+    <th>Handynummer</th>
+ </tr>
+</thead>
+<tbody id="myTableBody">
+<% @htsdenied.each do |hts| %>
+  <tr>
+        <td><%=h change_date(hts.date1)%></td>
+        <td><%=h get_day(hts.date1) %></td>
+        <td><%=h change_time(hts.from1) %></td>
+        <td><%=h change_time(hts.to1) %></td>     
+        <td><% if hts.date2 or hts.date3 %>ja<% else %>nein<% end %></td>
+        <td><%=h change_date(hts.created_at) %></td>
+        <td><%=h get_de_gender(hts.gender) %> <%=h hts.lastname %></td>
+        <td><%=h hts.cellphone %></td>
+        <td align="center"><%=h get_language_de(hts.language) %></td>
+        <td><%=h hts.schoolname %></td>
+        <td><%=h hts.participnumber %></td>
+        <td><%=h hts.invoice_number %></td>
+        <td><%=h hts.paid %></td>
+        <td></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<script type="text/javascript">
+var tbody=document.getElementById('myTableBody');
+if(tbody.scrollHeight<=300) tbody.style.height="auto";
+</script>
+</div>

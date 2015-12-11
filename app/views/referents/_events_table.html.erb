@@ -1,0 +1,48 @@
+<% if !@dates_array.empty? %>
+  
+  <table id="small" cellspacing="3" cellpadding="5" style="width:95%">
+    <tr>
+      <th>Datum</th>
+      <th>Tag</th>
+      <th>Uhrzeit</th>
+      <th>Gruppenname</th>
+      <th>Gruppen</th>
+      <th>Teilnehmer</th>
+      <th>Veranstaltung</th>
+      <th>Sprache</th>
+      <th>E-Mail gesendet</th>
+      <th>Bezahlt</th>
+    </tr>
+    <% @dates_array.each do |date| %>
+      <% events = @all_events[date] %>
+      <% events.each do |event| %>
+        <tr align="left">
+          <td><%= change_date(date) %></td>
+          <td><%= get_day(date) %></td>
+          <td><%= get_event_time(event) %></td>
+          <td><%= event.schoolname if event.respond_to?(:schoolname) %></td>
+          <td><%= event.groupnumber if event.respond_to?(:groupnumber) %></td>
+          <td><%= event.participnumber %> </td>
+          <td><%= get_german_event_name(event) %></td>
+          <td><%= event.language if event.respond_to?(:language) %></td>
+          <% eventref = get_eventref(event, @referent) %>
+          <td><%= change_date(check_event_mail_send(event, eventref)) %></td>
+          <td align="right"><%= eventref.paid %>
+              <% if eventref.paid == 'nein' %>
+                <%= link_to('<img src="/images/edit.png" width="20" title="Zahlen">', { :controller => 'referents', :action => 'pay_event', :id => @referent.id, :eventref => eventref.id, :event_class => event.class.name }) %>
+              <% else %>
+                <%= link_to('<img src="/images/edit.png" width="20" title="Zahlen">', { :controller => 'referents', :action => 'no_pay_event', :id => @referent.id, :eventref => eventref.id, :event_class => event.class.name }) %>
+              <% end %>
+          </td>        
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+<% end %>
+
+<% if @dates_array.empty? %>
+  <br/>
+  <table id="small" cellpadding="10">
+    <tr><td><b>Keine Veranstaltungen in dieser Periode!</b></td></tr>
+  </table>
+<% end %>

@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td>E-Mail-Absage:</td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', { :action => 'denialmail', :id => @detour.id }, :title => 'Wird per Email gesendet!' %></td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'englisch <img src="/images/mail.jpg" width="15">', { :action => 'engdenialmail', :id => @detour.id }, :title => 'Wird per Email gesendet!' %></td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', { :action => 'itdenialmail', :id => @detour.id }, :title => 'Wird per Email gesendet!' %></td>
+    <td>&nbsp;&nbsp;</td>
+    <td><%= link_to 'französisch <img src="/images/mail.jpg" width="15">', { :action => 'frdenialmail', :id => @detour.id }, :title => 'Wird per Email gesendet!' %></td>
+  <% if @detour.denial_sent == 'ja' %>    
+      <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :denial_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@detour.denial_date)%></td>          
+    <% end %>
+  </tr> 
+</table>

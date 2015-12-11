@@ -1,0 +1,37 @@
+Sehr<% if @ts.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @ts.gender %> <%= @ts.lastname %>,
+
+hiermit bestätigen wir Ihnen Ihr gebuchtes Tagesseminar "<%= @ts.topic %>" am <%= get_vollday(@ts.thedate) %>, den <%= @ts.thedate.strftime("%d.%m.%Y") %> um <%= @ts.thefrom.strftime("%H:%M") %> Uhr für <%= @ts.groupnumber %><% if @ts.groupnumber == 1 %> Gruppe. <% else %> Gruppen. <%  end %>
+
+<% if @ts.food == 'ja' %>Das Mittagessen im Cafe des Besucherzentrums ist für Sie ebenfalls gebucht. <% end %>
+
+Sie treffen die Referenten an der Infotheke im Besucherzentrum am Eingang zur KZ-Gedenkstätte Dachau. Bei Fragen vor Ort wenden Sie sich bitte an den Informationsservice im Besucherzentrum.
+
+Sollten Sie sich verspäten, bitten wir unter 0049-8131-669970 um einen kurzen Anruf.
+
+Im Anhang zur Mail finden Sie folgenden Dokumente:
+- Rechnung
+- Fragebogen
+- Faltblatt mit allgemeinen Informationen
+- Gebührenordnung!
+- Besucherordnung
+
+Wir bitten Sie, den Fragebogen nach dem Besuch in der Gedenkstätte ausgefüllt an uns zurückzusenden. Dies ist für uns und unsere Arbeit sehr wichtig.
+
+Des Weiteren möchten wir Sie darauf hinweisen, dass Sie zur Vorbereitung des Gedenkstättenbesuchs über unsere Homepage einen virtuellen Rundgang durch das Gelände der Gedenkstätte abrufen können. Der Einstieg gestaltet sich durch eine Gegenüberstellung zweier Luftaufnahmen, die das Areal aus dem Jahr 1945 mit den heutigen topografischen Gegebenheiten vergleichen: http://www.kz-gedenkstaette-dachau.de/gedenkstaette/topografie.html
+
+Für weitere Fragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.
+
+Ich danke Ihnen für Ihr Engagement.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

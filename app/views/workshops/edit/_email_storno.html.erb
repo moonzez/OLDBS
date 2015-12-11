@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <td>
+      <%= link_to 'E-Mail (Stornierung) senden <img src="/images/mail.jpg" width="15">', 
+        { :action => 'stornomail', :id => @workshop.id } %>
+    </td>
+    <% if @workshop.storno_sent == 'ja' %>    
+      <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :storno_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@workshop.storno_date)%></td>          
+    <% end %>
+  </tr> 
+</table>

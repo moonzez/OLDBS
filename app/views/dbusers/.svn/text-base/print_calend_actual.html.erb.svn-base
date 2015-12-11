@@ -1,0 +1,80 @@
+<head></head>
+<body onload ="javascript:window.print()">
+  
+  <h3 align="center" style="margin:4px;">
+    Alle Veranstaltungen vom <%= get_output_germ_date(@today)%>  bis zum <%= get_output_germ_date(@lastday)%>
+  </h3>
+  <% @daten.each do |d|%>
+    <h3 align="center" style="margin:4px;"> <%=  get_full_germ_day(d) %> &nbsp; <%= d.strftime("%d.%m.%Y") %> </h3>
+  
+    <% @detoursbest = Array.new %>
+    <% if @daten1.include?(d) %>   
+      <% @detoursbest = @d_b.select{|detb| detb.thedate == d}.sort_by{|det| det.thefrom}%> 
+      <% @grb  = @detoursbest.collect(&:groupnumber).sum %>      
+      <h4 align="center" style="margin:2px;">
+        Best&auml;tigte Rundg&auml;nge: <%=h @detoursbest.size%>&nbsp;&nbsp;&nbsp;
+        Gruppenanzahl: <%=h @grb%> 
+      </h4>
+      <%= render :partial => "detours/print_tourb" %>
+    <%end%>
+  
+    <% @detoursoffen = Array.new %>
+    <% if @daten2.include?(d) %>  
+      <% @detoursoffen = @d_o.select{|deto| deto.date1 == d }.sort_by{|det| det.from1}%>
+      <% @gro  = @detoursoffen.collect(&:groupnumber).sum %> 
+      <h4 align="center" style="margin:2px;">
+        Offene Rundg&auml;nge: <%=h @detoursoffen.size%>&nbsp;&nbsp;&nbsp;
+        Gruppenanzahl: <%=h @gro%> 
+      </h4>
+      <%= render :partial => "detours/print_touro" %>
+    <%end%>
+  
+    <% @tsbest = Array.new %>
+    <% if @daten3.include?(d) %>  
+      <% @tsbest = @ts_b.select{|tsb| tsb.thedate == d }.sort_by{|ts| ts.thefrom} %>
+      <h4 align="center" style="margin:2px;">Best&auml;tigte Tagesseminare: <%=h @tsbest.size%> </h4>
+      <%= render :partial => "ts_requests/print_tsb" %>
+    <%end%>
+  
+    <% @tsoffen = Array.new %>
+    <% if @daten4.include?(d) %>  
+      <% @tsoffen = @ts_o.select{|tso| tso.date1 == d }.sort_by{|ts| ts.from1}%>
+      <h4 align="center" style="margin:2px;">Offene Tagesseminare: <%=h @tsoffen.size%> </h4>
+      <%= render :partial => "ts_requests/print_tso" %>
+    <%end%>
+  
+    <% @htsbest = Array.new %>
+    <% if @daten5.include?(d) %>  
+      <% @htsbest = @hts_b.select{|htsb| htsb.thedate == d }.sort_by{|hts| hts.thefrom} %>
+      <h4 align="center" style="margin:2px;">Best&auml;tigte Halbtagesseminare: <%=h @htsbest.size%></h4>
+      <%= render :partial => "htseminars/print_htsb" %>
+    <%end%>
+  
+    <% @htsoffen = Array.new %>
+    <% if @daten6.include?(d) %>  
+      <% @htsoffen = @hts_o.select{|htso| htso.date1 == d }.sort_by{|hts| hts.from1}%>
+      <h4 align="center" style="margin:2px;"> Offene Halbtagesseminare: <%=h @htsoffen.size%> </h4>
+      <%= render :partial => "htseminars/print_htso" %>
+    <%end%>
+  
+    <% @workbest = Array.new %>
+    <% if @daten7.include?(d) %>  
+      <% @workbest = @w_b.select{|wb| wb.thedate == d } %>
+      <h4 align="center" style="margin:2px;">Best&auml;tigte Workshops: <%=h @workbest.size%></h4>
+      <%= render :partial => "workshops/print_workb" %>
+    <%end%>
+  
+    <% @workoffen = Array.new %>
+    <% if @daten8.include?(d) %>  
+      <% @workoffen = @w_o.select{|wo| wo.date1 == d }%>
+      <h4 align="center" style="margin:2px;"> Offene Workshops: <%=h @workoffen.size%> </h4>
+      <%= render :partial => "workshops/print_worko" %>
+    <%end%>
+  
+    <%if( @detoursbest.size==0 && @detoursoffen.size==0 && @tsbest.size==0  && @tsoffen.size==0  && 
+          @htsbest.size==0  && @htsoffen.size==0 && @workbest.size==0 && @workoffen.size==0)%>
+      <h4 align="center">Keine Veranstaltungen an diesem Tag! </h4>     
+    <%end%>
+    <hr>
+  <%end%>
+</body>

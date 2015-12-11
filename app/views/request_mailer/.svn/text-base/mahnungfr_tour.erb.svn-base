@@ -1,0 +1,21 @@
+<% if @tour.gender == 'Frau' %>Madame<% else %>Monsieur<% end %> <%= @tour.lastname %>,
+
+Vous avez participé avec un groupe à une visite guidée au Mémorial du camp de concentration de Dachau le le <%= get_full_fr_day(@tour.thedate) %> <%= @tour.thedate.strftime("%d.%m.%Y") %> à <%= @tour.thefrom.strftime("%H:%M") %> heures pour <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> groupe<% else %> groupes<% end %>.
+Vous avez dès lors reçu une facture d’un montant de <%= @tour.groupnumber * 70 %> Euros le <%= @tour.zv_date.strftime("%d.%m.%Y") %>.
+Après vérification des entrées de paiements, nous avons malheureusement constaté qu’aucun versement correspondant aux frais de visites guidées pour un groupe n’a été effectué sur notre compte de la Fondation des mémoriaux de Bavière.
+Nous vous prions de bien vouloir vérifier une fois de plus et de verser éventuellement le montant des frais rétroactivement sur le compte suivant :
+
+Titulaire du compte :  KZ-Gedenkstätte Dachau
+Banque :          HypoVereinsbank München
+Code bancaire (BLZ) :           700 202 70
+Numéro de compte :      15101860
+IBAN :          DE71700202700015101860
+BIC :           HYVEDEMMXXX
+
+Au cas où vous auriez déjà versé le montant, nous vous prions de bien vouloir vous mettre en contact avec nous, afin de pouvoir clarifier la situation.
+ 
+Nous vous remercions à l’avance pour vos efforts. 
+
+Sincères salutations
+<%= current_user.firstname %> <%=  current_user.lastname %>
+

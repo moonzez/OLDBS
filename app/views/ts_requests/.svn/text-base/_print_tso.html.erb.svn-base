@@ -1,0 +1,34 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;">
+  <thead>
+    <tr>
+      <th rowspan="2">Eingangs-<br>datum</th>
+      <th rowspan="2">Kontakt</th>
+      <th colspan="2">Angefragter Termin</th>
+      <th rowspan="2">Alternative <br> Termine </th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Verpfl.</th>
+    </tr>
+    <tr>
+      <th>Datum</th>                        
+      <th>Von-Bis</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <% @tsoffen.each do |ts| %>
+      <tr>
+        <td align="center"><%=h change_date(ts.created_at) %></td>
+        <td align="center"><%=h ts.gender %><br/><%=h ts.lastname %></td>
+        <td align="center"><%=h change_date(ts.date1) %><br/><%=h get_german_day(ts.date1) %></td>
+        <td align="center"><%=h change_time(ts.from1) %><br/><%=h change_time(ts.to1) %></td>
+        <td align="center"><% if ts.date2 or ts.date3 %> ja <%else %> nein <%  end %> </td>
+        <td align="center"><%=h ts.schoolname %></td>
+        <td align="center"><%=h ts.city %></td>
+        <td align="center"><%=h ts.participnumber %></td>
+        <td align="center"><% if (ts.food=="ja" ) %> ja <%else %> nein <%end%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

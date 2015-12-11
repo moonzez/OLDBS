@@ -1,0 +1,5 @@
+<br />
+<p align ="center">
+  Sie sind nicht angemeldet. Bitte melden Sie sich an.<br /> 
+  <%= link_to "Login", login_path %>
+</p>

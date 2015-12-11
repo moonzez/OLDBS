@@ -1,0 +1,183 @@
+<% if admin? or dbuser? or accounter? %>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%> 
+  <head>
+    <title>Referenten zu bezahlen </title>
+  </head>
+
+  <h1 align="center">Zu bezahlen</h1><hr/><br/>
+
+  <h2 align = center>Rundg&auml;nge</h2>
+
+  <table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+      <th>Datum</th>
+      <th>Referent</th>
+      <th>Tag</th>
+      <th>Von</th>
+      <th>Bis</th>
+      <th>Schule/<br>Institution</th>
+      <th>Teil-<br>nehmer</th>
+      <th>Gr.</th>
+      <th>Sprache</th>
+      <th>Nicht bezahlt</th>
+    </tr>
+  
+    <% @tourresult.each do |onetour| %>
+      <% @tour = onetour.detour %>
+      <% @ref = onetour.referent %>
+      
+      <tr>
+        <td><%= link_to change_date(@tour.thedate), {:controller => 'detours', :action => :edit, :id => onetour.detour_id} %></td>
+        <td><%= link_to @ref.lastname+" "+@ref.firstname, {:action => 'events', :id => onetour.referent_id}%> </td>
+        <td><%=h get_day(@tour.thedate) %></td>
+        <td><%=h change_time(@tour.thefrom) %></td>
+        <td><%=h change_time(@tour.theto) %></td>
+        <td><%=h @tour.schoolname %></td>
+        <td><%= @tour.participnumber %> </td>
+        <td><%=h @tour.groupnumber %></td>
+        <td><%=h get_language_de(@tour.language) %></td>
+        <td>Zahlen <%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+          {:controller => 'referents', :action => 'zahlen_tour2', :id => @ref.id, :tourref => onetour.id } %> </td>
+      </tr>
+    <% end %>
+  </table><br/>
+
+  <h2 align = center>Tagesseminare</h2>
+
+  <table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+      <th>Datum</th>
+      <th>Referent</th>
+      <th>Tag</th>
+      <th>Von</th>
+      <th>Bis</th>
+      <th>Schule/<br>Institution</th>
+      <th>Teil-<br>nehmer</th>
+      <th>Gr.</th>
+      <th>Nicht bezahlt</th>
+    </tr>
+  
+    <% @tsresult.each do |onets| %>
+      <% @ts = onets.ts_request %>
+      <% @ref = onets.referent %>
+      
+      <tr>
+        <td><%= link_to change_date(@ts.thedate), {:controller => 'ts_requests', :action => :edit, :id => onets.ts_request_id} %></td>
+        <td><%= link_to @ref.lastname+" "+@ref.firstname, {:action => 'events', :id => onets.referent_id}%> </td>
+        <td><%=h get_day(@ts.thedate) %></td>
+        <td><%=h change_time(@ts.thefrom) %></td>
+        <td><%=h change_time(@ts.theto) %></td>
+        <td><%=h @ts.schoolname %></td>
+        <td><%= @ts.participnumber %> </td>
+        <td><%=h @ts.groupnumber %></td>
+        <td>Zahlen <%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+          {:controller => 'referents', :action => 'zahlen_ts2', :id => @ref.id, :tsref => onets.id } %> </td>
+      </tr>
+    <% end %>
+  </table><br/>
+
+  <h2 align = center>Halbtagesseminare</h2>
+
+  <table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+      <th>Datum</th>
+      <th>Referent</th>
+      <th>Tag</th>
+      <th>Von</th>
+      <th>Bis</th>
+      <th>Schule/<br>Institution</th>
+      <th>Teil-<br>nehmer</th>
+      <th>Gr.</th>
+      <th>Nicht bezahlt</th>
+    </tr>
+  
+    <% @htsresult.each do |onehts| %>
+      <% @hts = onehts.htseminar %>
+      <% @ref = onehts.referent %>
+      
+      <tr>
+        <td><%= link_to change_date(@hts.thedate), {:controller => 'htseminars', :action => :edit, :id => onehts.htseminar_id} %></td>
+        <td><%= link_to @ref.lastname+" "+@ref.firstname, {:action => 'events', :id => onehts.referent_id}%> </td>
+        <td><%=h get_day(@hts.thedate) %></td>
+        <td><%=h change_time(@hts.thefrom) %></td>
+        <td><%=h change_time(@hts.theto) %></td>
+        <td><%=h @hts.schoolname %></td>
+        <td><%= @hts.participnumber %> </td>
+        <td><%=h @hts.groupnumber %></td>
+        <td>Zahlen <%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+          {:controller => 'referents', :action => 'zahlen_hts2', :id => @ref.id, :htsref => onehts.id } %> </td>
+      </tr>
+    <% end %>
+  </table><br/>
+
+  <h2 align = center>Workshops</h2>
+
+  <table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+      <th>Datum</th>
+      <th>Referent</th>
+      <th>Tag</th>
+      <th>Von</th>
+      <th>Bis</th>
+      <th>Schule/<br>Institution</th>
+      <th>Teil-<br>nehmer</th>
+      <th>Nicht bezahlt</th>
+    </tr>
+  
+    <% @workresult.each do |onework| %>
+      <% @work = onework.workshop %>
+      <% @ref = onework.referent %>
+      
+      <tr>
+        <td><%= link_to change_date(@work.thedate), {:controller => 'workshops', :action => :edit, :id => onework.workshop_id} %></td>
+        <td><%= link_to @ref.lastname+" "+@ref.firstname, {:action => 'events', :id => onework.referent_id}%> </td>    
+        <td><%=h get_day(@work.thedate) %></td>
+        <td><%=h change_time(@work.thefrom) %></td>
+        <td><%=h change_time(@work.theto) %></td>
+        <td><%=h @work.schoolname %></td>
+        <td><%= @work.participnumber %> </td>
+        <td>Zahlen <%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+          {:controller => 'referents', :action => 'zahlen_work2', :id => @ref.id, :workref => onework.id } %> </td>
+      </tr>
+    <% end %>
+  </table>
+
+  <h2 align = center>Off. Führungen</h2>
+  <table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+      <th>Datum</th>
+      <th>Referent</th>
+      <th>Tag</th>
+      <th>Zeit</th>
+      <th>Sprache</th>
+      <th>Teil-<br>nehmer</th>
+      <th>Nicht bezahlt</th>
+    </tr>
+  
+    <% @openresult.each do |oneotour| %>
+      <% @otour = oneotour.opentour %>
+      <% @ref = oneotour.referent %>
+      <tr>
+        <td><%= link_to change_date(@otour.date), {:controller => 'opentours', :action => :edit, :id => oneotour.opentour_id} %></td>
+        <% if @ref %>
+          <td><%= link_to @ref.lastname+" "+@ref.firstname, {:action => 'events', :id => oneotour.referent_id}%> </td>
+        <% else %>
+          <td></td>    
+        <% end %>
+        <td><%=h get_day(@otour.date) %></td>
+        <td><%=h change_time(@otour.time) %></td>
+        <td><%=h @otour.language %></td>
+        <td><%= @otour.participnumber %> </td>
+        <% if @ref %>
+          <td>Zahlen&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Zahlen">', 
+          {:controller => 'referents', :action => 'zahlen_otour2', :id => @ref.id, :otourref => oneotour.id } %> </td>
+        <% else %>
+          <td></td>    
+        <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% else %>
+<%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

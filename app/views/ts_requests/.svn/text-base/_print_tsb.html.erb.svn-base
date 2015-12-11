@@ -1,0 +1,64 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;" >
+    <thead>
+        <tr>
+            <th colspan="2">Best&auml;tigter Termin</th>
+            <th rowspan="2">Kontakt</th>
+            <th rowspan="2">Schule/<br>Institution</th>
+            <th rowspan="2">Ort</th>
+            <th rowspan="2">TN</th>
+            <th rowspan="2">Gr.</th>
+            <th rowspan="2">Referent</th>    
+            <th rowspan="2">Verpfl.</th>
+            <th rowspan="2">Re.<br/>gest.</th>
+            <th rowspan="2">Re.<br/>bez.</th>
+        </tr>
+        <tr>
+            <th>Datum</th>                        
+            <th>Von-Bis</th>          
+        </tr>
+    </thead>
+    <tbody>
+        <% for ts in @tsbest %>
+            <tr>
+                <td align="center">
+                    <%=h change_date(ts.thedate) %><br/>
+                    <%=h get_german_day(ts.thedate) %>
+                </td>
+                <td align="center">
+                    <%=h change_time(ts.thefrom) %><br/>
+                    <%=h change_time(ts.theto) %>
+                </td>
+                <td align="center">
+                    <%=h ts.gender %><br/>
+                    <%=h ts.lastname %>
+                </td>
+                <td align="center"><%=h ts.schoolname %></td>
+                <td align="center"><%=h ts.city %></td>
+                <td align="center"><%=h ts.participnumber %></td>
+                <td align="center">
+                    <% if ts.groupnumber > ts.referents.count %>
+                        <b style="color:red"><%=h ts.groupnumber %></b><br/>
+                    <%else%>
+                        <b style="color:blue"><%=h ts.groupnumber %></b>
+                    <% end %> 
+                </td>
+                <td >
+                    <% if ts.groupnumber > ts.referents.count %>
+                        <b style="color:red"> Referenten fehlen!</b><br/>
+                        <% for ref in ts.referents %> 
+                            <%= ref.lastname %>, <%= ref.firstname %><br/>
+                        <% end %>
+                    <%else%>
+                        <% for r in ts.referents %> 
+                            <%= r.lastname %>, <%= r.firstname %> <br/>
+                        <% end %>
+                    <% end %> 
+                </td>      
+                <td align="center"><% if (ts.food=="ja" ) %> ja <%else %> nein <%end%></td>
+                <td align="center"><%=h ts.bill_sent %></td>
+                <td align="center" ><%=h format_paid_attr(ts.paid) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

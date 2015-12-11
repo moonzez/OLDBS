@@ -1,0 +1,9 @@
+
+if @htsbest.size==0 then   
+    page.replace_html 'htagesseminars' ,
+      '<b><p align="center" > Keine best&auml;tigte Halbtagesseminare in dieser Periode!</p></b><br/>'
+   page.visual_effect(:highlight, 'htagesseminars', :duration => 0.5)
+else
+    page.replace_html 'htagesseminars' ,:partial =>'htsb'
+    page.visual_effect(:highlight, 'htagesseminars', :duration => 0.5)
+end

@@ -1,0 +1,26 @@
+<% if admin? or dbuser? or accounter?%>
+  <head> <title>Bevorstehende offene F&uuml;hrungen</title>
+    <style type="text/css">     
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+  <h1>Bevorstehende offene F&uuml;hrungen</h1>
+
+  <body>
+    <table id="stat" cellpadding="10">
+      <tr><td align="center"><b>Heute ist der <%= get_output_germ_date(@today)%> <br> Offene F&uuml;hrungen vom <%= get_output_germ_date(@today)%> bis zum <%=  get_output_germ_date(@two_monthes)%> </b></td></tr>
+    </table><br/>
+  
+    <%= render :partial => "opentours/thisotours" %>
+  
+  </body>
+
+  <%= render :partial => "dbusers/backbutton" %> 
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

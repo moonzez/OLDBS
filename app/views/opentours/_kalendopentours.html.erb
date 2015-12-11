@@ -1,0 +1,39 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+  <table id ="form" align="center" cellpadding="10" style="width:100%">
+    <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Tag</th>
+        <th>Zeit</th>
+        <th>Sprache</th>
+        <th>Teilnehmerzahl</th>
+        <th>Referenten</th>
+        <th>Kommentare</th>
+        <th>Typ</th>
+        <th rowspan="2" style="color:#d9d5d5;"></th>
+      </tr>
+    </thead>
+    <% @opentactiv.each do |ot|%>
+        <tr>
+          <td><%= change_date(ot.date) %></td>
+          <td><%= get_german_day(ot.date) %></td>
+          <td><%= change_time(ot.time) %></td>
+          <td><%= ot.language %></td>
+          <td><%= ot.participnumber %></td>
+          <td>
+            <% if !ot.referent %>
+              <b style="color:red"> Referenten fehlen!</b><br/>
+            <% else %>
+              <%= ot.referent.lastname %>, <%= ot.referent.firstname %>
+            <% end %>
+          </td>
+          <td><%= ot.infocenter %></td>
+          <td><%= ot.opentype %></td>
+        </tr>
+    <% end %>
+  </table><br /><br />
+  <script type="text/javascript">
+    var tbody=document.getElementById('myTableBody');
+    if(tbody.scrollHeight<=350) tbody.style.height="auto";
+  </script>
+</div>

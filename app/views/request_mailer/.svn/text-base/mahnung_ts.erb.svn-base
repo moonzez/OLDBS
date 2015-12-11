@@ -1,0 +1,19 @@
+Sehr<% if @ts.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @ts.gender %> <%= @ts.lastname %>,
+
+Sie haben am <%= get_vollday(@ts.thedate) %>, den <%= @ts.thedate.strftime("%d.%m.%Y") %> um <%= @ts.thefrom.strftime("%H:%M") %> Uhr, mit <%= @ts.groupnumber %><% if @ts.groupnumber == 1 %> Gruppe <% else %> Gruppen <%  end %>an einem Tagesseminar an der KZ-Gedenkstätte Dachau teilgenommen. 
+Sie erhielten hierzu am <%= @ts.zv_date.strftime("%d.%m.%Y") %> die Rechnung über <%= @ts.groupnumber*120 %> Euro.
+Nach nochmaliger Überprüfung der Zahlungseingänge haben wir festgestellt, dass leider bis heute die Gebühren für das Tagesseminar nicht auf unserem Konto der Stiftung Bayerische Gedenkstätten eingegangen sind.
+Wir bitten Sie, dies noch einmal zu überprüfen und ggf. die Gebühren auf folgendes Konto rückwirkend zu überweisen:
+
+Kontoinhaber:  KZ-Gedenkst&auml;tte Dachau
+Bank:          HypoVereinsbank M&uuml;nchen
+BLZ:           700 202 70
+KontoNr.:      15101860
+IBAN:          DE71700202700015101860
+BIC:           HYVEDEMMXXX
+
+Sollten Sie den Betrag bereits überwiesen haben, bitten wir Sie, sich kurz mit uns in Verbindung zu setzen, um den Sachverhalt zu klären.
+ 
+Für Ihre Mühe danken wir Ihnen bereits im Voraus.
+Mit freundlichen Grüßen
+i.A. <%= current_user.firstname %> <%=  current_user.lastname %>

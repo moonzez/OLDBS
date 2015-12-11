@@ -1,0 +1,12 @@
+if @daten.empty?   
+  page.replace_html 'events' ,
+     '<br/><table id="form" align="center" style="font-size:24px" cellpadding="10">
+       <tr><td><b>Keine Veranstaltungen in dieser Periode! </b></td></tr>
+       </table>'
+  page.visual_effect(:highlight, 'events', :duration => 0.5)
+else
+  page.replace_html 'events' ,:partial =>'zeitr'
+  page.visual_effect(:highlight, 'events', :duration => 0.5)
+end
+
+

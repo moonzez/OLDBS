@@ -1,0 +1,17 @@
+Hallo <%= @referent.firstname %>,
+  
+das Halbtagesseminar am <%= @htseminar.thedate.strftime("%d.%m.%Y") %> um <%= @htseminar.thefrom.strftime("%H:%M") %> für <%= @htseminar.schoolname %> wurde storniert.
+Das Halbtagesseminar wird nicht stattfinden.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

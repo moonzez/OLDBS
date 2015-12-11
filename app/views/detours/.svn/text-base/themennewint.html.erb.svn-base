@@ -1,0 +1,246 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%> 
+
+  <head> 
+    <title>Terminanfrage f&uuml;r Themenf&uuml;hrungen und Exkursionen</title>
+  </head>
+  <h1>Terminanfrage f&uuml;r Themenf&uuml;hrungen und Exkursionen </h1><hr /><br />
+
+  <% form_for(@detour) do |f| %>
+    <div class="xujError"><%= f.error_message_on :gender,"Wählen Sie bitte die Anrede aus." %></div>
+    <div class="xujError"><%= f.error_message_on :firstname,"Geben Sie bitte den Vornamen ein."%></div>
+    <div class="xujError"><%= f.error_message_on :lastname,"Geben Sie bitte den Namen ein." %></div>
+    <div class="xujError"><%= f.error_message_on :email, "Geben Sie bitte eine g&uuml;ltige E-Mail-Adresse ein."%></div>
+    <div class="xujError"><%= f.error_message_on :schoolname, "Geben Sie bitte den Namen der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :street, "Geben Sie bitte die Adresse der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :city, "Geben Sie bitte den Ort der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :zip, "Geben Sie bitte eine Postleitzahl ein."%></div>
+    <div class="xujError"><%= f.error_message_on :country, "Geben Sie bitte das Land der Schule/Institution ein."%></div>
+    <div class="xujError"><%= f.error_message_on :date1,"1.Termin darf nicht fehlen."%></div>
+    <div class="xujError"><%= f.error_message_on :from1,"Die erste Uhrzeit des 1.Termins darf nicht fehlen."%></div> 
+    <div class="xujError"><%= f.error_message_on :to1,"Die zweite Uhrzeit des 1.Termins darf nicht fehlen." %></div> 
+    <div class="xujError"><%= f.error_message_on :participnumber, "Geben Sie bitte die Anzahl der Teilnehmer ein."%></div>
+    <div class="xujError"><%= f.error_message_on :topic, "Bitte Themenführung oder Exkursion auswählen."%></div>
+    <div class="xujError"><%= f.error_message_on :cellphone, "Geben Sie bitte Handynummer der Begleitperson ein."%></div>
+    <%= f.hidden_field :film, :value => "nein"%>
+    <%= f.hidden_field :language, :value => "nein"%>
+    <%= f.hidden_field :themetour, :value => 1 %>
+
+    <h2>Ansprechperson</h2>
+    <p align="left" style="font-weight:normal;">Falls die Ansprechsperson unter einer angegebenen Nummer zu einer bestimmten Uhrzeit erreichbar ist, 
+    tragen Sie dies bitte unter "Uhrzeit" ein.</p>
+    <table>
+      <tr> 
+        <td><%=f.label :gender, "* Anrede:&nbsp;&nbsp;&nbsp;&nbsp;" %></td>
+      </tr>
+      <tr>
+        <td><%= f.radio_button :gender, "Herr" %>&nbsp;Herr&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td><%= f.radio_button :gender, "Frau" %>&nbsp;Frau</td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td align ="left"><%=f.label :firstname, "* Vorname: " %></td>
+        <td align ="left" ><%=f.label :lastname, "* Name: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :firstname,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :lastname,:size => 30,:maxlength => 255 %></td>
+      </tr>
+      <tr>
+        <td align ="left"><%=f.label :telbus, "Tel. dienstlich: " %></td>
+        <td align ="left"><%=f.label :telbusTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telbus,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telbusTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td align ="left"><%=f.label :telpriv, "Tel. privat: " %></td>
+        <td align ="left"><%=f.label :telprivTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telpriv,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telprivTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td align ="left"><%=f.label :email, "* E-mail: " %></td>
+        <td align ="left"><%=f.label :fax, "Fax: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :email,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :fax,:size => 30,:maxlength => 255 %></td>
+      </tr>
+    </table><br/>
+
+    <h2>Schule/Institution</h2>
+
+    <table>
+      <tr>
+        <td align ="left"><%=f.label :schoolname, "* Name: " %></td>
+        <td align ="left"><%=f.label :schooltype, "Schultyp: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :schoolname,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :schooltype,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td align ="left"><%=f.label :street, "* Strasse/Hausnummer: " %></td>
+        <td align ="left"><%=f.label :city, "* Ort: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :street,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :city,:size => 30,:maxlength => 255 %></td>
+      </tr>
+      <tr>
+        <td align ="left"><%=f.label :zip, "* PLZ: " %></td>
+        <td align ="left"><%=f.label :country, "* Land: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :zip,:size => 30,:maxlength => 15 %></td>
+        <td><%= f.text_field :country,:size => 30,:maxlength => 255 %></td>
+      </tr>
+    </table><br/>
+
+    <h2>Termin</h2>
+    <p align="left" style="font-weight:normal;">Zur Orientierung: Ein Rundgang durch die KZ-Gedenkst&auml;tte Dachau dauert ca. 2 &frac12; Stunden.</p>
+    <p align="left" style="font-weight:normal;">
+      Ein Termin wird beim Dr&uuml;cken des "Speichern"-Buttons  nur dann gespeichert, <br/>falls alle zu ihm geh&ouml;rende Felder ausgef&uuml;llt sind.
+    </p>
+    <table>
+      <tr><td colspan="5">1. Termin&nbsp(muss eingegeben werden)</td></tr>
+      <tr>
+        <td><%=f.label :date1,"* am:"%> </td> 
+        <td>
+          <%= calendar_date_select_tag "date1",@detour[:date1], :year_range => 0.years.ago..5.years.from_now, :popup => "force",  :onchange => "set_date($F(this),'detour_date1');"%>
+          <%= f.hidden_field :date1%>
+        </td>
+        <td><%=f.label :from1,"&nbsp;&nbsp;&nbsp;* von:"%></td>
+        <td><%= f.select :from1, Detour::FROMINTERN.collect,
+            {:selected =>change_time(@detour[:from1]),:include_blank=>true},
+            {:onchange =>"set_timeto('detour_from1','detour_to1')" } %></td>
+        <td><%=f.label :to1,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bis:"%></td> <td> <%= f.text_field :to1,:size =>4,
+          :readonly => "true"%></td>   
+        <td>oder</td>
+      </tr>
+      <tr><td colspan="5">2. Termin&nbsp(kann als Alternative vorgeschlagen werden)</td></tr>
+      <tr> 
+        <td><%=f.label :date2,"&nbsp;&nbsp;&nbsp;am:"%> </td> 
+        <td>
+          <%= calendar_date_select_tag "date2",@detour[:date2], :year_range => 0.years.ago..5.years.from_now,:popup => "force",  :onchange => "set_date($F(this),'detour_date2');"%>
+          <%= f.hidden_field :date2%>
+        </td>
+        <td><%=f.label :from2,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;von:"%></td>
+        <td><%= f.select :from2, Detour::FROMINTERN.collect,
+            {:selected =>change_time(@detour[:from2]),:include_blank=>true},
+            {:onchange =>"set_timeto('detour_from2','detour_to2')" } %></td>
+        <td><%=f.label :to2,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bis:"%></td> <td> <%= f.text_field :to2, :size =>4, :readonly => "true"%></td>   
+        <td>oder</td>
+      </tr>   
+  
+      <tr><td colspan="5">3. Termin&nbsp(kann als Alternative vorgeschlagen werden)</td></tr>
+      <tr> 
+        <td><%=f.label :date3,"&nbsp;&nbsp;&nbsp;am:"%> </td> 
+        <td>
+          <%= calendar_date_select_tag "date3",@detour[:date3], :year_range => 0.years.ago..5.years.from_now,:popup => "force",  :onchange => "set_date($F(this),'detour_date3');"%>
+          <%= f.hidden_field :date3%>
+        </td>
+        <td><%=f.label :from3,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;von:"%></td>
+        <td><%= f.select :from3, Detour::FROMINTERN.collect,
+            {:selected =>change_time(@detour[:from3]),:include_blank=>true},
+            {:onchange =>"set_timeto('detour_from3','detour_to3')" } %></td>
+        <td><%=f.label :to3,"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bis:"%></td> <td> <%= f.text_field :to3, :size =>4,:readonly => "true"%></td>   
+      </tr>     
+    </table> 
+<h5>Themenf&uuml;hrungen</h5>
+<table rules="rows" frame="hsides" style= "border-bottom-color: #7F9DB9; border-top-color: #7F9DB9">
+    <% @themen.each do |theme| %>
+    <tr>
+      <td align ="left"><%= f.radio_button :topic, theme.content %></td>&nbsp;
+      <td align ="left"><%= theme.content %></td>
+    </tr>
+  <% end %>
+ </table>
+<h5>Exkursionen</h5>
+<table rules="rows" frame="hsides" style= "border-bottom-color: #7F9DB9; border-top-color: #7F9DB9">
+    <% @excursions.each do |excursion| %>
+    <tr>
+      <td align ="left"><%= f.radio_button :topic, excursion.content %></td>&nbsp;
+      <td align ="left"><%= excursion.content %>. Treffpunkt: <%= excursion.venue %></td>
+    </tr>
+  <% end %>
+ </table><br/>
+    <table>
+      <tr>
+        <td><%=f.label :cellphone, "* Handynummer der Begleitperson: " %></td>
+        <td><%= f.text_field :cellphone%></td>
+      </tr>
+      <tr>
+        <td><%=f.label :participnumber, "* Teilnehmeranzahl:" %></td>
+        <td><%=f.label :male, "davon männlich:" %></td>
+        <td><%=f.label :female, "davon weiblich:" %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :participnumber,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_participnumber','Dieses Feld darf nur Zahlen enthalten.')"%></td>
+        <td><%= f.text_field :male,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_male','Dieses Feld darf nur Zahlen enthalten.')"  %></td>
+        <td><%= f.text_field :female,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_female','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :age, "Alter (min. 14 Jahre): " %></td>
+        <td><%=f.label :schoolgrade, "Schulstufe: " %></td>
+        <td><%=f.label :teamleader, "Anzahl Betreuer: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :age,:size => 30, :maxlength => 255 %></td>
+        <td><%= f.text_field :schoolgrade,:size => 30, :maxlength => 255 %></td>
+        <td><%= f.text_field :teamleader,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'detour_teamleader','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+    </table><br/>  
+
+    <table>
+      <td><%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkstätte Dachau bereits?&nbsp;" %></td>
+      <td><%= f.select(:havebeen, ["ja", "nein", "zum Teil"].collect,:prompt => "Bitte wählen") %></td>
+    </table><br/> 
+    <table>   
+      <tr><td><%=f.label :reason, "Was ist der Anlass für den Besuch der Gedenkstätte? " %></td></tr>
+      <tr><td><%= f.text_area :reason, :size => '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    <table> 
+      <tr><td><%=f.label :municstay, "Steht der Besuch der Gedenkstätte im Rahmen eines längeren Aufenthaltes in München? " %></td></tr>
+      <tr><td><%= f.text_area :municstay, :size=> '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    
+    <table> 
+      <tr><td><%=f.label :wish, "Sonstige Wünsche (z.B. Nachbesprechung) " %></td></tr>
+      <tr><td><%= f.text_area :wish, :size=> '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+
+    <h3><%=f.label :remarc, "Anmerkungen " %></h3>
+    <table> <tr><td><%= f.text_area :remarc, :size=> '94', :maxlength => 255 %></td></tr></table>
+
+    <br/><br/><br/><br/>
+    <div class="saveField">
+      <table id='unten'>
+        <tr>
+          <td width="100%">
+            <%= image_submit_tag("save.png",{:title=>"Speichern",:alt =>"Speichern"}) %>
+          </td>
+          <td align="center"> 
+            <%=  link_to '<img src="/images/back.png" border="1px" alt="Zurück" title="Zurück"/>',:back %>
+          </td>
+        </tr>
+    </table></div> 
+
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

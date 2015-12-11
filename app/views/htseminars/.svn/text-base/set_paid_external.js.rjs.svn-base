@@ -1,0 +1,1 @@
+page.replace_html "hts_paid_button_" + @hts.id.to_s, "ja, bar"

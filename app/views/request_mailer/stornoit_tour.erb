@@ -1,0 +1,19 @@
+Gentile <%= get_it_gender(@tour.gender) %> <%= @tour.lastname %>,
+
+La ringraziamo per la Sua comunicazione. Abbiamo provveduto a cancellare la Sua prenotazione della visita guidata prevista <% if @tour.thedate && @tour.thefrom %>per il <%= @tour.thedate.strftime("%d.%m.%Y") %> alle <%= @tour.thefrom.strftime("%H:%M") %><% end %>.
+
+Qualora in futuro volesse effettuare una visita guidata al memoriale del campo di concentramento di Dachau, sarà nostra premura organizzarla.
+
+Siamo a disposizione per ulteriori informazioni.
+
+Cordiali saluti,
+
+KZ-Gedenkstätte Dachau (Memoriale del campo di concentramento di Dachau)
+Bildungsabteilung (dipartimento di formazione)
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

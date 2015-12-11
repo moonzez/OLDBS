@@ -1,0 +1,58 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+  <table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+    <thead>
+      <tr>
+        <th colspan="4" >Angefragter Termin</th>
+        <th colspan="2">Kontaktperson</th>
+        <th rowspan="2">Schule/<br/>Institution</th>
+        <th rowspan="2">Herkunftsort</th>
+        <th rowspan="2">Herkunftsortland</th>
+        <th rowspan="2">TN</th>
+        <th rowspan="2">Sprache</th>
+        <th rowspan="2">Re.<br/>Nr.</th>
+        <th rowspan="2">Re.<br/>bez.</th>
+        <th rowspan="2" style="color:#d9d5d5;">d</th>   
+      </tr>
+      <tr> 
+        <th>Datum</th>
+        <th>Tag</th>
+        <th>Von</th>
+        <th>Bis</th>     
+        <th>Name</th>
+        <th>Handynummer</th>
+      </tr>
+    </thead>
+    <tbody id="myTableBody">
+      <% for detour in @detoursoffen %>
+        <tr>
+          <td><%=h change_date(detour.date1)%></td>
+          <td><%=h get_day(detour.date1) %></td>
+          <td><%=h change_time(detour.from1) %></td>
+          <td><%=h change_time(detour.to1) %></td>
+          <td><%=h get_de_gender(detour.gender) %> <%=h detour.lastname %></td>
+          <td><%=h detour.cellphone %></td>
+          <td><%=h detour.schoolname %></td>
+          <td><%=h detour.city %></td>
+          <td><%=h detour.country %></td>
+          <td><%=h detour.participnumber %></td>
+          <td><%=h get_language_de(detour.language) %></td>
+          <td><%=h detour.invoice_number %></td>
+          <td>
+              <% if detour.paid == 'nein' %>
+                <% form_remote_tag :url => {:controller => "detours", :action => "set_paid_external", :id => detour.id} do %>
+                  <div id="tour_paid_button_<%= detour.id %>"><%= button_to 'Ja, bar', :title=>"ja, bar" %></div>
+                <% end %>
+              <% else %> 
+                <%=h detour.paid %>
+              <% end %>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <script type="text/javascript">
+    var tbody=document.getElementById('myTableBody');
+    if(tbody.scrollHeight<=300) tbody.style.height="auto";
+  </script>
+</div>

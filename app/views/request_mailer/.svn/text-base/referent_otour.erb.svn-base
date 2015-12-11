@@ -1,0 +1,17 @@
+Hallo <%= @referent.firstname %>,
+
+Du wurdest als Referent der <% if @opentour.opentype == "THEMENFÜHRUNG" %>Themenführung<% else %>offenen Führung<% end %> am <%= change_date(@opentour.date) %> um <%= change_time(@opentour.time) %> zugeteilt.
+Die <% if @opentour.opentype == "THEMENFÜHRUNG" %>Themenführung<% else %>offene Führung<% end %> findet auf <%= get_language_de(@opentour.language) %> statt.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

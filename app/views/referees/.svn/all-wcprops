@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/subversion/repo/!svn/ver/1563/BS/app/views/referees
+END
+detours.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1563/BS/app/views/referees/detours.html.erb
+END
+opent.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1542/BS/app/views/referees/opent.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1542/BS/app/views/referees/index.html.erb
+END
+hts_requests.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1563/BS/app/views/referees/hts_requests.html.erb
+END
+opentours.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1562/BS/app/views/referees/opentours.html.erb
+END
+sightot.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1562/BS/app/views/referees/sightot.erb
+END
+workshops.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1563/BS/app/views/referees/workshops.html.erb
+END
+ts_requests.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1563/BS/app/views/referees/ts_requests.html.erb
+END

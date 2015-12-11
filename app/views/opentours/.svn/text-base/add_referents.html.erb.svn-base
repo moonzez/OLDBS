@@ -1,0 +1,94 @@
+<% if admin? or dbuser? or accounter? %>
+
+  <head> <title>Offene F&uuml;rungen- Referenten verwalten</title>
+    <style type="text/css">     
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+  <h1>Referenten verwalten</h1><hr>
+
+  <body>
+    <h2 align="center">Angemeldet</h2>
+    <% if !@optwishes.empty? %>
+      <table id ="form" align="center" cellpadding="5" >
+        <tr>
+          <th>Referent</th>
+          <th colspan="2">Optionen</th>
+        </tr>
+        <% @optwishes.each do |ref| %>
+          <tr>
+            <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents', 
+              :action => 'show', :id => ref.id }%></td>
+            <% if @optref && (@optref.id == ref.id) %>
+              <td>ist ausgewählt</td>
+              <td><%= link_to '<img src="/images/loeschen.png" border ="0" alt ="Löschen" title="Referenten löschen!">',
+                :action => 'delref',  :id => @opentour.id, :refid => ref.id, :from => @from %> </td>
+            <% else %>
+              <td>
+                <% if !@optref %>
+                  <%= link_to '<img src="/images/add.png" border ="0"  alt ="Hinzufügen" title="Referenten hinzufügen!">', 
+                    :action => 'joinref',  :id => @opentour.id, :refid => ref.id, :from => @from %>
+                <% end %>
+              </td>
+              <td></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+    <br /><hr />
+    <h2 align="center">Andere Referenten</h2>
+    <table id ="form" align="center" cellpadding="5" >
+      <tr>
+        <th>Referent</th>
+        <th colspan="2">Optionen</th>
+      </tr> 
+    
+      <% for referent in @referents %>
+        <tr>
+          <td><%= link_to referent.lastname+"&nbsp;&nbsp;"+referent.firstname, {:controller => 'referents', 
+            :action => 'show', :id => referent.id }%></td>
+      
+          <% if @optref && (@optref.id == referent.id) %>
+            <td>ist ausgewählt</td>
+            <td><%= link_to '<img src="/images/loeschen.png" border ="0" alt ="Löschen" title="Referenten löschen!">',
+              :action => 'delref',  :id => @opentour.id, :refid => referent.id, :from => @from %> </td>
+          <% else %>
+            <td>
+              <% if !@optref %>
+                <%= link_to '<img src="/images/add.png" border ="0"  alt ="Hinzufügen" title="Referenten hinzufügen!">', 
+              :action => 'joinref',  :id => @opentour.id, :refid => referent.id, :from => @from %>
+              <% end %>
+            </td>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  
+  </body>
+
+  <br/><br/><br/><br/>
+  <div class="saveField">
+    <table id='unten'>
+      <tr>
+        <td width="95%">
+          <% if @from == 'month' %>
+            <%=  link_to '<img src="/images/fertig.png" title="Speichern",:alt ="Speichern" border ="1px" />',selectotour_opentours_path%>
+          <% else  %>
+            <%=  link_to '<img src="/images/fertig.png" title="Speichern",:alt ="Speichern" border ="1px" />',sight_opentours_path%>
+          <% end %>
+        </td>
+        <td width="100%"></td>
+        <td align="center"> <%=  link_to '<img src="/images/back.png"  border="1px" alt="Zurück" title="Zurück"/>',:action => 'sight' %></td>
+      </tr>
+    </table>
+  </div> 
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

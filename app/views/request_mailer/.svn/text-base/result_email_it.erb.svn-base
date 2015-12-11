@@ -1,0 +1,27 @@
+Gentile <%= @tour.gender %> <%= @tour.lastname %>,
+
+La ringraziamo per la Sua richiesta di prenotazione per una visita guidata.
+
+La Sua richiesta è stata registrata per le seguenti date:
+
+Data desiderata: <%= @tour.date1.strftime("%d.%m.%Y") %> 
+Inizio alle: <%= @tour.from1.strftime("%H:%M") %>
+<% if !@tour.date2.blank? %>1a data alternativa: <%= @tour.date2.strftime("%d.%m.%Y") %>
+Inizio alle: <%= @tour.from2.strftime("%H:%M") %><% end %>
+<% if !@tour.date3.blank? %>2a data alternativa: <%= @tour.date3.strftime("%d.%m.%Y") %>
+Inizio alle: <%= @tour.from3.strftime("%H:%M") %><% end %>
+Lingua richiesta: <%= @tour.language %>
+Numero dei partecipanti: <%= @tour.participnumber %>
+
+Questa NON è una conferma della prenotazione di una visita guidata, ma la notifica che la Sua richiesta è stata registrata. Entro qualche giorno riceverà la conferma della prenotazione della visita in una delle date richieste, oppure la comunicazione dell’impossibilità di soddisfare la Sua richiesta.
+La ringraziamo per il Suo interesse e sarà nostra premura metterci in contatto con Lei il più presto possibile.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

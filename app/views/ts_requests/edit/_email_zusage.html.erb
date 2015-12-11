@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <% if @ts_request.invoice == 'ja' %>
+      <td><%= link_to 'Zusage mit Anhängen&nbsp;<img src="/images/mail.jpg" width="15">',
+        {:action =>'zusage', :id => @ts_request.id}, :title => 'Wird per Email gesendet!' %></td>
+    <% else %>
+      <td><%= link_to 'Zusage mit Anhängen&nbsp;<img src="/images/mail.jpg" width="15">',
+        {:action =>'zusageohnebill', :id => @ts_request.id}, :title => 'Wird per Email gesendet!' %></td>
+    <% end %>
+    <% if @ts_request.zus_voll == 'ja' %>    
+      <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :zv_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@ts_request.zv_date)%></td>          
+    <% end %>
+  </tr>
+</table>

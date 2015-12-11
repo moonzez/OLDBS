@@ -1,0 +1,74 @@
+<% if referee? %>
+<head> 
+    <title>Best&auml;tigte Tagesseminare</title>
+    <style type="text/css">     
+        html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        }  
+    </style>
+</head>
+<h1> Bevorstehende best&auml;tigte Tagesseminare</h1>
+<body>
+    <table id="small" align="center" cellpadding="10">
+      <tr><td align="center"><b>Heute ist der <%=  get_output_germ_date(@today)%> <br> Tagesseminare vom <%= get_output_germ_date(@today)%> bis zum <%=  get_output_germ_date(@two_monthes)%> </b></td></tr>
+    </table><br/><br/>
+  <% if @myts_requests.empty? %>
+    <table id="form" align="center" style="font-size:24px" cellpadding="10">
+       <tr><td><b>Keine Tagesseminare! </b></td></tr>
+    </table>
+<% else %>
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellpadding="10" style="width:100%">
+    <thead>
+        <tr>
+            <th colspan="4" >Best&auml;tigter Termin</th>
+            <th colspan="2">Kontaktperson</th>
+            <th rowspan="2">Schule/<br>Institution</th>
+            <th rowspan="2">Ort</th>
+            <th rowspan="2">TN</th>
+            <th rowspan="2">Gr.</th>
+            <th rowspan="2">Sprache</th>
+            <th rowspan="2">Referent</th>
+            <th rowspan="2" style="color:#d9d5d5;">d</th>
+        </tr>
+        <tr> 
+            <th>Datum</th>
+            <th>Tag</th>
+            <th>Von</th>
+            <th>Bis</th>     
+            <th>Anrede</th>
+            <th>Name</th>
+        </tr>
+    </thead>  
+    <tbody>
+    <% for ts in @myts_requests %>
+    <tr>
+        <td><%=h change_date(ts.thedate) %></td>
+        <td><%=h get_german_day(ts.thedate) %></td>
+        <td align="center"><%=h change_time(ts.thefrom) %></td>
+        <td align="center"><%=h change_time(ts.theto) %></td>
+        <td align="center"><%=h ts.gender %></td>
+        <td align="center"><%=h ts.lastname %></td>
+        <td align="center"><%=h ts.schoolname %></td>
+        <td align="center"><%=h ts.city %></td>
+        <td align="center"><%=h ts.participnumber %></td>
+        <td align="center"><%=h ts.groupnumber %></td>
+        <td align="center"><%=h get_language_de(ts.language) %></td>
+        <td ><% for ref in ts.referents %> 
+               <%= ref.lastname %>, <%= ref.firstname %><br/>
+           <% end %> </td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+</div>
+<% end %>
+</body>
+
+<%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

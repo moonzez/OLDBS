@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <title></title>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        
+        <% if logged_in? and current_user.role == 'reader'%>
+          <p style ="font-size: 12pt; color: black" ><b>
+           <%= link_to "Terminkalender",calendar_dbusers_path %> | 
+           <%= link_to "Logout", logout_path %> | </b></p>
+        
+        <% else %>
+          <p style ="font-size: 12pt; color: black" align="left"  ><b>
+          Sie sind nicht angemeldet | <%= link_to "Login", login_path %> |</b></p>
+        <% end %> 
+      </div>
+      <% if flash[:notice] %>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="error"><%= flash[:error] %></div>
+      <% end %>
+            
+      <div id="content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

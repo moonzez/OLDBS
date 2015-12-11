@@ -1,0 +1,32 @@
+<% if @tour.gender == 'Frau' %>Madame<% else %>Monsieur<% end %> <%= @tour.lastname %>,
+
+Nous vous remercions pour votre demande concernant une visite du mémorial.
+
+Votre demande a été enregistrée avec les données suivantes:
+
+Rendez-vous souhaité : <%= @tour.date1.strftime("%d.%m.%Y") %> 
+Début à: <%= @tour.from1.strftime("%H:%M") %>
+<% if !@tour.date2.blank? %>2ème rendez-vous souhaité: <%= @tour.date2.strftime("%d.%m.%Y") %>
+Début à: <%= @tour.from2.strftime("%H:%M") %><% end %>
+<% if !@tour.date3.blank? %>3ème rendez-vous souhaité: <%= @tour.date3.strftime("%d.%m.%Y") %>
+Début à: <%= @tour.from3.strftime("%H:%M") %><% end %>
+Langue: <%= @tour.language %>
+Nombre de participants: <%= @tour.participnumber %>
+
+Veuillez noter qu’il ne s’agit pas ici d’une confirmation de votre rendez-vous, mais seulement d’une confirmation de réception de votre demande.
+
+Vous recevrez bientôt une confirmation écrite du rendez-vous ou un refus au cas où le rendez-vous ne peut avoir lieu.
+
+Une confirmation de rendez-vous constitue un engagement ferme.
+
+Nous vous remercions pour votre intérêt et nous vous contacterons le plus tôt possible.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

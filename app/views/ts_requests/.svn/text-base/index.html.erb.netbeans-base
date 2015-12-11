@@ -1,0 +1,23 @@
+<%  if admin? or dbuser? %>
+
+  <head><title>Tagesseminare</title></head>
+
+  <h1>Tagesseminare</h1><hr /><br /><br />
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Offene Anfragen', opened_ts_requests_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bestätigte Anfragen', approved_ts_requests_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Abgesagte Anfragen', denial_ts_requests_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Stornierte Anfragen', storno_ts_requests_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Neue Anfrage anlegen', newintern_ts_requests_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Suche', search_ts_requests_path %></li>
+    <% if admin? %>
+      <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Themen', add_topic_ts_requests_path %></li>
+    <% end %>
+  </ul>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

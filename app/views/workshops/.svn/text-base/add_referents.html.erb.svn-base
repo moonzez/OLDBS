@@ -1,0 +1,40 @@
+<% if admin? or dbuser? or accounter? %>
+<h1 align="center">Referenten verwalten </h1><hr/><br/>
+  <table id ="small" cellpadding="5" >
+      <tr>
+        <th>Referent</th>
+        <th colspan="2">Optionen</th>
+      </tr> 
+    
+    <% for referent in @referents %>
+    <tr>
+      <td><%= link_to referent.lastname+"&nbsp;&nbsp;"+referent.firstname, {:controller => 'referents', 
+        :action => 'show', :id => referent.id }%></td>
+      
+      <% if !@work_referents.find_by_id(referent.id).blank? %>
+      <td>ist ausgewählt</td>
+      <td><%= link_to '<img src="/images/loeschen.png" border ="0" alt ="Löschen" title="Referenten löschen!">',
+        :action => 'delref',  :id => @workshop.id, :refid => referent.id %> </td>
+      <% else %>
+      <td><%= link_to '<img src="/images/add.png" border ="0"  alt ="Hinzufügen" title="Referenten hinzufügen!">', 
+        :action => 'joinref',  :id => @workshop.id, :refid => referent.id %></td>
+      <td></td>
+      <% end %>
+    </tr>
+    <% end %>
+</table>
+<br/><br/><br/><br/>
+<div class="saveField">
+<table id='unten'>
+<tr>
+  <td width="95%">
+    <%=  link_to '<img src="/images/fertig.png" title="Speichern",:alt ="Speichern" border ="1px" />',edit_workshop_path(@workshop.id)%>
+  </td>
+  <td align="center"> 
+    <%=  link_to '<img src="/images/back.png" border="1px" alt="Zurück" title="Zurück"/>',:back %>
+  </td>
+</tr>
+</table></div> 
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

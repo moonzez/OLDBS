@@ -1,0 +1,37 @@
+Dear <%= get_engl_gender(@tour.gender) %> <%= @tour.lastname %>,
+
+Thank you very much for your booking request.
+
+Unfortunately we are fully booked for the period you requested (<%= denial_date(@tour) %>).
+If you can only visit the memorial site on the date you originally specified some of our tour partners, listed below, may be able to assist you:
+
+"Dachauer Forum"
+Tel.: +49(0)8131-99 68 80
+fuehrungen@dachauer-forum.de
+
+"Förderverein für Internationale Jugendbegegnung und Gedenkstättenarbeit e.V."
+Tel.: +49(0)8131-83 30 3
+info@foerderverein-dachau.de
+
+"Evangelische Versöhnungskirche"
+Tel.: 0049/(0)8131-1 36 44
+info@versoehnungskirche-dachau.de
+
+It is also possible to rent an audio guide (available in English, French, German, Italian, and Spanish). The audio guides are available at the memorial site entrance. 
+Prices: 
+Regular €3,50 
+Students €2,50 
+Group rate (per person) €2,50.
+
+The audio guides are provided for rental by the Linon Medien GmbH. Groups (over 20 persons) can make a reservation:
+
+Linon Medien GmbH
+Homepage: www.audioguide-dachau.de
+E-Mail: reservierung@audioguide-dachau.de
+
+Please note: Visiting the memorial site is possible without booking a guided tour and reservations are not necessary. We are open from Tuesday to Sunday from 9 a.m. to 5 p.m. Admission is free of charge. Further information is available on our web site: www.kz-gedenkstaette-dachau.de
+
+We hope this information is of assistance.
+
+Sincerely
+<%= current_user.firstname %> <%=  current_user.lastname %>

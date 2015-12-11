@@ -1,0 +1,17 @@
+<h2>Referenten</h2>
+<% if !@detour.referents.blank? %>
+  <table id ="left_small" cellpadding="5">
+    <tr>
+      <th >Name</th>
+      <th>E-Mail gesendet am</th>
+    </tr>
+    <% @detour.referents.each do |ref| %>
+      <tr>
+        <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents',
+          :action => 'show', :id => ref.id } %></td>
+        <% tourreferent = @detour.tourreferents.find_by_referent_id( ref.id) %>
+        <td><% if tourreferent.mailsend == 0 %> <% else %><%= tourreferent.maildate %><% end %></td>
+      </tr>
+    <% end %> 
+  </table>
+<% end %>

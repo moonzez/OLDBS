@@ -1,0 +1,16 @@
+<% if admin? or dbuser? or accounter?%>
+<%= calendar_date_select_includes :style=>"default",:locale=>"de"%> 
+
+<head>
+  <title>Referent: <%= @referent.firstname %> <%= @referent.lastname %> - vergangene Veranstaltungen</title>
+</head>
+
+<h1 align=center>Referent: <%= @referent.firstname %> <%= @referent.lastname %> - Veranstaltungen in der letzten 6 Monaten</h1><hr/><br/>
+<body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+  <%= render :partial => "referents/events_table" %>
+  <%= render :partial => "dbusers/backbutton" %>
+</body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

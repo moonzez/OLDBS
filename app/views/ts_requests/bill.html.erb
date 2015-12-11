@@ -1,0 +1,29 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @ts } %>
+
+<p><big><b>Rechnung-Nr.: <%= @ts.invoice_number %></b></big></p>
+
+<p>Wir best&auml;tigen Ihnen hiermit die Buchung eines Tagesseminars an der KZ-Gedenkst&auml;tte Dachau und stellen
+Ihnen hierf&uuml;r folgendes Entgelt in Rechnung:</p>
+
+<table border="1">
+  <tr>
+    <th>Datum</th>
+    <th>Anzahl der Gruppen</th>
+    <th>Betrag pro Gruppe</th>
+    <th>Gesamtbetrag</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@ts.thedate) %>, <%= change_time(@ts.thefrom) %> Uhr</td>
+    <td><%= @ts.groupnumber %></td> 
+    <td><%= number_to_euro(@ts.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@ts.groupnumber * @ts.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+
+<br>
+<p>Bitte &uuml;berweisen Sie den Gesamtbetrag bis sp&auml;testens 14 Tage nach dem Tagesseminar unter Verwendung der Rechnungsnummer als Verwendungszweck auf das Konto:</p>
+<%= render :partial => "shared/bill/bankaccount" %>
+<br>
+<p><small><i>Als &ouml;ffentlich-rechtliche Stiftung sind wir nicht umsatzsteuerpflichtig im Sinne des Umsatzsteuergesetzes.</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

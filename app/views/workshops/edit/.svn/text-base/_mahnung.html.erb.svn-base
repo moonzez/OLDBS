@@ -1,0 +1,5 @@
+<% if @workshop.mahnung > 0 %>
+  &nbsp;Die <%= @workshop.mahnung %>. Mahnung wurde am <%= change_date(@workshop.mahnungdate) %> gesendet.<br/><% end %>
+&nbsp;<%= link_to 'Mahnung senden &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', 
+  { :action => 'mahnung', :id => @workshop.id } %>
+<br/><br/>

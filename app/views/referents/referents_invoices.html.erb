@@ -1,0 +1,23 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Referenten Abrechnung</title></head>
+
+  <h1>Referenten Abrechnung</h1><hr /><br /><br />
+
+ <% form_tag( {:controller => :referents, :action => :get_invoices}) do %>
+    <table id="stat" cellpadding="10">
+      <tr>
+        <td><b><%=label :data, "Monat:" %></b> <td><%= date_select("month", "", :discard_day => true, :discard_year => true) %></td>
+        <td><b><%=label :data, "Jahr:" %></b> <%= date_select("year", "", :discard_day => true,:discard_month => true) %></td> 
+        <td><%= image_submit_tag("show2.png",{ :title=>"Pdf's generieren", :alt =>"Pdf's generieren" }) %></td>
+      </tr>
+    </table>
+  <% end %>
+
+  <div id ='get_zip'><br/>
+    <p align="center">Bitte warten, das Generieren der Rechnungen dauert ein paar Minuten.</p>
+  </div>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

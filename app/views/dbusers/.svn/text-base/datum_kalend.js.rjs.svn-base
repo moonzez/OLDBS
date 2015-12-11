@@ -1,0 +1,96 @@
+if @detoursbest.empty?    
+    page.replace_html 'tours_best_titel',''
+    page.replace_html 'tours_best' ,''
+else 
+    page.replace_html 'tours_best_titel' ,
+    '<b><p align="center" > 
+      Best&auml;tigte Rundg&auml;nge: '<< @detoursbest.size.to_s<<'&nbsp;&nbsp;&nbsp;
+      Gruppenanzahl: '<< @grb.to_s<<'
+    </p></b>'
+    page.replace_html 'tours_best' ,:partial =>'detours/tourb'
+    page.visual_effect(:highlight, 'tours_best', :duration => 0.5)
+end
+
+if @detoursoffen.empty?   
+    page.replace_html 'tours_offen_titel',''
+    page.replace_html 'tours_offen' ,''
+else 
+    page.replace_html 'tours_offen_titel' ,
+    '<b><p align="center" > 
+      Offene Rundg&auml;nge: '<< @detoursoffen.size.to_s<<'&nbsp;&nbsp;&nbsp;
+      Gruppenanzahl: '<< @gro.to_s<<'
+    </p></b>'
+    page.replace_html 'tours_offen' ,:partial =>'detours/touro'
+    page.visual_effect(:highlight, 'tours_offen', :duration => 0.5)
+end
+
+if @tsbest.empty?  
+    page.replace_html 'tagesseminars_best_titel',''
+    page.replace_html 'tagesseminars_best' ,''
+else
+    page.replace_html 'tagesseminars_best_titel' ,'<b><p align="center" >Best&auml;tigte Tagesseminare: '<< @tsbest.size.to_s<<'</p></b>'
+    page.replace_html 'tagesseminars_best' ,:partial =>'ts_requests/tsb'
+    page.visual_effect(:highlight, 'tagesseminars_best', :duration => 0.5)
+end
+
+if @tsoffen.empty?   
+    page.replace_html 'tagesseminars_offen_titel',''
+    page.replace_html 'tagesseminars_offen' ,''
+else
+    page.replace_html 'tagesseminars_offen_titel' ,'<b><p align="center" >Offene Tagesseminare: '<< @tsoffen.size.to_s<<'</p></b>'
+    page.replace_html 'tagesseminars_offen' ,:partial =>'ts_requests/tso'
+    page.visual_effect(:highlight, 'tagesseminars_offen', :duration => 0.5)
+end
+
+if @htsbest.empty?   
+    page.replace_html 'htseminars_best_titel',''
+    page.replace_html 'htseminars_best' ,''
+else
+    page.replace_html 'htseminars_best_titel' ,'<b><p align="center" >Best&auml;tigte Halbtagesseminare: '<< @htsbest.size.to_s<<'</p></b>'
+    page.replace_html 'htseminars_best' ,:partial =>'htseminars/htsb'
+    page.visual_effect(:highlight, 'htseminars_best', :duration => 0.5)
+end
+
+if @htsoffen.empty?   
+    page.replace_html 'htseminars_offen_titel',''
+    page.replace_html 'htseminars_offen' ,''
+else
+    page.replace_html 'htseminars_offen_titel' ,'<b><p align="center" >Offene Halbtagesseminare: '<< @htsoffen.size.to_s<<'</p></b>'
+    page.replace_html 'htseminars_offen' ,:partial =>'htseminars/htso'
+    page.visual_effect(:highlight, 'htseminars_offen', :duration => 0.5)
+end
+
+if @workbest.empty?   
+    page.replace_html 'workshops_best_titel',''
+    page.replace_html 'workshops_best' , ''
+else
+    page.replace_html 'workshops_best_titel' ,'<b><p align="center" >Best&auml;tigte Workshops: '<< @workbest.size.to_s<<'</p></b>'
+    page.replace_html 'workshops_best' ,:partial =>'workshops/workb'
+    page.visual_effect(:highlight, 'workshops_best', :duration => 0.5)
+end
+
+if @workoffen.empty?   
+    page.replace_html 'workshops_offen_titel',''
+    page.replace_html 'workshops_offen' ,''
+else
+    page.replace_html 'workshops_offen_titel' ,'<b><p align="center" >Offene Workshops: '<< @workoffen.size.to_s<<'</p></b>'
+    page.replace_html 'workshops_offen' ,:partial =>'workshops/worko'
+    page.visual_effect(:highlight, 'workshops_offen', :duration => 0.5)
+end
+
+if @opentours.empty?   
+    page.replace_html 'opentours_titel',''
+    page.replace_html 'opentours_activ' ,''
+else
+    page.replace_html 'opentours_titel' ,'<b><p align="center" >Offene Führungen: '<< @opentours.size.to_s<<'</p></b>'
+    page.replace_html 'opentours_activ', :partial =>'opentours/kalendopentours'
+    page.visual_effect(:highlight, 'opentours_activ', :duration => 0.5)
+end
+
+if( @detoursbest.empty? && @detoursoffen.empty? && @tsbest.empty? && @tsoffen.empty?  && @htsbest.empty? && 
+      @htsoffen.empty? && @workbest.empty? && @workoffen.empty? && @opentours.empty?)
+  page.replace_html 'tours_best_titel','<br/><table id="form" align="center" style="font-size:24px" cellpadding="10">
+       <tr><td><b>Keine Veranstaltungen an diesem Tag! </b></td></tr>
+       </table>'
+ page.visual_effect(:highlight, 'tours_best_titel', :duration => 0.5)
+end

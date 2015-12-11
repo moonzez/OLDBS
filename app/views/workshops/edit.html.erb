@@ -1,0 +1,307 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= calendar_date_select_includes :style=>"default", :locale=>"de"%>
+
+  <head><title>Workshop-Daten&auml;nderung </title></head>
+  
+  <h1>Workshop - Daten&auml;nderung </h1><hr/>
+
+  <% form_for(@workshop, :url => {:action => "update", :forvers => @version}) do |f| %>
+
+    <div class="xujError"><%= f.error_message_on :gender %></div>
+    <div class="xujError"><%= f.error_message_on :firstname %></div>
+    <div class="xujError"><%= f.error_message_on :lastname %></div>
+    <div class="xujError"><%= f.error_message_on :email%></div>
+    <div class="xujError"><%= f.error_message_on :schoolname %></div>
+    <div class="xujError"><%= f.error_message_on :street %></div>
+    <div class="xujError"><%= f.error_message_on :city %></div>
+    <div class="xujError"><%= f.error_message_on :zip %></div>
+    <div class="xujError"><%= f.error_message_on :country %></div>
+    <div class="xujError"><%= f.error_message_on :date1 %></div>
+    <div class="xujError"><%= f.error_message_on :participnumber%></div>  
+    <div class="xujError"><%= f.error_message_on :foodnumber %></div>
+    <div class="xujError"><%= f.error_message_on :cellphone %></div>
+
+    <% if !@workshop.result_sent %>
+      <h3>Automatische Best&auml;tigung an den Kunden wurde nicht versendet</h3>    
+      <table>
+        <td><%=f.label :result_sent, "Best&auml;tigung wurde versendet:" %></td>
+        <td><%= f.select :result_sent, {"nein" => 0, "ja" => 1}, { :selected => 0 } %></td>
+      </table><br/>
+      <hr>
+    <% end %>
+    <h2>Termine</h2>
+    
+    <h3>Kundendefinierte Termine</h3>
+    
+    <p align="left" style="font-weight:normal;">Ein Termin wird beim Dr&uuml;cken des "Speichern"-Buttons  nur dann gespeichert, falls alle zu ihm geh&ouml;rende Felder ausgef&uuml;llt sind.</p>
+    
+    <table id="termine">
+      <tr>
+        <td>1. Termin</td>
+        <td><%=f.label :date1, "* am: " %></td>
+        <td><%= calendar_date_select_tag "date1",@workshop[:date1], :year_range => 0.years.ago..5.years.from_now, :popup => "force",
+          :onchange => "set_date($F(this),'workshop_date1');"%><%= f.hidden_field :date1%></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :from1,"von:"%></td>
+        <td> <%= f.text_field :from1, :size =>4,:readonly => "true", :value => "09:30"%></td>     
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :to1,"bis:"%></td> 
+        <td> <%= f.text_field :to1, :size =>4,:readonly => "true",:value => "17:00"%></td>  
+        <td>&nbsp;&nbsp;</td>
+        <td><%= image_tag("datumpfeil.png",:width =>"30", :title=>"Daten für den best&auml;tigten Termin verwenden",
+            :alt =>"&uuml;bernehmen", :mouseover => "datumpfeil_mouseover.png",
+            :onclick => "take_datum_work('workshop_date1','workshop_from1','workshop_to1')") %></td>  
+      </tr>   
+      <tr>
+        <td>2. Termin</td>
+        <td><%=f.label :date2, "am: " %></td>
+        <td><%= calendar_date_select_tag "date2",@workshop[:date2], :year_range => 0.years.ago..5.years.from_now, :popup => "force",
+          :onchange => "set_date($F(this),'workshop_date2');"%><%= f.hidden_field :date2%></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :from2,"von:"%></td> 
+        <td><%= f.text_field :from2, :size =>4,:readonly => "true", :value => "09:30"%></td>    
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :to2,"bis:"%></td> 
+        <td><%= f.text_field :to2, :size =>4,:readonly => "true",:value => "17:00"%></td>  
+        <td>&nbsp;&nbsp;</td>
+        <td><%= image_tag("datumpfeil.png",:width =>"30", :title=>"Daten für den best&auml;tigten Termin verwenden",
+            :alt =>"&uuml;bernehmen", :mouseover => "datumpfeil_mouseover.png",
+            :onclick => "take_datum_work('workshop_date2','workshop_from2','workshop_to2')") %></td>  
+      </tr>
+    </table>
+    
+    <h3>Best&auml;tigter Termin</h3>    
+    <p align="left" style="font-weight:normal;">Best&auml;tigter Termin wird nicht gespeichert, falls der Status auf "offen", "abgesagt" oder "storniert" gesetzt wird.</p>
+    
+    <table id="termine">
+      <tr>
+        <td><%=f.label :thedate, "am: " %>
+        <td><%= calendar_date_select_tag "thedate", @workshop[:thedate], :year_range => 0.years.ago..5.years.from_now,
+            :popup => "force",  :onchange => "bestaetige_thedate($F(this),'workshop_thedate','workshop_status');"%>
+          <%= f.hidden_field :thedate%></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :thefrom, "von:" %></td>
+        <td><%= f.select :thefrom, Workshop::FROMINTERN.collect, { :selected => change_time(@workshop[:thefrom]),
+          :include_blank=>true }, { :onchange =>" check_theto_status('workshop_thefrom','workshop_status')" }%>&nbsp;&nbsp;</td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%=f.label :theto, "bis:" %></td>   
+        <td><%= f.select :theto, Workshop::TOINTERN.collect, { :selected =>change_time(@workshop[:theto]),:include_blank=>true},  
+          {:onchange =>" check_theto_status('workshop_theto','workshop_status')" }  %>&nbsp;&nbsp;</td>
+      </tr>
+    </table><br/>
+
+    <table >
+      <tr>
+        <td align ="left" ><%=f.label :status, "Status:"%> </td>
+        <td ><%= f.select :status, ["bestätigt", "offen", "abgesagt", "storniert"].collect, {},
+            {:onchange => "check_selected_status('workshop_status','workshop_thedate','workshop_thefrom','workshop_theto')"} %>
+        </td> 
+      </tr>  
+    </table> 
+
+    <% if @workshop.status == 'bestätigt' %><br />  
+      <%= render :partial => "workshops/edit/email_zusage", :locals => {:f => f } %>
+    <%  end %>
+
+    <% if @workshop.status == 'abgesagt' %><br/>
+      <%= render :partial => "workshops/edit/email_absage", :locals => {:f => f } %>         
+    <% end %>
+
+    <% if @workshop.status == 'storniert' %><br/>
+      <%= render :partial => "workshops/edit/email_storno", :locals => {:f => f } %>           
+    <% end %>
+    <hr/><br/>
+
+    <table>
+      <tr>
+      <td><%=f.label :participnumber, "Teinehmeranzahl:"%> 
+      <td><%= f.text_field :participnumber,:size=>4,:maxlength => 3,
+        :oninput => "CheckZiffer($F(this),'workshop_participnumber','Dieses Feld darf nur Zahlen enthalten.')"  %></td>
+    </table>
+    <table >
+      <tr> <td><%=f.label :comments, "Kommentare:"%></td> </tr>   
+      <tr> <td><%= f.text_area :comments, :size => '94x5', :maxlength => 600 %></td> </tr>   
+    </table>
+    
+    <table >
+      <tr><td><%=f.label :infocenter, "Kommentare für Infotheke:" %></td> </tr>   
+      <tr><td><%= f.text_area :infocenter, :size => '94x5', :maxlength => 600%></td> </tr>   
+    </table>
+    
+    <table >
+      <tr> 
+        <td><%=f.label :last_change, "Zuletzt geändert von:"%></td>    
+        <td><%= f.text_field :last_change, :readonly => true,:size =>30 %></td> 
+      </tr>   
+    </table><hr/>
+
+    <% if @workshop.status == 'bestätigt' %>
+      <%= render :partial => "workshops/edit/referenten_verwalten" %>
+    <% end %>
+
+    <% if @workshop.status == 'storniert' or @workshop.status == "abgesagt" %>
+      <%= render :partial => "workshops/edit/referenten_show" %>
+      <hr/><br/>
+    <% end %>
+
+    <% if @workshop.status == 'bestätigt' or @workshop.status == 'storniert' or @workshop.status == "abgesagt" %>
+      <%= render :partial => "workshops/edit/zahlung", :locals => {:f => f } %>
+      
+      <% if @workshop.bill_sent == 'ja' && @workshop.paid == 'nein' %>
+        <%= render :partial => "workshops/edit/mahnung" %>
+      <% end %>
+      <hr/>    
+    <% end %>
+
+    <h2>Ansprechperson</h2>
+    <p align="left" style="font-weight:normal;">Falls die Ansprechsperson unter einer angegebenen Nummer zu einer bestimmten Uhrzeit erreichbar ist, 
+    <br/>tragen Sie dies bitte unter "Uhrzeit" ein.</p>
+    <table>
+      <tr><td><%=f.label :gender, "* Anrede:" %></td></tr>
+      <tr><td><%= f.text_field :gender %></td></tr>
+    </table>
+    <table>
+      <tr>
+        <td><%=f.label :firstname, "* Vorname: " %></td>
+        <td><%=f.label :lastname, "* Name: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :firstname,:size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'workshop_firstname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></td>
+        <td><%= f.text_field :lastname,:size => 30, :maxlength => 255,
+          :oninput => "CheckNames($F(this),'workshop_lastname','Der Name darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telbus, "Tel. dienstlich: " %></td>
+        <td><%=f.label :telbusTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telbus,:size => 30,:maxlength => 255  %></td>
+        <td><%= f.text_field :telbusTime,:size => 30,:maxlength => 255  %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telpriv, "Tel. privat: " %></td>
+        <td><%=f.label :telprivTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telpriv,:size => 30,:maxlength => 255  %></td>
+        <td><%= f.text_field :telprivTime,:size => 30,:maxlength => 255  %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :email, "* E-mail: " %></td>
+        <td><%=f.label :fax, "Fax: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :email,:size => 30,:maxlength => 255  %></td>
+        <td><%= f.text_field :fax,:size => 30,:maxlength => 255  %></td>
+      </tr>
+    </table><hr/>
+    <h2>Schule/Institution</h2>
+    <table>
+      <tr>
+        <td><%=f.label :schoolname, "* Name:" %></td>
+        <td><%=f.label :schooltype, "Schultyp: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :schoolname,:size => 30,:maxlength => 255  %></td>
+        <td><%= f.text_field :schooltype,:size => 30,:maxlength => 255  %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :street, "* Strasse/Hausnummer:" %></td>
+        <td><%=f.label :city, "* Ort: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :street,:size => 30,:maxlength => 255  %></td>
+        <td><%= f.text_field :city,:size => 30,:maxlength => 255  %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :zip, "* PLZ: " %></td>
+        <td><%=f.label :country, "* Land: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :zip,:size => 30,:maxlength => 15 %></td>
+        <td><%= f.text_field :country,:size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'workshop_country','Das Feld \"Land\" darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')" %></td>
+      </tr>
+    </table><hr/>
+
+    <h2>Angaben zur Gruppe/Klasse</h2>
+    <table>
+      <tr>
+        <td><%=f.label :cellphone, "* Handynummer der Begleitperson: " %></td>
+        <td><%= f.text_field :cellphone%></td>
+      </tr>
+      <tr>
+        <td><%=f.label :male, "Teilnehmer männlich:" %></td>
+        <td><%=f.label :female, "Teilnehmer weiblich:" %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :male,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'workshop_male','Dieses Feld darf nur Zahlen enthalten.')"  %>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= f.text_field :female,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'workshop_female','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :age, "Alter (min. 14 Jahre): " %></td>
+        <td><%=f.label :schoolgrade, "Schulstufe: " %></td>
+        <td><%=f.label :teamleader, "Anzahl Betreuer: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :age,:size => 30, :maxlength => 255  %></td>
+        <td><%= f.text_field :schoolgrade,:size => 30, :maxlength => 255  %></td>
+        <td><%= f.text_field :teamleader,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'workshop_teamleader','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+    </table><br/>  
+
+    <table>
+      <td><%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkstätte Dachau bereits?&nbsp;" %></td>
+      <td><%= f.select(:havebeen,  ["ja", "nein", "zum Teil"].collect,:prompt => "Bitte wählen") %></td>
+    </table><br/> 
+
+    <table>   
+      <tr><td><%=f.label :reason, "Was ist der Anlass f&uuml;r dieses Workshop?" %></td></tr>
+      <tr><td><%= f.text_area :reason, :size => '94', :maxlength => 255 %></td></tr>
+    </table><br/> 
+
+    <table> 
+      <tr><td><%=f.label :municstay, "Steht der Besuch der Gedenkstätte im Rahmen eines längeren Aufenthaltes in München? " %></td></tr>
+      <tr><td><%= f.text_area :municstay, :size=> '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    <p align="left" style="font-weight:normal;"><%= rationing %></p>
+    <table>
+      <tr>
+        <td align ="left"><%=f.label :food, "Ja/Nein " %></td>&nbsp;
+        <td><%= f.select(:food, ["nein", "ja"].collect, {},
+          {:onchange=>" write_foodnr('workshop_food','workshop_foodnumber')"} ) %>&nbsp;&nbsp;</td>
+    
+        <td><%=f.label :foodnumber, "Personen: " %></td>
+        <td style="font-weight:normal;">
+          <%if @workshop.food=='ja'%>
+            <%= f.text_field :foodnumber,  :size => '4',:maxlength => 3,
+              :oninput => "CheckZiffer($F(this),'workshop_foodnumber','Dieses Feld darf nur Zahlen enthalten.')", 
+              :disabled =>false %>
+          <%else%>
+            <%= f.text_field :foodnumber,  :size => '4',:maxlength => 3,
+              :oninput => "CheckZiffer($F(this),'workshop_foodnumber','Dieses Feld darf nur Zahlen enthalten.')", 
+              :disabled =>true %>
+          <%end%>
+        </td>
+      </tr>
+    </table><br/><hr/>
+
+    <h2><%=f.label :remarc, "Anmerkungen/eigene W&uuml;nsche " %></h2>
+    <table> <tr><td><%= f.text_area :remarc, :size=> '94', :maxlength => 255 %></td></tr></table>
+
+    <%= render :partial => "dbusers/save_back_button"  %>
+
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

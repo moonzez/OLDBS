@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/subversion/repo/!svn/ver/1676/BS/app/views/users
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/subversion/repo/!svn/ver/1676/BS/app/views/users/edit.html.erb
+END
+newref.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/subversion/repo/!svn/ver/1523/BS/app/views/users/newref.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1676/BS/app/views/users/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/subversion/repo/!svn/ver/1676/BS/app/views/users/new.html.erb
+END
+_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/subversion/repo/!svn/ver/1523/BS/app/views/users/_user.html.erb
+END
+referees.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1676/BS/app/views/users/referees.html.erb
+END

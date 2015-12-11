@@ -1,0 +1,47 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>HT-Seminare- Suche</title></head>
+
+  <h1>HT-Seminare- Suche</h1><hr /><br /><br />
+
+  <% form_tag search_htseminars_path, :method => 'get' do %>
+    <table id ="small" cellpadding="5" >
+      <tr>
+        <td>Vorname:</td><td><%= text_field_tag :firstname, params[:firstname], :maxlength => 25 %></td>
+        <td>Name:</td><td><%= text_field_tag :lastname, params[:lastname], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>Schule:</td><td><%= text_field_tag :schoolname, params[:schoolname], :maxlength => 25 %></td>
+        <td>Ort:</td><td><%= text_field_tag :city, params[:city], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>Status:</td><td><%= text_field_tag :status, params[:status], :maxlength => 25 %></td>
+        <td>Thema:</td><td><%= text_field_tag :topic, params[:topic], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>Rechnung Nr.:</td><td><%= text_field_tag :invoice_number, params[:invoice_number], :maxlength => 25 %></td>
+        <td>HÜL Nr.:</td><td><%= text_field_tag :hl_number, params[:hl_number], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td title=">= 3 Zeichen">Land:</td><td title=">= 3 Zeichen"><%= text_field_tag :country, params[:country], :maxlength => 25 %></td>
+        <td></td><td></td>
+      </tr>
+    </table>
+    <p align="center"><%= submit_tag "Suchen", :name => nil %></p>
+  <% end %>
+
+  <% if @htseminars.size > 0 %>
+    <%= render :partial => "htseminars/searchresult" %>
+  <% else %>
+    <table id ="small" cellpadding="5" >
+      <tr>
+        <td >Keine Einräge</td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

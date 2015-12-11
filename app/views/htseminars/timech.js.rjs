@@ -1,0 +1,12 @@
+if @htsbest.empty?   
+  page.replace_html 'htagesseminars' ,
+    '<b><p align="center" > Keine best&auml;tigte Halbtagesseminare in dieser Periode!</p></b><br/>'
+  page.visual_effect(:highlight, 'htagesseminars', :duration => 0.5)
+else
+  if accounter?
+    page.replace_html 'htagesseminars' ,:partial =>'account_htsb'
+  else
+    page.replace_html 'htagesseminars' ,:partial =>'htsb'
+  end
+  page.visual_effect(:highlight, 'htagesseminars', :duration => 0.5)
+end

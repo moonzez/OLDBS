@@ -1,0 +1,40 @@
+Sehr <% if @tour.gender == 'Frau' %>geehrte<% else %>geehrter<% end %> <%= @tour.gender %> <%= @tour.lastname %>,
+
+Leider ist es uns nicht möglich, in dem von Ihnen benannten Zeitraum (<%= denial_date(@tour) %>) <% if @tour.themetour && (@tour.theme_type == 'Theme')%>eine Themenführung<% elsif @tour.themetour && (@tour.theme_type == 'Exkursion') %>eine Exkursion<% else%>eine Führung<% end %> für Sie zu organisieren, da unsere Kapazitäten zu diesem Zeitpunkt schon voll ausgeschöpft sind.
+
+Falls für Sie auch ein anderer Termin in Frage kommt, können Sie sich selbstverständlich gerne wieder an uns wenden.
+<% if !@tour.themetour %>
+
+Des Weiteren haben Sie die Möglichkeit, eine Terminanfrage bei einem Kooperationspartner zu stellen, die ebenfalls geführte Rundgänge durch die Gedenkstätte anbieten:
+
+„Dachauer Forum“ (kostenpflichtig)
+Tel.: +49(0)8131-99 68 80
+fuehrungen@dachauer-forum.de
+
+„Förderverein für Internationale Jugendbegegnung und Gedenkstättenarbeit e.V.“ (kostenpflichtig)
+Tel.: +49(0)8131-83 30 3
+info@foerderverein-dachau.de
+
+„Evangelische Versöhnungskirche“ (kostenfrei)
+Tel.: +49(0)8131-1 36 44
+info@versoehnungskirche-dachau.de
+
+Es ist auch möglich, eine Audioführung zu machen. Die Audioguides kosten pro Person  3.50 Euro (ermäßigt für Gruppen, Schüler und Studenten pro Person: 2.50 Euro) und  werden von der Linon Medien GmbH verliehen. Für Reservierungen (nur für Gruppen ab 20 Personen) wenden Sie sich bitte an: Linon Medien GmbH
+Homepage: www.audioguide-dachau.de
+E-Mail: reservierung@audioguide-dachau.de
+<% end %>
+Wir hoffen, Ihnen hiermit einige Informationen gegeben zu haben, damit Sie den Besuch der KZ-Gedenkstätte Dachau doch noch organisieren können. Weitere Informationen finden Sie auch auf unserer Homepage unter:
+www.kz-gedenkstaette-dachau.de
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

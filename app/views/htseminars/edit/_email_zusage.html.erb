@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>E-Mail-Zusage mit Anhängen:</td>
+    <td>&nbsp;&nbsp;</td>
+    <% if @htseminar.invoice == 'ja' %>
+      <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusage', :id => @htseminar.id %></td>
+      <td>&nbsp;&nbsp;</td>
+      <td><%= link_to 'english  <img src="/images/mail.jpg" width="15">', :action => 'zusageeng', :id => @htseminar.id %></td>
+      <td>&nbsp;&nbsp;</td>    
+      <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', :action => 'zusageit', :id => @htseminar.id %></td>
+      <td>&nbsp;&nbsp;</td>
+    <% else %>
+      <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusageohnebill', :id => @htseminar.id %></td>
+      <td>&nbsp;&nbsp;</td>
+      <td><%= link_to 'english <img src="/images/mail.jpg" width="15">', :action => 'zusageengohnebill', :id => @htseminar.id %></td>
+      <td>&nbsp;&nbsp;</td>    
+      <% if @htseminar.formular == 'it' %>
+        <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', :action => 'zusageitohnebill', :id => @htseminar.id %></td>
+        <td>&nbsp;&nbsp;</td>
+      <% end %>    
+<% end %>
+    <% if @htseminar.zus_voll == 'ja' %>    
+      <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :zv_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@htseminar.zv_date)%></td>          
+    <% end %>
+  </tr>
+</table>

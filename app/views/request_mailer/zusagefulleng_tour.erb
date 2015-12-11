@@ -1,0 +1,42 @@
+Dear <%= get_engl_gender(@tour.gender) %> <%= @tour.lastname %>,
+
+we herewith confirm your booking of a guided tour in <%= get_language_eng(@tour.language) %> of the Dachau Concentration Camp Memorial Site on <%= get_fullenglday(@tour.thedate) %>, the <%= @tour.thedate.strftime("%d.%m.%Y")%> at <%= @tour.thefrom.strftime("%H:%M") %> for <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> group. <% else %> groups. <%  end %>
+
+Your guide will meet you at the infopoint in the Visitor Centre at the entrance to the Dachau Memorial Site. If you have questions upon your arrival please consult the Information Service provided in the Visitor Centre.
+
+If you are aware that you will arrive later than the confirmed start time of your tour we would be grateful if you could inform us by telephone on: 0049 – 8131 – 669970.
+
+The following documents have been attached to this mail:
+ - Invoice
+ - Leaflet with general information
+ - Scale of charges!
+ - Guidelines for visitors
+
+We would like to draw your attention to the fact that is possible to take a virtual tour of the memorial site on our homepage, which might help with the preparation of your visit. The virtual tour consists of two comparative aerial photographs, which display how the area looked in 1945 in comparison with today’s topographical conditions: 
+http://www.kz-gedenkstaette-dachau.de/topography.html
+
+The documentary film "Concentration Camp Dachau 1933 – 1945" is shown in the museum's cinema at:
+
+German:   9:30 a.m.,  11:00 a.m., 1:30 p.m.,  2:30 p.m.,  3:30 p.m.
+English:  10:00 a.m., 11:30 a.m., 12:30 p.m., 2:00 p.m.,  3:00 p.m.
+Italian:  10:30 a.m.
+French:   1 p.m.
+
+If you have any further questions please do not hesitate to contact us.
+
+Thank you for your interest in a tour of the memorial site. 
+
+With best wishes
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+Dachau Concentration Camp Memorial Site
+Educational Department
+Alte Römerstr. 75
+85221 Dachau
+Germany
+
+Phone +49(0)8131-66997-131
+Fax +49(0)8131-2235
+Email: bildung@kz-gedenkstaette-dachau.de
+Internet: www.kz-gedenkstaette-dachau.de/english.html
+

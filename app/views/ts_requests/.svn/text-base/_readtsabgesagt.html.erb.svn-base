@@ -1,0 +1,50 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+<table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+  <thead>
+  <tr>
+    <th colspan="4">Angefragter Termin</th>
+    <th rowspan="2">Alternative <br> Termine </th>
+    <th rowspan="2">Eingangs-<br>datum</th>
+    <th colspan="2">Kontaktperson</th>
+    <th rowspan="2">Schule/<br>Institution</th>
+    <th rowspan="2">TN</th>
+    <th rowspan="2">Re.<br/>Nr.</th>
+    <th rowspan="2">Re.<br/>bez.</th>
+    <th rowspan="2" style="color:#d9d5d5;">d</th>   
+  </tr>
+  <tr>
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+    <th>Name</th>
+    <th>Handynummer</th>
+ </tr>
+</thead>
+<tbody id="myTableBody">
+<% for ts in @tsdenied %>
+  <tr>
+        <td><%=h change_date(ts.date1)%></td>
+        <td><%=h get_day(ts.date1) %></td>
+        <td><%=h change_time(ts.from1) %></td>
+        <td><%=h change_time(ts.to1) %></td>     
+        <% if (!(ts.date2.blank?) || !(ts.date3.blank?)) %>
+        <td>ja</td> <%else %> <td>nein</td>
+        <%end%>
+        <td><%=h change_date(ts.created_at) %></td>
+        <td><%=h ts.gender %> <%=h ts.lastname %></td>
+        <td><%=h ts.cellphone %></td>
+        <td><%=h ts.schoolname %></td>
+        <td><%=h ts.participnumber %></td>
+        <td><%=h ts.invoice_number %></td>
+        <td><%=h ts.paid %></td>
+        <td></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<script type="text/javascript">
+var tbody=document.getElementById('myTableBody');
+if(tbody.scrollHeight<=300) tbody.style.height="auto";
+</script>
+</div>

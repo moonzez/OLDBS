@@ -1,0 +1,38 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;">
+  <thead>
+    <tr >
+      <th rowspan="2">Eingangs-<br>datum</th>
+      <th rowspan="2">Kontakt</th>
+      <th colspan="2">Angefragter Termin</th>
+      <th rowspan="2">Alternative <br> Termine </th>
+      <th rowspan="2">Sprache</th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Gr.</th>
+      <th rowspan="2">Film</th>   
+    </tr>
+    <tr>
+      <th>Datum</th>                        
+      <th>Von-Bis</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <% @detoursoffen.each do |detour| %>
+      <tr>
+        <td align="center"><%=h change_date(detour.created_at) %></td>
+        <td align="center"><%=h detour.gender %><br/><%=h detour.lastname %></td>     
+        <td align="center"><%=h change_date(detour.date1)%><br/><%=h get_german_day(detour.date1) %></td>
+        <td align="center"><%=h change_time(detour.from1) %><br/><%=h change_time(detour.to1) %></td>
+        <td align="center"><% if detour.date2 or detour.date3 %>ja<% else %>nein<%  end %></td>
+        <td align="center"><%=h get_language_de(detour.language) %></td>
+        <td align="center"><%=h detour.schoolname %></td>
+        <td align="center"><%=h detour.city %></td>
+        <td align="center"><%=h detour.participnumber %></td>
+        <td align="center"><%=h detour.groupnumber %></td>
+        <td align="center"><%=h get_film_de(detour.film) %></td>    
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,32 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;">
+  <thead>
+    <tr>
+      <th rowspan="2">Eingangs-<br>datum</th>
+      <th rowspan="2">Kontakt</th>
+      <th colspan="2">Angefragter Termin</th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Verpfl.</th>
+    </tr>
+    <tr>
+      <th>Datum</th>                        
+      <th>Von-Bis</th>    
+    </tr>
+  </thead>
+  <tbody>
+    <% @workoffen.each do |workshop|%>
+      <tr>
+        <td align="center"><%=h change_date(workshop.created_at) %></td>
+        <td align="center"><%=h workshop.gender %><br/><%=h workshop.lastname %></td>
+        <td align="center"><%=h change_date(workshop.date1) %><br/><%=h get_german_day(workshop.date1) %></td>
+        <td align="center"><%=h change_time(workshop.from1) %><br/><%=h change_time(workshop.to1) %></td>
+        <td align="center"><%=h workshop.schoolname %></td>
+        <td align="center"><%=h workshop.city %></td>
+        <td align="center"><%=h workshop.participnumber %></td>
+        <td align="center"><% if workshop.food=="ja" %> ja <% else %> nein <% end %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

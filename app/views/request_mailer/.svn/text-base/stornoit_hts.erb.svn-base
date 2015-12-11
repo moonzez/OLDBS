@@ -1,0 +1,17 @@
+Gentile <%= @hts.gender %> <%= @hts.lastname %>,
+
+grazie per la Sua email. Abbiamo effettuato la cancellazione della Sua prenotazione per un seminario di mezza giornata il <%= @hts.thedate.strftime("%d.%m.%Y") %> alle ore <%= @hts.thefrom.strftime("%H:%M") %>.
+
+Siamo a Sua disposizione nel caso volesse organizzare un seminario di mezza giornata in un’altra data. Saremo lieti di provvedere alla relativa organizzazione.
+
+Cordiali saluti
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,6 @@
+<p align="center">Danke! Ihre Anmeldung zum Halbtagesseminar wurde erfolgreich gespeichert. 
+Wir werden uns so schnell wie m&ouml;glich  zwecks der weiteren Bearbeitung des Antrages mit Ihnen in Verbindung setzen.  
+</p><br/>
+
+<p align="center"><%= link_to 'Zurück zu den Besucherinformationen',
+  'http://www.kz-gedenkstaette-dachau.de/index2.html' %> </p>

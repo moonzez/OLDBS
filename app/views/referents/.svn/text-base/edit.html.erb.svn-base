@@ -1,0 +1,122 @@
+<% if admin? or dbuser? or accounter?%>
+  <head> <title>Referenten-Daten&auml;nderung</title></head>
+  <h1 align = center>Referentendaten ändern</h1><hr/><br/>
+
+  <% form_for(@referent, :url => {:action => "update", :forvers => @version}) do |f| %>
+
+    <table>
+      <tr> 
+        <td><%=f.label :gender, "Anrede:" %></td>
+        <td><%= f.radio_button :gender, "Herr" %>&nbsp;Herr&nbsp;&nbsp;<%= f.radio_button :gender, "Frau" %>&nbsp;Frau</td>
+      </tr>
+  
+      <tr>
+        <td><label for="Vorname" >Vorname:</label></td>
+        <td><%= f.text_field :firstname, :size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'referent_firstname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :lastname, "Nachname:" %></td>
+        <td><%= f.text_field :lastname, :size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'referent_lastname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></td>
+      </tr>
+  
+      <tr>
+        <td colspan="2"><div class="xujError"><%= f.error_message_on :lastname %></div></td>
+      </tr> 
+  
+      <tr>
+        <td><%=f.label :tel, "Telefon:" %></td>
+        <td><%= f.text_field :tel,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :tel, "2.Telefon:" %></td>
+        <td><%= f.text_field :tel2,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :email, "E-Mail:" %></td>
+        <td><%= f.text_field :email,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td colspan="2"><div class="xujError"><%= f.error_message_on :email %></div></td>
+      </tr>
+  
+      <tr>
+        <td><label for="Rechte" >1.Sprache:</label></td>
+        <td><%= f.select(:language1, Referent::LANGUAGES) %></td>
+      </tr>
+  
+      <tr>
+        <td><label for="Rechte" >2.Sprache:</label></td>
+        <td><%= f.select(:language2, Referent::LANGUAGES, :include_blank =>true) %></td>
+      </tr>
+  
+      <tr>
+        <td><label for="Rechte" >3.Sprache:</label></td>
+        <td><%= f.select(:language3, Referent::LANGUAGES, :include_blank =>true) %></td>
+      </tr>
+  
+      <tr>
+        <td><label for="login" >Bemerkungen:</label></td>
+        <td><%= f.text_area :remarc, :size => '50' %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :street, "Strasse/Hnr.:" %></td>
+        <td><%= f.text_field :street,:size => 30,:maxlength => 30  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :city, "Ort:" %></td>
+        <td><%= f.text_field :city,:size => 30,:maxlength => 30  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :zip, "PLZ:" %></td>
+        <td><%= f.text_field :zip,:size => 30, :maxlength => 15  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :country, "Land:" %></td>
+        <td><%= f.text_field :country,:size => 30,:maxlength => 30  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :bank, "Bank:" %></td>
+        <td><%= f.text_field :bank, :size => 65,:maxlength => 65  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :blz, "BIC:" %></td>
+        <td><%= f.text_field :blz, :size => 30,:maxlength => 30  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :konto, "IBAN:" %></td>
+        <td><%= f.text_field :konto, :size => 30,:maxlength => 30  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :lizenz_hts, "Lizenz Halbtagesseminar:" %></td>
+        <td><%= f.check_box :lizenz_hts  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :lizenz_ts_all, "Lizenz Tagesseminar<br>'Was sieht man und was<br> bedeutet das?<br> - Der Alltag der Häftlinge<br> in Bildern und Berichten'" %></td>
+        <td><%= f.check_box :lizenz_ts_all  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :lizenz_ts_men, "Lizenz Tagesseminar<br>'Menschenrechtsverletzungen<br> im Konzentrationslager Dachau -<br> Die KZ-Gedenkstätte Dachau als<br> Lernort für Menschenrechte'" %></td>
+        <td><%= f.check_box :lizenz_ts_men  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :lizenz_ts_er, "Lizenz Tagesseminar<br>'Was geht mich das an? -<br> Erinnerungskultur und Formen<br> des Gedenkens auf dem Gelände<br> der KZ-Gedenkstätte Dachau'" %></td>
+        <td><%= f.check_box :lizenz_ts_er  %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :honorar, "Honorar:" %></td>
+        <td><%= f.check_box :honorar %></td>
+      </tr>
+    </table>
+
+    <%= render :partial => "dbusers/save_back_button" %>
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

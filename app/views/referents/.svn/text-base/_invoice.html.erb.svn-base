@@ -1,0 +1,68 @@
+<html>
+  <head></head>
+  <body>
+    <h2>Referentenhonorar. Leistungen in der KZ-Gedenkst&auml;tte Dachau im <%= (@month == 'März') ? "M&auml;rz" : @month  %> <%= @year %></h2>
+    <table border="1" width="100%">
+      <tr>
+        <td>Name</td><th><%= change_umlaut(@referent.lastname) %>, <%= change_umlaut(@referent.firstname) %></th><td>Bank</td><th><%= @referent.bank.blank? ? "&nbsp;" : change_umlaut(@referent.bank) %></th>
+      </tr>
+      <tr>
+        <td>Strasse</td><th><%= @referent.street.blank? ? "&nbsp;" : change_umlaut(@referent.street) %></th><td>BIC</td><th><%= @referent.blz.blank? ? "&nbsp;" : @referent.blz %></th>
+      </tr>
+      <tr>
+          <td>PLZ/Ort</td>
+          <th>
+            <% if (@referent.zip.blank? && @referent.city.blank?) %>
+              &nbsp;
+            <% else %>
+              <%= @referent.zip %> <%= change_umlaut(@referent.city) %>
+            <% end %>
+          </th>
+          <td>IBAN</td>
+          <th><%= @referent.konto.blank? ? "&nbsp;" : @referent.konto %></th>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table  border="1" width="100%">
+      <tr>
+        <th width="10%">Offene<br>F&uuml;hrung</th><th width="10%">Gebuchte<br>F&uuml;hrung</th><th width="10%">Tages-<br>seminar</th><th width="10%">HT-<br>Seminar</th><th width="10%">Work-<br>shop</th><th width="30%">Datum, Uhrzeit</th><th width="10%">Sprache</th><th width="10%" align="right">Honorar</th>
+      </tr>
+      <% @opentours.each do |otour| %>
+        <tr>
+          <td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><%= otour.date.strftime("%d.%m.%Y") %>, <%= otour.time.strftime("%H:%M")%></td><td><%= change_umlaut(otour.language) %></td><td align="right"><%= (otour.participnumber.to_i > 0)? "65,00" : "15,00" %> &euro;</td>
+        </tr>
+      <% end %>
+      <% @detours.each do |detour| %>
+        <tr>
+          <td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td><%= detour.thedate.strftime("%d.%m.%Y") %>, <%= detour.thefrom.strftime("%H:%M")%></td><td><%= change_umlaut(detour.language) %></td><td align="right"><%= (detour.status == 'storniert')? "15,00 " : "65,00" %> &euro;</td>
+        </tr>
+      <% end %>
+      <% @ts_requests.each do |ts| %>
+        <tr>
+          <td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td>&nbsp;</td><td><%= ts.thedate.strftime("%d.%m.%Y") %>, <%= ts.thefrom.strftime("%H:%M")%></td><td><%= change_umlaut(ts.language) %></td><td align="right"><%= (ts.status == 'storniert')? "15,00" : "150,00" %> &euro;</td>
+        </tr>
+      <% end %>
+      <% @htseminars.each do |hts| %>
+        <tr>
+          <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td>&nbsp;</td><td><%= hts.thedate.strftime("%d.%m.%Y") %>, <%= hts.thefrom.strftime("%H:%M")%></td><td><%= change_umlaut(hts.language) %></td><td align="right"><%= (hts.status == 'storniert')? "15,00" : "100,00" %> &euro;</td>
+        </tr>
+      <% end %>
+      <% @workshops.each do |work| %>
+        <tr>
+          <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>X</td><td><%= work.thedate.strftime("%d.%m.%Y") %>, <%= work.thefrom.strftime("%H:%M")%></td><td>&nbsp;</td><td align="right"><%= (work.status == 'storniert')? "15,00" : "65,00" %> &euro;</td>
+        </tr>
+      <% end %>
+    </table>
+    <table align="right" width="100%">
+      <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td align="right">Betrag : </td><td align="right"><%= @sum %>,00 &euro;</td></tr>
+    </table>
+    <br>
+    <p>Datum: <%= Time.new.strftime("%d.%m.%Y")  %></p>
+    <p>Rechnung wurde maschinell erstellt.</p>
+    <br>
+    <h4>Bearbeitungvermerk f&uuml;r die KZ- Gedenkst&auml;tte</h4>
+    <h5>Leistung wird best&auml;tigt:</h5>
+    <h5>Sachlich und rechnerisch richtig:</h5>  
+  </body>
+</html>

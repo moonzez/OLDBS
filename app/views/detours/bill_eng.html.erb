@@ -1,0 +1,28 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @detour } %>
+
+<p><big><b>Invoice no.: <%= @detour.invoice_number %></b></big></p>
+
+<p>Herewith we confirm the booking of a guided tour at the concentration camp memorial site. 
+For the tour we are obliged to charge from you following amount:</p>
+
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Number of groups</th>
+    <th>Amount per group</th>
+    <th>Total amount</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@detour.thedate) %>, <%= change_time(@detour.thefrom) %></td>
+    <td><%= @detour.groupnumber %></td> 
+    <td><%= number_to_euro(@detour.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@detour.groupnumber * @detour.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+<br>
+<p>Please pay the total amount within two weeks after the guided tour into the following account:</p>
+<%= render :partial => "shared/bill/bankaccount" %>
+<br>
+<p><small><i>As a public law foundation we are not subject to turnover tax acording to german Turnover Tax Low</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

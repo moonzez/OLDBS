@@ -1,0 +1,74 @@
+<% if referee? %>
+  <head> <title>Bevorstehende Rundgänge</title>
+    <style type="text/css">     
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+
+  <h1> Bevorstehende best&auml;tigte Rundg&auml;nge</h1>  
+  <body>
+    <table id="small" align="center" cellpadding="10">
+      <tr><td align="center"><b>Heute ist der <%=  get_output_germ_date(@today)%> <br> Rundgänge vom <%= get_output_germ_date(@today)%> bis zum <%=  get_output_germ_date(@two_monthes)%> </b></td></tr>
+    </table><br/><br/>
+
+    <% if @mydetours.empty? %>
+      <table id="small" align="center" style="font-size:24px" cellpadding="10">
+        <tr><td><b>Keine Rundg&auml;nge! </b></td></tr>
+      </table>
+    <% else %>
+      <div class="scrollable" style="overflow-x: scroll;  width:100%" >
+        <table id ="form" align="center" cellpadding="10" style="width:100%">
+          <thead>
+            <tr>
+              <th colspan="4" >Best&auml;tigter Termin</th>
+              <th colspan="2">Kontaktperson</th>
+              <th rowspan="2">Schule/<br>Institution</th>
+              <th rowspan="2">Ort</th>
+              <th rowspan="2">TN</th>
+              <th rowspan="2">Gr.</th>
+              <th rowspan="2">Sprache</th>
+              <th rowspan="2">Film</th>
+              <th rowspan="2">Referent</th>
+              <th rowspan="2" style="color:#d9d5d5;">d</th>
+            </tr>
+            <tr> 
+              <th>Datum</th>
+              <th>Tag</th>
+              <th>Von</th>
+              <th>Bis</th>     
+              <th>Anrede</th>
+              <th>Name</th>
+            </tr>
+          </thead>  
+          <tbody>
+            <% @mydetours.each do |detour| %>
+              <tr>
+                <td><%=h change_date(detour.thedate) %></td>
+                <td><%=h get_german_day(detour.thedate) %></td>
+                <td align="center"><%=h change_time(detour.thefrom) %></td>
+                <td align="center"><%=h change_time(detour.theto) %></td>
+                <td align="center"><%=h detour.gender %></td>
+                <td align="center"><%=h detour.lastname %></td>
+                <td align="center"><%=h detour.schoolname %></td>
+                <td align="center"><%=h detour.city %></td>
+                <td align="center"><%=h detour.participnumber %></td>
+                <td align="center"><%=h detour.groupnumber %></td>
+                <td align="center"><%=h get_language_de(detour.language) %></td>
+                <td align="center"><%=h get_film_de(detour.film) %></td>
+                <td ><% detour.referents.each do |ref| %><%= ref.lastname %>, <%= ref.firstname %><br/><% end %> </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table><br/><br/>
+      </div><% end %>
+  </body>
+  
+<%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

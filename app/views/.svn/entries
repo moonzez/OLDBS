@@ -1,0 +1,79 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/app/views
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2015-07-14T20:11:23.836929Z
+2020
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+errors_controller
+dir
+
+ts_requests
+dir
+
+request_mailer
+dir
+
+detours
+dir
+
+referents
+dir
+
+opentours
+dir
+
+workshops
+dir
+
+layouts
+dir
+
+referees
+dir
+
+users
+dir
+
+administrators
+dir
+
+archives
+dir
+
+sessions
+dir
+
+shared
+dir
+
+dbusers
+dir
+
+simple_captcha
+dir
+
+htseminars
+dir
+

@@ -1,0 +1,8 @@
+Mahnung<br />
+<% if @detour.mahnung > 0 %>
+<p style="font-weight:normal;">Die <%= @detour.mahnung %>. Mahnung wurde am <%= change_date(@detour.mahnungdate) %> gesendet.</p><% end %>
+Mahnung senden: 
+&nbsp;<%= link_to 'deutsch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnung', :id => @detour.id } %>
+&nbsp;<%= link_to 'englisch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnungeng', :id => @detour.id } %>
+&nbsp;<%= link_to 'italienisch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnungit', :id => @detour.id } %>
+&nbsp;<%= link_to 'französisch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnungfr', :id => @detour.id } %>

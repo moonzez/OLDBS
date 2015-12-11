@@ -1,0 +1,10 @@
+if @opentours.size == 0 then
+page.replace_html 'selected_otours' ,
+     '<br/><table id="stat" align="center" style="font-size:24px" cellpadding="10">
+       <tr><td><b>Keine offene Führungen in diesem Monat! </b></td></tr>
+       </table>'
+page.visual_effect(:highlight, 'selected_otours', :duration => 0.5)
+else
+page.replace_html 'selected_otours', :partial =>'opentours/thisotours'
+page.visual_effect(:highlight, 'selected_otours', :duration => 0.5)  
+end

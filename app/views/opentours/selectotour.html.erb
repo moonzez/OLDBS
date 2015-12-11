@@ -1,0 +1,28 @@
+<% if admin? or dbuser? or accounter?%>
+
+    <head><title>Offene F&uuml;hrungen- Bestimmter Monat</title>
+        <style type="text/css">     
+        html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        }  
+    </style></head>
+    
+    <%form_remote_tag :url => {:action => "select_monat"} do %>               
+        <h1 align="center"> Offene F&uuml;hrungen </h1><br /><br />
+        
+        <table id="stat" cellpadding="10">
+        <tr>
+        <td><b><%=label :month, "Monat:" %></b> <td><%= date_select("month", "", :discard_day => true, :discard_year => true) %></td>
+        <td><b><%=label :year, "Jahr:" %></b> <%= date_select("year", "", :discard_day => true,:discard_month => true) %></td> 
+        <td><%= image_submit_tag("show2.png",{:title=>"Anzeigen", :alt =>"Anzeigen"}) %></td>
+        </tr>
+        </table><br/>
+    <% end %>
+    <div id='selected_otours'></div>
+    
+<%= render :partial => "dbusers/backbutton" %>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/subversion/repo/!svn/ver/1967/BS/app/views/detours/edit
+END
+_zahlung.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1707/BS/app/views/detours/edit/_zahlung.html.erb
+END
+_email_absage.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1967/BS/app/views/detours/edit/_email_absage.html.erb
+END
+_email_storno.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1967/BS/app/views/detours/edit/_email_storno.html.erb
+END
+_mahnung.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1967/BS/app/views/detours/edit/_mahnung.html.erb
+END
+_referenten_show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1680/BS/app/views/detours/edit/_referenten_show.html.erb
+END
+_referenten_verwalten.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/1680/BS/app/views/detours/edit/_referenten_verwalten.html.erb
+END
+_email_zusage.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1967/BS/app/views/detours/edit/_email_zusage.html.erb
+END

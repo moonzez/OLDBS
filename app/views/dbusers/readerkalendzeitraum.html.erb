@@ -1,0 +1,55 @@
+<% if reader? %>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%>
+
+  <head><title>Veranstaltungen im ausgewählten Zeitraum</title>
+    <style type="text/css">                
+      html>body div.scrollable tbody {
+        height: 200px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+  
+  <%form_remote_tag :url => {:action => "readzeitraum"} do %>
+    <h1 align="center"> Veranstaltungen im ausgewählten Zeitraum </h1>
+    <table id="stat" cellpadding="10">
+      <tr>
+        <td><b><%=label :startdata, "Startdatum:" %></b></td>
+        <td><%= calendar_date_select_tag :startdata,"", :year_range => 10.years.ago..10.years.from_now, :popup => "force"%></td> 
+        <td><b><%=label :enddata, "Enddatum:" %></b></td>
+        <td><%= calendar_date_select_tag :enddata,"", :year_range => 10.years.ago..10.years.from_now, :popup => "force"%></td> 
+        <td><%= image_submit_tag("show2.png",{ :title=>"Anzeigen", :alt =>"Anzeigen" }) %></td>
+      </tr>
+    </table><br/>
+  <% end %>
+    
+    <div id='tours_best_titel'></div>
+    <div id='tours_best' ></div>
+    <div id='tours_offen_titel'></div>
+    <div id='tours_offen'></div>
+    <div id='tours_denied_titel'></div>
+    <div id='tours_denied'></div>
+    <div id='tagesseminars_best_titel'></div>
+    <div id='tagesseminars_best'></div>
+    <div id='tagesseminars_offen_titel'></div>
+    <div id='tagesseminars_offen'></div>
+    <div id='tagesseminars_denied_titel'></div>
+    <div id='tagesseminars_denied'></div>
+    <div id='htseminars_best_titel'></div>
+    <div id='htseminars_best'></div>
+    <div id='htseminars_offen_titel'></div>
+    <div id='htseminars_offen'></div>
+    <div id='htseminars_denied_titel'></div>
+    <div id='htseminars_denied'></div>
+    <div id='workshops_best_titel'></div>
+    <div id='workshops_best'></div>
+    <div id='workshops_offen_titel'></div>
+    <div id='workshops_offen'></div>
+    <div id='workshops_denied_titel'></div>
+    <div id='workshops_denied'></div>
+    <div id='opentours_all_title'></div>
+    <div id='opentours_all'></div>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

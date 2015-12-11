@@ -1,0 +1,49 @@
+Sehr<% if @tour.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @tour.gender %> <%= @tour.lastname %>,
+
+hiermit bestätigen wir Ihnen Ihren Termin für die Themenführung "<%= @tour.topic %>" am <%= get_vollday(@tour.thedate) %>, den <%= @tour.thedate.strftime("%d.%m.%Y") %> um <%= @tour.thefrom.strftime("%H:%M") %> Uhr für <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> Gruppe. <% else %> Gruppen. <%  end %>
+
+Sie treffen die Referenten an der Infotheke im Besucherzentrum am Eingang zur KZ-Gedenkstätte Dachau. Bei Fragen vor Ort wenden Sie sich bitte an den Informationsservice im Besucherzentrum.
+
+Sollten Sie sich verspäten, bitten wir unter 0049-8131-669970 um einen kurzen Anruf.
+
+Im Anhang zur Mail finden Sie folgenden Dokumente:
+- Rechnung
+- Fragebogen
+- Faltblatt mit allgemeinen Informationen
+- Gebührenordnung!
+- Besucherordnung
+
+Wir bitten Sie, den Fragebogen nach dem Besuch in der Gedenkstätte ausgefüllt an uns zurückzusenden. Dies ist für uns und unsere Arbeit sehr wichtig.
+
+Des Weiteren möchten wir Sie darauf hinweisen, dass Sie zur Vorbereitung des Gedenkstättenbesuchs über unsere Homepage einen virtuellen Rundgang durch das Gelände der Gedenkstätte abrufen können. Der Einstieg gestaltet sich durch eine Gegenüberstellung zweier Luftaufnahmen, die das Areal aus dem Jahr 1945 mit den heutigen topografischen Gegebenheiten vergleichen: http://www.kz-gedenkstaette-dachau.de/gedenkstaette/topografie.html
+
+Für Ihren Besuch in der Gedenkstätte bitten wir Sie, Ihre Gruppe auf witterungsgemäße Bekleidung hinzuweisen und die Würde des Ortes zu achten. Auf dem Gelände der Gedenkstätte ist das Essen nicht gestattet.
+
+Im Filmraum der Gedenkstätte wird täglich die Dokumentation "Das Konzentrationslager Dachau" gezeigt (Dauer ca. 22 Minuten).
+
+Der Film beginnt zu folgenden Zeiten:
+
+Deutsch      9:30, 11:00, 13:30, 14:30, 15:30
+English     10:00, 11:30, 12:30, 14:00, 15:00
+Italienisch 10:30
+Französisch 13:00
+
+Wenn Sie den Film anschauen möchten, empfehlen wir Ihnen, dies vor oder nach Ihrem Rundgang einzuplanen und die Filmzeiten in Ihren An- oder Abfahrtzeiten zu berücksichtigen.
+
+Für weitere Fragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.
+
+Ich danke Ihnen für Ihr Engagement.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

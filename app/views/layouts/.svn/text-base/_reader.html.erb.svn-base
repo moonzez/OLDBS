@@ -1,0 +1,13 @@
+<div  style="position:fixed; background-color:#8795A8; top:0px; left:0px; width:100%;">
+  <table width="100%" bgcolor="#8795A8" >    
+    <tr><td>
+      <ul  id="nav" >
+        <li style="width:100px;"><%= link_to "Heute", readerkalendheute_dbusers_path %></li>
+        <li style="width:180px;"><%= link_to "Zeitraumauswahl", readerkalendzeitraum_dbusers_path %></li>
+        <li style="width:180px;"><%= link_to "Logout",logout_path %></li>
+      </ul>
+    </td></tr>
+    <tr ><td height="1px;" style="background-color:#8795A8"></td></tr>
+  </table>
+</div>
+<br/><br/>

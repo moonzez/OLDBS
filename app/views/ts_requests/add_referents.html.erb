@@ -1,0 +1,35 @@
+<% if admin? or dbuser? or accounter? %>
+<h1 align="center">Referenten verwalten </h1><hr/><br/>
+  <table id ="small" cellpadding="5" >
+    <tr>
+        <th>Referent</th>
+        <th colspan="2">Optionen</th>
+    </tr> 
+    
+    <% for referent in @referents %>
+    <tr>
+      <td><%= link_to referent.lastname+"&nbsp;&nbsp;"+referent.firstname, {:controller => 'referents', 
+        :action => 'show', :id => referent.id }%></td>
+      
+      <% if !@ts_referents.find_by_id(referent.id).blank? %>
+      <td>ist ausgewählt</td>
+      <td><%= link_to '<img src="/images/loeschen.png" border ="0" alt ="Löschen" title="Referenten löschen!">',
+        :action => 'delref',  :id => @ts.id, :refid => referent.id %> </td>
+      <% else %>
+      <td><%= link_to '<img src="/images/add.png" border ="0"  alt ="Löschen" title="Referenten hinzufügen!">', 
+        :action => 'joinref',  :id => @ts.id, :refid => referent.id %></td><td></td>
+      <% end %>
+      
+    </tr>
+    <% end %>
+ </table>
+<br/><hr/>
+
+<p id="backs" align="center"> 
+  <br/><%=  link_to '<img src="/images/fertig.png" alt="Fertig!" border ="0" title="Fertig mit Referentenverwaltung!" />',
+        edit_ts_request_path(@ts.id)%><br />
+</p>  
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

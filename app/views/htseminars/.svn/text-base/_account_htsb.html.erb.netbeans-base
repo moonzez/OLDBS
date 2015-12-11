@@ -1,0 +1,55 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+  <table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+    <thead>
+      <tr>
+        <th rowspan="2">Best&auml;tigter Termin</th>
+        <th rowspan="2">Kontakt</th>
+        <th rowspan="2">Schule/<br>Institution</th>
+        <th rowspan="2">Ort</th>
+        <th rowspan="2">Gr.</th>
+        <th rowspan="2">Kommentare</th>
+        <th rowspan="2">Re.<br/>gest.</th>
+        <th rowspan="2">Re.<br/>Summe</th>
+        <th rowspan="2">Re.<br/>Nr.</th>
+        <th rowspan="2">Re.<br/>bez.</th>
+        <th rowspan="2">Summe.<br/>Gezahlt</th>
+        <th rowspan="2">HÜL<br/>Nr.</th>
+        <th rowspan="2">Optionen</th>
+        <th rowspan="2">Rechnung</th>
+        <th rowspan="2" style="color:#d9d5d5;">d</th>
+      </tr>
+    </thead>
+    <tbody id="myTableBody">
+      <% @htsbest.each do |hts| %>
+        <tr>
+          <td align="center"><%=h change_date(hts.thedate) %></td>
+          <td align="center"><%=h hts.gender %> <%=h hts.lastname %></td>
+          <td align="center"><%=h hts.schoolname %></td>
+          <td align="center"><%=h hts.city %></td>
+          <td align="center"><%=h hts.groupnumber %></td>
+          <td><%= change_umlaut(hts.comments)%></td>       
+          <td align="center"><%=h hts.bill_sent %></td>
+          <td align="center"><%=h hts.given_price %></td>
+          <td align="center"><%=h hts.invoice_number %></td> 
+          <td align="center"><%=h hts.paid %></td> 
+          <td align="center"><%=h hts.paid_price %></td> 
+          <td align="center"><%=h hts.hl_number %></td> 
+          <td align="center">
+            <%= link_to '<img src="/images/edit.png" width="20" title="Details anschauen/ändern">', edit_htseminar_path(hts) %>
+          </td>
+          <td>
+            <% file = get_file_if_exists("htseminar", hts.id) %>
+              <% if file %>
+                <%= link_to '<img src="/images/PDF_File.jpg" width="20">', :controller => 'htseminars', :action => 'show_bill', :file => file %>
+              <% end %>
+           </td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <script type="text/javascript">
+    var tbody=document.getElementById('myTableBody');
+    if(tbody.scrollHeight<=350) tbody.style.height="auto";
+  </script>
+</div>

@@ -1,0 +1,389 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/subversion/repo/!svn/ver/2016/BS/app/views/request_mailer
+END
+mahnungit_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/mahnungit_hts.erb
+END
+denial_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1734/BS/app/views/request_mailer/denial_hts.erb
+END
+workshop_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1686/BS/app/views/request_mailer/workshop_result.erb
+END
+mahnung_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/mahnung_hts.erb
+END
+result_email_it.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/2028/BS/app/views/request_mailer/result_email_it.erb
+END
+ts_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1486/BS/app/views/request_mailer/ts_result.erb
+END
+stornofr_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1967/BS/app/views/request_mailer/stornofr_tour.erb
+END
+htseng_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1763/BS/app/views/request_mailer/htseng_result.erb
+END
+stornoeng_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1885/BS/app/views/request_mailer/stornoeng_tour.erb
+END
+htsit_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/2028/BS/app/views/request_mailer/htsit_result.erb
+END
+stornoit_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/stornoit_tour.erb
+END
+mahnungfr_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1972/BS/app/views/request_mailer/mahnungfr_tour.erb
+END
+zusagefullfrohnebill_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullfrohnebill_tour.erb
+END
+stornoit_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/stornoit_hts.erb
+END
+denial_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1734/BS/app/views/request_mailer/denial_ts.erb
+END
+referent_otour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/referent_otour.erb
+END
+zusagefull_theme.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_theme.erb
+END
+mahnungit_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/mahnungit_tour.erb
+END
+zusagefullitohnebill_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullitohnebill_tour.erb
+END
+referent_work.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/referent_work.erb
+END
+result_email_fr.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/2028/BS/app/views/request_mailer/result_email_fr.erb
+END
+zusagefull_workshop.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_workshop.erb
+END
+referent_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/referent_ts.erb
+END
+storno_workshop.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1863/BS/app/views/request_mailer/storno_workshop.erb
+END
+result_email.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/2028/BS/app/views/request_mailer/result_email.erb
+END
+zusagefull_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_ts.erb
+END
+zusagefulleng_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefulleng_hts.erb
+END
+archive_request.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/2016/BS/app/views/request_mailer/archive_request.erb
+END
+zusagefull_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_tour.erb
+END
+zusagefullit_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1929/BS/app/views/request_mailer/zusagefullit_hts.erb
+END
+storno_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1863/BS/app/views/request_mailer/storno_tour.erb
+END
+storno_ref_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/storno_ref_hts.erb
+END
+zusagefull_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_hts.erb
+END
+mahnungeng_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1819/BS/app/views/request_mailer/mahnungeng_tour.erb
+END
+denial_tour_ref.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1873/BS/app/views/request_mailer/denial_tour_ref.erb
+END
+zusagefullengohnebill_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullengohnebill_tour.erb
+END
+zusagefullohnebill_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullohnebill_ts.erb
+END
+denialit_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1885/BS/app/views/request_mailer/denialit_hts.erb
+END
+zusagefullfr_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullfr_tour.erb
+END
+htsfr_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1698/BS/app/views/request_mailer/htsfr_result.erb
+END
+zusagefullit_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullit_tour.erb
+END
+denial_workshop.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1734/BS/app/views/request_mailer/denial_workshop.erb
+END
+denial_toureng.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1871/BS/app/views/request_mailer/denial_toureng.erb
+END
+storno_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1863/BS/app/views/request_mailer/storno_hts.erb
+END
+denial_tourit.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/denial_tourit.erb
+END
+denial_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1871/BS/app/views/request_mailer/denial_tour.erb
+END
+zusagefullengohnebill_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullengohnebill_hts.erb
+END
+zusagefullitohnebill_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/1929/BS/app/views/request_mailer/zusagefullitohnebill_hts.erb
+END
+zusagefullohnebill_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullohnebill_hts.erb
+END
+result_email_eng.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1761/BS/app/views/request_mailer/result_email_eng.erb
+END
+zusagefull_exc.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefull_exc.erb
+END
+referent_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/referent_tour.erb
+END
+zusagefulleng_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefulleng_tour.erb
+END
+mahnung_workshop.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1819/BS/app/views/request_mailer/mahnung_workshop.erb
+END
+zusagefullohnebill_workshop.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullohnebill_workshop.erb
+END
+storno_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1863/BS/app/views/request_mailer/storno_ts.erb
+END
+referent_hts.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/1894/BS/app/views/request_mailer/referent_hts.html.erb
+END
+stornoeng_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1863/BS/app/views/request_mailer/stornoeng_hts.erb
+END
+hts_result.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1672/BS/app/views/request_mailer/hts_result.erb
+END
+denial_tourfr.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1967/BS/app/views/request_mailer/denial_tourfr.erb
+END
+mahnung_ts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1819/BS/app/views/request_mailer/mahnung_ts.erb
+END
+mahnungeng_hts.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/mahnungeng_hts.erb
+END
+mahnung_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1905/BS/app/views/request_mailer/mahnung_tour.erb
+END
+zusagefullohnebill_tour.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/2040/BS/app/views/request_mailer/zusagefullohnebill_tour.erb
+END

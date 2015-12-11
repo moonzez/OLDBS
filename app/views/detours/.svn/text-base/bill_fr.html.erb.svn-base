@@ -1,0 +1,40 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @detour } %>
+
+<p><big><b>Facture no.: <%= @detour.invoice_number %></b></big></p>
+
+<p>Par la pr&eacute;sente, nous vous confirmons la r&eacute;servation d&#39;une visite guid&eacute;e au M&eacute;morial du camp de 
+concentration de Dachau et vous facturons le montant suivant :</p>
+
+<table border="1">
+  <tr>
+    <th>Date</th>
+    <th>Nombre de groupes</th>
+    <th>Montant par groupe</th>
+    <th>Montant total</th>   
+  </tr>
+  <tr>
+    <td><%= change_date(@detour.thedate) %></td>
+    <td><%= @detour.groupnumber %></td> 
+    <td><%= number_to_euro(@detour.current_fee) %> &euro;</td>
+    <td><%= number_to_euro(@detour.groupnumber * @detour.current_fee) %> &euro;</td>    
+  </tr>
+</table>
+<br>
+
+<p>Nous vous prions d&#39;effectuer un virement du montant total au plus tard quinze jours apr&egrave;s la visite 
+guid&eacute;e en mentionnant le num&eacute;ro de facture et la date de la visite guid&eacute;e dans les r&eacute;f&eacute;rences du 
+virement sur le compte suivant:</p>
+
+<table>
+  <tr><td>Titulaire du compte: </td><td>KZ-Gedenkst&auml;tte Dachau</td></tr>
+  <tr><td>Banque: </td><td>HypoVereinsbank M&uuml;nchen</td></tr>
+  <tr><td>Code bancaire: </td><td>700 202 70</td></tr>
+  <tr><td>Num&eacute;ro de compte: </td><td>15101860</td></tr>
+  <tr><td>IBAN: </td><td>DE71700202700015101860</td><tr>
+  <tr><td>BIC: </td><td>HYVEDEMMXXX</td></tr>
+</table>
+
+<br>
+<p><small><i>En tant que fondation de droit public, nous ne sommes pas soumis &agrave; la TVA au sens de la Loi sur l&#39;imp&#244;t sur le chiffre d&#39;affaires.</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

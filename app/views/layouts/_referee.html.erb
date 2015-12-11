@@ -1,0 +1,22 @@
+<div  style="position:fixed; background-color:#8795A8; top:0px; left:0px; width:100%;">
+  <table width="100%" bgcolor="#8795A8" >    
+    <tr><td>
+      <ul  id="nav" >
+        <li style="width:200px;"><%= link_to "Of. Führungen", :controller => 'referees', :action => 'opent' %>
+          <ul>
+            <li><%= link_to 'Anmelden', :controller => 'referees', :action => 'opentours' %></li>
+            <li><%= link_to 'Ansicht', :controller => 'referees', :action => 'sightot' %></li>
+          </ul>
+        </li>
+        <li style="width:100px;"><%= link_to "Rundgänge", detours_referees_path %></li>
+        <li style="width:200px;"><%= link_to "T-Seminare", ts_requests_referees_path %></li>
+        <li style="width:200px;"><%= link_to "HT-Seminare", hts_requests_referees_path %></li>
+        <li style="width:200px;"><%= link_to "Workshops", workshops_referees_path %></li>
+        <li> <%= link_to "Home", :controller => 'referees', :action => 'index' %> </li>
+        <li style="width:200px;"><%= link_to "Logout",logout_path %></li>
+      </ul>
+    </td></tr>
+    <tr ><td height="1px;" style="background-color:#8795A8"></td></tr>
+  </table>
+</div>
+<br/><br/>

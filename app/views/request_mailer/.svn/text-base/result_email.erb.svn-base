@@ -1,0 +1,27 @@
+Sehr<% if @tour.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @tour.gender %> <%= @tour.lastname %>,
+
+vielen Dank für Ihre Anfrage zu dem Rungang.
+
+Ihre Anfrage wurde mit folgenden Daten gespeichert:
+
+Wunschtermin: <%= @tour.date1.strftime("%d.%m.%Y") %> 
+Anfang um: <%= @tour.from1.strftime("%H:%M") %>
+<% if !@tour.date2.blank? %>2.Wunschtermin: <%= @tour.date2.strftime("%d.%m.%Y") %>
+Anfang um: <%= @tour.from2.strftime("%H:%M") %><% end %>
+<% if !@tour.date3.blank? %>3.Wunschtermin: <%= @tour.date3.strftime("%d.%m.%Y") %>
+Anfang um: <%= @tour.from3.strftime("%H:%M") %><% end %>
+Sprache: <%= @tour.language %>
+Anzahl Teilnehmer: <%= @tour.participnumber %>
+
+In Kürze bekommen Sie von uns eine schriftliche Terminbestätigung oder gegebenenfalls eine Absage, falls der Termin nicht mehr realisiert werden kann.
+Vielen Dank für ihr Interesse. Wir werden uns so schnell wie möglich bei Ihnen melden.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,17 @@
+<% date_str = date.to_s %>
+<tr>
+  <td><%= number %>. Termin</td>
+  <td><%=f.label date, "#{if duty then '*' end}am:" %> </td> 
+  <td><%= calendar_date_select_tag date_str, event[date], :year_range => 0.years.ago..5.years.from_now,
+    :popup => "force", :onchange => "set_date($F(this),'" + event_str+ '_'+ date_str + "');"%><%= f.hidden_field date%></td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%=f.label from, "#{if duty then '*' end}von:"%></td>
+  <td><%= f.select from, from_array, { :selected => change_time(event[from]), :include_blank => true },
+    { :onchange => "set_to_time('" + event_str + "_" + from.to_s + "','" + event_str + "_" + to.to_s+ "', " + minutes + ", '" + event_str + "')" } %></td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%=f.label to, "#{if duty then '*' end}bis:"%></td> 
+  <td><%= f.select to, to_array, { :selected => change_time(event[to]), :include_blank => true} %></td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%= image_tag("datumpfeil.png",:width =>"30", :title=>"Daten für den best&auml;tigten Termin verwenden", :alt => "&uuml;bernehmen",
+    :mouseover => "datumpfeil_mouseover.png", :onclick => "take_datum_"+ event_str + "('" + event_str + "_" + date_str+ "','"+ event_str + "_" + from.to_s+ "','"+ event_str + "_" + to.to_s+ "')") %></td>
+</tr>

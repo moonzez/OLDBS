@@ -1,0 +1,26 @@
+<% if admin? or dbuser? or accounter? %>
+  <head> 
+    <title>Best&auml;tigte Worshops </title>
+    <style type="text/css">
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+
+  <body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+    <h1> Bevorstehende Workshops</h1>
+    <% if accounter? %>
+      <%= render :partial => "workshops/account_workb" %>
+    <% else %>
+      <%= render :partial => "workshops/workb" %>
+    <% end %>
+  
+    <%= render :partial => "dbusers/backbutton" %>
+  </body>
+  
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

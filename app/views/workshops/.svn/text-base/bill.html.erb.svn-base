@@ -1,0 +1,25 @@
+<%= render :partial => "shared/bill/head", :locals => {:event => @workshop } %>
+
+<p><big><b>Rechnung-Nr.: <%= @workshop.invoice_number %></b></big></p>
+
+<p>Wir best&auml;tigen Ihnen hiermit die Buchung eines Workshops an der KZ-Gedenkst&auml;tte Dachau und stellen
+Ihnen hierf&uuml;r folgendes Entgelt in Rechnung:</p>
+
+<table border="1">
+  <tr>
+    <td>Datum</td><td>&nbsp;</td><td>Gesamtbetrag</td>   
+  </tr>
+  <tr>
+    <td><%= change_date(@workshop.thedate) %>, <%= change_time(@workshop.thefrom) %> Uhr</td>
+    <td>&nbsp;</td>
+    <td><%= number_to_euro(Workshop::CURRENT_PRICE) %> &euro;</td> 
+  </tr>
+</table>
+<br/>
+<p>Bitte &uuml;berweisen Sie den Gesamtbetrag innerhalb von 2 Wochen nach Erhalt der Rechnung unter Verwendung der Rechnungsnummer als Verwendungszweck auf das Konto:</p>
+
+<%= render :partial => "shared/bill/bankaccount" %>
+<br/>
+<p><small><i>Als &ouml;ffentlich-rechtliche Stiftung sind wir nicht umsatzsteuerpflichtig im Sinne des Umsatzsteuergesetzes.</i></small></p>
+
+<%= render :partial => "shared/bill/foot" %>

@@ -1,0 +1,39 @@
+<h2 align = center>Tagesseminare</h2>
+<table style="width:95%" id = "form" align="center" cellspacing="3" cellpadding="5">
+    <tr>
+    <th colspan="4" >Best&auml;tigter Termin</th>
+    <th rowspan="2">Schule/<br>Institution</th>
+    <th rowspan="2">Teil-<br>nehmer</th>
+    <th rowspan="2">Gr.</th>
+    <th rowspan="2">E-Mail<br/>gesendet</th>
+    <th rowspan="2">Bezahlt</th>
+  </tr>
+  <tr> 
+    <th>Datum</th>
+    <th>Tag</th>
+    <th>Von</th>
+    <th>Bis</th>
+ </tr>
+
+<% ts_requests.each do |ts| %>
+  <tr>
+    <td><%=h change_date(ts.thedate) %></td>
+    <td><%=h get_day(ts.thedate) %></td>
+    <td><%=h change_time(ts.thefrom) %></td>
+    <td><%=h change_time(ts.theto) %></td>
+    <td><%=h ts.schoolname %></td>
+    <td><%= ts.participnumber %> </td>
+    <td><%=h ts.groupnumber %></td>
+    <% @tsreferent = Tsreferent.find_by_ts_request_id_and_referent_id(ts.id, @referent.id) %>
+    <% if @tsreferent.mailsend == 0 %><td>nein</td><% else %><td><%= @tsreferent.maildate %> </td><% end %>
+    <% if @tsreferent.paid == 'nein' %>
+    <td><%=h @tsreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Zahlen">', 
+        {:controller => 'referents', :action => 'zahlen_ts', :id => @referent.id, :tsref => @tsreferent.id, :startdata => @start, :enddata => @end } %> </td>
+    <% else %>
+    <td><%=h @tsreferent.paid %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', 
+        {:controller => 'referents', :action => 'nicht_zahlen_ts', :id => @referent.id, :tsref => @tsreferent.id ,:startdata => @start, :enddata => @end} %> </td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+<br/><br/>

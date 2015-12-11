@@ -1,0 +1,166 @@
+<% if reader?%>
+
+  <head><title>Veranstaltungen heute</title>
+    <style type="text/css">                
+      html>body div.scrollable tbody {
+        height: 200px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+
+  <body onload="JavaScript:setTimeout('location.reload(true);',60000);">
+    <h1 align="center"> Veranstaltungen heute </h1>
+    
+    <div id='tours_best_titel'>
+      <%if @detoursbest.any? %>
+        <h3 align="center">Best&auml;tigte Rundg&auml;nge</h3>
+      <%end%>
+    </div>
+    <div id='tours_best'>
+      <%if @detoursbest.any? %>
+        <%= render :partial => "detours/readtourbest" %>
+      <%end%>
+    </div>
+  
+    <div id='tours_offen_titel'>
+      <%if @detoursoffen.any? %>
+        <h3 align="center">Offene Rundg&auml;nge</h3>
+      <%end%>
+    </div>
+    <div id='tours_offen'>
+      <%if @detoursoffen.any? %>
+        <%= render :partial => "detours/readtouroffen" %>
+      <%end%>
+    </div>
+    
+    <div id='tours_denied_titel'>
+      <%if @detoursdenied.any? %>
+        <h3 align="center">Abgesagte Rundg&auml;nge</h3>
+      <%end%>
+    </div>
+    <div id='tours_denied'>
+      <%if @detoursdenied.any? %>
+        <%= render :partial => "detours/readtourabgesagt" %>
+      <%end%>
+    </div>
+    
+    <div id='tagesseminars_best_titel'>
+      <%if @tsbest.any? %>
+        <h3 align="center">Best&auml;tigte Tagesseminare</h3>
+      <%end%>
+    </div>
+    <div id='tagesseminars_best'>
+      <%if @tsbest.any? %>
+        <%= render :partial => "ts_requests/readtsbest" %>
+      <%end%>
+    </div>
+    
+    <div id='tagesseminars_offen_titel'>
+      <%if @tsoffen.any? %>
+        <h3 align="center"> Offene Tagesseminare </h3>
+      <%end%>
+    </div>
+    <div id='tagesseminars_offen'>
+      <%if @tsoffen.any? %>
+        <%= render :partial => "ts_requests/readtsoffen" %>
+      <%end%>
+    </div>
+  
+    <div id='tagesseminars_denied_titel'>
+      <%if @tsdenied.any? %>
+        <h3 align="center"> Abgesagte Tagesseminare </h3>
+      <%end%>
+    </div>
+    <div id='tagesseminars_denied'>
+      <%if @tsdenied.any? %>
+        <%= render :partial => "ts_requests/readtsabgesagt" %>
+      <%end%>
+    </div>
+  
+    <div id='htseminars_best_titel'>
+      <%if @htsbest.any? %>
+        <h3 align="center">Best&auml;tigte Halbtagesseminare</h3>
+      <%end%>
+    </div>
+    <div id='htseminars_best'>
+      <%if @htsbest.any? %>
+        <%= render :partial => "htseminars/readhtsbest" %>
+      <%end%>
+    </div>
+    <div id='htseminars_offen_titel'>
+      <%if @htsoffen.any? %>
+        <h3 align="center"> Offene Halbtagesseminare </h3>
+      <%end%>
+    </div>
+    <div id='htseminars_offen'>
+      <%if @htsoffen.any? %>
+        <%= render :partial => "htseminars/readhtsoffen" %>
+      <%end%>
+    </div>
+    <div id='htseminars_denied_titel'>
+      <%if @htsdenied.any? %>
+        <h3 align="center"> Offene Halbtagesseminare </h3>
+      <%end%>
+    </div>
+    <div id='htseminars_denied'>
+      <%if @htsdenied.any? %>
+        <%= render :partial => "htseminars/readhtsabgesagt" %>
+      <%end%>
+    </div>
+  
+    <div id='workshops_best_titel'>
+      <%if @workbest.any? %>
+        <h3 align="center">Best&auml;tigte Workshops</h3>
+      <%end%>
+    </div>
+    <div id='workshops_best'>
+      <%if @workbest.any? %>
+        <%= render :partial => "workshops/readworkbest" %>
+      <%end%>
+    </div>
+    <div id='workshops_offen_titel'>
+      <%if @workoffen.any? %>
+        <h3 align="center"> Offene Workshops </h3>
+      <%end%>
+    </div>
+    <div id='workshops_offen'>
+      <%if @workoffen.any? %>
+        <%= render :partial => "workshops/readworkoffen" %>
+      <%end%>
+    </div>
+  
+    <div id='workshops_denied_titel'>
+      <%if @workdenied.any? %>
+        <h3 align="center"> Abgesagte Workshops </h3>
+      <%end%>
+    </div>
+    <div id='workshops_denied'>
+      <%if @workdenied.any? %>
+        <%= render :partial => "workshops/readworkabgesagt" %>
+      <%end%>
+    </div>
+    
+    <div id='opentours_all_title'>
+      <%if @opentours.any? %>
+        <h3 align="center"> Offene Führungen </h3>
+      <%end%>
+    </div>
+    <div id='opentours_all'>
+      <%if @opentours.any? %>
+        <%= render :partial => "opentours/readopentours" %>
+      <%end%>
+    </div>
+  
+    <%if @detoursbest.empty? && @detoursoffen.empty? && @detoursdenied.empty? && @tsbest.size==0  && @tsoffen.empty? && @tsdenied.empty? && @htsbest.empty?  &&
+        @htsoffen.empty? && @htsdenied.empty? &&  @workbest.empty? && @workoffen.empty? && @workdenied.empty? && @opentours.empty? %>
+      <table id="small" cellpadding="10">
+        <tr><td><b>Keine Veranstaltungen heute </b></td></tr>
+      </table>
+    <%end%>
+  </body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

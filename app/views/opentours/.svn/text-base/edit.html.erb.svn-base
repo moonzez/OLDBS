@@ -1,0 +1,44 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%>
+
+  <head> <title>Offene F&uuml;hrung bearbeiten</title></head>
+  <h1>Offene F&uuml;hrung bearbeiten</h1><br /><hr /><br />
+
+  <% form_for(@opentour, :url => {:action => "update"}) do |f| %>
+    <table>
+      <tr >
+        <td><%=f.label :date, "Datum:" %></td>
+        <td><%= calendar_date_select_tag "date", @opentour[:date], :year_range => 10.years.ago..10.years.from_now, :popup => "force", :onchange => "set_date($F(this),'opentour_date');" %><%= f.hidden_field :date%></td> 
+      </tr>
+      <tr>
+        <td><%=f.label :time, "Zeit:" %></td>
+        <td><%= f.select(:time, Opentour::STARTTIMES, :selected => change_time(@opentour[:time])) %><td>
+      </tr>
+      <tr>
+        <td><%=f.label :language, "Sprache:" %></td>
+        <td><%= f.select(:language, %w{Deutsch Englisch Französisch Hebräisch Italienisch Russisch Slowakisch Slovenisch Spanisch Tschechisch}) %></td>
+      </tr>
+      <tr >
+        <td><%=f.label :participnumber, "Teilnehmer:" %></td>
+        <td><%= f.text_field :participnumber, :maxlength => 3 %></td> 
+      </tr>
+      <tr>
+        <td><%=f.label :comment, "Kommentare:" %></td>
+        <td><%= f.text_area :comment, :size => '94x5', :maxlength => 600 %></td> 
+      </tr>
+      <tr>
+        <td><%=f.label :infocenter, "Kommentare für Infotheke:" %></td>
+        <td><%= f.text_area :infocenter, :size => '94x5', :maxlength => 600 %></td> 
+      </tr>
+      <tr>
+        <td><%=f.label :opentype, "Typ:" %></td>
+        <td><%= f.select(:opentype, ["", "THEMENFÜHRUNG"]) %><td>
+      </tr>
+    </table>
+
+    <%= render :partial => "dbusers/save_back_button" %>
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

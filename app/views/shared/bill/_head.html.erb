@@ -1,0 +1,12 @@
+<p><small>
+  <font color="#8795A8;">KZ-Gedenkst&auml;tte Dachau / Alte R&ouml;merstr. 75 / 85221 Dachau</font>
+</small></p>
+  
+<p>
+  <%= change_umlaut(event.schoolname) %><br />
+  <%= change_umlaut(event.street) %><br />
+  <%= event.zip %> <%= change_umlaut(event.city) %><br />
+  <%= change_umlaut(event.country) %>
+</p>
+    
+<p align ="right">Dachau, <%= change_date(Time.now) %></p>

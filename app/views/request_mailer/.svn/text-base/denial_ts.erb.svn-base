@@ -1,0 +1,20 @@
+Sehr <% if @ts.gender == 'Frau' %>geehrte <% else %>geehrter <% end %> <%= @ts.gender %> <%= @ts.lastname %>,
+
+vielen Dank für Ihre Anfrage.
+
+Leider ist es uns nicht möglich, in dem von Ihnen benannten Zeitraum (<%= denial_date(@ts) %>) ein Tagesseminar für Sie zu organisieren, da unsere Kapazitäten zu diesem Zeitpunkt schon voll ausgeschöpft sind.
+
+Falls für Sie auch ein anderer Termin in Frage kommt, können Sie sich selbstverständlich gerne wieder an uns wenden.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

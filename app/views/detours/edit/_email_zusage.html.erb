@@ -1,0 +1,40 @@
+<table >
+  <tr>
+    <td>E-Mail-Zusage mit Anhängen:</td>
+    <td>&nbsp;&nbsp;</td>
+    <% if @detour.invoice == 'ja' %>
+      <% if @detour.themetour %>
+        <% if @detour.theme_type == "Exkursion" %>
+          <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusage_exc', :id => @detour.id %></td>
+          <td>&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        <% else %>
+          <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusage_theme', :id => @detour.id %></td>
+          <td>&nbsp;&nbsp;</td>
+          <td>&nbsp;&nbsp;</td>
+        <% end %>
+      <% else %>
+        <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusage', :id => @detour.id %></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%= link_to 'englisch <img src="/images/mail.jpg" width="15">', :action => 'zusageeng', :id => @detour.id %></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', :action => 'zusageit', :id => @detour.id %></td>
+        <td>&nbsp;&nbsp;</td>
+        <td><%= link_to 'französisch <img src="/images/mail.jpg" width="15">', :action => 'zusagefr', :id => @detour.id %></td> 
+  <% end %>
+    <% else %>
+      <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', :action => 'zusageohnebill', :id => @detour.id %></td>
+      <td>&nbsp;&nbsp;</td>
+      <td><%= link_to 'englisch <img src="/images/mail.jpg" width="15">', :action => 'zusageengohnebill', :id => @detour.id %></td>
+      <td>&nbsp;&nbsp;</td>
+      <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', :action => 'zusageitohnebill', :id => @detour.id %></td>
+      <td>&nbsp;&nbsp;</td>
+      <td><%= link_to 'französisch <img src="/images/mail.jpg" width="15">', :action => 'zusagefrohnebill', :id => @detour.id %></td>
+<% end %> 
+
+    <% if @detour.zus_voll == 'ja' %>
+      <td>&nbsp;&nbsp;</td>    
+      <td><%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :zv_date, "&nbsp;&nbsp; wurde gesendet am: "+change_date(@detour.zv_date)%></td>          
+    <% end %>
+  </tr>
+</table>

@@ -1,0 +1,48 @@
+<h2>Zahlung</h2>
+<table>
+  <tr>
+    <td><%=f.label :invoice_number, "Rechnungsnummer: " %></td>
+    <td><%= f.text_field :invoice_number, :readonly => true, :size =>14 %></td>
+  </tr>
+  <tr>
+    <td align ="left"><%=f.label :invoice, "Rechnung stellen: " %></td>
+    <td><%= f.select(:invoice, %w{ ja nein;kostenfrei}) %></td>
+  </tr>
+  <tr>
+    <td align ="left"><%=f.label :bill_sent, "Rechnung gestellt: " %></td>
+    <td><%= f.select(:bill_sent, %w{ nein ja}) %></td>
+  </tr>
+  <% if @ts_request.zv_date != nil %>
+    <tr>
+      <td align ="left"><%=f.label :zv_date, "Rechnung gesendet: " %></td>
+      <td><%= f.text_field :zv_date, :readonly => true, :size =>14 %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td align ="left"><%=f.label :paid, "Rechnung bezahlt: " %></td>
+    <td><%= f.select(:paid,  ["nein", "ja,überwiesen","ja,bar"].collect, {},
+      {:onchange=>" write_hl('ts_request_paid','ts_request_hl_number')"}) %></td>
+  </tr>
+  <tr>
+    <td><%=f.label :hl_number, "H&Uuml;L-Nummer: " %></td>
+    <%if @ts_request.paid != 'nein'%>
+      <td style="font-weight:normal;"><%= f.text_field :hl_number,:size =>14,:disabled =>false,
+          :maxlength => 255%>
+      &nbsp;&nbsp;muss nur bei einer &Uuml;berweisung angegeben werden!</td>
+    <%else%>
+      <td style="font-weight:normal;"><%= f.text_field :hl_number,:size =>14,:disabled =>true,
+          :maxlength => 255%>
+      &nbsp;&nbsp;muss nur bei einer &Uuml;berweisung angegeben werden!</td>
+    <%end%>
+  </tr>
+  <% if accounter? %>
+    <tr>
+      <td><%=f.label :given_price, "Re. Summe: "%></td>
+      <td><%= f.text_field :given_price, :size =>14, :title => "Format: xx.yy" %></td>
+    </tr>
+    <tr>
+      <td><%=f.label :paid_price, "Summe gezahlt:"%></td>
+      <td><%= f.text_field :paid_price, :size =>14, :title => "Format: xx.yy" %></td>
+    </tr>
+  <% end %>
+</table>

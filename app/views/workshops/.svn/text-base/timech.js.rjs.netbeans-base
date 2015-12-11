@@ -1,0 +1,10 @@
+
+if @workbest.size==0 then       
+    page.replace_html 'workshops' ,
+      '<b><p align="center" > Keine bestätigte Workshops in dieser Periode!</p></b><br/>'
+   page.visual_effect(:highlight, 'workshops', :duration => 1)
+else   
+    page.replace_html 'workshops' ,:partial =>'workb'
+    page.visual_effect(:highlight, 'workshops', :duration => 1)
+end
+

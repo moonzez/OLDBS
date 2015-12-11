@@ -1,0 +1,29 @@
+<br/>
+<% form_tag :action => "zusagevoll_email", :id => @tour.id do %>
+<% form_for(@tour) do |f| %>
+  <table>
+    <tr>
+      <td><%= label :adresse, "Adresse:" %></td><td><%= f.text_field :email, :readonly => true %></td>
+    </tr>
+    <tr>
+      <td><%= label :cc, "Cc:" %></td><td><%= text_field_tag :cc, "",:size => '50' %></td>
+    </tr>
+    <tr>
+      <td><%= label :betreff, "Betreff:" %></td><td><%= text_field_tag :betreff, "Ihre Anfrage zu dem Rundgang am "+@tour.thedate.strftime("%d.%m.%Y"), :size => '50' %></td>
+    </tr>
+    <tr>
+      <td><%= label :anhang, "Anhang:" %></td><td><%= text_field_tag :anhang, "Informationen.pdf;  Fragebogen_Gedenkstaettenbesuch.doc;  Rechnung_vom_"+Time.now.localtime.strftime("%Y-%m-%d")+".pdf; Besucherordnung.pdf", :readonly => true, :size => '120' %></td>
+    </tr>
+    <tr>
+      <td></td><td><%= label :text, "Text:" %></td>
+    </tr>
+    <tr>
+      <td></td><td><%= text_area_tag :text, @mail_text, :size => '100x30' %></td>
+    </tr>
+</table>
+<br/>
+<%= submit_tag "Senden" %>
+<% end %>
+<% end %>
+<br/>
+

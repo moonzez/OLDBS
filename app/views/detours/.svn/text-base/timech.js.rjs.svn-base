@@ -1,0 +1,13 @@
+if @detoursbest.empty?    
+  page.replace_html 'tours' ,
+    '<b><p align="center" > Keine bestätigte Rundgänge in dieser Periode!</p></b><br/>'
+  page.visual_effect(:highlight, 'tours', :duration => 0.5)    
+else   
+  if accounter?
+    page.replace_html 'tours' ,:partial =>'account_tourb'
+  else
+    page.replace_html 'tours' ,:partial =>'tourb'
+  end
+  page.visual_effect(:highlight, 'tours', :duration => 0.5)
+end
+

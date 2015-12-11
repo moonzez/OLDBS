@@ -1,0 +1,53 @@
+<table align="center" border = "1px" cellpadding="2px" width="95%"
+       style="font-size:small;page-break-inside:avoid;" >
+  <thead>
+    <tr>
+      <th colspan="2">Best&auml;tigter Termin</th>
+      <th rowspan="2">Kontakt</th>
+      <th rowspan="2">Schule/<br>Institution</th>
+      <th rowspan="2">Ort</th>
+      <th rowspan="2">TN</th>
+      <th rowspan="2">Gr.</th>
+      <th rowspan="2">Sprache</th>
+      <th rowspan="2">Referent</th>    
+      <th rowspan="2">Verpfl.</th>
+      <th rowspan="2">Re.<br/>gest.</th>
+      <th rowspan="2">Re.<br/>bez.</th>
+    </tr>
+    <tr>
+      <th>Datum</th>                        
+      <th>Von-Bis</th>          
+    </tr>
+  </thead>
+  <tbody>
+    <% @htsbest.each do |hts| %>
+      <tr>
+        <td align="center"><%=h change_date(hts.thedate) %><br/><%=h get_german_day(hts.thedate) %></td>                
+        <td align="center"><%=h change_time(hts.thefrom) %><br/><%=h change_time(hts.theto) %></td>
+        <td align="center"><%=h get_de_gender(hts.gender) %><br/><%=h hts.lastname %></td>
+        <td align="center"><%=h hts.schoolname %></td>
+        <td align="center"><%=h hts.city %></td>
+        <td align="center"><%=h hts.participnumber %></td>
+        <td align="center">
+          <% if hts.groupnumber > hts.referents.count %>
+            <b style="color:red"><%=h hts.groupnumber %></b><br/>
+          <%else%>
+            <b style="color:blue"><%=h hts.groupnumber %></b>
+          <% end %> 
+        </td>
+        <td align="center"><%=h get_language_de(hts.language) %></td>
+        <td >
+          <% if hts.groupnumber > hts.referents.count %>
+            <b style="color:red"> Referenten fehlen!</b><br/>
+            <% hts.referents.each do |ref| %><%= ref.lastname %>, <%= ref.firstname %><br/><% end %> 
+          <%else%>
+            <% hts.referents.each do |r| %><%= r.lastname %>, <%= r.firstname %> <br/><% end %> 
+          <%end%>
+        </td>
+        <td align="center"><% if (hts.food=="ja" ) %> ja <%else %> nein <%end%></td>
+        <td align="center"><%=h hts.bill_sent %></td>
+        <td align="center"><%=h format_paid_attr(hts.paid) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

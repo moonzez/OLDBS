@@ -1,0 +1,84 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= javascript_include_tag :defaults %>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%>
+
+  <head> <title>Offene F&uuml;hrungen anlegen</title>
+    <style type="text/css">     
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+  <h1>Offene F&uuml;hrungen anlegen</h1><hr>
+  <body>
+    <h2 align="center">Termine für einen Monat</h2>
+    <% form_tag :action => "create_month" do %>
+      <p>
+      <form id = "myform">
+        <table id="small" cellpadding="10">
+          <tr >
+            <td rowspan="6"><b><%=label :month, "Monat:" %></b>
+            <%= date_select("month", "", :discard_day => true, :discard_year => true) %></td> 
+            <td rowspan="6"><b><%=label :year, "Jahr:" %></b>
+            <%= date_select("year", "", :discard_day => true,:discard_month => true) %></td> 
+            <td rowspan="6"><b><%=label :time, "Zeit:" %></b></td>
+            <td><%= check_box_tag(:time1, "09:00", "alle", {:checked => true}) %>09:00</td>
+            <td><%= check_box_tag(:time2, "09:15", "alle", {:checked => true}) %>09:15</td>
+            <td><%= check_box_tag(:time3, "09:30", "alle", {:checked => true}) %>09:30</td>
+            <td><%= check_box_tag(:time4, "09:45", "alle", {:checked => true}) %>09:45</td>
+            <td rowspan="6"><b><%=label :language, "Sprache:" %></b> <%= select(:language, {}, %w{Deutsch Englisch Französisch Hebräisch Italienisch Russisch Slowakisch Slovenisch Spanisch Tschechisch}, {}) %></td>
+            <td rowspan="6"><b><%=label :participnumber, "Teilnehmer:" %><%= text_field_tag :participnumber, '', {:size => 3, :maxlength => 3} %> </b></td>
+            <td rowspan="6"><b><%=label :opentype, "Typ:" %></b> <%= select(:opentype, {}, ["", "THEMENFÜHRUNG"], {}) %>
+            <td rowspan="6"><%= image_submit_tag("save.png",{:title=>"Speichern", :alt =>"Speichern"}) %></td>
+            <tr><td><%= check_box_tag(:time5, "10:00", "alle", {:checked => true}) %>10:00</td>
+              <td><%= check_box_tag(:time6, "10:15", "alle", {:checked => true}) %>10:15</td>
+              <td><%= check_box_tag(:time7, "10:30", "alle", {:checked => true}) %>10:30</td>
+              <td><%= check_box_tag(:time8, "10:45", "alle", {:checked => true}) %>10:45</td>
+            </tr>
+            <tr><td><%= check_box_tag(:time9, "11:00", "alle", {:checked => true}) %>11:00</td>
+              <td><%= check_box_tag(:time10, "11:15", "alle", {:checked => true}) %>11:15</td>
+              <td><%= check_box_tag(:time11, "11:30", "alle", {:checked => true}) %>11:30</td>
+              <td><%= check_box_tag(:time12, "11:45", "alle", {:checked => true}) %>11:45</td>
+            </tr>
+            <tr><td><%= check_box_tag(:time13, "12:00", "alle", {:checked => true}) %>12:00</td>
+              <td><%= check_box_tag(:time14, "12:15", "alle", {:checked => true}) %>12:15</td>
+              <td><%= check_box_tag(:time15, "12:30", "alle", {:checked => true}) %>12:30</td>
+              <td><%= check_box_tag(:time16, "12:45", "alle", {:checked => true}) %>12:45</td>
+            </tr>
+            <tr><td><%= check_box_tag(:time17, "13:00", "alle", {:checked => true}) %>13:00</td>
+              <td><%= check_box_tag(:time18, "13:15", "alle", {:checked => true}) %>13:15</td>
+              <td><%= check_box_tag(:time19, "13:30", "alle", {:checked => true}) %>13:30</td>
+              <td><%= check_box_tag(:time20, "13:45", "alle", {:checked => true}) %>13:45</td>
+            </tr>
+            <tr><td><%= check_box_tag(:time21, "14:00", "alle", {:checked => true}) %>14:00</td>
+          
+              <td><b><%= check_box_tag(:time22, "alle", { :checked => true }, { :onchange => "checkUncheckAll('time', 22);"} ) %>alle</b> </td>
+            </tr>
+          </tr>
+      </table></form>
+    <% end %>
+    <br/><hr/>
+    <h2 align="center">Ein bestimmter Termin</h2>
+    <% form_tag :action => "create_day" do %>
+      <p>
+      <table id="small" cellpadding="10">
+        <tr >
+          <td rowspan="4"><b><%=label :day, "Tag:" %></b>
+          <td><%= calendar_date_select_tag :data,"", :year_range => 10.years.ago..10.years.from_now, :popup => "force" %></td> 
+          <td><%= select(:time, {}, Opentour::STARTTIMES, {}) %>
+          <td rowspan="4"><b><%=label :language, "Sprache:" %></b> <%= select(:language, {}, %w{ Deutsch Englisch Französisch Hebräisch Italienisch Russisch Slowakisch Slovenisch Spanisch Tschechisch}, {}) %>
+          <td rowspan="4"><b><%=label :participnumber, "Teilnehmer:" %><%= text_field_tag :participnumber, '', :maxlength => 3 %> </b></td>
+          <td rowspan="4"><b><%=label :opentype, "Typ:" %></b> <%= select(:opentype, {}, ["", "THEMENFÜHRUNG"], {}) %>
+          <td rowspan="4"><%= image_submit_tag("save.png",{:title=>"Speichern", :alt =>"Speichern"}) %></td>
+        </tr>
+      </table>
+    <% end %>
+  </body>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,40 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/app/views/sessions
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2012-01-28T23:15:37.111529Z
+1675
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+new.html.erb
+file
+
+
+
+
+2012-01-28T21:35:48.968750Z
+57e9d4b4ce24e056c4633cae65ca2aa4
+2012-01-28T23:15:37.111529Z
+1675
+adm
+

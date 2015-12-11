@@ -1,0 +1,33 @@
+<% if admin? or dbuser? or accounter? %>
+  <%= calendar_date_select_includes :style=>"default",:locale=>"de"%> 
+
+  <head>
+    <title>Referenten- Veranstaltungen</title>
+  </head>
+
+  <h1 align = center>Referent: <%= @referent.firstname %> <%= @referent.lastname %> - Veranstaltungen in einem bestimmten Zeitraum</h1><hr/><br/>
+  <div id="form_div">
+  <% form_remote_tag :url =>{:action => "eventstimech", :id => @referent.id} do %>
+    <%= hidden_field :id, @referent.id%>
+    <table id="small" cellpadding="10">
+      <tr>
+        <td><b><%=label :startdata, "Startdatum:" %></b></td>
+        <td><%= calendar_date_select_tag :startdata, @start, :year_range => 10.years.ago..10.years.from_now, :popup => "force"%></td> 
+        <td><b><%=label :enddata, "Enddatum:" %></b></td>
+        <td><%= calendar_date_select_tag :enddata, @end, :year_range => 10.years.ago..10.years.from_now, :popup => "force"%></td>
+        <td><%= select_tag "eventname", options_for_select(events_options_for_select) %></td>
+        <td><%= image_submit_tag("show2.png",{:title=>"Anzeigen", :alt =>"Anzeigen"}) %></td>
+      </tr>
+    </table><br/>
+  <% end %>
+  </div>
+  
+  <div id="main_content">
+    <%= render :partial => "referents/events_table" %>
+  </div>
+
+<%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

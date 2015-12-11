@@ -1,0 +1,75 @@
+<% if logged_in? and current_user.role != 'reader' %>
+
+  <title>Referten hinzuf&uuml;gen</title>
+
+  <h1>Referenten hinzuf&uuml;gen</h1><hr/><br
+  
+  <% form_for(@referent) do |f| %>
+  <table>
+    <tr> 
+      <td><%=f.label :gender, "Anrede:" %></td>
+      <td><%= f.radio_button :gender, "Herr" %>&nbsp;Herr&nbsp;&nbsp;<%= f.radio_button :gender, "Frau" %>&nbsp;Frau</td>  
+    </tr>
+    <tr>
+      <td colspan="2"><div class="xujError"><%= f.error_message_on :gender %></div></td>
+    </tr>
+    <tr>
+      <td><%=f.label :firstname, "Vorname:"%></td>
+      <td><%= f.text_field :firstname, :size => 30,:maxlength => 255,
+        :oninput => "CheckNames($F(this),'referent_firstname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )"%></td>
+    </tr>
+    <tr>
+      <td><%=f.label :lastname, "Nachname:" %></td>
+      <td><%= f.text_field :lastname, :size => 30,:maxlength => 255,
+        :oninput => "CheckNames($F(this),'referent_lastname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div class="xujError"><%= f.error_message_on :lastname %></div></td>
+    </tr>
+    <tr>
+      <td><%=f.label :tel, "Telefon:" %></td>
+      <td><%= f.text_field :tel,:size => 30,:maxlength => 255  %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div class="xujError"><%= f.error_message_on :tel %></div></td>
+    </tr>
+    <tr>
+      <td><%=f.label :tel2, "2.Telefon:" %></td>
+      <td><%= f.text_field :tel2,:size => 30,:maxlength => 255  %></td>
+    </tr>
+    <tr>
+      <td><%=f.label :email, "E-Mail:" %></td>
+      <td><%= f.text_field :email,:size => 30,:maxlength => 255 %></td>
+    </tr>
+    <tr>
+      <td colspan="2"><div class="xujError"><%= f.error_message_on :email %></div></td>
+    </tr>
+    <tr>
+      <td><%= f.label :language1, "1.Sprache:" %></td>
+      <td><%= f.select(:language1, %w{ Deutsch Englisch  Französisch Italienisch Russisch Slowakisch Tschechisch }) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :language2, "2.Sprache:"%></td>
+      <td><%= f.select(:language2, %w{ Englisch Deutsch  Französisch Italienisch Russisch Slowakisch Tschechisch },:include_blank =>true) %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :language3, "3.Sprache:"%></td>
+      <td><%= f.select(:language3, %w{ Französisch Deutsch Englisch Italienisch Russisch Slowakisch Tschechisch },:include_blank =>true) %></td>
+    </tr>
+
+  </table>
+  
+  <br/><br/><br/><br/>
+  <div class="saveField">
+    <table id='unten'>
+      <tr>
+	<td width="95%"><%= image_submit_tag("save.png", {:title=> "Speichern",:alt =>"Speichern"}) %></td>
+        <td align="center"><%=  link_to '<img src="/images/back.png" border="1px" alt="Zurück" title="Zurück"/>',:back %></td>
+      </tr>
+    </table></div> 
+  <% end %>
+
+<% else %>
+  <p align = "center">Sie sind nicht angemeldet. Bitte melden Sie sich an.<br/> 
+  <%= link_to "Login", login_path %></p>
+<% end %> 

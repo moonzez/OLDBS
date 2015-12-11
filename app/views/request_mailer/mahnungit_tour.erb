@@ -1,0 +1,18 @@
+Gentile <%= get_it_gender(@tour.gender) %> <%= @tour.lastname %>,
+
+il  <%= get_fullitday(@tour.thedate) %> <%= @tour.thedate.strftime("%d.%m.%Y")%> alle ore <%= @tour.thefrom.strftime("%H:%M") %> avete partecipato con <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> gruppo <% else %> gruppi <% end %>ad una visita guidata al memoriale del campo di concentramento di Dachau.
+La relativa fattura Vi è stata inoltrata in data <%= @tour.zv_date.strftime("%d.%m.%Y") %> per un importo di <%= @tour.groupnumber*70 %> euro.
+Ripetute verifiche delle nostre entrate hanno evidenziato che l’importo dovuto per la visita guidata del Vostro gruppo ancora non è stato versato sul conto della Stiftung Bayerische Gedenkstätte.
+Vi preghiamo di verificare se a Voi il pagamento risulti effettuato e altrimenti provvedere quanto prima a versare l’importo dovuto sul seguente conto corrente:
+Intestatario del conto: KZ-Gedenkst&auml;tte Dachau
+Banca:                  HypoVereinsbank M&uuml;nchen
+Codice Banca:           700 202 70
+Conto corrente n.:      15101860
+IBAN:                   DE71700202700015101860
+BIC:                    HYVEDEMMXXX
+
+Nel caso abbiate già effettuato il pagamento, vi preghiamo di contattarci al più presto per i necessari chiarimenti.
+Vi ringraziamo per la vostra gentile collaborazione.
+
+Cordiali saluti,
+<%= current_user.firstname %> <%=  current_user.lastname %>

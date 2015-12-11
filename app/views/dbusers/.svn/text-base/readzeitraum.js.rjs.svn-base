@@ -1,0 +1,137 @@
+if @detoursbest.empty?  
+    page.replace_html 'tours_best_titel',''
+    page.replace_html 'tours_best' ,''
+    page.visual_effect(:highlight, 'tours_best', :duration => 0.5)
+else 
+    page.replace_html 'tours_best_titel' ,'<b><p align="center" > Best&auml;tigte Rundg&auml;nge:</p></b>'
+    page.replace_html 'tours_best' ,:partial =>'detours/readtourbest'
+    page.visual_effect(:highlight, 'tours_best', :duration => 0.5)
+end
+
+if @detoursoffen.empty?  
+    page.replace_html 'tours_offen_titel',''
+    page.replace_html 'tours_offen' ,''
+    page.visual_effect(:highlight, 'tours_offen', :duration => 0.5)
+else 
+    page.replace_html 'tours_offen_titel' ,'<b><p align="center" > Offene Rundg&auml;nge:</p></b>'
+    page.replace_html 'tours_offen' ,:partial =>'detours/readtouroffen'
+    page.visual_effect(:highlight, 'tours_offen', :duration => 0.5)
+end
+
+if @detoursdenied.empty? 
+    page.replace_html 'tours_denied_titel',''
+    page.replace_html 'tours_denied' ,''
+    page.visual_effect(:highlight, 'tours_denied', :duration => 0.5)
+else 
+    page.replace_html 'tours_denied_titel' ,'<b><p align="center" >Abgesagte Rundg&auml;nge:</p></b>'
+    page.replace_html 'tours_denied' ,:partial =>'detours/readtourabgesagt'
+    page.visual_effect(:highlight, 'tours_denied', :duration => 0.5)
+end
+
+if @tsbest.empty?
+    page.replace_html 'tagesseminars_best_titel',''
+    page.replace_html 'tagesseminars_best' , ''
+    page.visual_effect(:highlight, 'tagesseminars_best', :duration => 0.5)
+else
+    page.replace_html 'tagesseminars_best_titel' ,'<b><p align="center" >Best&auml;tigte Tagesseminare:</p></b>'
+    page.replace_html 'tagesseminars_best' ,:partial =>'ts_requests/readtsbest'
+    page.visual_effect(:highlight, 'tagesseminars_best', :duration => 0.5)
+end
+
+if @tsoffen.empty? 
+    page.replace_html 'tagesseminars_offen_titel',''
+    page.replace_html 'tagesseminars_offen' ,''
+    page.visual_effect(:highlight, 'tagesseminars_offen', :duration => 0.5)
+else
+    page.replace_html 'tagesseminars_offen_titel' ,'<b><p align="center" >Offene Tagesseminare:</p></b>'
+    page.replace_html 'tagesseminars_offen' ,:partial =>'ts_requests/readtsoffen'
+    page.visual_effect(:highlight, 'tagesseminars_offen', :duration => 0.5)
+end
+
+if @tsdenied.empty?  
+    page.replace_html 'tagesseminars_denied_titel',''
+    page.replace_html 'tagesseminars_denied' ,''
+    page.visual_effect(:highlight, 'tagesseminars_denied', :duration => 0.5)
+else
+    page.replace_html 'tagesseminars_denied_titel' ,'<b><p align="center" >Abgesagte Tagesseminare:</p></b>'
+    page.replace_html 'tagesseminars_denied' ,:partial =>'ts_requests/readtsabgesagt'
+    page.visual_effect(:highlight, 'tagesseminars_denied', :duration => 0.5)
+end
+
+if @htsbest.empty? 
+    page.replace_html 'htseminars_best_titel',''
+    page.replace_html 'htseminars_best' , ''
+    page.visual_effect(:highlight, 'htseminars_best', :duration => 0.5)
+else
+    page.replace_html 'htseminars_best_titel' ,'<b><p align="center" >Best&auml;tigte Halbtagesseminare:</p></b>'
+    page.replace_html 'htseminars_best' ,:partial =>'htseminars/readhtsbest'
+    page.visual_effect(:highlight, 'htseminars_best', :duration => 0.5)
+end
+
+if @htsoffen.empty? 
+    page.replace_html 'htseminars_offen_titel',''
+    page.replace_html 'htseminars_offen' ,''
+    page.visual_effect(:highlight, 'htseminars_offen', :duration => 0.5)
+else
+    page.replace_html 'htseminars_offen_titel' ,'<b><p align="center" >Offene Halbtagesseminare:</p></b>'
+    page.replace_html 'htseminars_offen' ,:partial =>'htseminars/readhtsoffen'
+    page.visual_effect(:highlight, 'htseminars_offen', :duration => 0.5)
+end
+
+if @htsdenied.empty?
+    page.replace_html 'htseminars_denied_titel',''
+    page.replace_html 'htseminars_denied' ,''
+    page.visual_effect(:highlight, 'htseminars_denied', :duration => 0.5)
+else
+    page.replace_html 'htseminars_denied_titel' ,'<b><p align="center" >Abgesagte Halbtagesseminare:</p></b>'
+    page.replace_html 'htseminars_denied' ,:partial =>'htseminars/readhtsabgesagt'
+    page.visual_effect(:highlight, 'htseminars_denied', :duration => 0.5)
+end
+
+if @workbest.empty?  
+    page.replace_html 'workshops_best_titel',''
+    page.replace_html 'workshops_best' , ''
+    page.visual_effect(:highlight, 'workshops_best', :duration => 0.5)
+else
+    page.replace_html 'workshops_best_titel' ,'<b><p align="center" >Best&auml;tigte Workshops:</p></b>'
+    page.replace_html 'workshops_best' ,:partial =>'workshops/readworkbest'
+    page.visual_effect(:highlight, 'workshops_best', :duration => 0.5)
+end
+
+if @workoffen.empty?
+    page.replace_html 'workshops_offen_titel',''
+    page.replace_html 'workshops_offen' ,''
+    page.visual_effect(:highlight, 'workshops_offen', :duration => 0.5)
+else
+    page.replace_html 'workshops_offen_titel' ,'<b><p align="center" >Offene Workshops:</p></b>'
+    page.replace_html 'workshops_offen' ,:partial =>'workshops/readworkoffen'
+    page.visual_effect(:highlight, 'workshops_offen', :duration => 0.5)
+end
+
+if @workdenied.empty?  
+    page.replace_html 'workshops_denied_titel',''
+    page.replace_html 'workshops_denied' ,''
+    page.visual_effect(:highlight, 'workshops_denied', :duration => 0.5)
+else
+    page.replace_html 'workshops_denied_titel' ,'<b><p align="center" >Abgesagte Workshops:</p></b>'
+    page.replace_html 'workshops_denied' ,:partial =>'workshops/readworkabgesagt'
+    page.visual_effect(:highlight, 'workshops_denied', :duration => 0.5)
+end
+
+if @opentours.empty?  
+    page.replace_html 'opentours_all_title',''
+    page.replace_html 'opentours_all' ,''
+    page.visual_effect(:highlight, 'opentours_all', :duration => 0.5)
+else 
+    page.replace_html 'opentours_all_title' ,'<b><p align="center" > Offene Führungen:</p></b>'
+    page.replace_html 'opentours_all' ,:partial =>'opentours/readopentours'
+    page.visual_effect(:highlight, 'opentours_all', :duration => 0.5)
+end
+
+if( @detoursbest.empty? && @detoursoffen.empty? && @detoursdenied.empty? && @tsbest.empty?  && @tsoffen.empty? && @tsdenied.empty?  && @htsbest.empty?  &&
+      @htsoffen.empty? && @htsdenied.empty? &&  @workbest.empty? && @workoffen.empty? && @workdenied.empty? && @opentours.empty? )
+  page.replace_html 'tours_best_titel','<br/><table id="form" align="center" style="font-size:24px" cellpadding="10">
+       <tr><td><b>Keine Veranstaltungen in dieser Periode </b></td></tr>
+       </table>'
+
+end

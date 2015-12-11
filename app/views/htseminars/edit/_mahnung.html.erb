@@ -1,0 +1,7 @@
+<% if @htseminar.mahnung > 0 %>
+  &nbsp;Die <%= @htseminar.mahnung %>. Mahnung wurde am <%= change_date(@htseminar.mahnungdate) %> gesendet.<br/>
+<% end %>
+Mahnung senden: 
+&nbsp;<%= link_to 'deutsch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnung', :id => @htseminar.id } %>
+&nbsp;<%= link_to 'englisch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnungeng', :id => @htseminar.id } %>
+&nbsp;<%= link_to 'italienisch &nbsp;<img src="/images/mail.jpg" width="15" title="Mahnung">', { :action => 'mahnungit', :id => @htseminar.id } %>

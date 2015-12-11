@@ -1,0 +1,19 @@
+Sehr<% if @tour.gender == 'Frau'%> geehrte<% else %> geehrter<% end %> <%= @tour.gender %> <%= @tour.lastname %>,
+
+vielen Dank für Ihre Nachricht. Wir haben Ihre Buchung<% if !@tour.invoice_number.blank? %> "<%= @tour.invoice_number %>"<% end %> für den Rundgang<% if @tour.thedate && @tour.thefrom %> am <%= @tour.thedate.strftime("%d.%m.%Y") %> um <%= @tour.thefrom.strftime("%H:%M") %><% end %> storniert.
+
+Sollten Sie zu einem späteren Zeitpunkt eine Führung wünschen, setzen Sie sich bitte wieder mit uns in Verbindung. Wir organisieren dies dann sehr gerne für Sie.
+
+Für Rückfragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.
+
+Mit freundlichen Grüßen
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

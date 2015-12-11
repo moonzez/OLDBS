@@ -1,0 +1,20 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Halbtagesseminare</title></head>
+
+  <h1>Halbtagesseminare</h1><hr /><br /><br />
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Offene Anfragen', opened_htseminars_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bestätigte Anfragen', approved_htseminars_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Abgesagte Anfragen', denial_htseminars_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Stornierte Anfragen', storno_htseminars_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Neue Anfrage anlegen', newintern_htseminars_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Suchen', search_htseminars_path %></li>
+  </ul>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,16 @@
+<% if admin? or dbuser? or accounter? %>
+  <head>
+    <title>Best&auml;tigte  Workshops</title>
+  </head>
+  <h1>Bestätigte Workshops</h1><hr/><br/><br/>
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bevorstehende Workshops', future_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bestimmter Zeitraum',timechoice_workshops_path %></li>
+  </ul>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

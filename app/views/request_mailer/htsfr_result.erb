@@ -1,0 +1,30 @@
+Sehr<% if @htseminar.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%=  @htseminar.gender %> <%= @htseminar.lastname %>,
+
+vielen Dank für Ihre Anfrage nach einem Halbtagesseminar.
+
+Folgende Angaben von Ihnen wurden gespeichert:
+
+Wunschtermin: <%= @htseminar.date1.strftime("%d.%m.%Y") %> 
+Anfang um: <%= @htseminar.from1.strftime("%H:%M") %>
+<% if !@htseminar.date2.blank? %>2.Wunschtermin: <%= @htseminar.date2.strftime("%d.%m.%Y") %>
+Anfang um: <%= @htseminar.from2.strftime("%H:%M") %><% end %>
+<% if !@htseminar.date3.blank? %>3.Wunschtermin: <%= @htseminar.date3.strftime("%d.%m.%Y") %>
+Anfang um: <%= @htseminar.from3.strftime("%H:%M") %><% end %>
+<% if !@htseminar.topic.blank? %>Das Thema: <%= @htseminar.topic %><% end %>
+Anzahl Teilnehmer: <%= @htseminar.participnumber %>
+<% if @htseminar.food == 'ja' %>Die Verpflegung der Teilnehmer (Mittagessen) für: <%= @htseminar.foodnumber %> Personen<% end %>
+
+In Kürze bekommen Sie von uns eine schriftliche Terminbestätigung oder gegebenenfalls eine Absage, falls der Termin nicht mehr realisiert werden kann.
+Eine Terminbestätigung ist verbindlich.
+
+Vielen Dank für ihr Interesse. Wir werden uns in den nächsten Tagen bei Ihnen melden.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,12 @@
+page.replace_html 'main_content' , '<div id="main_content"><div id="init"></div></div>'
+
+if !@dates_array.empty?
+  page.insert_html :before, 'init' , :partial =>'referents/events_table'
+end
+
+if @dates_array.empty?
+  page.insert_html :before, 'init', '
+    <table id="form" align="center" style="font-size:24px" cellpadding="10">
+        <tr><td><b>Keine Veranstaltungen in dieser Periode! </b></td></tr>
+    </table>'
+end

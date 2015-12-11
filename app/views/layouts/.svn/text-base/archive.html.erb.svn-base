@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <title></title>    
+    <%= stylesheet_link_tag 'layout2010'%>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+      <img src="/images/header.jpg" border="0" width="799" height="150" alt="Headerbild" usemap="#dachau" />
+        <map name="dachau">
+          <area shape="poly" coords="7,83,113,83,113,114,64,113,64,99,7,99" href="http://www.kz-gedenkstaette-dachau.de" alt="KZ-Gedenkstaette Dachau">
+          <area shape="poly" coords="118,108,174,108,174,135,7,135,7,121,118,121" href="http://www.stiftung-bayerische-gedenkstaetten.de/" alt="Stiftung Bayerische Gedenkstaetten">
+        </map>
+        <div style="position: absolute; top: 0; right: 0; left: 50%;">
+          <h1 style="float: right; text-align:right; color: #333333;">Anfragen an das Archiv<br>der KZ-Gedenkstätte Dachau</h1>
+          <div class="clear"></div>
+          <div class="clear"></div>
+          <div id="servicenav" class="clear">
+            <a href="http://www.kz-gedenkstaette-dachau.de/kontakt.html">Kontakt</a>&nbsp;&nbsp;&nbsp;<a href="http://www.kz-gedenkstaette-dachau.de/impressum.html">Impressum</a>&nbsp;&nbsp;&nbsp;<a href="http://www.kz-gedenkstaette-dachau.de/sitemap-d.html">Sitemap</a>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="gesamt">
+        <% if flash[:notice] %><div id="notice"><%= flash[:notice] %></div><% end %>
+        <% if flash[:error] %><div class="error"><%= flash[:error] %></div><% end %>
+        <div class="content">
+          <%= yield %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <div id="fuss">
+	  <p style="float:left;">&copy;  KZ-Gedenkst&auml;tte Dachau</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

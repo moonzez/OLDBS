@@ -1,0 +1,99 @@
+<p><font size="4" ><b>Anmeldung zu einem Halbtagesseminar an der KZ-Gedenkst&auml;tte Dachau</b></font></p>
+<font size=2>
+<table>
+  <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+  <tr><td><b>Ansprechperson</b></td><td></td></tr>
+  <tr><td><i>Anrede:</i></td><td><%= @htseminar.gender %></td></tr>
+   <tr >
+     <td><i>Name:</i></td><td><%= change_umlaut(@htseminar.lastname) %></td>
+     <td><i>Vorname:</i></td><td><%= change_umlaut(@htseminar.firstname) %></td>
+   </tr>   
+   <tr>
+     <td><i>Tel. dienstlich:</i></td><td><% if !@htseminar.telbus.blank? %><%= @htseminar.telbus %><% else %>___<% end %></td>
+     <td><i>Uhrzeit:</i></td><td><% if !@htseminar.telbusTime.blank? %><%= @htseminar.telbusTime %><% else %>___<% end %></td>
+   </tr>      
+   <tr>
+     <td><i>Tel. privat:</i></td><td><% if !@htseminar.telpriv.blank? %><%= @htseminar.telpriv %><% else %>___<% end %></td>
+     <td><i>Uhrzeit:</i></td><td><% if !@htseminar.telprivTime.blank? %><%= @htseminar.telprivTime %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>E-Mail:</i></td><td><%= @htseminar.email %></td>
+     <td><i>Fax:</i></td><td><% if !@htseminar.fax.blank? %><%= @htseminar.fax %><% else %>___<% end %></td>
+   </tr>
+  </table></font>
+  
+ <font size=2>
+ <table>
+   <tr><th width="300"></th><th width="300"></th><th width="300"></th><th width="300"></th></tr>
+   <tr><td><b>Schule/Institution</b></td><td></td></tr>
+   <tr>
+     <td><i>Name:</i></td><td><%= change_umlaut(@htseminar.schoolname) %></td>
+     <td><i>Schultyp:</i></td><td><% if !@htseminar.schooltype.blank? %><%= change_umlaut(@htseminar.schooltype) %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>Stra&szlig;e/Haus:</i></td><td><%= change_umlaut(@htseminar.street) %></td>
+     <td><i>Ort:</i></td><td><%= change_umlaut(@htseminar.city) %></td>
+   </tr>
+   <tr>
+     <td><i>PLZ:</i></td><td><%= @htseminar.zip %></td>
+     <td><i>Land:</i></td><td><%= change_umlaut(@htseminar.country) %></td>
+   </tr>
+  </table></font>
+
+ <font size=2>
+  <table>
+   <tr><th width="300"></th><th width="200"></th><th width="175"></th><th width="175"></th><th width="175"></th><th width="175"></th></tr>
+   <tr><td><b>Termin und Sprache</b></td><td></td><td></td></tr>
+   <tr>
+     <td><i>am:</i></td><td><%= change_date(@htseminar.date1) %></td>
+     <td><i>von:</i></td><td><%= change_time(@htseminar.from1) %></td>
+     <td><i>bis:</i></td><td><%= change_time(@htseminar.to1) %></td>
+   </tr>
+   <% if !@htseminar.date2.blank? %>
+   <tr>
+     <td><i>am:</i></td><td><%= change_date(@htseminar.date2) %></td>
+     <td><i>von:</i></td><td><%= change_time(@htseminar.from2) %></td>
+     <td><i>bis:</i></td><td><%= change_time(@htseminar.to2) %></td>
+   </tr><% end %>
+   <% if !@htseminar.date3.blank? %>
+   <tr>
+     <td><i>am:</i></td><td align ="left"><%= change_date(@htseminar.date3) %></td>
+     <td><i>von:</i></td><td align ="left"><%= change_time(@htseminar.from3) %></td>
+     <td><i>bis:</i></td><td align ="left"><%= change_time(@htseminar.to3) %></td>
+   </tr><% end %>
+  </table></font>
+ 
+  <font size=2>
+  <table>
+   <tr><th width="400"></th><th width="100"></th><th width="300"></th><th width="100"></th><th width="300"></th><th width="100"></th></tr>
+   <tr><td><b>Angaben zur Gruppe/Klasse</b></td><td></td><td></td></tr>
+   <tr>
+     <td><i>Anzahl TeilnehmerInnen:</i></td><td><%= @htseminar.participnumber %></td>
+     <td><i>davon m&auml;nnlich:</i></td><td><% if !@htseminar.male.blank? %><%= @htseminar.male %><% else %>___<% end %></td>
+     <td ><i>davon weiblich:</i></td><td><% if !@htseminar.female.blank? %><%= @htseminar.female %><% else %>___<% end %></td>
+   </tr>   
+   <tr>
+     <td><i>Alter (min. 14 Jahre):</i></td><td><% if !@htseminar.age.blank? %><%= @htseminar.age %><% else %>___<% end %></td>
+     <td><i>Schulstufe:</i></td><td><% if !@htseminar.schoolgrade.blank? %><%= @htseminar.schoolgrade %><% else %>___<% end %></td>
+     <td><i>Anzahl Betreuer:</i></td><td><% if !@htseminar.teamleader.blank? %><%= @htseminar.teamleader %><% else %>___<% end %></td>
+   </tr>
+ </table></font>
+  <br/>
+  
+  <p align="left"><font size=2><i>Kennen die TeilnehmerInnen die KZ-Gedenkst&auml;tte Dachau bereits?</i> <% if !@htseminar.havebeen.blank? %><%= @htseminar.havebeen %><% else %>___<% end %></font></p>
+      
+  <p align ="left"><font size=2><i>Was ist der Anlass f&uuml;r dieses Seminar?</i></font></p>
+  <p align="left"><font size=2><% if @htseminar.reason.blank? %>___<% else %><%= change_umlaut(@htseminar.reason) %><% end %></font></p>
+ 
+   <p align="left"><font size=2><i>Welches Thema soll schwerpunktm&auml;&szlig;ig in dem Seminar aufgegriffen und behandelt werden?</i></font></p>
+   <p align ="left"><font size=2><% if @htseminar.topic.blank? %>___<% else %><%= change_umlaut(@htseminar.topic) %><% end %></font></p>
+
+  <p align ="left"><font size=2><i>Steht der Besuch der Gedenkst&auml;tte im Rahmen eines l&auml;ngeren Aufenthaltes in M&uuml;nchen?</i></font></p>
+  <p align ="left"><font size=2><% if @htseminar.municstay.blank? %>___<% else %><%= change_umlaut(@htseminar.municstay) %><% end %></font></p>
+
+  <p align ="left"><font size=2><i>Die Verpflegung der Teilnehmer (Mittagessen).</i></font></p>
+  <p align="left"><font size=2><%= @htseminar.food %>&nbsp;<% if @htseminar.food == 'ja' %>  <%= @htseminar.foodnumber %><% end %></font></p>
+
+  <p align="left"><font size=2><b>Anmerkungen/eigene W&uuml;nsche </b></font></p>
+  <p align ="left"><font size=2><% if @htseminar.remarc.blank? %>___<% else %><%= change_umlaut(@htseminar.remarc) %><% end %></font></p>
+  

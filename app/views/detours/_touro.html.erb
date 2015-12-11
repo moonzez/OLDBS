@@ -1,0 +1,79 @@
+<% if !@detoursoffen.empty? %>
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+  <table id ="form" cellspacing="3" cellpadding="5">
+    <thead>
+      <tr>
+        <th rowspan="2">Eingangs-<br/>datum</th>
+        <th colspan="2">Kontaktperson</th>
+        <th colspan="3">Angefragter Termin</th>
+        <th rowspan="2">Alternative <br/> Termine </th>
+        <th rowspan="2">Sprache</th>
+        <th rowspan="2">TE</th>
+        <th rowspan="2">Schule/<br/>Institution</th>
+        <th rowspan="2">Ort</th>
+        <th rowspan="2">TN</th>
+        <th rowspan="2">Gr.</th>
+        <th rowspan="2">Film</th>
+        <% if admin? %>
+          <th colspan="2" rowspan="2">Optionen</th>
+        <% else %>
+          <th rowspan="2">Optionen</th>
+        <% end %>
+        <th rowspan="2">PDF</th>
+        <th rowspan="2" style="color:#d9d5d5;">d</th>
+      </tr>
+      <tr>
+        <th>Anrede</th>
+        <th>Name</th>
+        <th>Datum</th>
+        <th>Von</th>
+        <th>Bis</th>   
+      </tr>
+    </thead>
+    <tbody id="myTableBody">
+      <% @detoursoffen.each do |detour|%>
+        <% if ((detour.date1.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (detour.date2 && detour.date2.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (detour.date3 && detour.date3.strftime("%d.%m.%Y") =='01.05.2016')) %>
+          <tr class="show_70_years">
+        <% elsif detour.themetour %><tr class="show_themetour">
+        <% else %><tr><% end %>
+          <td><%=h change_date(detour.created_at) %></td>
+          <td><%=h get_de_gender(detour.gender) %></td>
+          <td><%=h detour.lastname %></td>     
+          <td><%=h change_date(detour.date1)%><br /><%=h get_german_day(detour.date1) %></td>
+          <td><%=h change_time(detour.from1) %></td>
+          <td><%=h change_time(detour.to1) %></td>
+          <td><% if detour.date2 or detour.date3 %> ja <%  else %> nein <% end %></td>
+          <td>
+            <% if detour.themetour %>
+              <%=h detour.topic %>
+            <% else %>
+              <%=h get_language_de(detour.language) %>
+            <% end %>
+          </td>
+          <td><% if detour.themetour %>X<% else %><% end %></td>
+          <td><%=h detour.schoolname %></td>
+          <td><%=h detour.city %></td>
+          <td><%=h detour.participnumber %></td>
+          <td><%=h detour.groupnumber %></td>
+          <td><%=h get_film_de(detour.film) %></td>
+          <td><%= link_to '<img src="/images/edit.png" width="20" title="Details anschauen / ändern">', edit_detour_path(detour) %></td>
+          <% if admin? %>
+            <td><%= link_to '<img src="/images/delete.png" width="20" title="Löschen">', detour, :confirm => 'Wollen sie wirklich diese Anmeldung l&ouml;schen?', :method => :delete %></td>
+          <% end %>
+          <td><%= link_to '<img src="/images/PDF_File.jpg" width="20">', :controller => 'detours', :action => 'tour_pdf', :id => detour.id %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <script type="text/javascript">
+    var tbody=document.getElementById('myTableBody');
+    if(tbody.scrollHeight<=350) tbody.style.height="auto";
+  </script>
+</div>
+<% else %><br/>
+  <table id="small"><tr><td>Keine offene Anfragen</td></tr></table>
+<% end %>

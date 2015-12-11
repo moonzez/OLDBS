@@ -1,0 +1,32 @@
+<h1 align = center>
+  Stornierte Veranstaltungen f&uuml;r <%= @referent.firstname %> <%= @referent.lastname %>
+</h1>
+<hr/>
+
+<% if @detours.empty? && @ts_requests.empty? && @htseminars.empty? && @workshops.empty? %>
+  <p align="center">Keine stornierte Veranstaltungen f&uuml;r <%= @referent.firstname %> <%= @referent.lastname %></p>
+<% else %>
+  <div id ='tours'>
+    <% if !@detours.empty? %>
+      <%= render :partial => "referents/rundgangRef", :locals => {:detours => @detours } %>
+    <% end %>
+  </div>
+    
+  <div id ='ts'>
+    <% if !@ts_requests.empty? %>
+      <%= render :partial => "referents/tsRef", :locals => {:ts_requests => @ts_requests } %>
+    <% end %>  
+  </div>
+      
+  <div id ='hts'>
+    <% if !@htseminars.empty? %>
+      <%= render :partial => "referents/htsRef", :locals => {:htseminars => @htseminars } %>
+    <% end %>  
+  </div>
+      
+  <div id ='work'>
+    <% if !@workshops.empty? %>
+      <%= render :partial => "referents/workRef", :locals => {:workshops => @workshops } %>
+    <% end %>  
+  </div>
+<% end %>

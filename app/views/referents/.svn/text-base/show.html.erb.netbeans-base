@@ -1,0 +1,75 @@
+<% if admin? or dbuser? or accounter? %>
+  <head> <title>Referenten-Ansicht</title></head>
+  <h1 align = center><%= @referent.firstname %> <%= @referent.lastname %></h1><hr/><br/>
+
+  <% form_for(@referent, :url => {:action => "update", :forvers => @version}) do |f| %>
+
+    <table>  
+      <tr>
+        <td>Vorname:</td>
+        <td><%= @referent.firstname%></td>
+      </tr>
+  
+      <tr>
+        <td>Nachname:</td>
+        <td><%= @referent.lastname %></td>
+      </tr>
+  
+      <tr>
+        <td>Telefon:</td>
+        <td><%= @referent.tel %></td>
+      </tr>
+  
+      <tr>
+        <td>2.Telefon:</td>
+        <td><%= @referent.tel2 %></td>
+      </tr>
+  
+      <tr>
+        <td>E-Mail:</td>
+        <td><%= @referent.email %></td>
+      </tr>
+  
+      <tr>
+        <td>1.Sprache:</td>
+        <td><%= @referent.language1 %></td>
+      </tr>
+  
+      <tr>
+        <td>2.Sprache:</td>
+        <td><%= @referent.language2 %></td>
+      </tr>
+  
+      <tr>
+        <td>3.Sprache:</td>
+        <td><%= @referent.language3 %></td>
+      </tr>
+  
+      <tr>
+        <td>Bemerkungen:</td>
+        <td><%= @referent.remarc %></td>
+      </tr>
+      <tr>
+        <td>Strasse/Hnr.:</td>
+        <td><%= @referent.street %></td>
+      </tr>
+      <tr>
+        <td>Ort:</td>
+        <td><%= @referent.city %></td>
+      </tr>
+      <tr>
+        <td>PLZ:</td>
+        <td><%= @referent.zip %></td>
+      </tr>
+      <tr>
+        <td>Land:</td>
+        <td><%= @referent.country %></td>
+      </tr>
+    </table>
+
+    <%= render :partial => "dbusers/backbutton" %>
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

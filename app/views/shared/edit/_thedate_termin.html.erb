@@ -1,0 +1,14 @@
+<tr>
+  <td><%=f.label :thedate, "am:" %></td>
+  <td><%= calendar_date_select_tag "thedate", event[:thedate], :year_range => 0.years.ago..5.years.from_now,
+      :popup => "force", :onchange => "bestaetige_thedate($F(this),'" + event_str + "_thedate', '" + event_str + "_status');"%>
+    <%= f.hidden_field :thedate %></td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%= f.label :thefrom, "von:" %></td>
+  <td><%= f.select :thefrom, from_array, { :selected => change_time(event[:thefrom]), :include_blank => true },
+    { :onchange => "set_to_time('" + event_str + "_thefrom','" + event_str + "_theto', " + minutes + ", '" + event_str + "')" } %>&nbsp;&nbsp;</td>
+  <td>&nbsp;&nbsp;</td>
+  <td><%=f.label :theto, "bis:" %></td>    
+  <td><%= f.select :theto, to_array, { :selected => change_time(event[:theto]), :include_blank => true },  
+    { :onchange =>" check_theto_status('" + event_str + "_theto','" + event_str + "_status')" }  %>&nbsp;&nbsp;</td>
+</tr>

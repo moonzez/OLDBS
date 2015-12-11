@@ -1,0 +1,189 @@
+<% if logged_in? %>
+
+<h1 align="center">Workshop - Datenansicht </h1><hr/><br/>
+
+<% form_for(@workshop) do |f| %>
+   
+<h2>Termine</h2>
+
+<h3>Best&auml;tigter Termin</h3>    
+<table>
+  <tr>
+    <td><%=f.label :thedate, "Datum: " %></td>
+    <td><b><%= f.text_field :thedate %></b></td>
+    <td><%=f.label :thefrom, "Von: " %></td><td><%= f.text_field :thefrom %>&nbsp;&nbsp;</td>
+    <td><%=f.label :theto, "Bis: " %></td><td><%= f.text_field :theto %></td>
+  </tr>
+</table><br/>
+
+<table >
+  <tr><td align ="left" ><%=f.label :status, "Status: " %><td ><%= f.text_field :status %></td></tr>  
+</table><br/>
+
+<table>
+   <tr>
+     <td><%=f.label :participnumber, "Teinehmeranzahl:"%> <%= f.text_field :participnumber,:size=>4 %></td>
+   </tr>
+</table>
+
+<table >
+   <tr> <td><%=f.label :comments, "Kommentare:"%></td> </tr>   
+   <tr> <td><%= f.text_area(:comments, :size => '94') %></td> </tr>   
+</table>
+
+<table >
+   <tr> 
+      <td><%=f.label :last_change, "Zuletzt geändert von:"%></td>    
+      <td><%= f.text_field :last_change, :readonly => true,:size =>10 %></td> 
+   </tr>   
+</table><hr/>
+
+<h2>Zahlung</h2>
+    <table>
+      <tr>
+         <td align ="left"><%=f.label :bill_sent, "Rechnung gestellt: " %></td>
+         <td><%= f.text_field :bill_sent %></td>
+      </tr>
+    </table>
+
+      <table>
+      <tr>
+         <td align ="left"><%=f.label :paid, "Rechnung bezahlt: " %></td>
+         <td><%= f.text_field :paid %></td>
+      </tr>
+    </table><hr/>
+    
+<h2>Ansprechperson</h2>
+<table>
+  <tr><td><%=f.label :gender, "Anrede:" %></td></tr>
+  <tr><td><%= f.text_field :gender %></td></tr>
+</table>
+<table>
+    <tr>
+     <td><%=f.label :firstname, "Vorname: " %></td>
+     <td><%=f.label :lastname, "Name: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :firstname %></td>
+     <td><%= f.text_field :lastname %></td>
+   </tr>
+
+   <tr>
+     <td><%=f.label :telbus, "Tel. dienstlich: " %></td>
+     <td><%=f.label :telbusTime, "Uhrzeit: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :telbus %></td>
+     <td><%= f.text_field :telbusTime %></td>
+   </tr>
+   
+   <tr>
+     <td><%=f.label :telpriv, "Tel. privat: " %></td>
+     <td><%=f.label :telprivTime, "Uhrzeit: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :telpriv %></td>
+     <td><%= f.text_field :telprivTime %></td>
+   </tr>
+   
+   <tr>
+     <td><%=f.label :email, "E-mail: " %></td>
+     <td><%=f.label :fax, "Fax: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :email %></td>
+     <td><%= f.text_field :fax %></td>
+   </tr>
+</table><hr/>
+
+      <h2>Schule/Institution</h2>
+<table>
+   <tr>
+     <td><%=f.label :schoolname, "Name:" %></td>
+     <td><%=f.label :schooltype, "Schultyp: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :schoolname %></td>
+     <td><%= f.text_field :schooltype %></td>
+   </tr>
+   
+   <tr>
+     <td><%=f.label :street, "Strasse/Hausnummer:" %></td>
+     <td><%=f.label :city, "Ort: " %></td>
+   </tr>   
+   <tr>
+     <td><%= f.text_field :street %></td>
+     <td><%= f.text_field :city %></td>
+   </tr>
+   
+    <tr>
+     <td><%=f.label :zip, "PLZ: " %></td>
+     <td><%=f.label :country, "Land: " %></td>
+   </tr>   
+   <tr>
+    <td><%= f.text_field :zip %></td>
+    <td><%= f.text_field :country %></td>
+   </tr>
+</table><hr/>
+   
+     <h2>Angaben zur Gruppe/Klasse</h2>
+<table>
+ <tr>
+   <td><%=f.label :male, "Teilnehmer männlich:" %></td>
+   <td><%=f.label :female, "Teilnehmer weiblich:" %></td>
+ </tr>   
+ <tr>
+   <td><%= f.text_field :male %></td>
+   <td><%= f.text_field :female %></td>
+ </tr>
+ <tr>
+   <td><%=f.label :age, "Alter (min. 14 Jahre): " %></td>
+   <td><%=f.label :schoolgrade, "Schulstufe: " %></td>
+   <td><%=f.label :teamleader, "Anzahl Betreuer: " %></td>
+ </tr>   
+ <tr>
+   <td><%= f.text_field :age %></td>
+   <td><%= f.text_field :schoolgrade %></td>
+   <td><%= f.text_field :teamleader %></td>
+ </tr>
+</table><br/>  
+
+<table>
+    <td><%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkstätte Dachau bereits?&nbsp;" %></td>
+    <td><%= f.text_field :havebeen, :size => '5' %></td>
+</table><br/> 
+
+<table>   
+    <tr><td><%=f.label :reason, "Was ist der Anlass f&uuml;r dieses Workshop?" %></td></tr>
+    <tr><td><%= f.text_area(:reason, :size => '94') %></td></tr>
+</table><br/> 
+
+<table> 
+    <tr><td><%=f.label :municstay, "Steht der Besuch der Gedenkstätte im Rahmen eines längeren Aufenthaltes in München? " %></td></tr>
+    <tr><td><%= f.text_area(:municstay, :size=> '94') %></td></tr>
+</table><br/>
+
+<h2>Verpflegung</h2>
+<table>
+   <tr>
+   <td align ="left"><%=f.label :food, "Ja/Nein " %></td>&nbsp;
+   <td><%= f.text_field :food, :size => '5' %></td>
+
+   <td><%=f.label :foodnumber, "Personen: " %></td>
+   <td><%= f.text_field :foodnumber, :size => '5' %></td>
+</table><br/><hr/>
+
+<h2><%=f.label :remarc, "Anmerkungen/eigene W&uuml;nsche " %></h2>
+<table> <tr><td><%= f.text_area(:remarc, :size=> '94') %></td></tr></table><br/>
+
+<% end %>
+<hr/>
+<p id="backs" align="center"> 
+<%=  link_to '<img src="/images/pfeile.png" width ="60" border="0px" alt="Zurück" title="Zurück" />', :back%>
+</p><br />
+<% else %>
+
+<p align = "center">Sie sind nicht angemeldet. Bitte melden Sie sich an.<br/> 
+<%= link_to "Login", login_path %></p>
+
+<% end %>

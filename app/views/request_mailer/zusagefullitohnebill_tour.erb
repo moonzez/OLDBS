@@ -1,0 +1,47 @@
+Gentile <%= @tour.gender %> <%= @tour.lastname %>,
+
+Con la presente confermiamo la prenotazione di una visita guidata <%= get_full_it_day(@tour.thedate) %> il <%= @tour.thedate.strftime("%d.%m.%Y")%> alle <%= @tour.thefrom.strftime("%H:%M") %> per <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> gruppo. <% else %> gruppi. <% end %>
+
+Incontrerete la Vostra guida nel centro visitatori rivolgendovi al banco informazioni. I nostri collaboratori del centro sono a Sua diposizione per ogni domanda.
+Qualora siate in ritardo, La preghiamo di avvertirci telefonicamente al numero 0049-8131-669970.
+
+Allego i seguenti documenti:
+- un prospetto con alcune informazioni generali
+- Regolamento per i visitatori
+
+Le saremmo grati, se potesse mandarci il questionario compilato dopo la visita per aiutarci a migliorare il nostro lavoro.
+
+L’opuscolo “Il campo di concentramento di Dachau  1933 - 1945" scritto da Barbara Distel e Wolfgang Benz, fornisce una sintesi della storia del campo di concentramento di Dachau e della sua rilevanza all’interno della storia del nazional-socialismo. La versione online di questa pubblicazione si trova sulla pagina web della Bayerische Landeszentrale für politische Bildungsarbeit: http://www.km.bayern.de/blz/web/300017/index.asp
+
+Come preparazione alla visita è possibile effettuare un giro virtuale del memoriale del campo di concentramento di Dachau sulla nostra homepage. La presentazione del memoriale inizia con il confronto tra due foto aeree dell’area: prima del 1945 e una attuale, http://www.kz-gedenkstaette-dachau.de/fotografia-aerea-del-1945-e-2006.html
+
+Vorremmo inoltre ricordare che per la visita si raccomanda un abbigliamento consono alle condizioni atmosferiche e al decoro del luogo. All’interno dell’aerea del memoriale non è consentito mangiare.
+
+Nel cinema del memoriale viene proiettato giornalmente il documentario, “Il campo di concentramento di Dachau” (22 minuti circa).
+
+Gli orari delle proiezioni sono i seguenti:
+
+tedesco       09:30, 11:00, 13:30, 14:30, 15:30
+inglese       10:00, 11:30, 12:30, 14:00, 15:00
+italiano      10:30
+francese      13:00
+
+Se desiderate vedere il film, consigliamo di pianificarne la visione prima o dopo la visita, tenendo conto degli orari di proiezione.
+
+Siamo a disposizione per ogni ulteriore domanda.
+
+Grazie per la collaborazione.
+
+Cordiali saluti,
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+
+KZ-Gedenkstätte Dachau (Memoriale del campo di concentramento di Dachau)
+Bildungsabteilung (dipartimento di formazione)
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,18 @@
+<% form_tag session_path do -%>
+  <head>
+    <title>Login</title>
+  </head>
+<br/>
+<p  style="margin-left:20px;"><label for="login">Login:</label><br/>
+<%= text_field_tag 'login' %></p>
+
+<p  style="margin-left:20px;"><label for="password">Password:</label><br/>
+<%= password_field_tag 'password' %></p>
+
+<!-- Uncomment this if you want this functionality
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me' %></p>
+-->
+
+<p style="margin-left:20px;"><%= submit_tag 'Anmelden' %></p>
+<% end -%>

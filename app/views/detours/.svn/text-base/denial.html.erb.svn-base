@@ -1,0 +1,100 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+    <head> 
+      <title>Abgesagte Rundg&auml;nge</title>
+      <style type="text/css">
+        html>body div.scrollable tbody {
+          height:350px;      
+          overflow-x: hidden;
+          overflow-y: scroll;
+        }  
+      </style>
+    </head>
+  
+    <h1> Abgesagte Rundg&auml;nge</h1>
+  
+    <div class="scrollable" style="overflow-x: scroll;  width:100%" >
+      <table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+        <thead>
+          <tr>
+            <th colspan="3">Angefragter Termin</th>
+            <th rowspan="2">Alternative <br> Termine </th>
+            <th rowspan="2">Eingangs-<br>datum</th>
+            <th rowspan="2">Kontakt</th>
+            <th rowspan="2">Sprache</th>
+            <th rowspan="2">TE</th>
+            <th rowspan="2">Schule/<br>Institution</th>
+            <th rowspan="2">Ort</th>
+            <th rowspan="2">TN</th>
+            <th rowspan="2">Referent</th>
+            <th rowspan="2">Absage<br/>geschickt</th>
+            <th rowspan="2">Re.<br/>bez.</th>
+            <% if admin? %>
+              <th colspan="2" rowspan="2">Optionen</th>
+            <% else %>
+              <th rowspan="2">Optionen</th>
+            <% end %>
+            <th rowspan="2">PDF</th>
+            <th rowspan="2" style="color:#d9d5d5;">d</th>
+          </tr>
+          <tr> 
+            <th>Datum</th>
+            <th>Von</th>
+            <th>Bis</th>
+          </tr>
+        </thead>
+        <tbody id="myTableBody">
+          <% @detours.each do |detour|%>
+            <% if ((detour.date1 && detour.date1.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (detour.date2 && detour.date2.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (detour.date3 && detour.date3.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (detour.thedate && detour.thedate.strftime("%d.%m.%Y") == '01.05.2016')) %>
+              <tr class="show_70_years">
+            <% elsif detour.themetour %><tr class="show_themetour">
+            <% end %>
+              <td><%=h change_date(detour.date1)%><br/><%=h get_day(detour.date1) %></td>
+              <td><%=h change_time(detour.from1) %></td>
+              <td><%=h change_time(detour.to1) %></td>     
+              <td><% if detour.date2 or detour.date3 %>ja<%else %>nein<%end%></td>
+              <td><%=h change_date(detour.created_at) %></td>
+              <td><%=h detour.gender %><br/><%=h detour.lastname %></td>      
+              <td>
+                <% if detour.themetour %>
+                  <%=h detour.topic %>
+                <% else %>
+                  <%=h get_language_de(detour.language) %>
+                <% end %>
+              </td>
+               <td><% if detour.themetour %>X<% else %><% end %></td>
+              <td><%=h detour.schoolname %></td>
+              <td><%=h detour.city %></td>
+              <td><%=h detour.participnumber %></td>
+              <td><% detour.referents.each do |r| %><%= r.lastname %>, <%= r.firstname %> <br/><% end %></td>
+              <td><%=h detour.denial_sent %></td>
+              <td align="center"><%=h detour.paid %>
+                <% if (detour.paid != "nein") && (detour.paid != "kostenfrei") %><br/> HÜL <%=h detour.hl_number %><% end %>
+              </td>
+              <td><%= link_to '<img src="/images/edit.png" width="20" title="Details anschauen und ändern">', edit_detour_path(detour) %></td>
+              <% if admin? %>
+                <td><%= link_to '<img src="/images/delete.png" width="20" title="Löschen">', detour, :confirm => 'Wollen sie wirklich diese Anmeldung l&ouml;schen?', :method => :delete %></td>
+              <% end %>
+              <td><%= link_to '<img src="/images/PDF_File.jpg" width="20"></td>', :action => 'tour_pdf', :id => detour.id %></td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!-- needed for mozilla to shrink the window -->
+      <script type="text/javascript">
+        var tbody=document.getElementById('myTableBody');
+        if(tbody.scrollHeight<=350) tbody.style.height="auto";
+      </script>
+    </div>
+  
+    <%= render :partial => "dbusers/backbutton" %>
+  </body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

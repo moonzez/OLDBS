@@ -1,0 +1,18 @@
+<h2>Referenten</h2>
+<% if !@workshop.referents.blank? %>
+  <table id ="left_small" cellpadding="5">
+    <tr>
+      <th >Name</th>
+      <th>E-Mail sendet am</th>
+    </tr>
+    <% @workshop.referents.each do |ref| %>
+      <tr>
+        <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents',
+          :action => 'show', :id => ref.id } %></td>
+        <% @workreferent = Workreferent.find_by_workshop_id_and_referent_id(@workshop.id, ref.id) %>
+        <% if  @workreferent.mailsend == 0 %><td> </td><% else %>
+          <td><%= @workreferent.maildate %></td><% end %>
+      </tr>
+    <% end %> 
+  </table>
+<% end %>

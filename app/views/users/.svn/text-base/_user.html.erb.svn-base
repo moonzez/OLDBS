@@ -1,0 +1,8 @@
+<tr>
+  <td><%=h user.lastname %></td>
+  <td><%=h user.firstname %> </td>      
+  <td><%=h user.role %></td>
+  <td><%=h user.login %></td>
+  <td><%= link_to '<img src="/images/edit.png" width="20" title="Ändern">', edit_user_path(user) %></td>
+  <td><%= link_to '<img src="/images/delete.png" width="20" title="Löschen">', user, :confirm => 'Den Benutzer löschen?', :method => :delete %> </td>
+</tr>

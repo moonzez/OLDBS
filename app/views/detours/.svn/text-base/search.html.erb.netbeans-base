@@ -1,0 +1,31 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Rundg&auml;nge- Suche</title></head>
+
+  <h1>Rundg&auml;nge- Suche</h1><hr /><br /><br />
+
+  <% form_tag search_detours_path, :method => 'get' do %>
+    <table id ="small" cellpadding="5" >
+      <tr><td>Vorname:</td><td><%= text_field_tag :firstname, params[:firstname], :maxlength => 25 %></td><td>Name:</td><td><%= text_field_tag :lastname, params[:lastname], :maxlength => 25 %></td></tr>
+      <tr><td>Schule:</td><td><%= text_field_tag :schoolname, params[:schoolname], :maxlength => 25 %></td><td>Ort:</td><td><%= text_field_tag :city, params[:city], :maxlength => 25 %></td></tr>
+      <tr><td>Status:</td><td><%= text_field_tag :status, params[:status], :maxlength => 25 %></td><td>Sprache:</td><td><%= text_field_tag :language, params[:language], :maxlength => 25 %></td></tr>
+      <tr><td>Rechnung Nr.:</td><td><%= text_field_tag :invoice_number, params[:invoice_number], :maxlength => 25 %></td><td>HÜL Nr.:</td><td><%= text_field_tag :hl_number, params[:hl_number], :maxlength => 25 %></td></tr>
+    </table>
+    <p align="center"><%= submit_tag "Suchen", :name => nil %></p>
+  <% end %>
+
+  <% if @detours.size > 0 %>
+    <%= render :partial => "detours/searchresult" %>
+  <% else %>
+    <table id ="small" cellpadding="5" >
+      <tr>
+        <td >Keine Einräge</td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

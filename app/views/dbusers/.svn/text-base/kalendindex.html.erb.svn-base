@@ -1,0 +1,17 @@
+<% if admin? or dbuser? or accounter? %>
+
+<head><title>Kalender</title></head>
+
+<h1>Kalender</h1><hr/><br/><br/>
+
+<ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Aktuell', kalendaktuell_dbusers_path  %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Veranstaltungen an einem bestimmten Datum', kalenddatum_dbusers_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to  'Veranstaltungen in einem bestimmten Zeitraum', kalendzeitraum_dbusers_path %></li>
+</ul>
+
+<%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

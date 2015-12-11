@@ -1,0 +1,53 @@
+<% if admin? or dbuser? or accounter? %>
+<head>
+  <title>Referent als DB- Nutzer</title>
+    <style type="text/css">     
+      html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+</head>
+
+  <h1 align="center">Referent als DB- Nutzer </h1><hr /><br />
+  <% if @referents.empty? %>
+    <table id="form" cellpadding="10">
+      <tr><td><b>Alle Referenten haben bereits ein DB- Nutzer- Profile </b></td></tr>
+    </table>
+
+  <% else %>
+    <div class="scrollable" style="overflow-x: scroll; width:100%" >
+      <table id ="small" cellpadding="10">
+        <thead>
+          <tr>
+            <th>Referent</th>
+            <th>Optionen</th>
+            <th rowspan="2" style="color:#d9d5d5;">d</th>
+          </tr>      
+        </thead>
+        <tbody>
+          <% @referents.each do |referent| %>
+            <tr>
+              <td><%= referent.lastname+"&nbsp;&nbsp;"+referent.firstname %></td>
+              <td><%= link_to '<img src="/images/add.png" border ="0"  alt ="Hinzufügen" title="Referenten hinzufügen">', 
+                :action => 'newref', :id => referent.id %></td>
+            </tr>
+        <% end %></tbody>
+      </table><% end %><br/><br/><br/><br/>
+  </div>
+  <div class="saveField">
+    <table id='unten'>
+      <tr>
+        <td width="95%">
+          <%=  link_to '<img src="/images/fertig.png" title="Fertig",:alt ="Fertig" border ="1px" />', :back %>
+        </td>
+        <td align="center"> 
+          <%=  link_to '<img src="/images/back.png" border="1px" alt="Zurück" title="Zurück"/>',:back %>
+        </td>
+      </tr>
+  </table></div> 
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

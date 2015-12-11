@@ -1,0 +1,19 @@
+Sehr<% if @workshop.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @workshop.gender %> <%= @workshop.lastname %>,
+
+vielen Dank für Ihre Nachricht. Wir haben Ihre Buchung<% if !@workshop.invoice_number.blank? %> "<%= @workshop.invoice_number %>"<% end %> für den Workshop<% if @workshop.thedate && @workshop.thefrom %> am <%= @workshop.thedate.strftime("%d.%m.%Y") %> um <%= @workshop.thefrom.strftime("%H:%M") %><% end %> storniert.
+
+Sollten Sie zu einem späteren Zeitpunkt einen Workshop wünschen, setzen Sie sich bitte wieder mit uns in Verbindung. Wir organisieren dies dann sehr gerne für Sie.
+
+Für Rückfragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.
+
+Mit freundlichen Grüßen
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,84 @@
+<% if admin? or dbuser? or accounter? %>
+  <body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+
+  <head><title> Stornierte Workshops </title>       
+    <style type="text/css">
+      html>body div.scrollable tbody {
+        height:350px;      
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }  
+    </style>
+  </head>
+
+  <h1> Stornierte Workshops </h1>
+  <div class="scrollable" style="overflow-x: scroll;  width:100%" >
+    <table id ="form" cellspacing="3" cellpadding="5">
+      <thead>
+        <tr>
+          <th colspan="4">Angefragter Termin</th>
+          <th rowspan="2">Eingangs-<br>datum</th>
+          <th colspan="2">Kontaktperson</th>
+          <th rowspan="2">Schule/<br>Institution</th>
+          <th rowspan="2">Ort</th>
+          <th rowspan="2">Teil-<br>nehmer</th>
+          <th rowspan="2">Stornierung<br/>gesendet</th>
+          <th rowspan="2">Re.<br/>bez.</th>
+          <% if admin? %>
+            <th colspan="2" rowspan="2">Optionen</th>
+          <% else %>
+            <th rowspan="2">Optionen</th><% end %>
+          <th rowspan="2">PDF</th>
+          <th rowspan="2" style="color:#d9d5d5;">d</th>
+        </tr>
+        <tr>
+          <th>Datum</th>
+          <th>Tag</th>
+          <th>Von</th>
+          <th>Bis</th>
+          <th>Anrede</th>
+          <th>Name</th>  
+        </tr>
+      </thead>
+      <tbody id="myTableBody">
+        <% @workshops.each do |workshop|%>
+            <% if ((workshop.date1.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (workshop.date2 && workshop.date2.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (workshop.thedate && workshop.thedate.strftime("%d.%m.%Y") == '01.05.2016')) %>
+              <tr class="show_70_years">
+            <% else %><tr><% end %>
+            <td><%=h change_date(workshop.date1)%></td>
+            <td><%=h get_day(workshop.date1) %></td>
+            <td><%=h change_time(workshop.from1) %></td>
+            <td><%=h change_time(workshop.to1) %></td>   
+            <td><%=h change_date(workshop.created_at) %></td>
+            <td><%=h workshop.gender %></td>
+            <td><%=h workshop.lastname %></td>
+            <td><%=h workshop.schoolname %></td>
+            <td><%=h workshop.city %></td>
+            <td><%=h workshop.participnumber %></td>
+            <td><%=h workshop.storno_sent %></td>
+            <td align="center"><%=h workshop.paid %>
+              <% if (workshop.paid != "nein" && workshop.paid != "kostenfrei") %><br/> HÜL <%=h workshop.hl_number %><% end %>
+            </td>        
+            <td><%= link_to '<img src="/images/edit.png" width="20" title="Details anschauen \\ ändern">', edit_workshop_path(workshop) %></td>
+            <% if admin? %>
+              <td><%= link_to '<img src="/images/delete.png" width="20" title="Löschen">', workshop, :confirm => 'Wollen sie wirklich diese Anmeldung l&ouml;schen?', :method => :delete %></td>
+            <% end %>
+            <td><%= link_to '<img src="/images/PDF_File.jpg" width="20">', :action=> 'workshop_pdf', :id => workshop.id %></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <script type="text/javascript">
+      var tbody=document.getElementById('myTableBody');
+      if(tbody.scrollHeight<=350) tbody.style.height="auto";
+    </script>
+  </div>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

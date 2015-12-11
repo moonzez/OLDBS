@@ -1,0 +1,46 @@
+<% if @tour.gender == 'Frau' %>Madame<% else %>Monsieur<% end %> <%= @tour.lastname %>,
+
+Par la présente, nous vous confirmons votre rendez-vous pour une visite guidée en <%= get_language_fr(@tour.language) %> le <%= get_full_fr_day(@tour.thedate) %> <%= @tour.thedate.strftime("%d.%m.%Y") %> à <%= @tour.thefrom.strftime("%H:%M") %> heures pour <%= @tour.groupnumber %><% if @tour.groupnumber == 1 %> groupe<% else %> groupes<%  end %>.
+
+Veuillez noter le nouveau point de rencontre: vous retrouverez votre guide devant le nouveau centre des visiteurs à l’entrée du mémorial du camp de concentration de Dachau. Si vous avez des questions sur place, veuillez vous adresser au service informations au centre des visiteurs.
+
+En cas de retard de votre part, veuillez nous prévenir par téléphone au 0049-8131-669970.
+
+Vous trouverez les pièces jointes suivantes en annexe de ce mail:
+- Dépliant contenant des informations générales
+- Guestionnaire
+- Règlement pour les visiteurs
+
+Renseignement: La brochure «Le camp de concentration de Dachau 1933 – 1945» de Barbara Distel et Wolfgang Benz donne un aperçu de l’histoire et de la signification du camp de concentration de Dachau. Une version en ligne de cette publication peut être consultée en allant sur le site de la « Bayerische Landeszentrale für politische Bildungsarbeit » via http://www.km.bayern.de/blz/web/300017/index.asp
+
+En outre, nous souhaitons attirer votre attention sur le fait que vous pouvez préparer la visite du mémorial grâce à une visite virtuelle du site du mémorial accessible via notre homepage. Il s’agit d’une confrontation de deux vues aériennes qui permettent de comparer le site en 1945 aux données topographiques actuelles accessibles via http://www.kz-gedenkstaette-dachau.de/gedenkstaette/topografie.html
+
+Pour la visite du mémorial, veuillez attirer l’attention de votre groupe sur l’importance de porter des vêtements adaptés aux conditions climatiques et de respecter le lieu avec toute la dignité qui s’impose.
+
+Dans la salle de visionnage de films du mémorial, vous pourrez voir un film documentaire « Le camp de concentration de Dachau » (Durée d’environ 22 minutes)
+Le film commence aux horaires suivants:
+
+Allemand    9:30, 11:00, 13:30, 14:30, 15:30
+Anglais     10:00, 11:30, 12:30, 14:00, 15:00
+Italien     10:30
+Français    13:00
+
+Si vous souhaitez voir le film, nous vous conseillons de le planifier avant ou après la visite guidée et de tenir compte des horaires pour planifier vos heures d’arrivée et de départ.
+
+Nous restons bien entendu à votre entière disposition pour toutes questions.
+
+Je vous remercie pour votre engagement.
+
+Cordialement
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+
+Mémorial du camp de concentration de Dachau
+Département formation et éducation
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

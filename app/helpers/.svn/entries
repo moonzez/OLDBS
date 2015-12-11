@@ -1,0 +1,52 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/app/helpers
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2015-02-24T21:29:53.929441Z
+1978
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+application_helper.rb
+file
+
+
+
+
+2015-02-24T21:26:21.640625Z
+cf17dbed9782b04ab67054a31faceb0c
+2015-02-24T21:29:53.929441Z
+1978
+adm
+
+text_builder_helper.rb
+file
+
+
+
+
+2014-04-21T19:23:26.546875Z
+481ffc98796af60a36ba6cb987f67ccf
+2014-04-21T19:31:11.838938Z
+1875
+adm
+

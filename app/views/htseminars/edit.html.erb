@@ -1,0 +1,290 @@
+<% if admin? or dbuser? or accounter?%>
+  <%= calendar_date_select_includes :style=>"default", :locale=>"de"%> 
+
+  <head><title>HT-Seminar-Daten&auml;nderung </title></head>
+  
+  <h1>Halbtagesseminar - Daten&auml;nderung  </h1><hr/>
+  
+  <% form_for(@htseminar, :url => {:action => "update", :forvers => @version}) do |f| %>
+    <div class="xujError"><%= f.error_message_on :gender, "Wählen Sie bitte die Anrede aus." %></div>
+    <div class="xujError"><%= f.error_message_on :firstname, "Geben Sie bitte den Vornamen ein." %></div>
+    <div class="xujError"><%= f.error_message_on :lastname, "Geben Sie bitte den Namen ein." %></div>
+    <div class="xujError"><%= f.error_message_on :email, "Geben Sie bitte eine g&uuml;ltige E-Mail-Adresse ein." %></div>
+    <div class="xujError"><%= f.error_message_on :schoolname, "Geben Sie bitte den Namen der Schule/Institution ein." %></div>
+    <div class="xujError"><%= f.error_message_on :street, "Geben Sie bitte die Adresse der Schule/Institution ein." %></div>
+    <div class="xujError"><%= f.error_message_on :city, "Geben Sie bitte den Ort der Schule/Institution ein." %></div>
+    <div class="xujError"><%= f.error_message_on :zip, "Geben Sie bitte eine Postleitzahl ein." %></div>
+    <div class="xujError"><%= f.error_message_on :country, "Geben Sie bitte das Land der Schule/Institution ein." %></div>
+    <div class="xujError"><%= f.error_message_on :date1, "1.Termin darf nicht fehlen." %></div>
+    <div class="xujError"><%= f.error_message_on :from1, "Die erste Uhrzeit des 1.Termins darf nicht fehlen." %></div> 
+    <div class="xujError"><%= f.error_message_on :to1, "Die zweite Uhrzeit des 1.Termins darf nicht fehlen." %></div> 
+    <div class="xujError"><%= f.error_message_on :participnumber, "Geben Sie bitte die Anzahl der Teilnehmer ein." %></div>
+    <div class="xujError"><%= f.error_message_on :foodnumber, "Bitte Anzahl der Mahlzeiten angeben!" %></div>   
+    <div class="xujError"><%= f.error_message_on :hl_number, "Bitte die HÜL-Nummer angeben!" %></div>
+    <div class="xujError"><%= f.error_message_on :cellphone, "Geben Sie bitte Handynummer der Begleitperson ein." %></div>
+    
+    <% if !@htseminar.result_sent %>
+      <h3>Automatische Best&auml;tigung an den Kunden wurde nicht versendet</h3>    
+      <table>
+        <td><%=f.label :result_sent, "Best&auml;tigung wurde versendet:" %></td>
+        <td><%= f.select :result_sent, {"nein" => 0, "ja" => 1}, { :selected => 0 } %></td>
+      </table><br/>
+      <hr>
+    <% end %>
+    <h2>Termine</h2>
+    
+    <h3>Kundendefinierte Termine</h3>
+    
+    <p align="left" style="font-weight:normal;">Ein Termin wird beim Dr&uuml;cken des "Speichern"-Buttons  nur dann gespeichert, falls alle zu ihm geh&ouml;rende Felder ausgef&uuml;llt sind.</p>
+    
+    <table id="termine">
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @htseminar, :event_str => 'htseminar',
+        :date => :date1, :duty => true, :from => :from1, :to => :to1, :number => "1", :minutes => "240", 
+        :from_array => Htseminar::FROMINTERN.collect, :to_array => Htseminar::TOINTERN.collect } %>
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @htseminar, :event_str => 'htseminar', 
+        :date => :date2, :duty => false, :from => :from2, :to => :to2, :number => "2", :minutes => "240",
+        :from_array => Htseminar::FROMINTERN.collect, :to_array => Htseminar::TOINTERN.collect } %>
+      <%= render :partial => "shared/edit/termin", :locals => { :f => f, :event => @htseminar, :event_str => 'htseminar', 
+        :date => :date3, :duty => false, :from => :from3, :to => :to3, :number => "3", :minutes => "240",
+        :from_array => Htseminar::FROMINTERN.collect, :to_array => Htseminar::TOINTERN.collect } %>
+    </table>
+
+    <h3>Best&auml;tigter Termin</h3>    
+    <p align="left" style="font-weight:normal;">Best&auml;tigter Termin wird nicht gespeichert, falls der Status auf "offen", "abgesagt" oder "storniert" gesetzt wird.</p>
+    
+    <table>
+      <%= render :partial => "shared/edit/thedate_termin", :locals => { :f => f, :event => @htseminar, :minutes => "240", 
+        :event_str => 'htseminar', :from_array => Htseminar::FROMINTERN.collect, :to_array => Htseminar::TOINTERN.collect } %>
+    </table><br/>
+
+    <table >
+      <tr>
+        <td align ="left" ><%=f.label :status, "Status:"%> </td>
+        <td ><%= f.select :status, ["bestätigt", "offen", "abgesagt", "storniert"].collect, {},
+            {:onchange => "check_selected_status('htseminar_status','htseminar_thedate','htseminar_thefrom','htseminar_theto')"} %>
+        </td>
+        <td> Preis pro gruppe: </td><td><%=f.text_field :current_fee, :readonly => true, :size => 5 %> </td>      
+      </tr>  
+    </table> 
+
+    <% if @htseminar.status == 'bestätigt' %><br/>      
+      <%= render :partial => "htseminars/edit/email_zusage", :locals => {:f => f } %>
+    <% end %>
+
+    <% if @htseminar.status == 'abgesagt' %><br/>
+      <%= render :partial => "htseminars/edit/email_absage", :locals => {:f => f } %>
+    <% end %>
+
+    <% if @htseminar.status == 'storniert' %><br/>
+      <%= render :partial => "htseminars/edit/email_storno", :locals => {:f => f } %>
+    <% end %>
+    <hr/><br/>
+
+    <table>
+      <tr>
+        <td><%=f.label :formular, "Formular wurde ausgefüllt in:"%> 
+        <td><%= f.text_field :formular, :value => get_input_language(@htseminar[:formular]), :readonly => true, :size => 11 %></td>    
+      </tr>
+      <tr>
+        <td><%=f.label :language, "Sprache:"%> 
+        <td><%= f.select :language, Htseminar::LANGUAGES_INTERN.collect ,{ :selected => get_language_de(@htseminar[:language])}, {} %></td>
+      </tr>                     
+    </table>
+
+    <table>
+      <tr>
+      <td><%=f.label :participnumber, "Teinehmeranzahl:"%> 
+      <td><%= f.text_field :participnumber,:size=>4, :maxlength => 3,
+        :oninput => "CheckZiffer($F(this),'htseminar_participnumber','Dieses Feld darf nur Zahlen enthalten.')"  %></td>
+      <td><%=f.label :groupnumber, "Gruppenanzahl:"%> 
+      <td><%= f.text_field :groupnumber, :size=>4, :maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'htseminar_groupnumber','Dieses Feld darf nur Zahlen enthalten.')",
+          :onchange=> "check_participnumber_groupnumber('htseminar_participnumber','htseminar_groupnumber')",
+          :onblur => "prevent_empty_groupnumber('htseminar_groupnumber')"  %></td>
+    </table>
+
+    <table >
+      <tr> <td><%=f.label :comments, "Kommentare:"%></td> </tr>   
+      <tr> <td><%= f.text_area :comments, :size => '94x5', :maxlength => 600 %></td> </tr>   
+    </table>
+
+    <table >
+      <tr><td><%=f.label :infocenter, "Kommentare für Infotheke:" %></td> </tr>   
+      <tr><td><%= f.text_area :infocenter, :size => '94x5', :maxlength => 600%></td> </tr>   
+    </table>
+    
+    <table >
+      <tr> 
+        <td><%=f.label :last_change, "Zuletzt geändert von:"%></td>    
+        <td><%= f.text_field :last_change, :readonly => true,:size =>30 %></td> 
+      </tr>   
+    </table><hr/>
+
+    <% if @htseminar.status == 'bestätigt' %>
+      <%= render :partial => "htseminars/edit/referenten_verwalten" %>
+      <hr/><br/>
+    <% end %>
+ 
+    <% if @htseminar.status == "storniert" or @htseminar.status == "abgesagt" %>
+      <%= render :partial => "htseminars/edit/referenten_show" %>
+      <hr/><br/>
+    <% end %>
+    
+    <% if @htseminar.status == 'bestätigt' or @htseminar.status == "storniert" or @htseminar.status == "abgesagt" %>
+      <%= render :partial => "htseminars/edit/zahlung" , :locals => { :f => f }%>
+      <hr/><br/>
+       <% if @htseminar.bill_sent == 'ja' && @htseminar.paid == 'nein' %>
+        <%= render :partial => "htseminars/edit/mahnung" %>
+      <% end %>
+   <% end %>
+
+    <h2>Ansprechperson</h2>
+    <p align="left" style="font-weight:normal;">Falls die Ansprechsperson unter einer angegebenen Nummer zu einer bestimmten Uhrzeit erreichbar ist, 
+    <br/>tragen Sie dies bitte unter "Uhrzeit" ein.</p>
+    <table>
+      <tr><td><%=f.label :gender, "* Anrede:" %></td></tr>
+      <tr><td><%= f.text_field :gender %></td></tr>
+    </table>
+    <table>
+      <tr>
+        <td><%=f.label :firstname, "* Vorname: " %></td>
+        <td><%=f.label :lastname, "* Name: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :firstname, :size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'htseminar_firstname','Der Vorname darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.' )" %></td>
+        <td><%= f.text_field :lastname,:size => 30, :maxlength => 255,
+          :oninput => "CheckNames($F(this),'htseminar_lastname','Der Name darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telbus, "Tel. dienstlich: " %></td>
+        <td><%=f.label :telbusTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telbus,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telbusTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :telpriv, "Tel. privat: " %></td>
+        <td><%=f.label :telprivTime, "Uhrzeit: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :telpriv,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :telprivTime,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :email, "* E-mail: " %></td>
+        <td><%=f.label :fax, "Fax: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :email,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :fax,:size => 30,:maxlength => 255 %></td>
+      </tr>
+    </table><hr/>
+
+    <h2>Schule/Institution</h2>
+    <table>
+      <tr>
+        <td><%=f.label :schoolname, "* Name:" %></td>
+        <td><%=f.label :schooltype, "Schultyp: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :schoolname,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :schooltype,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :street, "* Strasse/Hausnummer:" %></td>
+        <td><%=f.label :city, "* Ort: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :street,:size => 30,:maxlength => 255 %></td>
+        <td><%= f.text_field :city,:size => 30,:maxlength => 255 %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :zip, "* PLZ: " %></td>
+        <td><%=f.label :country, "* Land: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :zip,:size => 30,:maxlength => 15 %></td>
+        <td><%= f.text_field :country,:size => 30,:maxlength => 255,
+          :oninput => "CheckNames($F(this),'htseminar_country','Das Feld \"Land\" darf nur Groß- und Kleinbuchstaben, \\' ,\\n Binde- und Trennstriche (-) und Leerzeichen enthalten.')" %></td>
+      </tr>
+    </table><hr/>
+
+    <h2>Angaben zur Gruppe/Klasse</h2>
+    <table>
+      <tr>
+        <td><%=f.label :cellphone, "* Handynummer der Begleitperson:" %></td>
+        <td><%= f.text_field :cellphone %></td>
+      </tr>
+      <tr>
+        <td><%=f.label :male, "Teilnehmer männlich:" %></td>
+        <td><%=f.label :female, "Teilnehmer weiblich:" %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :male,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'htseminar_male','Dieses Feld darf nur Zahlen enthalten.')"  %>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= f.text_field :female,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'htseminar_female','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+  
+      <tr>
+        <td><%=f.label :age, "Alter (min. 14 Jahre): " %></td>
+        <td><%=f.label :schoolgrade, "Schulstufe: " %></td>
+        <td><%=f.label :teamleader, "Anzahl Betreuer: " %></td>
+      </tr>   
+      <tr>
+        <td><%= f.text_field :age,:size => 30, :maxlength => 255  %></td>
+        <td><%= f.text_field :schoolgrade,:size => 30, :maxlength => 255  %></td>
+        <td><%= f.text_field :teamleader,:size => 30,:maxlength => 3,
+          :oninput => "CheckZiffer($F(this),'htseminar_teamleader','Dieses Feld darf nur Zahlen enthalten.')" %></td>
+      </tr>
+    </table><br/>  
+
+    <table>
+      <td><%=f.label :havebeen, "Kennen die TeilnehmerInnen die KZ-Gedenkstätte Dachau bereits?&nbsp;" %></td>
+      <td><%= f.select :havebeen, ["ja", "nein", "zum Teil"].collect, {:selected => get_havebeen_de(@htseminar[:havebeen])},{} %></td>
+    </table><br/> 
+    <table>   
+      <tr><td><%=f.label :reason, "Was ist der Anlass für den Besuch der Gedenkstätte? " %></td></tr>
+      <tr><td><%= f.text_area :reason, :size => '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    
+ <table>
+   <tr><td><%=f.label :topic, "Welche Themen sollen schwerpunktm&auml;ßig behandelt werden? " %></td></tr>
+   <tr><td><%= f.text_area :topic, :size => '94', :maxlength => 255 %></td></tr>
+ </table>
+
+    <table> 
+      <tr><td><%=f.label :municstay, "Steht der Besuch der Gedenkstätte im Rahmen eines längeren Aufenthaltes in München? " %></td></tr>
+      <tr><td><%= f.text_area :municstay, :size=> '94', :maxlength => 255 %></td></tr>
+    </table><br/>
+    
+    <p align="left" style="font-weight:normal; font-size:8pt;">Die Verpflegung der Teilnehmer wird nicht angeboten.</p>
+    <table>
+      <tr >
+        <td align ="left"><%=f.label :food, "Ja/Nein " %></td>
+        <td><%= f.text_field :food, :size=>4, :readonly => true %></td>
+        <%if (@htseminar.food=='ja') or (@htseminar.food=='yes') or (@htseminar.food=='sì')%>
+          <td><%=f.label :foodnumber, "Personen: " %></td>
+          <td><%= f.text_field :foodnumber, :size=>4, :readonly => true %></td>
+          <% end %>
+      </tr>
+    </table><br/>
+    <hr >
+
+    <h2><%=f.label :remarc, "Anmerkungen/eigene W&uuml;nsche " %></h2>
+    <table> <tr><td><%= f.text_area :remarc, :size=> '94', :maxlength => 255 %></td></tr></table>
+
+    <%= render :partial => "dbusers/save_back_button" %>
+
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

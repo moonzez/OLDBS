@@ -1,0 +1,24 @@
+Hallo <%= @work.gender %> <%= @work.lastname %>, 
+vielen Dank für Ihre Anmeldung zu dem Workshop.
+Ihre Anfrage wurde mit folgenden Daten gespeichert:
+
+Wunschtermin: <%= @work.date1.strftime("%d.%m.%Y") %> 
+Anfang um: <%= @work.from1.strftime("%H:%M") %>
+Anzahl Teilnehmer: <%= @work.participnumber %>
+<% if @work.food == 'ja' %>Die Verpflegung der Teilnehmer (Mittagessen) für: <%= @work.foodnumber %> Personen<% end %>
+
+In Kürze bekommen Sie von uns eine schriftliche Terminbestätigung oder gegebenenfalls eine Absage, falls der Termin nicht mehr realisiert werden kann.
+Eine Terminbestätigung ist verbindlich. 
+Die Rückmeldung zum Bearbeitungsstand der Anmeldung zum Workshop kann ein wenig dauern, da wir erst mit der Internationalen Jugendbuchbibliothek und dem Jugendbuchlektor in Kontakt treten müssen, ob der von Ihnen gewünschte Termin möglich ist.
+
+Vielen Dank für ihr Interesse.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

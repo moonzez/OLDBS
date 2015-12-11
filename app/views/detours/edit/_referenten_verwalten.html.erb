@@ -1,0 +1,21 @@
+<h2>Referenten</h2>
+<% if !@detour.referents.blank? %>
+  <table id ="left_small" cellpadding="5">
+    <tr>
+      <th >Name</th>
+      <th>E-Mail senden</th>
+      <th>Gesendet am</th>
+    </tr>
+    <% @detour.referents.each do |ref| %>
+      <tr>
+        <td><%= link_to ref.lastname+"&nbsp;&nbsp;"+ref.firstname, {:controller => 'referents',
+          :action => 'show', :id => ref.id } %></td>
+        <td><% if ref.email.blank? %>Keine E-Mail vorhanden<% else %><%= link_to ref.email, 
+            { :action => 'refermail', :tourid => @detour.id, :id => ref.id } %><% end %></td>
+        <% tourreferent = @detour.tourreferents.find_by_referent_id( ref.id) %>
+        <td><% if tourreferent.mailsend == 0 %> <% else %><%= tourreferent.maildate %><% end %></td>
+      </tr>
+    <% end %> 
+  </table>
+<% end %>
+<p><%= link_to 'Referenten verwalten', { :action => 'add_referents',:id => @detour.id} %></p>

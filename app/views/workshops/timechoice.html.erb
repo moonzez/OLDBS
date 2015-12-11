@@ -1,0 +1,35 @@
+<% if admin? or dbuser? or accounter? %>
+<%= calendar_date_select_includes :style=>"default",:locale=>"de"%>
+<style type="text/css">
+    tbody.scrollable {
+    height:280px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    }
+</style>
+<head> <title>Best&auml;tigte Workshops</title></head>
+<%form_remote_tag :url => {:action => "timech"} do %>
+
+<h1> Best&auml;tigte Workshops </h1>
+<table id="small" cellpadding="10">
+  <tr>
+    <td><b><%=label :startdata, "Startdatum:" %></b></td>
+    <td>         
+      <%= calendar_date_select_tag :startdata,"", :year_range => 10.years.ago..10.years.from_now %>
+    </td> 
+        <td><b><%=label :enddata, "Enddatum:" %></b></td>
+    <td>         
+      <%= calendar_date_select_tag :enddata,"", :year_range => 10.years.ago..10.years.from_now %>
+    </td> 
+    <td><%= image_submit_tag("show2.png",{:title=>"Anzeigen",
+    :alt =>"Anzeigen"}) %></td>
+  </tr>
+</table><br/>
+
+<div id='workshops'></div>
+
+<%= render :partial => "dbusers/backbutton" %>
+<%end%>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

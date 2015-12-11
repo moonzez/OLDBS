@@ -1,0 +1,55 @@
+<% if admin? or dbuser? %>
+  <head><title>Aktuelle Themenf&uuml;hrungen und Exkursionen</title></head>
+
+  <h1>Aktuelle Themenf&uuml;hrungen und Exkursionen</h1> <hr /><br /><br />
+  <h1>Themenf&uuml;hrungen</h1>
+  <table id="small" cellpadding="10">
+    <% @themen.each do |theme| %>
+      <tr><td><%= theme.content %></td>
+      <% if @themen.size == 1 %>
+        <td></td>
+      <% else %>
+        <td><%= link_to "Löschen", :action => "delete_topic", :id => theme.id %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table><br><br>
+    
+
+  <% form_for(@themen_topic, :url => add_new_topic_detours_path) do |f| %>
+    <%= f.hidden_field :content_type, { :value => 'Theme' } %>
+    <table>
+      <tr>
+        <td><%= f.label :content, 'Themenführung:' %></td>
+        <td><%= f.text_area :content, :size=> '94', :maxlength => 500 %></td>
+      </tr>
+      <tr><td colspan="2"><%= f.submit "Speichern" %></td></tr>
+    </table>
+  <% end %>
+
+  <h1>Exkursionen</h1>
+  <table id="small" cellpadding="10" >
+    <tr><th>Exkursion</th><th>Treffpunkt</th><th>Löschen</th></tr>
+    <% @excursions.each do |excursion| %>
+      <tr><td><%= excursion.content %></td><td><%= excursion.venue %></td>
+      <% if @excursions.size == 1 %>
+        <td></td>
+      <% else %>
+        <td><%= link_to "Löschen", :action => "delete_topic", :id => excursion.id %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table><br><br>
+    
+  <% form_for(@themen_topic, :url => add_new_topic_detours_path) do |f| %>
+    <%= f.hidden_field :content_type, { :value => 'Exkursion' } %>
+    <table>
+      <tr><td><%= f.label :content, 'Exkursion:' %></td><td><%= f.text_area :content, :size=> '94', :maxlength => 500 %></td></tr>
+      <tr><td><%= f.label :venue, 'Treffpunkt:' %></td><td><%= f.text_area :content, :size=> '94', :maxlength => 500 %></td></tr>
+      <tr><td colspan="2"><%= f.submit "Speichern" %></td></tr>
+    </table>
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

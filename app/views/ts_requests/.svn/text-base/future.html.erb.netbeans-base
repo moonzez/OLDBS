@@ -1,0 +1,21 @@
+<% if admin? or dbuser? %>
+<head> 
+    <title>Best&auml;tigte T-Seminare</title>
+    <style type="text/css">
+        html>body div.scrollable tbody {
+        height: 350px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        }  
+    </style>
+</head>
+
+<body onload="JavaScript:setTimeout('location.reload(true);',180000); cs();">
+<h1 > Bevorstehende best&auml;tigte Tagesseminare</h1>
+<%= render :partial => "ts_requests/tsb" %>
+
+<%= render :partial => "dbusers/backbutton" %>
+</body>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/subversion/repo/!svn/ver/1908/BS/app/views/htseminars/edit
+END
+_zahlung.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1707/BS/app/views/htseminars/edit/_zahlung.html.erb
+END
+_email_absage.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1908/BS/app/views/htseminars/edit/_email_absage.html.erb
+END
+_email_storno.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1908/BS/app/views/htseminars/edit/_email_storno.html.erb
+END
+_referenten_show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/subversion/repo/!svn/ver/1680/BS/app/views/htseminars/edit/_referenten_show.html.erb
+END
+_mahnung.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1908/BS/app/views/htseminars/edit/_mahnung.html.erb
+END
+_referenten_verwalten.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/1680/BS/app/views/htseminars/edit/_referenten_verwalten.html.erb
+END
+_email_zusage.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1908/BS/app/views/htseminars/edit/_email_zusage.html.erb
+END

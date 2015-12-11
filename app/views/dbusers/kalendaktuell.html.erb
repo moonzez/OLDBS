@@ -1,0 +1,21 @@
+<% if admin? or dbuser? or accounter?%>
+
+<head><title>Kalender</title>
+    <style type="text/css">                
+        html>body div.scrollable tbody {
+        height: 200px;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        }  
+    </style>
+</head>
+
+<h1> Kalender - Aktuell </h1>
+
+<body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+    <%= render :partial => "aktuell" %>  
+</body>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

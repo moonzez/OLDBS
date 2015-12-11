@@ -1,0 +1,50 @@
+<% if admin? %>
+  <head>
+    <title>Neuen DB-Nutzer hinzuf&uuml;gen</title>
+  </head>
+  <h1 align = center>Einen neuen Datenbaknutzer hinzuf&uuml;gen</h1><hr /><br /><br />
+
+  <% form_for(@user) do |f| %>
+    <div class="xujError"><%= f.error_message_on :lastname %></div>
+    <div class="xujError"><%= f.error_message_on :login %></div>
+    <div class="xujError"><%= f.error_message_on :password %></div>
+    <div class="xujError"><%= f.error_message_on :password_confirmation %></div>
+    <table>
+      <tr>
+        <td><%= f.label :firstname, "Vorname:" %></td>
+        <td><%= f.text_field :firstname, :maxlength => 255, :size => 30 %></td>
+      </tr>
+  
+      <tr>
+        <td><%= f.label :lastname, "Nachname:" %></td>
+        <td><%= f.text_field :lastname, :maxlength => 255, :size => 30 %></td>
+      </tr>
+  
+      <tr>
+        <td><%= f.label :role, "Rechte:" %></td>
+        <td><%= f.select(:role, %w{ admin dbuser reader accounter}) %></td>
+      </tr>
+  
+      <tr>
+        <td><%= f.label :login, "Login:" %></td>
+        <td><%= f.text_field :login, :maxlength => 40,:size => 30  %></td>
+      </tr>
+  
+      <tr>
+        <td><%= f.label :password, "Password:" %></td>
+        <td><%= f.text_field :password, :maxlength => 40,:size => 30 %></td>
+      </tr>
+  
+      <tr>
+        <td><%= f.label :password_confirmation, "Password wiederholen:" %></td>
+        <td><%= f.text_field :password_confirmation, :maxlength => 40 ,:size => 30 %></td>
+      </tr> 
+    </table>
+
+    <%= render :partial => "dbusers/save_back_button" %>
+
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

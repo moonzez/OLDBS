@@ -1,0 +1,24 @@
+Ansprechperson
+
+Name:     <%= @archive.lastname %>
+Vorname:  <%= @archive.firstname %>
+Straße:   <%= @archive.street %>
+PLZ:      <%= @archive.zip %>
+Ort:      <%= @archive.city %>
+Land:     <%= @archive.country %>
+E-Mail:   <%= @archive.email %>
+In welchem Verwandtschaftsverhältnis stehen Sie zur gesuchten Person? Recherche aus anderen Gründen (welche)?
+<%= @archive.investigation %>
+
+Angaben zur gesuchten Person
+
+Vorname:  <%= @archive.wanted_firstname %>
+Name:     <%= @archive.wanted_lastname %>
+Bei Frauen Geburtsname: <%= @archive.wanted_birth_name %>
+Geburtsdatum: <%= @archive.wanted_birth_date %>
+Geburtsort/Kreis/Provinz: <%= @archive.wanted_birthplace %>
+
+Zusätzliche Informationen, die uns helfen, die gesuchte Person zu finden (z.B. Todesdatum):
+<%= @archive.wanted_additional %>
+
+Anfrage in: <%= @archive.language %>

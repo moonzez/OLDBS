@@ -1,0 +1,42 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Workshops- Suche</title></head>
+
+  <h1>Workshops- Suche</h1><hr /><br /><br />
+
+  <% form_tag search_workshops_path, :method => 'get' do %>
+    <table id ="small" cellpadding="5" >
+      <tr>
+        <td>Vorname:</td><td><%= text_field_tag :firstname, params[:firstname], :maxlength => 25 %></td>
+        <td>Name:</td><td><%= text_field_tag :lastname, params[:lastname], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>Schule:</td><td><%= text_field_tag :schoolname, params[:schoolname], :maxlength => 25 %></td>
+        <td>Ort:</td><td><%= text_field_tag :city, params[:city], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>Status:</td><td><%= text_field_tag :status, params[:status], :maxlength => 25 %></td>
+        <td>Rechnung Nr.:</td><td><%= text_field_tag :invoice_number, params[:invoice_number], :maxlength => 25 %></td>
+      </tr>
+      <tr>
+        <td>HÜL Nr.:</td><td><%= text_field_tag :hl_number, params[:hl_number], :maxlength => 25 %></td>
+        <td title=">= 3 Zeichen">Land:</td><td title=">= 3 Zeichen"><%= text_field_tag :country, params[:country], :maxlength => 25 %></td>
+    </table>
+    <p align="center"><%= submit_tag "Suchen", :name => nil %></p>
+  <% end %>
+
+  <% if @workshops.size > 0 %>
+    <%= render :partial => "workshops/searchresult" %>
+  <% else %>
+    <table id ="small" cellpadding="5" >
+      <tr>
+        <td >Keine Einräge</td>
+      </tr>
+    </table>
+  <% end %>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

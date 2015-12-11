@@ -1,0 +1,28 @@
+Gentile <%=  @htseminar.gender %> <%= @htseminar.lastname %>,
+
+La ringraziamo per la Sua richiesta di prenotazione per un seminario di mezza giornata.
+
+La Sua richiesta è stata registrata con i seguenti dati:
+
+Data desiderata: <%= @htseminar.date1.strftime("%d.%m.%Y") %> 
+Inizio alle: <%= @htseminar.from1.strftime("%H:%M") %>
+<% if !@htseminar.date2.blank? %>prima data alternativa: <%= @htseminar.date2.strftime("%d.%m.%Y") %>
+Inizio alle: <%= @htseminar.from2.strftime("%H:%M") %><% end %>
+<% if !@htseminar.date3.blank? %>seconda data alternativa: <%= @htseminar.date3.strftime("%d.%m.%Y") %>
+Inizio alle: <%= @htseminar.from3.strftime("%H:%M") %><% end %>
+<% if !@htseminar.topic.blank? %>Das Thema: <%= @htseminar.topic %><% end %>
+Lingua richiesta: <%= @htseminar.language %>
+Numero dei partecipanti: <%= @htseminar.participnumber %>
+
+Questa NON è una conferma della prenotazione di un seminario di mezza giornata, ma la notifica che la Sua richiesta è stata registrata. Riceverà tra breve la conferma scritta della prenotazione del seminario in una delle date richieste, oppure la comunicazione dell’impossibilità di soddisfare la Sua richiesta.
+La ringraziamo per il Suo interesse e sarà nostra premura metterci in contatto con Lei il più presto possibile.
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49-8131-66997-131
+Fax +49-8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

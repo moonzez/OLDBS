@@ -1,0 +1,21 @@
+<% if referee? or non_aktiv_referee? %>
+
+  <head> <title>Home</title></head>
+  <h1>Buchungs- und Verwaltungssystem</h1><hr/>
+  <% if referee? %>
+    <ul id="overview">    
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Offene Führungen', :action => 'opent'%></li>
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Rundgänge',detours_referees_path %></li>
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Tagesseminare', ts_requests_referees_path %></li>
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Halbtagesseminare', hts_requests_referees_path %></li>
+      <li><img src="/images/pfeil.png" width="15" alt="->"/>&nbsp;<%= link_to 'Workshops', workshops_referees_path %></li>
+    </ul><br />
+  <% else %>
+    <br/>
+    <table id="form" align="center" cellpadding="10">
+      <tr><td>Ihr Profil wurde deaktiviert.</td></tr>
+    </table>
+  <% end %>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

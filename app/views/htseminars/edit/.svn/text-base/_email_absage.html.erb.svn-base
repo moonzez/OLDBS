@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <td>E-Mail mit der Absage</td>
+    <td><%= link_to 'deutsch <img src="/images/mail.jpg" width="15">', { :action => 'denialmail', :id => @htseminar.id } %></td>
+    <td>&nbsp;&nbsp;</td>    
+    <td><%= link_to 'italienisch <img src="/images/mail.jpg" width="15">', { :action => 'denialitmail', :id => @htseminar.id } %></td>
+    <td>&nbsp;&nbsp;</td> 
+    <% if @htseminar.denial_sent == 'ja' %>    
+      <td>&nbsp;&nbsp;<%= image_tag("grau_pfeil.png",:width =>"17")%><%=f.label :denial_date, "&nbsp;&nbsp;wurde gesendet am: "+change_date(@htseminar.denial_date)%></td>          
+    <% end %>
+  </tr> 
+</table>

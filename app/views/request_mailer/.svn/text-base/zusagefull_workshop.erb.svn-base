@@ -1,0 +1,36 @@
+Sehr<% if @workshop.gender == 'Frau' %> geehrte<% else %> geehrter<% end %> <%= @workshop.gender %> <%= @workshop.lastname %>,
+
+hiermit bestätigen wir Ihnen den von Ihnen gebuchten Workshop "Worte finden für das Unfassbare" am <%= get_vollday(@workshop.thedate) %>, den <%= @workshop.thedate.strftime("%d.%m.%Y") %> um <%= @workshop.thefrom.strftime("%H:%M") %> Uhr für <%= @workshop.participnumber %> Personen.
+
+<% if @workshop.food == 'ja' %>Das Mittagessen im Cafe des Besucherzentrums ist für Sie ebenfalls gebucht. <% end %>
+
+Sie treffen die Referenten an der Infotheke im Besucherzentrum am Eingang zur KZ-Gedenkstätte Dachau. Bei Fragen vor Ort wenden Sie sich bitte an den Informationsservice im Besucherzentrum.
+
+Sollten Sie sich verspäten, bitten wir unter 0049-8131-669970 um einen kurzen Anruf.
+
+Wir möchten Sie außerdem nochmals darauf hinweisen, dass der Transfer zur Internationalen Jugendbibliothek von Ihnen selbst geleistet werden muss. Weitere Informationen hierzu finden Sie in unserem Merkblatt im Anhang zu dieser Email.
+
+Im Anhang zur Mail finden Sie folgenden Dokumente:
+- Rechnung
+- Merkblatt Workshop
+- Gebührenordnung!
+- Besucherordnung
+
+Hinweis: Die Broschüre "Das Konzentrationslager Dachau 1933 - 1945" von Barbara Distel und Wolfgang Benz bietet einen Überblick über die Geschichte und Bedeutung des KZ Dachau. Eine Online-Version dieser Publikation kann über die Seite der Bayerischen Landeszentrale für politische Bildungsarbeit abgerufen werden: http://www.km.bayern.de/blz/web/300017/index.asp
+
+Für weitere Fragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.
+
+Ich danke Ihnen für Ihr Engagement.
+
+Mit freundlichen Grüßen
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

@@ -1,0 +1,16 @@
+<% if admin? or dbuser? or accounter?%>
+
+  <head><title>Best&auml;tigte Rundg&auml;nge</title></head>
+
+  <h1 align="center">Best&auml;tigte Rundg&auml;nge</h1><hr /><br /><br />
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bevorstehende Rundgänge', future_detours_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bestimmter Zeitraum',timechoice_detours_path %></li>
+  </ul>
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,38 @@
+<% if @tour.gender == 'Frau' %>Madame<% else %>Monsieur<% end %> <%= @tour.lastname %>,
+
+Il ne nous est malheureusement pas possible d’organiser une visite guidée pour vous à la période (<%= denial_date(@tour) %>) que vous nous avez indiquée étant donné que nous avons déjà de nombreux groupes à ce moment-là.
+
+Si un autre rendez-vous peut entrer en ligne de compte pour vous, vous pouvez bien entendu vous adresser de nouveau à nous.
+
+Vous avez aussi la possibilité de faire une demande de visite auprès d’un de nos partenaires qui proposent également des visites guidées au mémorial:
+«Le forum de Dachau» (payant)
+Tel.: +49(0)8131-99 68 80
+fuehrungen@dachauer-forum.de
+
+« L’association pour les rencontres internationales de la jeunesse et le travail de mémoire e.V » (payant)
+Tel.: +49(0)8131-83 30 3
+info@foerderverein-dachau.de
+
+«L’église évangélique de la réconciliation» (gratuit)
+Tel.: +49(0)8131-1 36 44
+info@versoehnungskirche-dachau.de
+
+Il est également possible de faire une visite audio. Les audio-guides coûtent 3,50 € par personne (prix réduit pour les groupes, les écoliers et les étudiants de 2,50 € par personne) et sont prêtés par la société Linon Medien GmbH. Veuillez vous adresser à Linon Medien GmbH pour les réservations (seulement pour des groupes à partir de 20 personnes)
+Homepage: www.audioguide-dachau.de
+E-Mail: reservierung@audioguide-dachau.de
+
+Nous espérons vous avoir ainsi donné assez d’informations pour vous permettre d’organiser tout de même une visite au mémorial du camp de consentration de Dachau. Vous trouverez d’autres informations sur notre site internet : 
+www.kz-gedenkstaette-dachau.de
+
+Cordialement
+<%= current_user.firstname %> <%=  current_user.lastname %>
+
+KZ-Gedenkstätte Dachau
+Bildungsabteilung
+Alte Römerstr. 75
+85221 Dachau
+
+Tel +49(0)8131-66997-131
+Fax +49(0)8131-2235
+E-Mail: bildung@kz-gedenkstaette-dachau.de
+Homepage: www.kz-gedenkstaette-dachau.de

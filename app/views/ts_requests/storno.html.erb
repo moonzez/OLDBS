@@ -1,0 +1,87 @@
+<% if admin? or dbuser? or accounter? %>
+
+  <body onload="JavaScript:setTimeout('location.reload(true);',180000);">
+    <head><title> Stornierte T-Seminare </title>
+      <style type="text/css">
+        html>body div.scrollable tbody {
+          height:350px;      
+          overflow-x: hidden;
+          overflow-y: scroll;
+        }  
+      </style>
+    </head>
+  
+    <h1> Stornierte Tagesseminare</h1>
+    <div class="scrollable" style="overflow-x: scroll;  width:100%" >
+      <table id ="form" cellspacing="3" cellpadding="5">
+        <thead>
+          <tr>
+            <th colspan="4">Angefragter Termin</th>
+            <th rowspan="2">Alternative <br> Termine </th>
+            <th rowspan="2">Eingangs-<br>datum</th>
+            <th colspan="2">Kontaktperson</th>
+            <th rowspan="2">Schule/<br>Institution</th>
+            <th rowspan="2">Ort</th>
+            <th rowspan="2">TN</th>
+            <th rowspan="2">Stornierung<br/>geschickt</th>
+            <th rowspan="2">Re.<br/>bez.</th>
+            <% if admin?%>
+              <th colspan="2" rowspan="2">Optionen</th>
+            <% else %>
+              <th rowspan="2">Optionen</th>
+            <% end %>
+            <th rowspan="2">PDF</th>
+            <th rowspan="2" style="color:#d9d5d5;">d</th>
+          </tr>
+          <tr>
+            <th>Datum</th>
+            <th>Tag</th>
+            <th>Von</th>
+            <th>Bis</th>
+            <th>Anrede</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody id="myTableBody">
+          <% @ts_requests.each do |ts| %>
+            <% if ((ts.date1.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (ts.date2 && ts.date2.strftime("%d.%m.%Y") == '01.05.2016') ||
+              (ts.date3 && ts.date3.strftime("%d.%m.%Y") =='01.05.2016') ||
+              (ts.thedate && ts.thedate.strftime("%d.%m.%Y") =='01.05.2016')) %>
+              <tr class="show_70_years">
+            <% else %><tr><% end %>
+              <td><%=h change_date(ts.date1)%></td>
+              <td><%=h get_day(ts.date1) %></td>
+              <td><%=h change_time(ts.from1) %></td>
+              <td><%=h change_time(ts.to1) %></td>     
+              <td><% if ts.date2 or ts.date3 %> ja <%else %> nein <%end%> </td>
+              <td><%=h change_date(ts.created_at) %></td>
+              <td><%=h ts.gender %></td>
+              <td><%=h ts.lastname %></td>
+              <td><%=h ts.schoolname %></td>
+              <td><%=h ts.city %></td>
+              <td><%=h ts.participnumber %></td>
+              <td><%=h ts.storno_sent %></td>
+              <td align="center"><%=h ts.paid %>
+                <% if (ts.paid != "nein" && ts.paid != "kostenfrei") %><br/> HÜL <%=h ts.hl_number %><% end %>
+              </td>
+              <td><%= link_to '<img src="/images/edit.png" width="20" title="Details anschauen \\ ändern">', edit_ts_request_path(ts) %></td>
+              <% if admin? %>
+                <td><%= link_to'<img src="/images/delete.png" width="20" title="Löschen">', ts, :confirm => 'Wollen sie wirklich diese Anmeldung l&ouml;schen?', :method => :delete %></td><% end %>
+              <td><%= link_to '<img src="/images/PDF_File.jpg" width="20">', :action => 'ts_pdf', :id => ts.id %> </td>
+              <td></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <script type="text/javascript">
+        var tbody=document.getElementById('myTableBody');
+        if(tbody.scrollHeight<=350) tbody.style.height="auto";
+      </script>
+    </div>
+  
+    <%= render :partial => "dbusers/backbutton" %>
+  </body>
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

@@ -1,0 +1,67 @@
+<div class="scrollable" style="overflow-x: scroll;  width:100%" >
+  <table id ="form" align="center" cellspacing="3" cellpadding="5" style="width:100%">
+    <thead>
+      <tr>
+        <th colspan="3" >Best&auml;tigter Termin</th>
+        <th colspan="2">Kontaktperson</th>
+        <th rowspan="2">Schule/<br/>Institution</th>
+        <th rowspan="2">Herkunftsort</th>
+        <th rowspan="2">Herkunftsortland</th>
+        <th rowspan="2">TN</th>
+        <th rowspan="2">Sprache</th>
+        <th rowspan="2">Referent</th>
+        <th rowspan="2">Ref. Tel.</th>
+        <th rowspan="2">Kommentare</th>
+        <th rowspan="2">Re.<br/>Nr.</th>
+        <th rowspan="2">Re.<br/>bez.</th>
+        <th rowspan="2" style="color:#d9d5d5;">d</th>   
+      </tr>
+      <tr> 
+        <th>Datum</th>
+        <th>Von</th>
+        <th>Bis</th>
+        <th>Name</th>
+        <th>Handynummer</th>
+      </tr>
+    </thead>
+    <tbody id="myTableBody">
+      <% @detoursbest.each do |detour| %>
+        <tr>
+          <td><%=h change_date(detour.thedate) %><br/><%=h get_day(detour.thedate) %></td>
+          <td><%=h change_time(detour.thefrom) %></td>
+          <td><%=h change_time(detour.theto) %></td>
+          <td><%=h get_de_gender(detour.gender) %><br/><%=h detour.lastname %></td>
+          <td><%=h detour.cellphone %></td>
+          <td><%=h detour.schoolname %></td>
+          <td><%=h detour.city %></td>
+          <td><%=h detour.country %></td>
+          <td><%=h detour.participnumber %></td>
+          <td><%=h get_language_de(detour.language) %></td>
+          <td>
+            <% detour.referents.each do |ref| %>
+              <%= ref.lastname %> <%= ref.firstname %><br/>
+            <% end %>
+          </td>
+          <td><%= detour.referents.map(&:tel).join(",<br>") %></td>
+          <td><%=h detour.infocenter %></td>  
+          <td><%=h detour.invoice_number %></td>
+          <td>
+            <% if detour.paid == 'nein' %>
+              <% form_remote_tag :url => {:controller => "detours", :action => "set_paid_external", :id => detour.id} do %>
+                <div id="tour_paid_button_<%= detour.id %>"><%= button_to 'Ja, bar', :title=>"ja, bar" %></div>
+              <% end %>
+            <% else %> 
+                <%=h detour.paid %>
+            <% end %>
+          </td>
+          <td></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <script type="text/javascript">
+    var tbody=document.getElementById('myTableBody');
+    if(tbody.scrollHeight<=300) tbody.style.height="auto";
+  </script>
+</div>
+

@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/subversion/repo/!svn/ver/1959/BS/app/views/referents
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/subversion/repo/!svn/ver/1739/BS/app/views/referents/index.html.erb
+END
+eventstimechoice.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/eventstimechoice.rhtml
+END
+stornoevents.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1953/BS/app/views/referents/stornoevents.html.erb
+END
+_events_table.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/_events_table.html.erb
+END
+topaytime.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/repo/!svn/ver/1945/BS/app/views/referents/topaytime.html.erb
+END
+_workRef.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1953/BS/app/views/referents/_workRef.html.erb
+END
+get_invoices.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1722/BS/app/views/referents/get_invoices.html.erb
+END
+events.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/events.rhtml
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1676/BS/app/views/referents/show.html.erb
+END
+_tsRef.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1953/BS/app/views/referents/_tsRef.html.erb
+END
+eventpast.rhtml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/eventpast.rhtml
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/subversion/repo/!svn/ver/1921/BS/app/views/referents/edit.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/subversion/repo/!svn/ver/1921/BS/app/views/referents/new.html.erb
+END
+_htsRef.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/subversion/repo/!svn/ver/1953/BS/app/views/referents/_htsRef.html.erb
+END
+_invoice.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/subversion/repo/!svn/ver/1955/BS/app/views/referents/_invoice.html.erb
+END
+topay.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/topay.html.erb
+END
+eventstimech.js.rjs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1959/BS/app/views/referents/eventstimech.js.rjs
+END
+referents_invoices.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/1824/BS/app/views/referents/referents_invoices.html.erb
+END
+_rundgangRef.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1953/BS/app/views/referents/_rundgangRef.html.erb
+END
+inaktivref.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/subversion/repo/!svn/ver/1676/BS/app/views/referents/inaktivref.html.erb
+END

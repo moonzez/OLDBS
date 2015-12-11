@@ -1,0 +1,20 @@
+<% if admin? or dbuser? or accounter? %>
+
+  <head><title>Workshops</title></head>
+
+  <h1>Workshops</h1><hr /><br /><br />
+
+  <ul id="overview"> 
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Offene Anfragen', opened_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Bestätigte Anfragen', approved_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Abgesagte Anfragen', denial_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Stornierte Anfragen', storno_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Neue Anfrage anlegen', newintern_workshops_path %></li>
+    <li><img src="/images/pfeil.png" alt="->"/>&nbsp;<%= link_to 'Suche', search_workshops_path %></li>
+  </ul> 
+
+  <%= render :partial => "dbusers/backbutton" %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

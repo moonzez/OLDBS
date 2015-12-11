@@ -1,0 +1,26 @@
+<% if admin? %>
+  <head><title>Aktuelle Tagesseminar- Themen</title></head>
+
+  <h1>Aktuelle Tagesseminar- Themen</h1> <hr /><br /><br />
+
+  <table id="small" cellpadding="10">
+    <% @topics.each do |topic| %>
+      <tr><td><%= topic.text %></td>
+      <% if @topics.size == 1 %>
+        <td></td>
+      <% else %>
+        <td><%= link_to "Löschen", :action => "delete_topic", :id => topic.id %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table><br>
+
+  <% form_for(@ts_topic, :url => add_new_topic_ts_requests_path) do |f| %>
+    <%= f.hidden_field :language, { :value => 'deutsch' } %>
+    <%= f.label :text, 'Thema:' %>
+    <%= f.text_field :text, :size=> '94', :maxlength => 255 %>  <%= f.submit %>
+  <% end %>
+
+<% else %>
+  <%= render :partial => "dbusers/login_requirement"  %>
+<% end %>

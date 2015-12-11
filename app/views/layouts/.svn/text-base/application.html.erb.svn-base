@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head><meta http-equiv="Content-type" content="text/html;charset=utf-8" />
+    <style type="text/css">
+      #nav, #nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 1px solid  #8795A8;
+        background: #eee;
+        float: left;
+        width: 100%;
+        white-space:nowrap;
+        
+      }
+      #nav li {
+        float: left;
+        position: relative;
+        background: #eee;
+        font-size: 12px;
+      }
+      #nav li ul {
+        display: none;
+        position: absolute;
+        padding: 2px 0;
+        width: 114px;
+      }
+      #nav a {
+        color: #000;
+        text-decoration: none;
+        display: block;
+        width: 104px;
+        padding: 3px 4px;
+        
+      }
+      #nav a:hover {
+        color: #000;
+        background: #8795A8;
+      }
+      #nav li:hover,
+      #nav li.jshover  {
+        background: #8795A8;
+      }
+      
+      #nav li li a {
+        width: 106px;
+        background: none;
+        font-size: 12px;
+      }
+      #nav li:hover ul,
+      #nav li.jshover ul {
+        display: block;
+      }
+      #nav li:hover li ul,
+      #nav li.jshover li ul {
+        display: none;
+        width: 100%;
+        top: -5px;
+        left: 115px;
+        padding: 3px 0;
+        
+      }
+      #nav li:hover li:hover ul,
+      #nav li.jshover li.jshover ul {
+        display: block;
+      }
+    </style>
+    <script type="text/javascript">
+      jsHover = function() {
+        var hEls = document.getElementById("nav").getElementsByTagName("LI");
+        for (var i=0, len=hEls.length; i<len; i++) {
+          hEls[i].onmouseover=function() { this.className+=" jshover"; }
+          hEls[i].onmouseout=function() { this.className=this.className.replace(" jshover", ""); }
+        }
+      }
+        if (window.attachEvent && navigator.userAgent.indexOf("Opera")==-1) window.attachEvent("onload", jsHover);
+    </script>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <%= javascript_include_tag :defaults %>
+  </head>
+  
+  <body>
+
+    <% if logged_in? %>
+
+      <% if admin? or dbuser? or accounter? %>
+        <% if any_unsent_emails? %>
+          <br><br>
+          <h1>Keine E-Mail an Referenten gesendet f&uuml;r: </h1>
+          <div style="background-color:red">
+            <% detours_without_referent_email.each do |detour| %>
+              <%= link_to "Rundgang " + detour.id.to_s, edit_detour_path(detour) %>
+            <% end %>
+           <% ts_requests_without_referent_email.each do |ts| %>
+             <%= link_to "Tageseminar " + ts.id.to_s, edit_ts_request_path(ts) %>
+           <% end %>
+          <% htseminars_without_referent_email.each do |hts| %>
+            <%= link_to "Halbtageseminar " + hts.id.to_s, edit_htseminar_path(hts) %>
+          <% end %>
+          <% workshops_without_referent_email.each do |work| %>
+            <%= link_to "Workshop " + work.id.to_s, edit_workshop_path(work) %>
+          <% end %>
+          <% opentours_without_referent_email.each do |opentour| %>
+            <%= link_to "Offene Führung " + opentour.id.to_s , edit_opentour_path(opentour) %>
+          <% end %>
+          </div>
+          <br><hr>
+        <% end %>    
+        <%= render :partial => "layouts/dbusers" %>
+      <% end %>
+
+      <% if reader? %> <%= render :partial => "layouts/reader" %> <% end %> 
+ 
+      <% if referee? %> <%= render :partial => "layouts/referee" %> <% end %>
+
+      <% if non_aktiv_referee? %> <%= render :partial => "layouts/not_loggdin" %> <% end %>
+
+    <% else %> 
+      <%= render :partial => "layouts/loggin" %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:error] %>
+      <div class="error"><%= flash[:error] %></div>
+    <% end %>            
+    <div id="content">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>
