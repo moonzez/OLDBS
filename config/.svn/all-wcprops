@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/subversion/repo/!svn/ver/2015/BS/config
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/subversion/repo/!svn/ver/2015/BS/config/routes.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/subversion/repo/!svn/ver/1512/BS/config/database.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/subversion/repo/!svn/ver/2/BS/config/boot.rb
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/subversion/repo/!svn/ver/1670/BS/config/environment.rb
+END

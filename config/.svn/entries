@@ -1,0 +1,82 @@
+8
+
+dir
+2020
+http://www.kz-gedenkstaette-dachau.de/subversion/repo/BS/config
+http://www.kz-gedenkstaette-dachau.de/subversion/repo
+
+
+
+2015-06-18T20:59:52.566115Z
+2015
+adm
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+f66bbb1c-d750-46b9-a428-76b172174df3
+
+routes.rb
+file
+
+
+
+
+2015-06-18T19:54:29.484375Z
+68c9ea21f17e78879fb8568227f2a38a
+2015-06-18T20:59:52.566115Z
+2015
+adm
+
+database.yml
+file
+
+
+
+
+2011-05-15T15:13:47.921875Z
+7e08619722701b9e2e447bc0f70ec526
+2011-05-15T15:20:09.322675Z
+1512
+adm
+
+boot.rb
+file
+
+
+
+
+2010-04-12T20:37:41.625000Z
+bafbe71089a2c9f6414fb47b3978bcef
+2009-05-25T13:07:19.969205Z
+2
+adm
+
+initializers
+dir
+
+environment.rb
+file
+
+
+
+
+2012-01-28T13:59:21.375000Z
+9e8a452639089ce40c765fe1819a9237
+2012-01-28T14:04:47.460085Z
+1670
+adm
+
+environments
+dir
+
