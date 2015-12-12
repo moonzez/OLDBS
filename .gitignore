@@ -1,2 +1,8 @@
 config/database.yml
+config/database.*
 log/*
+TO_INSTALL/*
+buchungssystem/*
+.svn
+doc
+gc.log
