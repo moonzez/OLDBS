@@ -1,0 +1,88 @@
+#### 17.11.2015 ###
+remove hardcoded price from mahnung mail
+
+###  29.01.2012 ###########
+
+Fragebogen online ausfüllen???
+
+
+###  22.01.2012 ###########
+
+Admin can get rights to change bill amount
+
+###### 13.11.2011 ########
+
+Anmeldeformular multiple languages
+
+####### 25.09.2011 ########
+Für referenten, die Möglichkeit eigenen login und password zu ändern
+
+
+############
+
+Bei Absage/Stornierung zugeteilten Referenten trotzdem anzeigen
+
+Bei stornierten/abgesagten Veranstaltungen zugeteilten Referenten anzeigen
+
+############# 17.09.2011 ###########
+
+method "change_umlaut" in _tourb.rb, _tsb.rb, _htsb.rb und _workb.rb nicht nötig, 
+wenn man Comment-String abschneiden kann ohne word zu zerbrechen. 
+Wenn Umlaut, besetzt mehr Platz als 1 char, wird vom a[0..60] gebrochen => komische zeichen.
+
+############# 11.09.2011 ##########
+Da E-Mails mit dem Anmeldeformular gelöscht wurden, sind folgende Felder nicht mehr gebraucht:
+zus_form, :zf_date
+
+############# 30.07.2011 ##########
+Eventuell Module einbauen? Am besten nach übergang zu rails 3:
+z.B. Kunde, Referenten, Mitarbeiter und Reader - verwalten von Rechten viel einfacher und sicherer
+
+﻿######### 11.06.2011 fuer Julia ###############
+1) Daten finden vereinfachen
+Detours.find(:all).collect(&:thedate).uniq!
+
+
+4) Update rails (> 3.0)
+ ruby(1.9)
+gems
+
+6) filter_parameter_logging "password"
+
+7) Model: wird angewendet an alle query's mit diesem model: Cool!!!!
+
+default_scope :order => 'thedate'
+
+######### 17.04.2011 ###############
+
+2)Mitarbeiter: bei Referenten- Sprachen, die sie sprechen aus dem Feld Bemerkungen in Felder :Sprache 2 und Sprache 3 einfügen.
+ Diese sind nötig für offene Führungen. 
+ Jeder Referent bekommen nur die offene Führungen zu sehen, die in der Sprache durchgeführt werden, 
+ die dieser bestimmte Referent beherrscht, d.h. die in Sparache 1, 2 und 3 eingefügt sind.
+
+3) Statistik erweitern
+
+##################################################
+MAI:
+
+9. Eventuell eine Sicherungskopie von allen Einträgen in der DB auf einem anderen Server (z.B. 1 mal pro tag)
+
+############### geblieben ##########
+
+new => result: back-button deaktivieren
+
+statt :3000/detours/new
+/workshop.html
+
+E-Mail-Anhang verlinken?
+
+####### activerecord-import gem install ##########
+to put many of records at once to the database v.i. opentours
+books = []
+10.times do |i| 
+  books << Book.new(:name => "book #{i}")
+end
+Book.import books
+
+
+

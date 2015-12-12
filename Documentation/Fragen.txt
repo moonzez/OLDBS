@@ -1,0 +1,16 @@
+﻿1 Momentan ist es so, dass wenn man bei den Zahlungsarten "ja,überwiesen" auswählt, muss man die GÜL-Nummer sofort eingeben.
+Soll es so bleiben, oder kann die Nummer erst später eingegeben werden?
+
+
+
+Bei Zusage Workshops steht in der E-Mail auch Gruppennummer. Hat man nicht gesagt, dass wir für Workshops das nicht brauchen???
+
+
+
+
+TODO. Alee formulare dem DB anpassen(Schulmail, Schulfax, INFO)!!!
+
+
+Sind die beiden jetzt in einem PDF??????????
+Informationen Faltblatt (Deutsch).pdf
+Wegweiser Deutsch.pdf

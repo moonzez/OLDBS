@@ -1,0 +1,126 @@
+﻿29.04.2008
+
+Noch einbisschen Projektarbeit.doc geändert
+
+11.04
+REGEXP:
+Primenenie sm application.js v Publivc!!!
+var re = new RegExp("^([A-Za-z\\s])*$");
+
+ var re = /^([a-züäöß\s])*$/i;
+
+DLINY POLEJ OGRANICHENY POKA TOLKO V:
+detour.new, da i to ne polnostju!!! No ja pomalenku eto sdelaju!
+
+
+10.04
+
+Ni xuja ne pisala...len bylo...no vot pishu xujnju => ne udaljat, ispolzuetsa v modeli!!!
+
+validates_numericality_of 
+
+greater_than
+greater_than_or_equal_to
+less_than
+less_than_or_equal_to
+equal_to
+odd
+even
+
+STRING VMESHAET MAXIMUM 255 znakov!!!!!!!!!
+
+funkcija :oninput  ->>> Reakcija n aljubye izmenenija v tekstovom pole!!! OXUET!!! Sluchajnop poprobovala ot fonarja 
+i zarabotalo!
+
+funkcija CheckLen v application.js ogranichivaet dlinu polja, t.e. text_area!!!
+
+3.04 
+Celyj den ni xuja ne delala, a potom za 10 minut sdelala, chtoby delalsja update referentov
+Den proshel ne zrja :) Vot tak eto:
+
+<p id="backs" align="center"> 
+  <br/><%=  link_to '<img src="/images/pfeile.png" >',edit_detour_path(@detour.id)%><br />
+</p>  
+
+2.04
+
+Esli vmesto :disabled=>true napisat :readonly => "true" ,to pole ne budet serym, pisat v nego nelzja budet i 
+rezultat budet soxranjatsa v Datenbanke!!!
+
+Esli zhe stoit :disabled=>true, to v DB ni xuja n soxranjalos!!! :(
+
+31.03
+
+dbusers_controller => zaebatyj primer, kak nozhno use distinct, sort, kak vybirat nuzhnye elementy...Oxuet prosto!
+
+﻿27 Mart
+
+Posmotri w detours/edit, kak ja s referentami razobralas, tolko poka linki ne anpassowala i "aktualisirowat
+ nado posle udalenija" sejchas poem i peredelaju. A, eze w tablizu sejchas mozno odnogo i togo ze xot 30 raz dobawljat, toze ogranichu.
+Da ichut ne zabyla, tebe kazetsja migrate nado
+
+Man kann sich als "reader" password3 anmelden. Kann nur Kalender anschauen. Alle andere zugriffsrechte sind auch angepasst
+_____________________
+21 März
+
+Validirovanie emaila:
+
+http://lindsaar.net/2008/4/14/tip-4-detecting-a-valid-email-address
+
+Ne udaljat etot link nikogda!!! Tam by eshe uznat, chto takoe TMAIL...
+Kakoj-to zaebatyj gem, vrode kak, no my poka ego ne usaem
+
+Kommitovala detours new....vrode kak gotovo...teper budu po primeru delat ostalnoe.
+Dumaju budu dvigatsa bystree.
+
+
+14.03.
+
+
+$leerdate - tak obzywajut globale variable! Ee mozno w controller wsunut prosto tak 
+(s.administrator_controller ganz oben) i w ljuboj view na nee zugreifen!!! Kruto!!!
+
+
+
+10.03.09
+-----------------------
+
+Form ohne bezug auf Model
+
+<% form_tag :action => "approved" do %>
+<p><%= label :example_text, "Beispiel Textfeld" %>
+<%= text_field_tag :example_text, "default Wert" %>
+</p><%= submit_tag "go" %>
+<% end %>
+
+   def approved
+    @example_text = params[:example_text]
+  end 
+
+<h1><%= @example_text %></h1>
+
+-------------------
+
+smotri referents_controller:
+
+  def probe
+    @alle = Referent.find_all_by_language1(params[:variable])
+  end
+a wo view referens/index:
+
+<%= link_to 'Probe', {:action => 'probe', :variable => referent.language1 } %></td>
+
+
+---------------------------------------------------------------------------------------
+1.03
+v application.js peredelala metody set_date_x,check_selected_status,
+ bestaetige_thedate tak chtoby oni i k ostalnym podxodili
+
+
+------------------------------------------------------------
+2.03
+
+
+
+Na datu v detour, naprimer, kotoraja eshe ne gespeichert, ja mogu "uxvatitsa" cherez @detour[:date1]
+
