@@ -1,0 +1,395 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/subversion/repo/!svn/ver/2014/BS/db/migrate
+END
+20090214104211_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1676/BS/db/migrate/20090214104211_create_users.rb
+END
+20130804145447_result_sent.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/repo/!svn/ver/1766/BS/db/migrate/20130804145447_result_sent.rb
+END
+20120115215501_add_invoice_number_to_ts_request.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/subversion/repo/!svn/ver/1579/BS/db/migrate/20120115215501_add_invoice_number_to_ts_request.rb
+END
+20140112161804_mark_events_as_paid.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1822/BS/db/migrate/20140112161804_mark_events_as_paid.rb
+END
+20100926143608_add_invoice_to_workshops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/1338/BS/db/migrate/20100926143608_add_invoice_to_workshops.rb
+END
+20090215094517_create_workshops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20090215094517_create_workshops.rb
+END
+20110320120412_create_opentourrefs.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/1446/BS/db/migrate/20110320120412_create_opentourrefs.rb
+END
+20140309114512_set_send_opetourrefs.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/subversion/repo/!svn/ver/1862/BS/db/migrate/20140309114512_set_send_opetourrefs.rb
+END
+20141012133720_add_cellphone_to_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/1942/BS/db/migrate/20141012133720_add_cellphone_to_events.rb
+END
+20100302180321_add_mahnung_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/subversion/repo/!svn/ver/495/BS/db/migrate/20100302180321_add_mahnung_to_detours.rb
+END
+20130630183016_add_lizenz_to_referents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/1738/BS/db/migrate/20130630183016_add_lizenz_to_referents.rb
+END
+20100302180647_add_mahnung_to_htseminars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/495/BS/db/migrate/20100302180647_add_mahnung_to_htseminars.rb
+END
+20140222164502_fill_opentype.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/repo/!svn/ver/1852/BS/db/migrate/20140222164502_fill_opentype.rb
+END
+20090214112654_create_ts_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20090214112654_create_ts_requests.rb
+END
+20150404120901_delete_wanted_aliases_name_from_archives.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/subversion/repo/!svn/ver/2005/BS/db/migrate/20150404120901_delete_wanted_aliases_name_from_archives.rb
+END
+20090329161623_create_htseminars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20090329161623_create_htseminars.rb
+END
+20110320120843_create_opentourwishes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/subversion/repo/!svn/ver/1446/BS/db/migrate/20110320120843_create_opentourwishes.rb
+END
+20141012101316_reset_themetour_where_no_theme_type.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/subversion/repo/!svn/ver/1934/BS/db/migrate/20141012101316_reset_themetour_where_no_theme_type.rb
+END
+20100721205355_add_second_date_to_workshop.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/947/BS/db/migrate/20100721205355_add_second_date_to_workshop.rb
+END
+20100222232233_create_tourreferents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/492/BS/db/migrate/20100222232233_create_tourreferents.rb
+END
+20100926143439_add_invoice_to_ts_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/1338/BS/db/migrate/20100926143439_add_invoice_to_ts_requests.rb
+END
+20120115214455_add_invoice_number_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/subversion/repo/!svn/ver/1579/BS/db/migrate/20120115214455_add_invoice_number_to_detours.rb
+END
+20110925175104_add_paid_to_opentourref.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/1564/BS/db/migrate/20110925175104_add_paid_to_opentourref.rb
+END
+20141012123901_fill_infocenter_for_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/1936/BS/db/migrate/20141012123901_fill_infocenter_for_events.rb
+END
+20140825191059_add_honorarium_to_referents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/1920/BS/db/migrate/20140825191059_add_honorarium_to_referents.rb
+END
+20100223211435_create_htsreferents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/492/BS/db/migrate/20100223211435_create_htsreferents.rb
+END
+20130630205234_add_themetour_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/1746/BS/db/migrate/20130630205234_add_themetour_to_detours.rb
+END
+20130728193303_create_themen_topics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/subversion/repo/!svn/ver/1764/BS/db/migrate/20130728193303_create_themen_topics.rb
+END
+20111113151942_add_formular_to_htseminars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/subversion/repo/!svn/ver/1573/BS/db/migrate/20111113151942_add_formular_to_htseminars.rb
+END
+20101116193240_add_storno_to_ts_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20101116193240_add_storno_to_ts_requests.rb
+END
+20110728204604_add_participnumber_to_opentour.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/subversion/repo/!svn/ver/1523/BS/db/migrate/20110728204604_add_participnumber_to_opentour.rb
+END
+20141012123826_add_infocenter_for_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/1936/BS/db/migrate/20141012123826_add_infocenter_for_events.rb
+END
+20131217212838_add_set_paid_external_to_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/subversion/repo/!svn/ver/1815/BS/db/migrate/20131217212838_add_set_paid_external_to_events.rb
+END
+20120128214836_create_ts_topics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1675/BS/db/migrate/20120128214836_create_ts_topics.rb
+END
+20140222164046_add_otour_type_to_opentours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/subversion/repo/!svn/ver/1851/BS/db/migrate/20140222164046_add_otour_type_to_opentours.rb
+END
+20101116190443_add_storno_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20101116190443_add_storno_to_detours.rb
+END
+20100926143222_add_invoice_to_htseminars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/1338/BS/db/migrate/20100926143222_add_invoice_to_htseminars.rb
+END
+20150420210953_add_formulat_to_archive.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/2014/BS/db/migrate/20150420210953_add_formulat_to_archive.rb
+END
+20100815130742_add_aktiv_to_referents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/subversion/repo/!svn/ver/1539/BS/db/migrate/20100815130742_add_aktiv_to_referents.rb
+END
+20151122213647_add_current_fee.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/2031/BS/db/migrate/20151122213647_add_current_fee.rb
+END
+20100620180054_create_workreferents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/subversion/repo/!svn/ver/911/BS/db/migrate/20100620180054_create_workreferents.rb
+END
+20090227122214_create_referents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/167/BS/db/migrate/20090227122214_create_referents.rb
+END
+20100302180742_add_mahnung_to_workshops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/495/BS/db/migrate/20100302180742_add_mahnung_to_workshops.rb
+END
+20100223210925_create_tsreferents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/subversion/repo/!svn/ver/492/BS/db/migrate/20100223210925_create_tsreferents.rb
+END
+20130804200846_add_theme_type_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/1773/BS/db/migrate/20130804200846_add_theme_type_to_detours.rb
+END
+20100302180530_add_mahnung_to_ts_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/495/BS/db/migrate/20100302180530_add_mahnung_to_ts_requests.rb
+END
+20101116191745_add_storno_to_htseminars.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20101116191745_add_storno_to_htseminars.rb
+END
+20150227193158_create_archives.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/repo/!svn/ver/1987/BS/db/migrate/20150227193158_create_archives.rb
+END
+20090215112126_create_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20090215112126_create_detours.rb
+END
+20101116201157_add_storno_to_workshops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/1388/BS/db/migrate/20101116201157_add_storno_to_workshops.rb
+END
+20130420191926_add_bank_to_referents.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/subversion/repo/!svn/ver/1724/BS/db/migrate/20130420191926_add_bank_to_referents.rb
+END
+20120228193518_change_given_price.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/1690/BS/db/migrate/20120228193518_change_given_price.rb
+END
+20140112121044_add_set_paid_external_date_to_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/subversion/repo/!svn/ver/1820/BS/db/migrate/20140112121044_add_set_paid_external_date_to_events.rb
+END
+20091009105522_add_tel2_referent.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/167/BS/db/migrate/20091009105522_add_tel2_referent.rb
+END
+20110730191705_add_adres_to.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/repo/!svn/ver/1525/BS/db/migrate/20110730191705_add_adres_to.rb
+END
+20110324225335_create_opentours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/repo/!svn/ver/1480/BS/db/migrate/20110324225335_create_opentours.rb
+END
+20120115215326_add_invoice_number_to_htseminar.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/subversion/repo/!svn/ver/1579/BS/db/migrate/20120115215326_add_invoice_number_to_htseminar.rb
+END
+20120122190422_get_invoice_numbers_from_bill_files.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/subversion/repo/!svn/ver/1652/BS/db/migrate/20120122190422_get_invoice_numbers_from_bill_files.rb
+END
+20100829195621_add_invoice_to_detours.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/subversion/repo/!svn/ver/1183/BS/db/migrate/20100829195621_add_invoice_to_detours.rb
+END
+20130728193459_fill_themen_topics.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/subversion/repo/!svn/ver/1765/BS/db/migrate/20130728193459_fill_themen_topics.rb
+END
+20100306161919_create_simple_captcha_data.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/repo/!svn/ver/502/BS/db/migrate/20100306161919_create_simple_captcha_data.rb
+END
+20131006115255_split_excursion_content_from_venue.rb
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/subversion/repo/!svn/ver/1783/BS/db/migrate/20131006115255_split_excursion_content_from_venue.rb
+END
+20130408194254_change_string_to_text_on_comment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/subversion/repo/!svn/ver/1713/BS/db/migrate/20130408194254_change_string_to_text_on_comment.rb
+END
+20120115215553_add_invoice_number_to_workshop.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/subversion/repo/!svn/ver/1579/BS/db/migrate/20120115215553_add_invoice_number_to_workshop.rb
+END
+20131005115426_add_venue_to_excursions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/subversion/repo/!svn/ver/1782/BS/db/migrate/20131005115426_add_venue_to_excursions.rb
+END
