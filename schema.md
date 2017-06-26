@@ -1,6 +1,4 @@
-  ActiveRecord::Schema.define(:version => 20151122213647) do
-
-#irrelevant 
+## irrelevant
 create_table "archives", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -22,7 +20,7 @@ create_table "archives", :force => true do |t|
     t.string   "formular"
   end
 
-#irrelevant 
+## irrelevant
   create_table "archivesearches", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -31,10 +29,10 @@ create_table "archives", :force => true do |t|
     t.datetime "updated_at"
   end
 
-# Rundgaenge, die wichtigste tabelle (14.973 Zeilen, 11,5 MiB gross)
+## Rundgaenge, die wichtigste tabelle (14.973 Zeilen, 11,5 MiB gross)
 
   create_table "detours", :force => true do |t|
-# Kundendaten
+### Kundendaten
     t.string   "gender"
     t.string   "firstname"
     t.string   "lastname"
@@ -51,7 +49,7 @@ create_table "archives", :force => true do |t|
     t.string   "street"
     t.string   "country"
 
-# von den Kunden 3 alternativ ausgewaehle Termine
+### von den Kunden 3 alternativ ausgewaehle Termine
     t.date     "date1"
     t.time     "from1"
     t.time     "to1"
@@ -62,11 +60,11 @@ create_table "archives", :force => true do |t|
     t.time     "from3"
     t.time     "to3"
 
-# Sprache der Fuehrung
+### Sprache der Fuehrung
     t.string   "language"
 
     t.integer  "participnumber"
-#Anyahl der gruppen: participnumber/30
+### Anzahl der Gruppen: participnumber/30 - nur 30 personen per Gruppe erlaubt
     t.integer  "groupnumber",                                     :default => 1
 
     t.integer  "male"
@@ -81,7 +79,7 @@ create_table "archives", :force => true do |t|
     t.string   "film"
     t.text     "wish"
     t.text     "remarc"
-#der von KY Dachau bestaetigte Termin
+### der von KZ Dachau bestaetigte Termin
     t.date     "thedate"
     t.string   "day"
     t.time     "thefrom"
@@ -89,20 +87,20 @@ create_table "archives", :force => true do |t|
 
     t.string   "status",                                          :default => "offen"
     t.text     "comments"
-# Rechnungsdaten
+### Rechnungsdaten
     t.string   "paid",                                            :default => "nein"
     t.string   "bill_sent",                                       :default => "nein"
     t.string   "denial_sent",                                     :default => "nein"
     t.string   "formular",                                        :default => "ger"
     t.string   "last_change"
     t.string   "hl_number"
-# Email beyogene daten
+### Email bezogene daten
     t.string   "zus_form",                                        :default => "nein"
     t.string   "zus_voll",                                        :default => "nein"
     t.date     "zf_date"
     t.date     "zv_date"
     t.date     "denial_date"
-# irrelevant: fuer optimistic locking
+### irrelevant: fuer optimistic locking
     t.integer  "vers",                                            :default => 0
 
     t.datetime "created_at"
@@ -127,7 +125,7 @@ create_table "archives", :force => true do |t|
   end
 
 
-# Halbtagesseminar, gleich wie Rundgaenge (nur 680 Zeilen)
+## Halbtagesseminar, gleich wie Rundgaenge (nur 680 Zeilen)
   create_table "htseminars", :force => true do |t|
     t.string   "gender"
     t.string   "firstname"
@@ -204,7 +202,7 @@ create_table "archives", :force => true do |t|
     t.decimal  "current_fee",       :precision => 8, :scale => 2
   end
 
-# join Tabelle: Referenten fuer Halbtagesseminare
+## join Tabelle: Referenten fuer Halbtagesseminare
   create_table "htsreferents", :force => true do |t|
     t.integer  "htseminar_id"
     t.integer  "referent_id"
@@ -217,7 +215,7 @@ create_table "archives", :force => true do |t|
     t.datetime "changed_on"
   end
 
-# join Tabelle: Referenten fuer offene Fuehrungen
+## join Tabelle: Referenten fuer offene Fuehrungen
   create_table "opentourrefs", :force => true do |t|
     t.integer  "opentour_id"
     t.integer  "referent_id"
@@ -230,7 +228,7 @@ create_table "archives", :force => true do |t|
     t.datetime "changed_on"
   end
 
-# offene Fuehrungen (8.097 Zeilen)
+## offene Fuehrungen (8.097 Zeilen)
   create_table "opentours", :force => true do |t|
     t.date     "date"
     t.time     "time"
@@ -244,7 +242,7 @@ create_table "archives", :force => true do |t|
     t.text     "infocenter"
   end
 
-# irrelevant
+## irrelevant
   create_table "opentourwishes", :force => true do |t|
     t.integer  "opentour_id"
     t.integer  "referent_id"
@@ -254,7 +252,7 @@ create_table "archives", :force => true do |t|
     t.datetime "updated_at"
   end
 
-# Referenten
+## Referenten
   create_table "referents", :force => true do |t|
     t.string   "gender"
     t.string   "firstname"
@@ -285,7 +283,7 @@ create_table "archives", :force => true do |t|
   end
 
 
-#irrelevant
+## irrelevant
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -296,7 +294,7 @@ create_table "archives", :force => true do |t|
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-#irrelevant
+## irrelevant
   create_table "simple_captcha_data", :force => true do |t|
     t.string   "key",        :limit => 40
     t.string   "value",      :limit => 6
@@ -304,14 +302,14 @@ create_table "archives", :force => true do |t|
     t.datetime "updated_at"
   end
 
-#irrelevant
+## irrelevant
   create_table "themen_topics", :force => true do |t|
     t.string "content_type"
     t.text   "content"
     t.string "venue"
   end
 
-# join Tabelle: Referenten fuer Rundgaenge
+## join Tabelle: Referenten fuer Rundgaenge
   create_table "tourreferents", :force => true do |t|
     t.integer  "detour_id"
     t.integer  "referent_id"
@@ -325,7 +323,7 @@ create_table "archives", :force => true do |t|
   end
 
 
-# Tagesseminare: gleiche Struktur wie bei Rundgaengen
+## Tagesseminare: gleiche Struktur wie bei Rundgaengen
   create_table "ts_requests", :force => true do |t|
     t.string   "gender"
     t.string   "firstname"
@@ -401,13 +399,13 @@ create_table "archives", :force => true do |t|
     t.decimal  "current_fee",       :precision => 8, :scale => 2
   end
 
-#irrelevant
+## irrelevant
   create_table "ts_topics", :force => true do |t|
     t.string "text"
     t.string "language"
   end
 
-# join Tabelle: Referenten fuer Tagesseminare
+## join Tabelle: Referenten fuer Tagesseminare
   create_table "tsreferents", :force => true do |t|
     t.integer  "ts_request_id"
     t.integer  "referent_id"
@@ -420,7 +418,7 @@ create_table "archives", :force => true do |t|
     t.datetime "changed_on"
   end
 
-#irrelevant
+## irrelevant
   create_table "users", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -435,7 +433,7 @@ create_table "archives", :force => true do |t|
     t.datetime "updated_at"
   end
 
-# Join Tabelle: Referenten fuer Workshops
+## Join Tabelle: Referenten fuer Workshops
   create_table "workreferents", :force => true do |t|
     t.integer  "workshop_id"
     t.integer  "referent_id"
@@ -448,7 +446,7 @@ create_table "archives", :force => true do |t|
     t.datetime "changed_on"
   end
 
-# Workshops: gleiche Struktur wie bei Rundgaengen
+## Workshops: gleiche Struktur wie bei Rundgaengen
   create_table "workshops", :force => true do |t|
     t.string   "gender"
     t.string   "firstname"
@@ -519,5 +517,4 @@ create_table "archives", :force => true do |t|
     t.string   "cellphone"
     t.decimal  "current_fee",                     :precision => 8,  :scale => 2
   end
-
 end

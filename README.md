@@ -11,4 +11,4 @@ Offene Fuehrungen
 ```
 Die ersten 4 haben fast identische Struktur.
 
-[Commentierte db schema](shema.md)
+[Commentierte db schema](schema.md)
