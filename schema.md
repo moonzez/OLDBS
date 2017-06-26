@@ -1,37 +1,36 @@
 ## irrelevant
-create_table "archives", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "street"
-    t.string   "city"
-    t.integer  "zip"
-    t.string   "country"
-    t.string   "email"
-    t.string   "relationship"
-    t.text     "investigation"
-    t.string   "wanted_firstname"
-    t.string   "wanted_lastname"
-    t.string   "wanted_birth_name"
-    t.string   "wanted_birth_date"
-    t.string   "wanted_birthplace"
-    t.text     "wanted_additional"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "formular"
-  end
+    create_table "archives", :force => true do |t|
+      t.string   "firstname"
+      t.string   "lastname"
+      t.string   "street"
+      t.string   "city"
+      t.integer  "zip"
+      t.string   "country"
+      t.string   "email"
+      t.string   "relationship"
+      t.text     "investigation"
+      t.string   "wanted_firstname"
+      t.string   "wanted_lastname"
+      t.string   "wanted_birth_name"
+      t.string   "wanted_birth_date"
+      t.string   "wanted_birthplace"
+      t.text     "wanted_additional"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+      t.string   "formular"
+    end
 
 ## irrelevant
-  create_table "archivesearches", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "street"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+    create_table "archivesearches", :force => true do |t|
+      t.string   "firstname"
+      t.string   "lastname"
+      t.string   "street"
+      t.datetime "created_at"
+      t.datetime "updated_at"
+    end
 
 ## Rundgaenge, die wichtigste tabelle (14.973 Zeilen, 11,5 MiB gross)
-
-  create_table "detours", :force => true do |t|
+    create_table "detours", :force => true do |t|
 ### Kundendaten
     t.string   "gender"
     t.string   "firstname"
